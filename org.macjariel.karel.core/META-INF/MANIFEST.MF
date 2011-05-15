@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Karel DSL Core API
+Bundle-SymbolicName: org.macjariel.karel.core
+Bundle-Version: 1.0.0
+Bundle-Vendor: MacJariel
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
