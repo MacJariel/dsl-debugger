@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Karel DSL Xtext UI Project
+Bundle-Vendor: MacJariel
+Bundle-Version: 1.0.0
+Bundle-SymbolicName: org.macjariel.karel.ui;singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.macjariel.karel;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.antlr.runtime
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.macjariel.karel.ui.contentassist.antlr
+Bundle-Activator: org.macjariel.karel.ui.internal.KarelActivator
