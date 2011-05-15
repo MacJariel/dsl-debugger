@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.karel"
+            id="org.macjariel.karel.generator.ui.popupMenus.contribution.IFile">
+         <menu id="org.eclipse.acceleo.module.menu" label="Acceleo Model to Text" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               class="org.macjariel.karel.generator.ui.popupMenus.AcceleoGenerateKarelProgramGeneratorAction"
+               enablesFor="+"
+               id="org.macjariel.karel.generator.ui.popupMenus.acceleoGenerateKarelProgramGeneratorAction"
+               icon="icons/default.gif"
+               label="Generate Karel Program Generator"
+               menubarPath="org.eclipse.acceleo.module.menu/acceleo"/>
+      </objectContribution>
+   </extension>
+</plugin>
