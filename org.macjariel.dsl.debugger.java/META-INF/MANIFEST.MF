@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Java
+Bundle-SymbolicName: org.macjariel.dsl.debugger.java;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.macjariel.dsl.debugger;bundle-version="1.0.0",
+ org.eclipse.debug.core;bundle-version="3.6.0"

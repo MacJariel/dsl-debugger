@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.macjariel.dsl.debugger.targetPlatforms">
+      <targetPlatform
+            class="org.macjariel.dsl.debugger.java.JavaPlatformFactory"
+            id="org.macjariel.dsl.debugger.java.javaPlatform"
+            name="Java Platform">
+      </targetPlatform>
+   </extension>
+
+</plugin>
