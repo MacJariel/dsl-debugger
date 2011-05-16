@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="targetPlatforms" name="Target Platforms" schema="schema/targetPlatforms.exsd"/>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            id="org.macjariel.dsl.debugger.launchConfigurationType1"
+            name="name">
+      </launchConfigurationType>
+   </extension>
+
+</plugin>
