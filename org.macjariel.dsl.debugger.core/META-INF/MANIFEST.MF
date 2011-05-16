@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DSL Debugger Core
+Bundle-SymbolicName: org.macjariel.dsl.debugger.core
+Bundle-Version: 1.0.0
+Bundle-Vendor: MacJariel
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.acceleo.engine,
+ org.eclipse.jface,
+ org.eclipse.ui.workbench
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.macjariel.dsl.debugger.core.traceability

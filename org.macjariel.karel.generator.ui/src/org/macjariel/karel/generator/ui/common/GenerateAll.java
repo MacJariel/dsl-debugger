@@ -17,11 +17,13 @@ import java.util.Enumeration;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicMonitor;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.util.URI;
+import org.macjariel.dsl.debugger.core.traceability.TraceabilityModelSerializer;
 import org.osgi.framework.Bundle;
 
 
@@ -85,10 +87,20 @@ public class GenerateAll {
 		//	}
 		//};
 		//gen0.doGenerate(BasicMonitor.toMonitor(monitor));
+		
+
+		// Turn on traceability
+		AcceleoPreferences.switchTraceability(true);
+		
+		URI tracebilityURI = URI.createFileURI(new File(targetFolder, "traceability.xmi").getAbsolutePath());
+		TraceabilityModelSerializer serializer = new TraceabilityModelSerializer(tracebilityURI);
+		
+		serializer.register();
+
 		org.macjariel.karel.generator.templates.GenerateKarelProgram gen0 = new org.macjariel.karel.generator.templates.GenerateKarelProgram(modelURI, targetFolder, arguments);
 		gen0.doGenerate(BasicMonitor.toMonitor(monitor));
-			
 		
+		serializer.unregister();		
 	}
 	
 	/**

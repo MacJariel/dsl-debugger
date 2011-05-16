@@ -12,12 +12,12 @@ package org.macjariel.karel.generator.ui.popupMenus;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ArrayList;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -28,11 +28,11 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.macjariel.karel.generator.ui.Activator;
-import org.macjariel.karel.generator.ui.common.GenerateAll;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionDelegate;
+import org.macjariel.karel.generator.ui.Activator;
+import org.macjariel.karel.generator.ui.common.GenerateAll;
 
 /**
  * Karel Program Generator code generation.
@@ -65,7 +65,7 @@ public class AcceleoGenerateKarelProgramGeneratorAction extends ActionDelegate i
 		if (files != null) {
 			IRunnableWithProgress operation = new IRunnableWithProgress() {
 				public void run(IProgressMonitor monitor) {
-					try {
+					try {						
 						Iterator<IFile> filesIt = files.iterator();
 						while (filesIt.hasNext()) {
 							IFile model = (IFile)filesIt.next();
