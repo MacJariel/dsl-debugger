@@ -39,6 +39,5 @@ public class KarelStandaloneSetupGenerated implements ISetup {
 
 
 
-
 	}
 }

@@ -26,20 +26,66 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'NORTH'", "'SOUTH'", "'WEST'", "'EAST'", "'move'", "'turn'", "'turnOn'", "'turnOff'", "'put'", "'get'", "'WALL_AHEAD'", "'MARKED_PLACE'", "'BEGIN-PROGRAM'", "'END-PROGRAM'", "'BEGIN-INIT'", "'END-INIT'", "'position'", "','", "';'", "'heading'", "'boardSize'", "'DEFINE COMMAND'", "'AS'", "'BEGIN'", "'END'", "'BEGIN-MAIN'", "'END-MAIN'", "'IF'", "'('", "')'", "'{'", "'}'", "'ELSE'", "'ITERATE'", "'TIMES'", "'WHILE'", "'@('", "'!'"
     };
     public static final int RULE_ID=5;
-    public static final int RULE_STRING=6;
+    public static final int T__29=29;
+    public static final int T__28=28;
+    public static final int T__27=27;
+    public static final int T__26=26;
+    public static final int T__25=25;
+    public static final int T__24=24;
+    public static final int T__23=23;
+    public static final int T__22=22;
     public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=4;
-    public static final int RULE_WS=9;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int T__21=21;
+    public static final int T__20=20;
     public static final int EOF=-1;
+    public static final int T__19=19;
+    public static final int T__16=16;
+    public static final int T__15=15;
+    public static final int T__18=18;
+    public static final int T__17=17;
+    public static final int T__12=12;
+    public static final int T__11=11;
+    public static final int T__14=14;
+    public static final int T__13=13;
+    public static final int RULE_INT=4;
+    public static final int T__42=42;
+    public static final int T__43=43;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__48=48;
+    public static final int RULE_SL_COMMENT=8;
     public static final int RULE_ML_COMMENT=7;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int RULE_STRING=6;
+    public static final int T__32=32;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
+    public static final int RULE_WS=9;
+
+    // delegates
+    // delegators
+
 
         public InternalKarelParser(TokenStream input) {
-            super(input);
+            this(input, new RecognizerSharedState());
+        }
+        public InternalKarelParser(TokenStream input, RecognizerSharedState state) {
+            super(input, state);
+             
         }
         
 
-    public String[] getTokenNames() { return tokenNames; }
+    public String[] getTokenNames() { return InternalKarelParser.tokenNames; }
     public String getGrammarFileName() { return "../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g"; }
 
 
@@ -63,7 +109,7 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
 
 
 
-    // $ANTLR start entryRuleProgram
+    // $ANTLR start "entryRuleProgram"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:61:1: entryRuleProgram : ruleProgram EOF ;
     public final void entryRuleProgram() throws RecognitionException {
         try {
@@ -73,7 +119,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getProgramRule()); 
             pushFollow(FOLLOW_ruleProgram_in_entryRuleProgram61);
             ruleProgram();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getProgramRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleProgram68); 
@@ -89,10 +136,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleProgram
+    // $ANTLR end "entryRuleProgram"
 
 
-    // $ANTLR start ruleProgram
+    // $ANTLR start "ruleProgram"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:70:1: ruleProgram : ( ( rule__Program__Group__0 ) ) ;
     public final void ruleProgram() throws RecognitionException {
 
@@ -111,7 +158,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Program__Group__0_in_ruleProgram94);
             rule__Program__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -135,10 +183,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleProgram
+    // $ANTLR end "ruleProgram"
 
 
-    // $ANTLR start entryRuleInitSection
+    // $ANTLR start "entryRuleInitSection"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:89:1: entryRuleInitSection : ruleInitSection EOF ;
     public final void entryRuleInitSection() throws RecognitionException {
         try {
@@ -148,7 +196,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getInitSectionRule()); 
             pushFollow(FOLLOW_ruleInitSection_in_entryRuleInitSection121);
             ruleInitSection();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getInitSectionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleInitSection128); 
@@ -164,10 +213,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleInitSection
+    // $ANTLR end "entryRuleInitSection"
 
 
-    // $ANTLR start ruleInitSection
+    // $ANTLR start "ruleInitSection"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:98:1: ruleInitSection : ( ( rule__InitSection__Group__0 ) ) ;
     public final void ruleInitSection() throws RecognitionException {
 
@@ -186,7 +235,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitSection__Group__0_in_ruleInitSection154);
             rule__InitSection__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -210,10 +260,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleInitSection
+    // $ANTLR end "ruleInitSection"
 
 
-    // $ANTLR start entryRuleInitCommand
+    // $ANTLR start "entryRuleInitCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:117:1: entryRuleInitCommand : ruleInitCommand EOF ;
     public final void entryRuleInitCommand() throws RecognitionException {
         try {
@@ -223,7 +273,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getInitCommandRule()); 
             pushFollow(FOLLOW_ruleInitCommand_in_entryRuleInitCommand181);
             ruleInitCommand();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getInitCommandRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleInitCommand188); 
@@ -239,10 +290,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleInitCommand
+    // $ANTLR end "entryRuleInitCommand"
 
 
-    // $ANTLR start ruleInitCommand
+    // $ANTLR start "ruleInitCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:126:1: ruleInitCommand : ( ( rule__InitCommand__Alternatives ) ) ;
     public final void ruleInitCommand() throws RecognitionException {
 
@@ -261,7 +312,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitCommand__Alternatives_in_ruleInitCommand214);
             rule__InitCommand__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -285,10 +337,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleInitCommand
+    // $ANTLR end "ruleInitCommand"
 
 
-    // $ANTLR start entryRuleInitPositionCommand
+    // $ANTLR start "entryRuleInitPositionCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:145:1: entryRuleInitPositionCommand : ruleInitPositionCommand EOF ;
     public final void entryRuleInitPositionCommand() throws RecognitionException {
         try {
@@ -298,7 +350,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getInitPositionCommandRule()); 
             pushFollow(FOLLOW_ruleInitPositionCommand_in_entryRuleInitPositionCommand241);
             ruleInitPositionCommand();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getInitPositionCommandRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleInitPositionCommand248); 
@@ -314,10 +367,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleInitPositionCommand
+    // $ANTLR end "entryRuleInitPositionCommand"
 
 
-    // $ANTLR start ruleInitPositionCommand
+    // $ANTLR start "ruleInitPositionCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:154:1: ruleInitPositionCommand : ( ( rule__InitPositionCommand__Group__0 ) ) ;
     public final void ruleInitPositionCommand() throws RecognitionException {
 
@@ -336,7 +389,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__0_in_ruleInitPositionCommand274);
             rule__InitPositionCommand__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -360,10 +414,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleInitPositionCommand
+    // $ANTLR end "ruleInitPositionCommand"
 
 
-    // $ANTLR start entryRuleInitHeadingCommand
+    // $ANTLR start "entryRuleInitHeadingCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:173:1: entryRuleInitHeadingCommand : ruleInitHeadingCommand EOF ;
     public final void entryRuleInitHeadingCommand() throws RecognitionException {
         try {
@@ -373,7 +427,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getInitHeadingCommandRule()); 
             pushFollow(FOLLOW_ruleInitHeadingCommand_in_entryRuleInitHeadingCommand301);
             ruleInitHeadingCommand();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getInitHeadingCommandRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleInitHeadingCommand308); 
@@ -389,10 +444,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleInitHeadingCommand
+    // $ANTLR end "entryRuleInitHeadingCommand"
 
 
-    // $ANTLR start ruleInitHeadingCommand
+    // $ANTLR start "ruleInitHeadingCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:182:1: ruleInitHeadingCommand : ( ( rule__InitHeadingCommand__Group__0 ) ) ;
     public final void ruleInitHeadingCommand() throws RecognitionException {
 
@@ -411,7 +466,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitHeadingCommand__Group__0_in_ruleInitHeadingCommand334);
             rule__InitHeadingCommand__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -435,10 +491,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleInitHeadingCommand
+    // $ANTLR end "ruleInitHeadingCommand"
 
 
-    // $ANTLR start entryRuleInitBoardSizeCommand
+    // $ANTLR start "entryRuleInitBoardSizeCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:201:1: entryRuleInitBoardSizeCommand : ruleInitBoardSizeCommand EOF ;
     public final void entryRuleInitBoardSizeCommand() throws RecognitionException {
         try {
@@ -448,7 +504,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getInitBoardSizeCommandRule()); 
             pushFollow(FOLLOW_ruleInitBoardSizeCommand_in_entryRuleInitBoardSizeCommand361);
             ruleInitBoardSizeCommand();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getInitBoardSizeCommandRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleInitBoardSizeCommand368); 
@@ -464,10 +521,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleInitBoardSizeCommand
+    // $ANTLR end "entryRuleInitBoardSizeCommand"
 
 
-    // $ANTLR start ruleInitBoardSizeCommand
+    // $ANTLR start "ruleInitBoardSizeCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:210:1: ruleInitBoardSizeCommand : ( ( rule__InitBoardSizeCommand__Group__0 ) ) ;
     public final void ruleInitBoardSizeCommand() throws RecognitionException {
 
@@ -486,7 +543,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__0_in_ruleInitBoardSizeCommand394);
             rule__InitBoardSizeCommand__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -510,10 +568,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleInitBoardSizeCommand
+    // $ANTLR end "ruleInitBoardSizeCommand"
 
 
-    // $ANTLR start entryRuleUserDefinedCommand
+    // $ANTLR start "entryRuleUserDefinedCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:229:1: entryRuleUserDefinedCommand : ruleUserDefinedCommand EOF ;
     public final void entryRuleUserDefinedCommand() throws RecognitionException {
         try {
@@ -523,7 +581,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getUserDefinedCommandRule()); 
             pushFollow(FOLLOW_ruleUserDefinedCommand_in_entryRuleUserDefinedCommand421);
             ruleUserDefinedCommand();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getUserDefinedCommandRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleUserDefinedCommand428); 
@@ -539,10 +598,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleUserDefinedCommand
+    // $ANTLR end "entryRuleUserDefinedCommand"
 
 
-    // $ANTLR start ruleUserDefinedCommand
+    // $ANTLR start "ruleUserDefinedCommand"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:238:1: ruleUserDefinedCommand : ( ( rule__UserDefinedCommand__Group__0 ) ) ;
     public final void ruleUserDefinedCommand() throws RecognitionException {
 
@@ -561,7 +620,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__0_in_ruleUserDefinedCommand454);
             rule__UserDefinedCommand__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -585,10 +645,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleUserDefinedCommand
+    // $ANTLR end "ruleUserDefinedCommand"
 
 
-    // $ANTLR start entryRuleMain
+    // $ANTLR start "entryRuleMain"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:257:1: entryRuleMain : ruleMain EOF ;
     public final void entryRuleMain() throws RecognitionException {
         try {
@@ -598,7 +658,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getMainRule()); 
             pushFollow(FOLLOW_ruleMain_in_entryRuleMain481);
             ruleMain();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getMainRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleMain488); 
@@ -614,10 +675,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleMain
+    // $ANTLR end "entryRuleMain"
 
 
-    // $ANTLR start ruleMain
+    // $ANTLR start "ruleMain"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:266:1: ruleMain : ( ( rule__Main__Group__0 ) ) ;
     public final void ruleMain() throws RecognitionException {
 
@@ -636,7 +697,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Main__Group__0_in_ruleMain514);
             rule__Main__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -660,10 +722,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleMain
+    // $ANTLR end "ruleMain"
 
 
-    // $ANTLR start entryRuleStatement
+    // $ANTLR start "entryRuleStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:285:1: entryRuleStatement : ruleStatement EOF ;
     public final void entryRuleStatement() throws RecognitionException {
         try {
@@ -673,7 +735,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getStatementRule()); 
             pushFollow(FOLLOW_ruleStatement_in_entryRuleStatement541);
             ruleStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getStatementRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleStatement548); 
@@ -689,10 +752,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleStatement
+    // $ANTLR end "entryRuleStatement"
 
 
-    // $ANTLR start ruleStatement
+    // $ANTLR start "ruleStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:294:1: ruleStatement : ( ( rule__Statement__Alternatives ) ) ;
     public final void ruleStatement() throws RecognitionException {
 
@@ -711,7 +774,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Statement__Alternatives_in_ruleStatement574);
             rule__Statement__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -735,10 +799,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleStatement
+    // $ANTLR end "ruleStatement"
 
 
-    // $ANTLR start entryRuleUserDefinedCommandStatement
+    // $ANTLR start "entryRuleUserDefinedCommandStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:313:1: entryRuleUserDefinedCommandStatement : ruleUserDefinedCommandStatement EOF ;
     public final void entryRuleUserDefinedCommandStatement() throws RecognitionException {
         try {
@@ -748,7 +812,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getUserDefinedCommandStatementRule()); 
             pushFollow(FOLLOW_ruleUserDefinedCommandStatement_in_entryRuleUserDefinedCommandStatement601);
             ruleUserDefinedCommandStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getUserDefinedCommandStatementRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleUserDefinedCommandStatement608); 
@@ -764,10 +829,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleUserDefinedCommandStatement
+    // $ANTLR end "entryRuleUserDefinedCommandStatement"
 
 
-    // $ANTLR start ruleUserDefinedCommandStatement
+    // $ANTLR start "ruleUserDefinedCommandStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:322:1: ruleUserDefinedCommandStatement : ( ( rule__UserDefinedCommandStatement__Group__0 ) ) ;
     public final void ruleUserDefinedCommandStatement() throws RecognitionException {
 
@@ -786,7 +851,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommandStatement__Group__0_in_ruleUserDefinedCommandStatement634);
             rule__UserDefinedCommandStatement__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -810,10 +876,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleUserDefinedCommandStatement
+    // $ANTLR end "ruleUserDefinedCommandStatement"
 
 
-    // $ANTLR start entryRuleIfStatement
+    // $ANTLR start "entryRuleIfStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:341:1: entryRuleIfStatement : ruleIfStatement EOF ;
     public final void entryRuleIfStatement() throws RecognitionException {
         try {
@@ -823,7 +889,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getIfStatementRule()); 
             pushFollow(FOLLOW_ruleIfStatement_in_entryRuleIfStatement661);
             ruleIfStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getIfStatementRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleIfStatement668); 
@@ -839,10 +906,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleIfStatement
+    // $ANTLR end "entryRuleIfStatement"
 
 
-    // $ANTLR start ruleIfStatement
+    // $ANTLR start "ruleIfStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:350:1: ruleIfStatement : ( ( rule__IfStatement__Group__0 ) ) ;
     public final void ruleIfStatement() throws RecognitionException {
 
@@ -861,7 +928,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group__0_in_ruleIfStatement694);
             rule__IfStatement__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -885,10 +953,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleIfStatement
+    // $ANTLR end "ruleIfStatement"
 
 
-    // $ANTLR start entryRuleIterateStatement
+    // $ANTLR start "entryRuleIterateStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:369:1: entryRuleIterateStatement : ruleIterateStatement EOF ;
     public final void entryRuleIterateStatement() throws RecognitionException {
         try {
@@ -898,7 +966,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getIterateStatementRule()); 
             pushFollow(FOLLOW_ruleIterateStatement_in_entryRuleIterateStatement721);
             ruleIterateStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getIterateStatementRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleIterateStatement728); 
@@ -914,10 +983,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleIterateStatement
+    // $ANTLR end "entryRuleIterateStatement"
 
 
-    // $ANTLR start ruleIterateStatement
+    // $ANTLR start "ruleIterateStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:378:1: ruleIterateStatement : ( ( rule__IterateStatement__Group__0 ) ) ;
     public final void ruleIterateStatement() throws RecognitionException {
 
@@ -936,7 +1005,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IterateStatement__Group__0_in_ruleIterateStatement754);
             rule__IterateStatement__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -960,10 +1030,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleIterateStatement
+    // $ANTLR end "ruleIterateStatement"
 
 
-    // $ANTLR start entryRuleWhileStatement
+    // $ANTLR start "entryRuleWhileStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:397:1: entryRuleWhileStatement : ruleWhileStatement EOF ;
     public final void entryRuleWhileStatement() throws RecognitionException {
         try {
@@ -973,7 +1043,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getWhileStatementRule()); 
             pushFollow(FOLLOW_ruleWhileStatement_in_entryRuleWhileStatement781);
             ruleWhileStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getWhileStatementRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleWhileStatement788); 
@@ -989,10 +1060,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleWhileStatement
+    // $ANTLR end "entryRuleWhileStatement"
 
 
-    // $ANTLR start ruleWhileStatement
+    // $ANTLR start "ruleWhileStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:406:1: ruleWhileStatement : ( ( rule__WhileStatement__Group__0 ) ) ;
     public final void ruleWhileStatement() throws RecognitionException {
 
@@ -1011,7 +1082,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__Group__0_in_ruleWhileStatement814);
             rule__WhileStatement__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1035,10 +1107,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleWhileStatement
+    // $ANTLR end "ruleWhileStatement"
 
 
-    // $ANTLR start entryRuleDocumentationComment
+    // $ANTLR start "entryRuleDocumentationComment"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:425:1: entryRuleDocumentationComment : ruleDocumentationComment EOF ;
     public final void entryRuleDocumentationComment() throws RecognitionException {
         try {
@@ -1048,7 +1120,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getDocumentationCommentRule()); 
             pushFollow(FOLLOW_ruleDocumentationComment_in_entryRuleDocumentationComment841);
             ruleDocumentationComment();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getDocumentationCommentRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleDocumentationComment848); 
@@ -1064,10 +1137,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleDocumentationComment
+    // $ANTLR end "entryRuleDocumentationComment"
 
 
-    // $ANTLR start ruleDocumentationComment
+    // $ANTLR start "ruleDocumentationComment"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:434:1: ruleDocumentationComment : ( ( rule__DocumentationComment__Group__0 ) ) ;
     public final void ruleDocumentationComment() throws RecognitionException {
 
@@ -1086,7 +1159,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__DocumentationComment__Group__0_in_ruleDocumentationComment874);
             rule__DocumentationComment__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1110,10 +1184,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleDocumentationComment
+    // $ANTLR end "ruleDocumentationComment"
 
 
-    // $ANTLR start entryRuleCommandStatement
+    // $ANTLR start "entryRuleCommandStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:453:1: entryRuleCommandStatement : ruleCommandStatement EOF ;
     public final void entryRuleCommandStatement() throws RecognitionException {
         try {
@@ -1123,7 +1197,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getCommandStatementRule()); 
             pushFollow(FOLLOW_ruleCommandStatement_in_entryRuleCommandStatement901);
             ruleCommandStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCommandStatementRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleCommandStatement908); 
@@ -1139,10 +1214,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleCommandStatement
+    // $ANTLR end "entryRuleCommandStatement"
 
 
-    // $ANTLR start ruleCommandStatement
+    // $ANTLR start "ruleCommandStatement"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:462:1: ruleCommandStatement : ( ( rule__CommandStatement__Group__0 ) ) ;
     public final void ruleCommandStatement() throws RecognitionException {
 
@@ -1161,7 +1236,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__CommandStatement__Group__0_in_ruleCommandStatement934);
             rule__CommandStatement__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1185,10 +1261,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleCommandStatement
+    // $ANTLR end "ruleCommandStatement"
 
 
-    // $ANTLR start entryRuleConditionExpr
+    // $ANTLR start "entryRuleConditionExpr"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:481:1: entryRuleConditionExpr : ruleConditionExpr EOF ;
     public final void entryRuleConditionExpr() throws RecognitionException {
         try {
@@ -1198,7 +1274,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getConditionExprRule()); 
             pushFollow(FOLLOW_ruleConditionExpr_in_entryRuleConditionExpr961);
             ruleConditionExpr();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getConditionExprRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleConditionExpr968); 
@@ -1214,10 +1291,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end entryRuleConditionExpr
+    // $ANTLR end "entryRuleConditionExpr"
 
 
-    // $ANTLR start ruleConditionExpr
+    // $ANTLR start "ruleConditionExpr"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:490:1: ruleConditionExpr : ( ( rule__ConditionExpr__Group__0 ) ) ;
     public final void ruleConditionExpr() throws RecognitionException {
 
@@ -1236,7 +1313,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__ConditionExpr__Group__0_in_ruleConditionExpr994);
             rule__ConditionExpr__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1260,10 +1338,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleConditionExpr
+    // $ANTLR end "ruleConditionExpr"
 
 
-    // $ANTLR start ruleHeadingKind
+    // $ANTLR start "ruleHeadingKind"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:510:1: ruleHeadingKind : ( ( rule__HeadingKind__Alternatives ) ) ;
     public final void ruleHeadingKind() throws RecognitionException {
 
@@ -1282,7 +1360,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__HeadingKind__Alternatives_in_ruleHeadingKind1031);
             rule__HeadingKind__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1306,10 +1385,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleHeadingKind
+    // $ANTLR end "ruleHeadingKind"
 
 
-    // $ANTLR start ruleCommandKind
+    // $ANTLR start "ruleCommandKind"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:529:1: ruleCommandKind : ( ( rule__CommandKind__Alternatives ) ) ;
     public final void ruleCommandKind() throws RecognitionException {
 
@@ -1328,7 +1407,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__CommandKind__Alternatives_in_ruleCommandKind1067);
             rule__CommandKind__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1352,10 +1432,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleCommandKind
+    // $ANTLR end "ruleCommandKind"
 
 
-    // $ANTLR start ruleConditionKind
+    // $ANTLR start "ruleConditionKind"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:548:1: ruleConditionKind : ( ( rule__ConditionKind__Alternatives ) ) ;
     public final void ruleConditionKind() throws RecognitionException {
 
@@ -1374,7 +1454,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__ConditionKind__Alternatives_in_ruleConditionKind1103);
             rule__ConditionKind__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1398,10 +1479,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end ruleConditionKind
+    // $ANTLR end "ruleConditionKind"
 
 
-    // $ANTLR start rule__InitCommand__Alternatives
+    // $ANTLR start "rule__InitCommand__Alternatives"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:566:1: rule__InitCommand__Alternatives : ( ( ruleInitPositionCommand ) | ( ruleInitHeadingCommand ) | ( ruleInitBoardSizeCommand ) );
     public final void rule__InitCommand__Alternatives() throws RecognitionException {
 
@@ -1428,7 +1509,7 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("566:1: rule__InitCommand__Alternatives : ( ( ruleInitPositionCommand ) | ( ruleInitHeadingCommand ) | ( ruleInitBoardSizeCommand ) );", 1, 0, input);
+                    new NoViableAltException("", 1, 0, input);
 
                 throw nvae;
             }
@@ -1443,7 +1524,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                      before(grammarAccess.getInitCommandAccess().getInitPositionCommandParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleInitPositionCommand_in_rule__InitCommand__Alternatives1138);
                     ruleInitPositionCommand();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getInitCommandAccess().getInitPositionCommandParserRuleCall_0()); 
 
@@ -1461,7 +1543,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                      before(grammarAccess.getInitCommandAccess().getInitHeadingCommandParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleInitHeadingCommand_in_rule__InitCommand__Alternatives1155);
                     ruleInitHeadingCommand();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getInitCommandAccess().getInitHeadingCommandParserRuleCall_1()); 
 
@@ -1479,7 +1562,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                      before(grammarAccess.getInitCommandAccess().getInitBoardSizeCommandParserRuleCall_2()); 
                     pushFollow(FOLLOW_ruleInitBoardSizeCommand_in_rule__InitCommand__Alternatives1172);
                     ruleInitBoardSizeCommand();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getInitCommandAccess().getInitBoardSizeCommandParserRuleCall_2()); 
 
@@ -1502,10 +1586,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitCommand__Alternatives
+    // $ANTLR end "rule__InitCommand__Alternatives"
 
 
-    // $ANTLR start rule__Statement__Alternatives
+    // $ANTLR start "rule__Statement__Alternatives"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:594:1: rule__Statement__Alternatives : ( ( ruleIfStatement ) | ( ruleIterateStatement ) | ( ruleWhileStatement ) | ( ruleCommandStatement ) | ( ruleUserDefinedCommandStatement ) );
     public final void rule__Statement__Alternatives() throws RecognitionException {
 
@@ -1547,7 +1631,7 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("594:1: rule__Statement__Alternatives : ( ( ruleIfStatement ) | ( ruleIterateStatement ) | ( ruleWhileStatement ) | ( ruleCommandStatement ) | ( ruleUserDefinedCommandStatement ) );", 2, 0, input);
+                    new NoViableAltException("", 2, 0, input);
 
                 throw nvae;
             }
@@ -1562,7 +1646,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                      before(grammarAccess.getStatementAccess().getIfStatementParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleIfStatement_in_rule__Statement__Alternatives1204);
                     ruleIfStatement();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getStatementAccess().getIfStatementParserRuleCall_0()); 
 
@@ -1580,7 +1665,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                      before(grammarAccess.getStatementAccess().getIterateStatementParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleIterateStatement_in_rule__Statement__Alternatives1221);
                     ruleIterateStatement();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getStatementAccess().getIterateStatementParserRuleCall_1()); 
 
@@ -1598,7 +1684,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                      before(grammarAccess.getStatementAccess().getWhileStatementParserRuleCall_2()); 
                     pushFollow(FOLLOW_ruleWhileStatement_in_rule__Statement__Alternatives1238);
                     ruleWhileStatement();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getStatementAccess().getWhileStatementParserRuleCall_2()); 
 
@@ -1616,7 +1703,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                      before(grammarAccess.getStatementAccess().getCommandStatementParserRuleCall_3()); 
                     pushFollow(FOLLOW_ruleCommandStatement_in_rule__Statement__Alternatives1255);
                     ruleCommandStatement();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getStatementAccess().getCommandStatementParserRuleCall_3()); 
 
@@ -1634,7 +1722,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                      before(grammarAccess.getStatementAccess().getUserDefinedCommandStatementParserRuleCall_4()); 
                     pushFollow(FOLLOW_ruleUserDefinedCommandStatement_in_rule__Statement__Alternatives1272);
                     ruleUserDefinedCommandStatement();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getStatementAccess().getUserDefinedCommandStatementParserRuleCall_4()); 
 
@@ -1657,10 +1746,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Statement__Alternatives
+    // $ANTLR end "rule__Statement__Alternatives"
 
 
-    // $ANTLR start rule__HeadingKind__Alternatives
+    // $ANTLR start "rule__HeadingKind__Alternatives"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:634:1: rule__HeadingKind__Alternatives : ( ( ( 'NORTH' ) ) | ( ( 'SOUTH' ) ) | ( ( 'WEST' ) ) | ( ( 'EAST' ) ) );
     public final void rule__HeadingKind__Alternatives() throws RecognitionException {
 
@@ -1692,7 +1781,7 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("634:1: rule__HeadingKind__Alternatives : ( ( ( 'NORTH' ) ) | ( ( 'SOUTH' ) ) | ( ( 'WEST' ) ) | ( ( 'EAST' ) ) );", 3, 0, input);
+                    new NoViableAltException("", 3, 0, input);
 
                 throw nvae;
             }
@@ -1796,10 +1885,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__HeadingKind__Alternatives
+    // $ANTLR end "rule__HeadingKind__Alternatives"
 
 
-    // $ANTLR start rule__CommandKind__Alternatives
+    // $ANTLR start "rule__CommandKind__Alternatives"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:672:1: rule__CommandKind__Alternatives : ( ( ( 'move' ) ) | ( ( 'turn' ) ) | ( ( 'turnOn' ) ) | ( ( 'turnOff' ) ) | ( ( 'put' ) ) | ( ( 'get' ) ) );
     public final void rule__CommandKind__Alternatives() throws RecognitionException {
 
@@ -1841,7 +1930,7 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("672:1: rule__CommandKind__Alternatives : ( ( ( 'move' ) ) | ( ( 'turn' ) ) | ( ( 'turnOn' ) ) | ( ( 'turnOff' ) ) | ( ( 'put' ) ) | ( ( 'get' ) ) );", 4, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
@@ -1987,10 +2076,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__CommandKind__Alternatives
+    // $ANTLR end "rule__CommandKind__Alternatives"
 
 
-    // $ANTLR start rule__ConditionKind__Alternatives
+    // $ANTLR start "rule__ConditionKind__Alternatives"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:724:1: rule__ConditionKind__Alternatives : ( ( ( 'WALL_AHEAD' ) ) | ( ( 'MARKED_PLACE' ) ) );
     public final void rule__ConditionKind__Alternatives() throws RecognitionException {
 
@@ -2009,7 +2098,7 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("724:1: rule__ConditionKind__Alternatives : ( ( ( 'WALL_AHEAD' ) ) | ( ( 'MARKED_PLACE' ) ) );", 5, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
@@ -2070,10 +2159,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__ConditionKind__Alternatives
+    // $ANTLR end "rule__ConditionKind__Alternatives"
 
 
-    // $ANTLR start rule__Program__Group__0
+    // $ANTLR start "rule__Program__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:750:1: rule__Program__Group__0 : rule__Program__Group__0__Impl rule__Program__Group__1 ;
     public final void rule__Program__Group__0() throws RecognitionException {
 
@@ -2085,11 +2174,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Program__Group__0__Impl_in_rule__Program__Group__01599);
             rule__Program__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Program__Group__1_in_rule__Program__Group__01602);
             rule__Program__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2106,10 +2197,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__0
+    // $ANTLR end "rule__Program__Group__0"
 
 
-    // $ANTLR start rule__Program__Group__0__Impl
+    // $ANTLR start "rule__Program__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:762:1: rule__Program__Group__0__Impl : ( 'BEGIN-PROGRAM' ) ;
     public final void rule__Program__Group__0__Impl() throws RecognitionException {
 
@@ -2143,10 +2234,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__0__Impl
+    // $ANTLR end "rule__Program__Group__0__Impl"
 
 
-    // $ANTLR start rule__Program__Group__1
+    // $ANTLR start "rule__Program__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:781:1: rule__Program__Group__1 : rule__Program__Group__1__Impl rule__Program__Group__2 ;
     public final void rule__Program__Group__1() throws RecognitionException {
 
@@ -2158,11 +2249,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Program__Group__1__Impl_in_rule__Program__Group__11661);
             rule__Program__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Program__Group__2_in_rule__Program__Group__11664);
             rule__Program__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2179,10 +2272,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__1
+    // $ANTLR end "rule__Program__Group__1"
 
 
-    // $ANTLR start rule__Program__Group__1__Impl
+    // $ANTLR start "rule__Program__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:793:1: rule__Program__Group__1__Impl : ( ( rule__Program__InitSectionAssignment_1 )? ) ;
     public final void rule__Program__Group__1__Impl() throws RecognitionException {
 
@@ -2209,7 +2302,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                     {
                     pushFollow(FOLLOW_rule__Program__InitSectionAssignment_1_in_rule__Program__Group__1__Impl1691);
                     rule__Program__InitSectionAssignment_1();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -2236,10 +2330,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__1__Impl
+    // $ANTLR end "rule__Program__Group__1__Impl"
 
 
-    // $ANTLR start rule__Program__Group__2
+    // $ANTLR start "rule__Program__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:810:1: rule__Program__Group__2 : rule__Program__Group__2__Impl rule__Program__Group__3 ;
     public final void rule__Program__Group__2() throws RecognitionException {
 
@@ -2251,11 +2345,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Program__Group__2__Impl_in_rule__Program__Group__21722);
             rule__Program__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Program__Group__3_in_rule__Program__Group__21725);
             rule__Program__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2272,10 +2368,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__2
+    // $ANTLR end "rule__Program__Group__2"
 
 
-    // $ANTLR start rule__Program__Group__2__Impl
+    // $ANTLR start "rule__Program__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:822:1: rule__Program__Group__2__Impl : ( ( rule__Program__UserDefinedCommandsAssignment_2 )* ) ;
     public final void rule__Program__Group__2__Impl() throws RecognitionException {
 
@@ -2306,7 +2402,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             	    {
             	    pushFollow(FOLLOW_rule__Program__UserDefinedCommandsAssignment_2_in_rule__Program__Group__2__Impl1752);
             	    rule__Program__UserDefinedCommandsAssignment_2();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -2336,10 +2433,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__2__Impl
+    // $ANTLR end "rule__Program__Group__2__Impl"
 
 
-    // $ANTLR start rule__Program__Group__3
+    // $ANTLR start "rule__Program__Group__3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:839:1: rule__Program__Group__3 : rule__Program__Group__3__Impl rule__Program__Group__4 ;
     public final void rule__Program__Group__3() throws RecognitionException {
 
@@ -2351,11 +2448,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Program__Group__3__Impl_in_rule__Program__Group__31783);
             rule__Program__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Program__Group__4_in_rule__Program__Group__31786);
             rule__Program__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2372,10 +2471,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__3
+    // $ANTLR end "rule__Program__Group__3"
 
 
-    // $ANTLR start rule__Program__Group__3__Impl
+    // $ANTLR start "rule__Program__Group__3__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:851:1: rule__Program__Group__3__Impl : ( ( rule__Program__MainAssignment_3 ) ) ;
     public final void rule__Program__Group__3__Impl() throws RecognitionException {
 
@@ -2394,7 +2493,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Program__MainAssignment_3_in_rule__Program__Group__3__Impl1813);
             rule__Program__MainAssignment_3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2418,10 +2518,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__3__Impl
+    // $ANTLR end "rule__Program__Group__3__Impl"
 
 
-    // $ANTLR start rule__Program__Group__4
+    // $ANTLR start "rule__Program__Group__4"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:868:1: rule__Program__Group__4 : rule__Program__Group__4__Impl ;
     public final void rule__Program__Group__4() throws RecognitionException {
 
@@ -2433,7 +2533,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Program__Group__4__Impl_in_rule__Program__Group__41843);
             rule__Program__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2450,10 +2551,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__4
+    // $ANTLR end "rule__Program__Group__4"
 
 
-    // $ANTLR start rule__Program__Group__4__Impl
+    // $ANTLR start "rule__Program__Group__4__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:879:1: rule__Program__Group__4__Impl : ( 'END-PROGRAM' ) ;
     public final void rule__Program__Group__4__Impl() throws RecognitionException {
 
@@ -2487,10 +2588,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__Group__4__Impl
+    // $ANTLR end "rule__Program__Group__4__Impl"
 
 
-    // $ANTLR start rule__InitSection__Group__0
+    // $ANTLR start "rule__InitSection__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:908:1: rule__InitSection__Group__0 : rule__InitSection__Group__0__Impl rule__InitSection__Group__1 ;
     public final void rule__InitSection__Group__0() throws RecognitionException {
 
@@ -2502,11 +2603,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitSection__Group__0__Impl_in_rule__InitSection__Group__01912);
             rule__InitSection__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitSection__Group__1_in_rule__InitSection__Group__01915);
             rule__InitSection__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2523,10 +2626,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitSection__Group__0
+    // $ANTLR end "rule__InitSection__Group__0"
 
 
-    // $ANTLR start rule__InitSection__Group__0__Impl
+    // $ANTLR start "rule__InitSection__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:920:1: rule__InitSection__Group__0__Impl : ( 'BEGIN-INIT' ) ;
     public final void rule__InitSection__Group__0__Impl() throws RecognitionException {
 
@@ -2560,10 +2663,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitSection__Group__0__Impl
+    // $ANTLR end "rule__InitSection__Group__0__Impl"
 
 
-    // $ANTLR start rule__InitSection__Group__1
+    // $ANTLR start "rule__InitSection__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:939:1: rule__InitSection__Group__1 : rule__InitSection__Group__1__Impl rule__InitSection__Group__2 ;
     public final void rule__InitSection__Group__1() throws RecognitionException {
 
@@ -2575,11 +2678,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitSection__Group__1__Impl_in_rule__InitSection__Group__11974);
             rule__InitSection__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitSection__Group__2_in_rule__InitSection__Group__11977);
             rule__InitSection__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2596,10 +2701,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitSection__Group__1
+    // $ANTLR end "rule__InitSection__Group__1"
 
 
-    // $ANTLR start rule__InitSection__Group__1__Impl
+    // $ANTLR start "rule__InitSection__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:951:1: rule__InitSection__Group__1__Impl : ( ( ( rule__InitSection__InitCommandsAssignment_1 ) ) ( ( rule__InitSection__InitCommandsAssignment_1 )* ) ) ;
     public final void rule__InitSection__Group__1__Impl() throws RecognitionException {
 
@@ -2621,7 +2726,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitSection__InitCommandsAssignment_1_in_rule__InitSection__Group__1__Impl2006);
             rule__InitSection__InitCommandsAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2651,7 +2757,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             	    {
             	    pushFollow(FOLLOW_rule__InitSection__InitCommandsAssignment_1_in_rule__InitSection__Group__1__Impl2018);
             	    rule__InitSection__InitCommandsAssignment_1();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -2684,10 +2791,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitSection__Group__1__Impl
+    // $ANTLR end "rule__InitSection__Group__1__Impl"
 
 
-    // $ANTLR start rule__InitSection__Group__2
+    // $ANTLR start "rule__InitSection__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:975:1: rule__InitSection__Group__2 : rule__InitSection__Group__2__Impl ;
     public final void rule__InitSection__Group__2() throws RecognitionException {
 
@@ -2699,7 +2806,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitSection__Group__2__Impl_in_rule__InitSection__Group__22051);
             rule__InitSection__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2716,10 +2824,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitSection__Group__2
+    // $ANTLR end "rule__InitSection__Group__2"
 
 
-    // $ANTLR start rule__InitSection__Group__2__Impl
+    // $ANTLR start "rule__InitSection__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:986:1: rule__InitSection__Group__2__Impl : ( 'END-INIT' ) ;
     public final void rule__InitSection__Group__2__Impl() throws RecognitionException {
 
@@ -2753,10 +2861,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitSection__Group__2__Impl
+    // $ANTLR end "rule__InitSection__Group__2__Impl"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__0
+    // $ANTLR start "rule__InitPositionCommand__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1011:1: rule__InitPositionCommand__Group__0 : rule__InitPositionCommand__Group__0__Impl rule__InitPositionCommand__Group__1 ;
     public final void rule__InitPositionCommand__Group__0() throws RecognitionException {
 
@@ -2768,11 +2876,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__0__Impl_in_rule__InitPositionCommand__Group__02116);
             rule__InitPositionCommand__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__1_in_rule__InitPositionCommand__Group__02119);
             rule__InitPositionCommand__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2789,10 +2899,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__0
+    // $ANTLR end "rule__InitPositionCommand__Group__0"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__0__Impl
+    // $ANTLR start "rule__InitPositionCommand__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1023:1: rule__InitPositionCommand__Group__0__Impl : ( 'position' ) ;
     public final void rule__InitPositionCommand__Group__0__Impl() throws RecognitionException {
 
@@ -2826,10 +2936,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__0__Impl
+    // $ANTLR end "rule__InitPositionCommand__Group__0__Impl"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__1
+    // $ANTLR start "rule__InitPositionCommand__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1042:1: rule__InitPositionCommand__Group__1 : rule__InitPositionCommand__Group__1__Impl rule__InitPositionCommand__Group__2 ;
     public final void rule__InitPositionCommand__Group__1() throws RecognitionException {
 
@@ -2841,11 +2951,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__1__Impl_in_rule__InitPositionCommand__Group__12178);
             rule__InitPositionCommand__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__2_in_rule__InitPositionCommand__Group__12181);
             rule__InitPositionCommand__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2862,10 +2974,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__1
+    // $ANTLR end "rule__InitPositionCommand__Group__1"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__1__Impl
+    // $ANTLR start "rule__InitPositionCommand__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1054:1: rule__InitPositionCommand__Group__1__Impl : ( ( rule__InitPositionCommand__XAssignment_1 ) ) ;
     public final void rule__InitPositionCommand__Group__1__Impl() throws RecognitionException {
 
@@ -2884,7 +2996,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitPositionCommand__XAssignment_1_in_rule__InitPositionCommand__Group__1__Impl2208);
             rule__InitPositionCommand__XAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2908,10 +3021,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__1__Impl
+    // $ANTLR end "rule__InitPositionCommand__Group__1__Impl"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__2
+    // $ANTLR start "rule__InitPositionCommand__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1071:1: rule__InitPositionCommand__Group__2 : rule__InitPositionCommand__Group__2__Impl rule__InitPositionCommand__Group__3 ;
     public final void rule__InitPositionCommand__Group__2() throws RecognitionException {
 
@@ -2923,11 +3036,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__2__Impl_in_rule__InitPositionCommand__Group__22238);
             rule__InitPositionCommand__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__3_in_rule__InitPositionCommand__Group__22241);
             rule__InitPositionCommand__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2944,10 +3059,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__2
+    // $ANTLR end "rule__InitPositionCommand__Group__2"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__2__Impl
+    // $ANTLR start "rule__InitPositionCommand__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1083:1: rule__InitPositionCommand__Group__2__Impl : ( ',' ) ;
     public final void rule__InitPositionCommand__Group__2__Impl() throws RecognitionException {
 
@@ -2981,10 +3096,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__2__Impl
+    // $ANTLR end "rule__InitPositionCommand__Group__2__Impl"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__3
+    // $ANTLR start "rule__InitPositionCommand__Group__3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1102:1: rule__InitPositionCommand__Group__3 : rule__InitPositionCommand__Group__3__Impl rule__InitPositionCommand__Group__4 ;
     public final void rule__InitPositionCommand__Group__3() throws RecognitionException {
 
@@ -2996,11 +3111,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__3__Impl_in_rule__InitPositionCommand__Group__32300);
             rule__InitPositionCommand__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__4_in_rule__InitPositionCommand__Group__32303);
             rule__InitPositionCommand__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3017,10 +3134,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__3
+    // $ANTLR end "rule__InitPositionCommand__Group__3"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__3__Impl
+    // $ANTLR start "rule__InitPositionCommand__Group__3__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1114:1: rule__InitPositionCommand__Group__3__Impl : ( ( rule__InitPositionCommand__YAssignment_3 ) ) ;
     public final void rule__InitPositionCommand__Group__3__Impl() throws RecognitionException {
 
@@ -3039,7 +3156,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitPositionCommand__YAssignment_3_in_rule__InitPositionCommand__Group__3__Impl2330);
             rule__InitPositionCommand__YAssignment_3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3063,10 +3181,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__3__Impl
+    // $ANTLR end "rule__InitPositionCommand__Group__3__Impl"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__4
+    // $ANTLR start "rule__InitPositionCommand__Group__4"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1131:1: rule__InitPositionCommand__Group__4 : rule__InitPositionCommand__Group__4__Impl ;
     public final void rule__InitPositionCommand__Group__4() throws RecognitionException {
 
@@ -3078,7 +3196,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitPositionCommand__Group__4__Impl_in_rule__InitPositionCommand__Group__42360);
             rule__InitPositionCommand__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3095,10 +3214,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__4
+    // $ANTLR end "rule__InitPositionCommand__Group__4"
 
 
-    // $ANTLR start rule__InitPositionCommand__Group__4__Impl
+    // $ANTLR start "rule__InitPositionCommand__Group__4__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1142:1: rule__InitPositionCommand__Group__4__Impl : ( ';' ) ;
     public final void rule__InitPositionCommand__Group__4__Impl() throws RecognitionException {
 
@@ -3132,10 +3251,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__Group__4__Impl
+    // $ANTLR end "rule__InitPositionCommand__Group__4__Impl"
 
 
-    // $ANTLR start rule__InitHeadingCommand__Group__0
+    // $ANTLR start "rule__InitHeadingCommand__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1171:1: rule__InitHeadingCommand__Group__0 : rule__InitHeadingCommand__Group__0__Impl rule__InitHeadingCommand__Group__1 ;
     public final void rule__InitHeadingCommand__Group__0() throws RecognitionException {
 
@@ -3147,11 +3266,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitHeadingCommand__Group__0__Impl_in_rule__InitHeadingCommand__Group__02429);
             rule__InitHeadingCommand__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitHeadingCommand__Group__1_in_rule__InitHeadingCommand__Group__02432);
             rule__InitHeadingCommand__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3168,10 +3289,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitHeadingCommand__Group__0
+    // $ANTLR end "rule__InitHeadingCommand__Group__0"
 
 
-    // $ANTLR start rule__InitHeadingCommand__Group__0__Impl
+    // $ANTLR start "rule__InitHeadingCommand__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1183:1: rule__InitHeadingCommand__Group__0__Impl : ( 'heading' ) ;
     public final void rule__InitHeadingCommand__Group__0__Impl() throws RecognitionException {
 
@@ -3205,10 +3326,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitHeadingCommand__Group__0__Impl
+    // $ANTLR end "rule__InitHeadingCommand__Group__0__Impl"
 
 
-    // $ANTLR start rule__InitHeadingCommand__Group__1
+    // $ANTLR start "rule__InitHeadingCommand__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1202:1: rule__InitHeadingCommand__Group__1 : rule__InitHeadingCommand__Group__1__Impl rule__InitHeadingCommand__Group__2 ;
     public final void rule__InitHeadingCommand__Group__1() throws RecognitionException {
 
@@ -3220,11 +3341,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitHeadingCommand__Group__1__Impl_in_rule__InitHeadingCommand__Group__12491);
             rule__InitHeadingCommand__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitHeadingCommand__Group__2_in_rule__InitHeadingCommand__Group__12494);
             rule__InitHeadingCommand__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3241,10 +3364,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitHeadingCommand__Group__1
+    // $ANTLR end "rule__InitHeadingCommand__Group__1"
 
 
-    // $ANTLR start rule__InitHeadingCommand__Group__1__Impl
+    // $ANTLR start "rule__InitHeadingCommand__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1214:1: rule__InitHeadingCommand__Group__1__Impl : ( ( rule__InitHeadingCommand__HeadingAssignment_1 ) ) ;
     public final void rule__InitHeadingCommand__Group__1__Impl() throws RecognitionException {
 
@@ -3263,7 +3386,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitHeadingCommand__HeadingAssignment_1_in_rule__InitHeadingCommand__Group__1__Impl2521);
             rule__InitHeadingCommand__HeadingAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3287,10 +3411,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitHeadingCommand__Group__1__Impl
+    // $ANTLR end "rule__InitHeadingCommand__Group__1__Impl"
 
 
-    // $ANTLR start rule__InitHeadingCommand__Group__2
+    // $ANTLR start "rule__InitHeadingCommand__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1231:1: rule__InitHeadingCommand__Group__2 : rule__InitHeadingCommand__Group__2__Impl ;
     public final void rule__InitHeadingCommand__Group__2() throws RecognitionException {
 
@@ -3302,7 +3426,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitHeadingCommand__Group__2__Impl_in_rule__InitHeadingCommand__Group__22551);
             rule__InitHeadingCommand__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3319,10 +3444,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitHeadingCommand__Group__2
+    // $ANTLR end "rule__InitHeadingCommand__Group__2"
 
 
-    // $ANTLR start rule__InitHeadingCommand__Group__2__Impl
+    // $ANTLR start "rule__InitHeadingCommand__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1242:1: rule__InitHeadingCommand__Group__2__Impl : ( ';' ) ;
     public final void rule__InitHeadingCommand__Group__2__Impl() throws RecognitionException {
 
@@ -3356,10 +3481,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitHeadingCommand__Group__2__Impl
+    // $ANTLR end "rule__InitHeadingCommand__Group__2__Impl"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__0
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1267:1: rule__InitBoardSizeCommand__Group__0 : rule__InitBoardSizeCommand__Group__0__Impl rule__InitBoardSizeCommand__Group__1 ;
     public final void rule__InitBoardSizeCommand__Group__0() throws RecognitionException {
 
@@ -3371,11 +3496,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__0__Impl_in_rule__InitBoardSizeCommand__Group__02616);
             rule__InitBoardSizeCommand__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__1_in_rule__InitBoardSizeCommand__Group__02619);
             rule__InitBoardSizeCommand__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3392,10 +3519,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__0
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__0"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__0__Impl
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1279:1: rule__InitBoardSizeCommand__Group__0__Impl : ( 'boardSize' ) ;
     public final void rule__InitBoardSizeCommand__Group__0__Impl() throws RecognitionException {
 
@@ -3429,10 +3556,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__0__Impl
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__0__Impl"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__1
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1298:1: rule__InitBoardSizeCommand__Group__1 : rule__InitBoardSizeCommand__Group__1__Impl rule__InitBoardSizeCommand__Group__2 ;
     public final void rule__InitBoardSizeCommand__Group__1() throws RecognitionException {
 
@@ -3444,11 +3571,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__1__Impl_in_rule__InitBoardSizeCommand__Group__12678);
             rule__InitBoardSizeCommand__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__2_in_rule__InitBoardSizeCommand__Group__12681);
             rule__InitBoardSizeCommand__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3465,10 +3594,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__1
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__1"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__1__Impl
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1310:1: rule__InitBoardSizeCommand__Group__1__Impl : ( ( rule__InitBoardSizeCommand__WidthAssignment_1 ) ) ;
     public final void rule__InitBoardSizeCommand__Group__1__Impl() throws RecognitionException {
 
@@ -3487,7 +3616,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__WidthAssignment_1_in_rule__InitBoardSizeCommand__Group__1__Impl2708);
             rule__InitBoardSizeCommand__WidthAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3511,10 +3641,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__1__Impl
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__1__Impl"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__2
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1327:1: rule__InitBoardSizeCommand__Group__2 : rule__InitBoardSizeCommand__Group__2__Impl rule__InitBoardSizeCommand__Group__3 ;
     public final void rule__InitBoardSizeCommand__Group__2() throws RecognitionException {
 
@@ -3526,11 +3656,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__2__Impl_in_rule__InitBoardSizeCommand__Group__22738);
             rule__InitBoardSizeCommand__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__3_in_rule__InitBoardSizeCommand__Group__22741);
             rule__InitBoardSizeCommand__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3547,10 +3679,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__2
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__2"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__2__Impl
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1339:1: rule__InitBoardSizeCommand__Group__2__Impl : ( ',' ) ;
     public final void rule__InitBoardSizeCommand__Group__2__Impl() throws RecognitionException {
 
@@ -3584,10 +3716,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__2__Impl
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__2__Impl"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__3
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1358:1: rule__InitBoardSizeCommand__Group__3 : rule__InitBoardSizeCommand__Group__3__Impl rule__InitBoardSizeCommand__Group__4 ;
     public final void rule__InitBoardSizeCommand__Group__3() throws RecognitionException {
 
@@ -3599,11 +3731,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__3__Impl_in_rule__InitBoardSizeCommand__Group__32800);
             rule__InitBoardSizeCommand__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__4_in_rule__InitBoardSizeCommand__Group__32803);
             rule__InitBoardSizeCommand__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3620,10 +3754,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__3
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__3"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__3__Impl
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__3__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1370:1: rule__InitBoardSizeCommand__Group__3__Impl : ( ( rule__InitBoardSizeCommand__HeightAssignment_3 ) ) ;
     public final void rule__InitBoardSizeCommand__Group__3__Impl() throws RecognitionException {
 
@@ -3642,7 +3776,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__HeightAssignment_3_in_rule__InitBoardSizeCommand__Group__3__Impl2830);
             rule__InitBoardSizeCommand__HeightAssignment_3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3666,10 +3801,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__3__Impl
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__3__Impl"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__4
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__4"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1387:1: rule__InitBoardSizeCommand__Group__4 : rule__InitBoardSizeCommand__Group__4__Impl ;
     public final void rule__InitBoardSizeCommand__Group__4() throws RecognitionException {
 
@@ -3681,7 +3816,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__InitBoardSizeCommand__Group__4__Impl_in_rule__InitBoardSizeCommand__Group__42860);
             rule__InitBoardSizeCommand__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3698,10 +3834,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__4
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__4"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__Group__4__Impl
+    // $ANTLR start "rule__InitBoardSizeCommand__Group__4__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1398:1: rule__InitBoardSizeCommand__Group__4__Impl : ( ';' ) ;
     public final void rule__InitBoardSizeCommand__Group__4__Impl() throws RecognitionException {
 
@@ -3735,10 +3871,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__Group__4__Impl
+    // $ANTLR end "rule__InitBoardSizeCommand__Group__4__Impl"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__0
+    // $ANTLR start "rule__UserDefinedCommand__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1427:1: rule__UserDefinedCommand__Group__0 : rule__UserDefinedCommand__Group__0__Impl rule__UserDefinedCommand__Group__1 ;
     public final void rule__UserDefinedCommand__Group__0() throws RecognitionException {
 
@@ -3750,11 +3886,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__0__Impl_in_rule__UserDefinedCommand__Group__02929);
             rule__UserDefinedCommand__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__1_in_rule__UserDefinedCommand__Group__02932);
             rule__UserDefinedCommand__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3771,10 +3909,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__0
+    // $ANTLR end "rule__UserDefinedCommand__Group__0"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__0__Impl
+    // $ANTLR start "rule__UserDefinedCommand__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1439:1: rule__UserDefinedCommand__Group__0__Impl : ( ( rule__UserDefinedCommand__DocAssignment_0 )? ) ;
     public final void rule__UserDefinedCommand__Group__0__Impl() throws RecognitionException {
 
@@ -3801,7 +3939,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                     {
                     pushFollow(FOLLOW_rule__UserDefinedCommand__DocAssignment_0_in_rule__UserDefinedCommand__Group__0__Impl2959);
                     rule__UserDefinedCommand__DocAssignment_0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -3828,10 +3967,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__0__Impl
+    // $ANTLR end "rule__UserDefinedCommand__Group__0__Impl"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__1
+    // $ANTLR start "rule__UserDefinedCommand__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1456:1: rule__UserDefinedCommand__Group__1 : rule__UserDefinedCommand__Group__1__Impl rule__UserDefinedCommand__Group__2 ;
     public final void rule__UserDefinedCommand__Group__1() throws RecognitionException {
 
@@ -3843,11 +3982,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__1__Impl_in_rule__UserDefinedCommand__Group__12990);
             rule__UserDefinedCommand__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__2_in_rule__UserDefinedCommand__Group__12993);
             rule__UserDefinedCommand__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3864,10 +4005,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__1
+    // $ANTLR end "rule__UserDefinedCommand__Group__1"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__1__Impl
+    // $ANTLR start "rule__UserDefinedCommand__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1468:1: rule__UserDefinedCommand__Group__1__Impl : ( 'DEFINE COMMAND' ) ;
     public final void rule__UserDefinedCommand__Group__1__Impl() throws RecognitionException {
 
@@ -3901,10 +4042,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__1__Impl
+    // $ANTLR end "rule__UserDefinedCommand__Group__1__Impl"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__2
+    // $ANTLR start "rule__UserDefinedCommand__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1487:1: rule__UserDefinedCommand__Group__2 : rule__UserDefinedCommand__Group__2__Impl rule__UserDefinedCommand__Group__3 ;
     public final void rule__UserDefinedCommand__Group__2() throws RecognitionException {
 
@@ -3916,11 +4057,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__2__Impl_in_rule__UserDefinedCommand__Group__23052);
             rule__UserDefinedCommand__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__3_in_rule__UserDefinedCommand__Group__23055);
             rule__UserDefinedCommand__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3937,10 +4080,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__2
+    // $ANTLR end "rule__UserDefinedCommand__Group__2"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__2__Impl
+    // $ANTLR start "rule__UserDefinedCommand__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1499:1: rule__UserDefinedCommand__Group__2__Impl : ( ( rule__UserDefinedCommand__NameAssignment_2 ) ) ;
     public final void rule__UserDefinedCommand__Group__2__Impl() throws RecognitionException {
 
@@ -3959,7 +4102,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommand__NameAssignment_2_in_rule__UserDefinedCommand__Group__2__Impl3082);
             rule__UserDefinedCommand__NameAssignment_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -3983,10 +4127,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__2__Impl
+    // $ANTLR end "rule__UserDefinedCommand__Group__2__Impl"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__3
+    // $ANTLR start "rule__UserDefinedCommand__Group__3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1516:1: rule__UserDefinedCommand__Group__3 : rule__UserDefinedCommand__Group__3__Impl rule__UserDefinedCommand__Group__4 ;
     public final void rule__UserDefinedCommand__Group__3() throws RecognitionException {
 
@@ -3998,11 +4142,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__3__Impl_in_rule__UserDefinedCommand__Group__33112);
             rule__UserDefinedCommand__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__4_in_rule__UserDefinedCommand__Group__33115);
             rule__UserDefinedCommand__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4019,10 +4165,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__3
+    // $ANTLR end "rule__UserDefinedCommand__Group__3"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__3__Impl
+    // $ANTLR start "rule__UserDefinedCommand__Group__3__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1528:1: rule__UserDefinedCommand__Group__3__Impl : ( 'AS' ) ;
     public final void rule__UserDefinedCommand__Group__3__Impl() throws RecognitionException {
 
@@ -4056,10 +4202,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__3__Impl
+    // $ANTLR end "rule__UserDefinedCommand__Group__3__Impl"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__4
+    // $ANTLR start "rule__UserDefinedCommand__Group__4"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1547:1: rule__UserDefinedCommand__Group__4 : rule__UserDefinedCommand__Group__4__Impl rule__UserDefinedCommand__Group__5 ;
     public final void rule__UserDefinedCommand__Group__4() throws RecognitionException {
 
@@ -4071,11 +4217,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__4__Impl_in_rule__UserDefinedCommand__Group__43174);
             rule__UserDefinedCommand__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__5_in_rule__UserDefinedCommand__Group__43177);
             rule__UserDefinedCommand__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4092,10 +4240,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__4
+    // $ANTLR end "rule__UserDefinedCommand__Group__4"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__4__Impl
+    // $ANTLR start "rule__UserDefinedCommand__Group__4__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1559:1: rule__UserDefinedCommand__Group__4__Impl : ( 'BEGIN' ) ;
     public final void rule__UserDefinedCommand__Group__4__Impl() throws RecognitionException {
 
@@ -4129,10 +4277,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__4__Impl
+    // $ANTLR end "rule__UserDefinedCommand__Group__4__Impl"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__5
+    // $ANTLR start "rule__UserDefinedCommand__Group__5"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1578:1: rule__UserDefinedCommand__Group__5 : rule__UserDefinedCommand__Group__5__Impl rule__UserDefinedCommand__Group__6 ;
     public final void rule__UserDefinedCommand__Group__5() throws RecognitionException {
 
@@ -4144,11 +4292,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__5__Impl_in_rule__UserDefinedCommand__Group__53236);
             rule__UserDefinedCommand__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__6_in_rule__UserDefinedCommand__Group__53239);
             rule__UserDefinedCommand__Group__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4165,10 +4315,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__5
+    // $ANTLR end "rule__UserDefinedCommand__Group__5"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__5__Impl
+    // $ANTLR start "rule__UserDefinedCommand__Group__5__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1590:1: rule__UserDefinedCommand__Group__5__Impl : ( ( rule__UserDefinedCommand__StatementsAssignment_5 )* ) ;
     public final void rule__UserDefinedCommand__Group__5__Impl() throws RecognitionException {
 
@@ -4199,7 +4349,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             	    {
             	    pushFollow(FOLLOW_rule__UserDefinedCommand__StatementsAssignment_5_in_rule__UserDefinedCommand__Group__5__Impl3266);
             	    rule__UserDefinedCommand__StatementsAssignment_5();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -4229,10 +4380,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__5__Impl
+    // $ANTLR end "rule__UserDefinedCommand__Group__5__Impl"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__6
+    // $ANTLR start "rule__UserDefinedCommand__Group__6"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1607:1: rule__UserDefinedCommand__Group__6 : rule__UserDefinedCommand__Group__6__Impl ;
     public final void rule__UserDefinedCommand__Group__6() throws RecognitionException {
 
@@ -4244,7 +4395,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommand__Group__6__Impl_in_rule__UserDefinedCommand__Group__63297);
             rule__UserDefinedCommand__Group__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4261,10 +4413,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__6
+    // $ANTLR end "rule__UserDefinedCommand__Group__6"
 
 
-    // $ANTLR start rule__UserDefinedCommand__Group__6__Impl
+    // $ANTLR start "rule__UserDefinedCommand__Group__6__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1618:1: rule__UserDefinedCommand__Group__6__Impl : ( 'END' ) ;
     public final void rule__UserDefinedCommand__Group__6__Impl() throws RecognitionException {
 
@@ -4298,10 +4450,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__Group__6__Impl
+    // $ANTLR end "rule__UserDefinedCommand__Group__6__Impl"
 
 
-    // $ANTLR start rule__Main__Group__0
+    // $ANTLR start "rule__Main__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1651:1: rule__Main__Group__0 : rule__Main__Group__0__Impl rule__Main__Group__1 ;
     public final void rule__Main__Group__0() throws RecognitionException {
 
@@ -4313,11 +4465,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Main__Group__0__Impl_in_rule__Main__Group__03370);
             rule__Main__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Main__Group__1_in_rule__Main__Group__03373);
             rule__Main__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4334,10 +4488,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Main__Group__0
+    // $ANTLR end "rule__Main__Group__0"
 
 
-    // $ANTLR start rule__Main__Group__0__Impl
+    // $ANTLR start "rule__Main__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1663:1: rule__Main__Group__0__Impl : ( () ) ;
     public final void rule__Main__Group__0__Impl() throws RecognitionException {
 
@@ -4371,10 +4525,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Main__Group__0__Impl
+    // $ANTLR end "rule__Main__Group__0__Impl"
 
 
-    // $ANTLR start rule__Main__Group__1
+    // $ANTLR start "rule__Main__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1682:1: rule__Main__Group__1 : rule__Main__Group__1__Impl rule__Main__Group__2 ;
     public final void rule__Main__Group__1() throws RecognitionException {
 
@@ -4386,11 +4540,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Main__Group__1__Impl_in_rule__Main__Group__13431);
             rule__Main__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Main__Group__2_in_rule__Main__Group__13434);
             rule__Main__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4407,10 +4563,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Main__Group__1
+    // $ANTLR end "rule__Main__Group__1"
 
 
-    // $ANTLR start rule__Main__Group__1__Impl
+    // $ANTLR start "rule__Main__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1694:1: rule__Main__Group__1__Impl : ( 'BEGIN-MAIN' ) ;
     public final void rule__Main__Group__1__Impl() throws RecognitionException {
 
@@ -4444,10 +4600,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Main__Group__1__Impl
+    // $ANTLR end "rule__Main__Group__1__Impl"
 
 
-    // $ANTLR start rule__Main__Group__2
+    // $ANTLR start "rule__Main__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1713:1: rule__Main__Group__2 : rule__Main__Group__2__Impl rule__Main__Group__3 ;
     public final void rule__Main__Group__2() throws RecognitionException {
 
@@ -4459,11 +4615,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Main__Group__2__Impl_in_rule__Main__Group__23493);
             rule__Main__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Main__Group__3_in_rule__Main__Group__23496);
             rule__Main__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4480,10 +4638,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Main__Group__2
+    // $ANTLR end "rule__Main__Group__2"
 
 
-    // $ANTLR start rule__Main__Group__2__Impl
+    // $ANTLR start "rule__Main__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1725:1: rule__Main__Group__2__Impl : ( ( rule__Main__StatementsAssignment_2 )* ) ;
     public final void rule__Main__Group__2__Impl() throws RecognitionException {
 
@@ -4514,7 +4672,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             	    {
             	    pushFollow(FOLLOW_rule__Main__StatementsAssignment_2_in_rule__Main__Group__2__Impl3523);
             	    rule__Main__StatementsAssignment_2();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -4544,10 +4703,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Main__Group__2__Impl
+    // $ANTLR end "rule__Main__Group__2__Impl"
 
 
-    // $ANTLR start rule__Main__Group__3
+    // $ANTLR start "rule__Main__Group__3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1742:1: rule__Main__Group__3 : rule__Main__Group__3__Impl ;
     public final void rule__Main__Group__3() throws RecognitionException {
 
@@ -4559,7 +4718,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__Main__Group__3__Impl_in_rule__Main__Group__33554);
             rule__Main__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4576,10 +4736,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Main__Group__3
+    // $ANTLR end "rule__Main__Group__3"
 
 
-    // $ANTLR start rule__Main__Group__3__Impl
+    // $ANTLR start "rule__Main__Group__3__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1753:1: rule__Main__Group__3__Impl : ( 'END-MAIN' ) ;
     public final void rule__Main__Group__3__Impl() throws RecognitionException {
 
@@ -4613,10 +4773,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Main__Group__3__Impl
+    // $ANTLR end "rule__Main__Group__3__Impl"
 
 
-    // $ANTLR start rule__UserDefinedCommandStatement__Group__0
+    // $ANTLR start "rule__UserDefinedCommandStatement__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1780:1: rule__UserDefinedCommandStatement__Group__0 : rule__UserDefinedCommandStatement__Group__0__Impl rule__UserDefinedCommandStatement__Group__1 ;
     public final void rule__UserDefinedCommandStatement__Group__0() throws RecognitionException {
 
@@ -4628,11 +4788,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommandStatement__Group__0__Impl_in_rule__UserDefinedCommandStatement__Group__03621);
             rule__UserDefinedCommandStatement__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__UserDefinedCommandStatement__Group__1_in_rule__UserDefinedCommandStatement__Group__03624);
             rule__UserDefinedCommandStatement__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4649,10 +4811,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommandStatement__Group__0
+    // $ANTLR end "rule__UserDefinedCommandStatement__Group__0"
 
 
-    // $ANTLR start rule__UserDefinedCommandStatement__Group__0__Impl
+    // $ANTLR start "rule__UserDefinedCommandStatement__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1792:1: rule__UserDefinedCommandStatement__Group__0__Impl : ( ( rule__UserDefinedCommandStatement__CommandAssignment_0 ) ) ;
     public final void rule__UserDefinedCommandStatement__Group__0__Impl() throws RecognitionException {
 
@@ -4671,7 +4833,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommandStatement__CommandAssignment_0_in_rule__UserDefinedCommandStatement__Group__0__Impl3651);
             rule__UserDefinedCommandStatement__CommandAssignment_0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4695,10 +4858,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommandStatement__Group__0__Impl
+    // $ANTLR end "rule__UserDefinedCommandStatement__Group__0__Impl"
 
 
-    // $ANTLR start rule__UserDefinedCommandStatement__Group__1
+    // $ANTLR start "rule__UserDefinedCommandStatement__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1809:1: rule__UserDefinedCommandStatement__Group__1 : rule__UserDefinedCommandStatement__Group__1__Impl ;
     public final void rule__UserDefinedCommandStatement__Group__1() throws RecognitionException {
 
@@ -4710,7 +4873,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__UserDefinedCommandStatement__Group__1__Impl_in_rule__UserDefinedCommandStatement__Group__13681);
             rule__UserDefinedCommandStatement__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4727,10 +4891,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommandStatement__Group__1
+    // $ANTLR end "rule__UserDefinedCommandStatement__Group__1"
 
 
-    // $ANTLR start rule__UserDefinedCommandStatement__Group__1__Impl
+    // $ANTLR start "rule__UserDefinedCommandStatement__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1820:1: rule__UserDefinedCommandStatement__Group__1__Impl : ( ';' ) ;
     public final void rule__UserDefinedCommandStatement__Group__1__Impl() throws RecognitionException {
 
@@ -4764,10 +4928,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommandStatement__Group__1__Impl
+    // $ANTLR end "rule__UserDefinedCommandStatement__Group__1__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group__0
+    // $ANTLR start "rule__IfStatement__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1843:1: rule__IfStatement__Group__0 : rule__IfStatement__Group__0__Impl rule__IfStatement__Group__1 ;
     public final void rule__IfStatement__Group__0() throws RecognitionException {
 
@@ -4779,11 +4943,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group__0__Impl_in_rule__IfStatement__Group__03744);
             rule__IfStatement__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group__1_in_rule__IfStatement__Group__03747);
             rule__IfStatement__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4800,10 +4966,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__0
+    // $ANTLR end "rule__IfStatement__Group__0"
 
 
-    // $ANTLR start rule__IfStatement__Group__0__Impl
+    // $ANTLR start "rule__IfStatement__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1855:1: rule__IfStatement__Group__0__Impl : ( 'IF' ) ;
     public final void rule__IfStatement__Group__0__Impl() throws RecognitionException {
 
@@ -4837,10 +5003,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__0__Impl
+    // $ANTLR end "rule__IfStatement__Group__0__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group__1
+    // $ANTLR start "rule__IfStatement__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1874:1: rule__IfStatement__Group__1 : rule__IfStatement__Group__1__Impl rule__IfStatement__Group__2 ;
     public final void rule__IfStatement__Group__1() throws RecognitionException {
 
@@ -4852,11 +5018,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group__1__Impl_in_rule__IfStatement__Group__13806);
             rule__IfStatement__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group__2_in_rule__IfStatement__Group__13809);
             rule__IfStatement__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4873,10 +5041,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__1
+    // $ANTLR end "rule__IfStatement__Group__1"
 
 
-    // $ANTLR start rule__IfStatement__Group__1__Impl
+    // $ANTLR start "rule__IfStatement__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1886:1: rule__IfStatement__Group__1__Impl : ( '(' ) ;
     public final void rule__IfStatement__Group__1__Impl() throws RecognitionException {
 
@@ -4910,10 +5078,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__1__Impl
+    // $ANTLR end "rule__IfStatement__Group__1__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group__2
+    // $ANTLR start "rule__IfStatement__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1905:1: rule__IfStatement__Group__2 : rule__IfStatement__Group__2__Impl rule__IfStatement__Group__3 ;
     public final void rule__IfStatement__Group__2() throws RecognitionException {
 
@@ -4925,11 +5093,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group__2__Impl_in_rule__IfStatement__Group__23868);
             rule__IfStatement__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group__3_in_rule__IfStatement__Group__23871);
             rule__IfStatement__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4946,10 +5116,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__2
+    // $ANTLR end "rule__IfStatement__Group__2"
 
 
-    // $ANTLR start rule__IfStatement__Group__2__Impl
+    // $ANTLR start "rule__IfStatement__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1917:1: rule__IfStatement__Group__2__Impl : ( ( rule__IfStatement__ConditionAssignment_2 ) ) ;
     public final void rule__IfStatement__Group__2__Impl() throws RecognitionException {
 
@@ -4968,7 +5138,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__ConditionAssignment_2_in_rule__IfStatement__Group__2__Impl3898);
             rule__IfStatement__ConditionAssignment_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4992,10 +5163,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__2__Impl
+    // $ANTLR end "rule__IfStatement__Group__2__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group__3
+    // $ANTLR start "rule__IfStatement__Group__3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1934:1: rule__IfStatement__Group__3 : rule__IfStatement__Group__3__Impl rule__IfStatement__Group__4 ;
     public final void rule__IfStatement__Group__3() throws RecognitionException {
 
@@ -5007,11 +5178,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group__3__Impl_in_rule__IfStatement__Group__33928);
             rule__IfStatement__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group__4_in_rule__IfStatement__Group__33931);
             rule__IfStatement__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5028,10 +5201,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__3
+    // $ANTLR end "rule__IfStatement__Group__3"
 
 
-    // $ANTLR start rule__IfStatement__Group__3__Impl
+    // $ANTLR start "rule__IfStatement__Group__3__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1946:1: rule__IfStatement__Group__3__Impl : ( ')' ) ;
     public final void rule__IfStatement__Group__3__Impl() throws RecognitionException {
 
@@ -5065,10 +5238,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__3__Impl
+    // $ANTLR end "rule__IfStatement__Group__3__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group__4
+    // $ANTLR start "rule__IfStatement__Group__4"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1965:1: rule__IfStatement__Group__4 : rule__IfStatement__Group__4__Impl rule__IfStatement__Group__5 ;
     public final void rule__IfStatement__Group__4() throws RecognitionException {
 
@@ -5080,11 +5253,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group__4__Impl_in_rule__IfStatement__Group__43990);
             rule__IfStatement__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group__5_in_rule__IfStatement__Group__43993);
             rule__IfStatement__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5101,10 +5276,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__4
+    // $ANTLR end "rule__IfStatement__Group__4"
 
 
-    // $ANTLR start rule__IfStatement__Group__4__Impl
+    // $ANTLR start "rule__IfStatement__Group__4__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1977:1: rule__IfStatement__Group__4__Impl : ( '{' ) ;
     public final void rule__IfStatement__Group__4__Impl() throws RecognitionException {
 
@@ -5138,10 +5313,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__4__Impl
+    // $ANTLR end "rule__IfStatement__Group__4__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group__5
+    // $ANTLR start "rule__IfStatement__Group__5"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:1996:1: rule__IfStatement__Group__5 : rule__IfStatement__Group__5__Impl rule__IfStatement__Group__6 ;
     public final void rule__IfStatement__Group__5() throws RecognitionException {
 
@@ -5153,11 +5328,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group__5__Impl_in_rule__IfStatement__Group__54052);
             rule__IfStatement__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group__6_in_rule__IfStatement__Group__54055);
             rule__IfStatement__Group__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5174,10 +5351,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__5
+    // $ANTLR end "rule__IfStatement__Group__5"
 
 
-    // $ANTLR start rule__IfStatement__Group__5__Impl
+    // $ANTLR start "rule__IfStatement__Group__5__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2008:1: rule__IfStatement__Group__5__Impl : ( ( rule__IfStatement__StatementsAssignment_5 )* ) ;
     public final void rule__IfStatement__Group__5__Impl() throws RecognitionException {
 
@@ -5208,7 +5385,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             	    {
             	    pushFollow(FOLLOW_rule__IfStatement__StatementsAssignment_5_in_rule__IfStatement__Group__5__Impl4082);
             	    rule__IfStatement__StatementsAssignment_5();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -5238,10 +5416,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__5__Impl
+    // $ANTLR end "rule__IfStatement__Group__5__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group__6
+    // $ANTLR start "rule__IfStatement__Group__6"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2025:1: rule__IfStatement__Group__6 : rule__IfStatement__Group__6__Impl rule__IfStatement__Group__7 ;
     public final void rule__IfStatement__Group__6() throws RecognitionException {
 
@@ -5253,11 +5431,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group__6__Impl_in_rule__IfStatement__Group__64113);
             rule__IfStatement__Group__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group__7_in_rule__IfStatement__Group__64116);
             rule__IfStatement__Group__7();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5274,10 +5454,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__6
+    // $ANTLR end "rule__IfStatement__Group__6"
 
 
-    // $ANTLR start rule__IfStatement__Group__6__Impl
+    // $ANTLR start "rule__IfStatement__Group__6__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2037:1: rule__IfStatement__Group__6__Impl : ( '}' ) ;
     public final void rule__IfStatement__Group__6__Impl() throws RecognitionException {
 
@@ -5311,10 +5491,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__6__Impl
+    // $ANTLR end "rule__IfStatement__Group__6__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group__7
+    // $ANTLR start "rule__IfStatement__Group__7"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2056:1: rule__IfStatement__Group__7 : rule__IfStatement__Group__7__Impl ;
     public final void rule__IfStatement__Group__7() throws RecognitionException {
 
@@ -5326,7 +5506,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group__7__Impl_in_rule__IfStatement__Group__74175);
             rule__IfStatement__Group__7__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5343,10 +5524,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__7
+    // $ANTLR end "rule__IfStatement__Group__7"
 
 
-    // $ANTLR start rule__IfStatement__Group__7__Impl
+    // $ANTLR start "rule__IfStatement__Group__7__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2067:1: rule__IfStatement__Group__7__Impl : ( ( rule__IfStatement__Group_7__0 )? ) ;
     public final void rule__IfStatement__Group__7__Impl() throws RecognitionException {
 
@@ -5373,7 +5554,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
                     {
                     pushFollow(FOLLOW_rule__IfStatement__Group_7__0_in_rule__IfStatement__Group__7__Impl4202);
                     rule__IfStatement__Group_7__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -5400,10 +5582,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group__7__Impl
+    // $ANTLR end "rule__IfStatement__Group__7__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group_7__0
+    // $ANTLR start "rule__IfStatement__Group_7__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2100:1: rule__IfStatement__Group_7__0 : rule__IfStatement__Group_7__0__Impl rule__IfStatement__Group_7__1 ;
     public final void rule__IfStatement__Group_7__0() throws RecognitionException {
 
@@ -5415,11 +5597,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group_7__0__Impl_in_rule__IfStatement__Group_7__04249);
             rule__IfStatement__Group_7__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group_7__1_in_rule__IfStatement__Group_7__04252);
             rule__IfStatement__Group_7__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5436,10 +5620,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group_7__0
+    // $ANTLR end "rule__IfStatement__Group_7__0"
 
 
-    // $ANTLR start rule__IfStatement__Group_7__0__Impl
+    // $ANTLR start "rule__IfStatement__Group_7__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2112:1: rule__IfStatement__Group_7__0__Impl : ( 'ELSE' ) ;
     public final void rule__IfStatement__Group_7__0__Impl() throws RecognitionException {
 
@@ -5473,10 +5657,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group_7__0__Impl
+    // $ANTLR end "rule__IfStatement__Group_7__0__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group_7__1
+    // $ANTLR start "rule__IfStatement__Group_7__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2131:1: rule__IfStatement__Group_7__1 : rule__IfStatement__Group_7__1__Impl rule__IfStatement__Group_7__2 ;
     public final void rule__IfStatement__Group_7__1() throws RecognitionException {
 
@@ -5488,11 +5672,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group_7__1__Impl_in_rule__IfStatement__Group_7__14311);
             rule__IfStatement__Group_7__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group_7__2_in_rule__IfStatement__Group_7__14314);
             rule__IfStatement__Group_7__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5509,10 +5695,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group_7__1
+    // $ANTLR end "rule__IfStatement__Group_7__1"
 
 
-    // $ANTLR start rule__IfStatement__Group_7__1__Impl
+    // $ANTLR start "rule__IfStatement__Group_7__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2143:1: rule__IfStatement__Group_7__1__Impl : ( '{' ) ;
     public final void rule__IfStatement__Group_7__1__Impl() throws RecognitionException {
 
@@ -5546,10 +5732,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group_7__1__Impl
+    // $ANTLR end "rule__IfStatement__Group_7__1__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group_7__2
+    // $ANTLR start "rule__IfStatement__Group_7__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2162:1: rule__IfStatement__Group_7__2 : rule__IfStatement__Group_7__2__Impl rule__IfStatement__Group_7__3 ;
     public final void rule__IfStatement__Group_7__2() throws RecognitionException {
 
@@ -5561,11 +5747,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group_7__2__Impl_in_rule__IfStatement__Group_7__24373);
             rule__IfStatement__Group_7__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IfStatement__Group_7__3_in_rule__IfStatement__Group_7__24376);
             rule__IfStatement__Group_7__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5582,10 +5770,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group_7__2
+    // $ANTLR end "rule__IfStatement__Group_7__2"
 
 
-    // $ANTLR start rule__IfStatement__Group_7__2__Impl
+    // $ANTLR start "rule__IfStatement__Group_7__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2174:1: rule__IfStatement__Group_7__2__Impl : ( ( rule__IfStatement__ElseStatementsAssignment_7_2 )* ) ;
     public final void rule__IfStatement__Group_7__2__Impl() throws RecognitionException {
 
@@ -5616,7 +5804,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             	    {
             	    pushFollow(FOLLOW_rule__IfStatement__ElseStatementsAssignment_7_2_in_rule__IfStatement__Group_7__2__Impl4403);
             	    rule__IfStatement__ElseStatementsAssignment_7_2();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -5646,10 +5835,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group_7__2__Impl
+    // $ANTLR end "rule__IfStatement__Group_7__2__Impl"
 
 
-    // $ANTLR start rule__IfStatement__Group_7__3
+    // $ANTLR start "rule__IfStatement__Group_7__3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2191:1: rule__IfStatement__Group_7__3 : rule__IfStatement__Group_7__3__Impl ;
     public final void rule__IfStatement__Group_7__3() throws RecognitionException {
 
@@ -5661,7 +5850,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IfStatement__Group_7__3__Impl_in_rule__IfStatement__Group_7__34434);
             rule__IfStatement__Group_7__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5678,10 +5868,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group_7__3
+    // $ANTLR end "rule__IfStatement__Group_7__3"
 
 
-    // $ANTLR start rule__IfStatement__Group_7__3__Impl
+    // $ANTLR start "rule__IfStatement__Group_7__3__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2202:1: rule__IfStatement__Group_7__3__Impl : ( '}' ) ;
     public final void rule__IfStatement__Group_7__3__Impl() throws RecognitionException {
 
@@ -5715,10 +5905,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__Group_7__3__Impl
+    // $ANTLR end "rule__IfStatement__Group_7__3__Impl"
 
 
-    // $ANTLR start rule__IterateStatement__Group__0
+    // $ANTLR start "rule__IterateStatement__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2229:1: rule__IterateStatement__Group__0 : rule__IterateStatement__Group__0__Impl rule__IterateStatement__Group__1 ;
     public final void rule__IterateStatement__Group__0() throws RecognitionException {
 
@@ -5730,11 +5920,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IterateStatement__Group__0__Impl_in_rule__IterateStatement__Group__04501);
             rule__IterateStatement__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IterateStatement__Group__1_in_rule__IterateStatement__Group__04504);
             rule__IterateStatement__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5751,10 +5943,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__0
+    // $ANTLR end "rule__IterateStatement__Group__0"
 
 
-    // $ANTLR start rule__IterateStatement__Group__0__Impl
+    // $ANTLR start "rule__IterateStatement__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2241:1: rule__IterateStatement__Group__0__Impl : ( 'ITERATE' ) ;
     public final void rule__IterateStatement__Group__0__Impl() throws RecognitionException {
 
@@ -5788,10 +5980,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__0__Impl
+    // $ANTLR end "rule__IterateStatement__Group__0__Impl"
 
 
-    // $ANTLR start rule__IterateStatement__Group__1
+    // $ANTLR start "rule__IterateStatement__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2260:1: rule__IterateStatement__Group__1 : rule__IterateStatement__Group__1__Impl rule__IterateStatement__Group__2 ;
     public final void rule__IterateStatement__Group__1() throws RecognitionException {
 
@@ -5803,11 +5995,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IterateStatement__Group__1__Impl_in_rule__IterateStatement__Group__14563);
             rule__IterateStatement__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IterateStatement__Group__2_in_rule__IterateStatement__Group__14566);
             rule__IterateStatement__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5824,10 +6018,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__1
+    // $ANTLR end "rule__IterateStatement__Group__1"
 
 
-    // $ANTLR start rule__IterateStatement__Group__1__Impl
+    // $ANTLR start "rule__IterateStatement__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2272:1: rule__IterateStatement__Group__1__Impl : ( ( rule__IterateStatement__TimesAssignment_1 ) ) ;
     public final void rule__IterateStatement__Group__1__Impl() throws RecognitionException {
 
@@ -5846,7 +6040,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IterateStatement__TimesAssignment_1_in_rule__IterateStatement__Group__1__Impl4593);
             rule__IterateStatement__TimesAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5870,10 +6065,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__1__Impl
+    // $ANTLR end "rule__IterateStatement__Group__1__Impl"
 
 
-    // $ANTLR start rule__IterateStatement__Group__2
+    // $ANTLR start "rule__IterateStatement__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2289:1: rule__IterateStatement__Group__2 : rule__IterateStatement__Group__2__Impl rule__IterateStatement__Group__3 ;
     public final void rule__IterateStatement__Group__2() throws RecognitionException {
 
@@ -5885,11 +6080,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IterateStatement__Group__2__Impl_in_rule__IterateStatement__Group__24623);
             rule__IterateStatement__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IterateStatement__Group__3_in_rule__IterateStatement__Group__24626);
             rule__IterateStatement__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5906,10 +6103,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__2
+    // $ANTLR end "rule__IterateStatement__Group__2"
 
 
-    // $ANTLR start rule__IterateStatement__Group__2__Impl
+    // $ANTLR start "rule__IterateStatement__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2301:1: rule__IterateStatement__Group__2__Impl : ( 'TIMES' ) ;
     public final void rule__IterateStatement__Group__2__Impl() throws RecognitionException {
 
@@ -5943,10 +6140,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__2__Impl
+    // $ANTLR end "rule__IterateStatement__Group__2__Impl"
 
 
-    // $ANTLR start rule__IterateStatement__Group__3
+    // $ANTLR start "rule__IterateStatement__Group__3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2320:1: rule__IterateStatement__Group__3 : rule__IterateStatement__Group__3__Impl rule__IterateStatement__Group__4 ;
     public final void rule__IterateStatement__Group__3() throws RecognitionException {
 
@@ -5958,11 +6155,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IterateStatement__Group__3__Impl_in_rule__IterateStatement__Group__34685);
             rule__IterateStatement__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IterateStatement__Group__4_in_rule__IterateStatement__Group__34688);
             rule__IterateStatement__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5979,10 +6178,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__3
+    // $ANTLR end "rule__IterateStatement__Group__3"
 
 
-    // $ANTLR start rule__IterateStatement__Group__3__Impl
+    // $ANTLR start "rule__IterateStatement__Group__3__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2332:1: rule__IterateStatement__Group__3__Impl : ( '{' ) ;
     public final void rule__IterateStatement__Group__3__Impl() throws RecognitionException {
 
@@ -6016,10 +6215,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__3__Impl
+    // $ANTLR end "rule__IterateStatement__Group__3__Impl"
 
 
-    // $ANTLR start rule__IterateStatement__Group__4
+    // $ANTLR start "rule__IterateStatement__Group__4"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2351:1: rule__IterateStatement__Group__4 : rule__IterateStatement__Group__4__Impl rule__IterateStatement__Group__5 ;
     public final void rule__IterateStatement__Group__4() throws RecognitionException {
 
@@ -6031,11 +6230,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IterateStatement__Group__4__Impl_in_rule__IterateStatement__Group__44747);
             rule__IterateStatement__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__IterateStatement__Group__5_in_rule__IterateStatement__Group__44750);
             rule__IterateStatement__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6052,10 +6253,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__4
+    // $ANTLR end "rule__IterateStatement__Group__4"
 
 
-    // $ANTLR start rule__IterateStatement__Group__4__Impl
+    // $ANTLR start "rule__IterateStatement__Group__4__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2363:1: rule__IterateStatement__Group__4__Impl : ( ( rule__IterateStatement__StatementsAssignment_4 ) ) ;
     public final void rule__IterateStatement__Group__4__Impl() throws RecognitionException {
 
@@ -6074,7 +6275,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IterateStatement__StatementsAssignment_4_in_rule__IterateStatement__Group__4__Impl4777);
             rule__IterateStatement__StatementsAssignment_4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6098,10 +6300,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__4__Impl
+    // $ANTLR end "rule__IterateStatement__Group__4__Impl"
 
 
-    // $ANTLR start rule__IterateStatement__Group__5
+    // $ANTLR start "rule__IterateStatement__Group__5"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2380:1: rule__IterateStatement__Group__5 : rule__IterateStatement__Group__5__Impl ;
     public final void rule__IterateStatement__Group__5() throws RecognitionException {
 
@@ -6113,7 +6315,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__IterateStatement__Group__5__Impl_in_rule__IterateStatement__Group__54807);
             rule__IterateStatement__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6130,10 +6333,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__5
+    // $ANTLR end "rule__IterateStatement__Group__5"
 
 
-    // $ANTLR start rule__IterateStatement__Group__5__Impl
+    // $ANTLR start "rule__IterateStatement__Group__5__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2391:1: rule__IterateStatement__Group__5__Impl : ( '}' ) ;
     public final void rule__IterateStatement__Group__5__Impl() throws RecognitionException {
 
@@ -6167,10 +6370,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__Group__5__Impl
+    // $ANTLR end "rule__IterateStatement__Group__5__Impl"
 
 
-    // $ANTLR start rule__WhileStatement__Group__0
+    // $ANTLR start "rule__WhileStatement__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2422:1: rule__WhileStatement__Group__0 : rule__WhileStatement__Group__0__Impl rule__WhileStatement__Group__1 ;
     public final void rule__WhileStatement__Group__0() throws RecognitionException {
 
@@ -6182,11 +6385,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__Group__0__Impl_in_rule__WhileStatement__Group__04878);
             rule__WhileStatement__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__WhileStatement__Group__1_in_rule__WhileStatement__Group__04881);
             rule__WhileStatement__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6203,10 +6408,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__0
+    // $ANTLR end "rule__WhileStatement__Group__0"
 
 
-    // $ANTLR start rule__WhileStatement__Group__0__Impl
+    // $ANTLR start "rule__WhileStatement__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2434:1: rule__WhileStatement__Group__0__Impl : ( 'WHILE' ) ;
     public final void rule__WhileStatement__Group__0__Impl() throws RecognitionException {
 
@@ -6240,10 +6445,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__0__Impl
+    // $ANTLR end "rule__WhileStatement__Group__0__Impl"
 
 
-    // $ANTLR start rule__WhileStatement__Group__1
+    // $ANTLR start "rule__WhileStatement__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2453:1: rule__WhileStatement__Group__1 : rule__WhileStatement__Group__1__Impl rule__WhileStatement__Group__2 ;
     public final void rule__WhileStatement__Group__1() throws RecognitionException {
 
@@ -6255,11 +6460,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__Group__1__Impl_in_rule__WhileStatement__Group__14940);
             rule__WhileStatement__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__WhileStatement__Group__2_in_rule__WhileStatement__Group__14943);
             rule__WhileStatement__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6276,10 +6483,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__1
+    // $ANTLR end "rule__WhileStatement__Group__1"
 
 
-    // $ANTLR start rule__WhileStatement__Group__1__Impl
+    // $ANTLR start "rule__WhileStatement__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2465:1: rule__WhileStatement__Group__1__Impl : ( '(' ) ;
     public final void rule__WhileStatement__Group__1__Impl() throws RecognitionException {
 
@@ -6313,10 +6520,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__1__Impl
+    // $ANTLR end "rule__WhileStatement__Group__1__Impl"
 
 
-    // $ANTLR start rule__WhileStatement__Group__2
+    // $ANTLR start "rule__WhileStatement__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2484:1: rule__WhileStatement__Group__2 : rule__WhileStatement__Group__2__Impl rule__WhileStatement__Group__3 ;
     public final void rule__WhileStatement__Group__2() throws RecognitionException {
 
@@ -6328,11 +6535,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__Group__2__Impl_in_rule__WhileStatement__Group__25002);
             rule__WhileStatement__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__WhileStatement__Group__3_in_rule__WhileStatement__Group__25005);
             rule__WhileStatement__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6349,10 +6558,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__2
+    // $ANTLR end "rule__WhileStatement__Group__2"
 
 
-    // $ANTLR start rule__WhileStatement__Group__2__Impl
+    // $ANTLR start "rule__WhileStatement__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2496:1: rule__WhileStatement__Group__2__Impl : ( ( rule__WhileStatement__ConditionAssignment_2 ) ) ;
     public final void rule__WhileStatement__Group__2__Impl() throws RecognitionException {
 
@@ -6371,7 +6580,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__ConditionAssignment_2_in_rule__WhileStatement__Group__2__Impl5032);
             rule__WhileStatement__ConditionAssignment_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6395,10 +6605,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__2__Impl
+    // $ANTLR end "rule__WhileStatement__Group__2__Impl"
 
 
-    // $ANTLR start rule__WhileStatement__Group__3
+    // $ANTLR start "rule__WhileStatement__Group__3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2513:1: rule__WhileStatement__Group__3 : rule__WhileStatement__Group__3__Impl rule__WhileStatement__Group__4 ;
     public final void rule__WhileStatement__Group__3() throws RecognitionException {
 
@@ -6410,11 +6620,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__Group__3__Impl_in_rule__WhileStatement__Group__35062);
             rule__WhileStatement__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__WhileStatement__Group__4_in_rule__WhileStatement__Group__35065);
             rule__WhileStatement__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6431,10 +6643,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__3
+    // $ANTLR end "rule__WhileStatement__Group__3"
 
 
-    // $ANTLR start rule__WhileStatement__Group__3__Impl
+    // $ANTLR start "rule__WhileStatement__Group__3__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2525:1: rule__WhileStatement__Group__3__Impl : ( ')' ) ;
     public final void rule__WhileStatement__Group__3__Impl() throws RecognitionException {
 
@@ -6468,10 +6680,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__3__Impl
+    // $ANTLR end "rule__WhileStatement__Group__3__Impl"
 
 
-    // $ANTLR start rule__WhileStatement__Group__4
+    // $ANTLR start "rule__WhileStatement__Group__4"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2544:1: rule__WhileStatement__Group__4 : rule__WhileStatement__Group__4__Impl rule__WhileStatement__Group__5 ;
     public final void rule__WhileStatement__Group__4() throws RecognitionException {
 
@@ -6483,11 +6695,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__Group__4__Impl_in_rule__WhileStatement__Group__45124);
             rule__WhileStatement__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__WhileStatement__Group__5_in_rule__WhileStatement__Group__45127);
             rule__WhileStatement__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6504,10 +6718,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__4
+    // $ANTLR end "rule__WhileStatement__Group__4"
 
 
-    // $ANTLR start rule__WhileStatement__Group__4__Impl
+    // $ANTLR start "rule__WhileStatement__Group__4__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2556:1: rule__WhileStatement__Group__4__Impl : ( '{' ) ;
     public final void rule__WhileStatement__Group__4__Impl() throws RecognitionException {
 
@@ -6541,10 +6755,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__4__Impl
+    // $ANTLR end "rule__WhileStatement__Group__4__Impl"
 
 
-    // $ANTLR start rule__WhileStatement__Group__5
+    // $ANTLR start "rule__WhileStatement__Group__5"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2575:1: rule__WhileStatement__Group__5 : rule__WhileStatement__Group__5__Impl rule__WhileStatement__Group__6 ;
     public final void rule__WhileStatement__Group__5() throws RecognitionException {
 
@@ -6556,11 +6770,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__Group__5__Impl_in_rule__WhileStatement__Group__55186);
             rule__WhileStatement__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__WhileStatement__Group__6_in_rule__WhileStatement__Group__55189);
             rule__WhileStatement__Group__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6577,10 +6793,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__5
+    // $ANTLR end "rule__WhileStatement__Group__5"
 
 
-    // $ANTLR start rule__WhileStatement__Group__5__Impl
+    // $ANTLR start "rule__WhileStatement__Group__5__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2587:1: rule__WhileStatement__Group__5__Impl : ( ( rule__WhileStatement__StatementsAssignment_5 ) ) ;
     public final void rule__WhileStatement__Group__5__Impl() throws RecognitionException {
 
@@ -6599,7 +6815,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__StatementsAssignment_5_in_rule__WhileStatement__Group__5__Impl5216);
             rule__WhileStatement__StatementsAssignment_5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6623,10 +6840,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__5__Impl
+    // $ANTLR end "rule__WhileStatement__Group__5__Impl"
 
 
-    // $ANTLR start rule__WhileStatement__Group__6
+    // $ANTLR start "rule__WhileStatement__Group__6"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2604:1: rule__WhileStatement__Group__6 : rule__WhileStatement__Group__6__Impl ;
     public final void rule__WhileStatement__Group__6() throws RecognitionException {
 
@@ -6638,7 +6855,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__WhileStatement__Group__6__Impl_in_rule__WhileStatement__Group__65246);
             rule__WhileStatement__Group__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6655,10 +6873,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__6
+    // $ANTLR end "rule__WhileStatement__Group__6"
 
 
-    // $ANTLR start rule__WhileStatement__Group__6__Impl
+    // $ANTLR start "rule__WhileStatement__Group__6__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2615:1: rule__WhileStatement__Group__6__Impl : ( '}' ) ;
     public final void rule__WhileStatement__Group__6__Impl() throws RecognitionException {
 
@@ -6692,10 +6910,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__Group__6__Impl
+    // $ANTLR end "rule__WhileStatement__Group__6__Impl"
 
 
-    // $ANTLR start rule__DocumentationComment__Group__0
+    // $ANTLR start "rule__DocumentationComment__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2648:1: rule__DocumentationComment__Group__0 : rule__DocumentationComment__Group__0__Impl rule__DocumentationComment__Group__1 ;
     public final void rule__DocumentationComment__Group__0() throws RecognitionException {
 
@@ -6707,11 +6925,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__DocumentationComment__Group__0__Impl_in_rule__DocumentationComment__Group__05319);
             rule__DocumentationComment__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DocumentationComment__Group__1_in_rule__DocumentationComment__Group__05322);
             rule__DocumentationComment__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6728,10 +6948,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__DocumentationComment__Group__0
+    // $ANTLR end "rule__DocumentationComment__Group__0"
 
 
-    // $ANTLR start rule__DocumentationComment__Group__0__Impl
+    // $ANTLR start "rule__DocumentationComment__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2660:1: rule__DocumentationComment__Group__0__Impl : ( '@(' ) ;
     public final void rule__DocumentationComment__Group__0__Impl() throws RecognitionException {
 
@@ -6765,10 +6985,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__DocumentationComment__Group__0__Impl
+    // $ANTLR end "rule__DocumentationComment__Group__0__Impl"
 
 
-    // $ANTLR start rule__DocumentationComment__Group__1
+    // $ANTLR start "rule__DocumentationComment__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2679:1: rule__DocumentationComment__Group__1 : rule__DocumentationComment__Group__1__Impl rule__DocumentationComment__Group__2 ;
     public final void rule__DocumentationComment__Group__1() throws RecognitionException {
 
@@ -6780,11 +7000,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__DocumentationComment__Group__1__Impl_in_rule__DocumentationComment__Group__15381);
             rule__DocumentationComment__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DocumentationComment__Group__2_in_rule__DocumentationComment__Group__15384);
             rule__DocumentationComment__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6801,10 +7023,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__DocumentationComment__Group__1
+    // $ANTLR end "rule__DocumentationComment__Group__1"
 
 
-    // $ANTLR start rule__DocumentationComment__Group__1__Impl
+    // $ANTLR start "rule__DocumentationComment__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2691:1: rule__DocumentationComment__Group__1__Impl : ( ( rule__DocumentationComment__TextAssignment_1 ) ) ;
     public final void rule__DocumentationComment__Group__1__Impl() throws RecognitionException {
 
@@ -6823,7 +7045,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__DocumentationComment__TextAssignment_1_in_rule__DocumentationComment__Group__1__Impl5411);
             rule__DocumentationComment__TextAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6847,10 +7070,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__DocumentationComment__Group__1__Impl
+    // $ANTLR end "rule__DocumentationComment__Group__1__Impl"
 
 
-    // $ANTLR start rule__DocumentationComment__Group__2
+    // $ANTLR start "rule__DocumentationComment__Group__2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2708:1: rule__DocumentationComment__Group__2 : rule__DocumentationComment__Group__2__Impl ;
     public final void rule__DocumentationComment__Group__2() throws RecognitionException {
 
@@ -6862,7 +7085,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__DocumentationComment__Group__2__Impl_in_rule__DocumentationComment__Group__25441);
             rule__DocumentationComment__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6879,10 +7103,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__DocumentationComment__Group__2
+    // $ANTLR end "rule__DocumentationComment__Group__2"
 
 
-    // $ANTLR start rule__DocumentationComment__Group__2__Impl
+    // $ANTLR start "rule__DocumentationComment__Group__2__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2719:1: rule__DocumentationComment__Group__2__Impl : ( ')' ) ;
     public final void rule__DocumentationComment__Group__2__Impl() throws RecognitionException {
 
@@ -6916,10 +7140,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__DocumentationComment__Group__2__Impl
+    // $ANTLR end "rule__DocumentationComment__Group__2__Impl"
 
 
-    // $ANTLR start rule__CommandStatement__Group__0
+    // $ANTLR start "rule__CommandStatement__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2744:1: rule__CommandStatement__Group__0 : rule__CommandStatement__Group__0__Impl rule__CommandStatement__Group__1 ;
     public final void rule__CommandStatement__Group__0() throws RecognitionException {
 
@@ -6931,11 +7155,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__CommandStatement__Group__0__Impl_in_rule__CommandStatement__Group__05506);
             rule__CommandStatement__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CommandStatement__Group__1_in_rule__CommandStatement__Group__05509);
             rule__CommandStatement__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6952,10 +7178,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__CommandStatement__Group__0
+    // $ANTLR end "rule__CommandStatement__Group__0"
 
 
-    // $ANTLR start rule__CommandStatement__Group__0__Impl
+    // $ANTLR start "rule__CommandStatement__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2756:1: rule__CommandStatement__Group__0__Impl : ( ( rule__CommandStatement__KindAssignment_0 ) ) ;
     public final void rule__CommandStatement__Group__0__Impl() throws RecognitionException {
 
@@ -6974,7 +7200,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__CommandStatement__KindAssignment_0_in_rule__CommandStatement__Group__0__Impl5536);
             rule__CommandStatement__KindAssignment_0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6998,10 +7225,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__CommandStatement__Group__0__Impl
+    // $ANTLR end "rule__CommandStatement__Group__0__Impl"
 
 
-    // $ANTLR start rule__CommandStatement__Group__1
+    // $ANTLR start "rule__CommandStatement__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2773:1: rule__CommandStatement__Group__1 : rule__CommandStatement__Group__1__Impl ;
     public final void rule__CommandStatement__Group__1() throws RecognitionException {
 
@@ -7013,7 +7240,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__CommandStatement__Group__1__Impl_in_rule__CommandStatement__Group__15566);
             rule__CommandStatement__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7030,10 +7258,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__CommandStatement__Group__1
+    // $ANTLR end "rule__CommandStatement__Group__1"
 
 
-    // $ANTLR start rule__CommandStatement__Group__1__Impl
+    // $ANTLR start "rule__CommandStatement__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2784:1: rule__CommandStatement__Group__1__Impl : ( ';' ) ;
     public final void rule__CommandStatement__Group__1__Impl() throws RecognitionException {
 
@@ -7067,10 +7295,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__CommandStatement__Group__1__Impl
+    // $ANTLR end "rule__CommandStatement__Group__1__Impl"
 
 
-    // $ANTLR start rule__ConditionExpr__Group__0
+    // $ANTLR start "rule__ConditionExpr__Group__0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2807:1: rule__ConditionExpr__Group__0 : rule__ConditionExpr__Group__0__Impl rule__ConditionExpr__Group__1 ;
     public final void rule__ConditionExpr__Group__0() throws RecognitionException {
 
@@ -7082,11 +7310,13 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__ConditionExpr__Group__0__Impl_in_rule__ConditionExpr__Group__05629);
             rule__ConditionExpr__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ConditionExpr__Group__1_in_rule__ConditionExpr__Group__05632);
             rule__ConditionExpr__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7103,10 +7333,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__ConditionExpr__Group__0
+    // $ANTLR end "rule__ConditionExpr__Group__0"
 
 
-    // $ANTLR start rule__ConditionExpr__Group__0__Impl
+    // $ANTLR start "rule__ConditionExpr__Group__0__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2819:1: rule__ConditionExpr__Group__0__Impl : ( ( rule__ConditionExpr__NegationAssignment_0 ) ) ;
     public final void rule__ConditionExpr__Group__0__Impl() throws RecognitionException {
 
@@ -7125,7 +7355,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__ConditionExpr__NegationAssignment_0_in_rule__ConditionExpr__Group__0__Impl5659);
             rule__ConditionExpr__NegationAssignment_0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7149,10 +7380,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__ConditionExpr__Group__0__Impl
+    // $ANTLR end "rule__ConditionExpr__Group__0__Impl"
 
 
-    // $ANTLR start rule__ConditionExpr__Group__1
+    // $ANTLR start "rule__ConditionExpr__Group__1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2836:1: rule__ConditionExpr__Group__1 : rule__ConditionExpr__Group__1__Impl ;
     public final void rule__ConditionExpr__Group__1() throws RecognitionException {
 
@@ -7164,7 +7395,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__ConditionExpr__Group__1__Impl_in_rule__ConditionExpr__Group__15689);
             rule__ConditionExpr__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7181,10 +7413,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__ConditionExpr__Group__1
+    // $ANTLR end "rule__ConditionExpr__Group__1"
 
 
-    // $ANTLR start rule__ConditionExpr__Group__1__Impl
+    // $ANTLR start "rule__ConditionExpr__Group__1__Impl"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2847:1: rule__ConditionExpr__Group__1__Impl : ( ( rule__ConditionExpr__ExprAssignment_1 ) ) ;
     public final void rule__ConditionExpr__Group__1__Impl() throws RecognitionException {
 
@@ -7203,7 +7435,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
             {
             pushFollow(FOLLOW_rule__ConditionExpr__ExprAssignment_1_in_rule__ConditionExpr__Group__1__Impl5716);
             rule__ConditionExpr__ExprAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7227,10 +7460,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__ConditionExpr__Group__1__Impl
+    // $ANTLR end "rule__ConditionExpr__Group__1__Impl"
 
 
-    // $ANTLR start rule__Program__InitSectionAssignment_1
+    // $ANTLR start "rule__Program__InitSectionAssignment_1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2869:1: rule__Program__InitSectionAssignment_1 : ( ruleInitSection ) ;
     public final void rule__Program__InitSectionAssignment_1() throws RecognitionException {
 
@@ -7246,7 +7479,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getProgramAccess().getInitSectionInitSectionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_ruleInitSection_in_rule__Program__InitSectionAssignment_15755);
             ruleInitSection();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getProgramAccess().getInitSectionInitSectionParserRuleCall_1_0()); 
 
@@ -7267,10 +7501,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__InitSectionAssignment_1
+    // $ANTLR end "rule__Program__InitSectionAssignment_1"
 
 
-    // $ANTLR start rule__Program__UserDefinedCommandsAssignment_2
+    // $ANTLR start "rule__Program__UserDefinedCommandsAssignment_2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2884:1: rule__Program__UserDefinedCommandsAssignment_2 : ( ruleUserDefinedCommand ) ;
     public final void rule__Program__UserDefinedCommandsAssignment_2() throws RecognitionException {
 
@@ -7286,7 +7520,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getProgramAccess().getUserDefinedCommandsUserDefinedCommandParserRuleCall_2_0()); 
             pushFollow(FOLLOW_ruleUserDefinedCommand_in_rule__Program__UserDefinedCommandsAssignment_25786);
             ruleUserDefinedCommand();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getProgramAccess().getUserDefinedCommandsUserDefinedCommandParserRuleCall_2_0()); 
 
@@ -7307,10 +7542,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__UserDefinedCommandsAssignment_2
+    // $ANTLR end "rule__Program__UserDefinedCommandsAssignment_2"
 
 
-    // $ANTLR start rule__Program__MainAssignment_3
+    // $ANTLR start "rule__Program__MainAssignment_3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2899:1: rule__Program__MainAssignment_3 : ( ruleMain ) ;
     public final void rule__Program__MainAssignment_3() throws RecognitionException {
 
@@ -7326,7 +7561,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getProgramAccess().getMainMainParserRuleCall_3_0()); 
             pushFollow(FOLLOW_ruleMain_in_rule__Program__MainAssignment_35817);
             ruleMain();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getProgramAccess().getMainMainParserRuleCall_3_0()); 
 
@@ -7347,10 +7583,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Program__MainAssignment_3
+    // $ANTLR end "rule__Program__MainAssignment_3"
 
 
-    // $ANTLR start rule__InitSection__InitCommandsAssignment_1
+    // $ANTLR start "rule__InitSection__InitCommandsAssignment_1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2914:1: rule__InitSection__InitCommandsAssignment_1 : ( ruleInitCommand ) ;
     public final void rule__InitSection__InitCommandsAssignment_1() throws RecognitionException {
 
@@ -7366,7 +7602,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getInitSectionAccess().getInitCommandsInitCommandParserRuleCall_1_0()); 
             pushFollow(FOLLOW_ruleInitCommand_in_rule__InitSection__InitCommandsAssignment_15848);
             ruleInitCommand();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getInitSectionAccess().getInitCommandsInitCommandParserRuleCall_1_0()); 
 
@@ -7387,10 +7624,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitSection__InitCommandsAssignment_1
+    // $ANTLR end "rule__InitSection__InitCommandsAssignment_1"
 
 
-    // $ANTLR start rule__InitPositionCommand__XAssignment_1
+    // $ANTLR start "rule__InitPositionCommand__XAssignment_1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2929:1: rule__InitPositionCommand__XAssignment_1 : ( RULE_INT ) ;
     public final void rule__InitPositionCommand__XAssignment_1() throws RecognitionException {
 
@@ -7424,10 +7661,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__XAssignment_1
+    // $ANTLR end "rule__InitPositionCommand__XAssignment_1"
 
 
-    // $ANTLR start rule__InitPositionCommand__YAssignment_3
+    // $ANTLR start "rule__InitPositionCommand__YAssignment_3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2944:1: rule__InitPositionCommand__YAssignment_3 : ( RULE_INT ) ;
     public final void rule__InitPositionCommand__YAssignment_3() throws RecognitionException {
 
@@ -7461,10 +7698,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitPositionCommand__YAssignment_3
+    // $ANTLR end "rule__InitPositionCommand__YAssignment_3"
 
 
-    // $ANTLR start rule__InitHeadingCommand__HeadingAssignment_1
+    // $ANTLR start "rule__InitHeadingCommand__HeadingAssignment_1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2959:1: rule__InitHeadingCommand__HeadingAssignment_1 : ( ruleHeadingKind ) ;
     public final void rule__InitHeadingCommand__HeadingAssignment_1() throws RecognitionException {
 
@@ -7480,7 +7717,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getInitHeadingCommandAccess().getHeadingHeadingKindEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_ruleHeadingKind_in_rule__InitHeadingCommand__HeadingAssignment_15941);
             ruleHeadingKind();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getInitHeadingCommandAccess().getHeadingHeadingKindEnumRuleCall_1_0()); 
 
@@ -7501,10 +7739,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitHeadingCommand__HeadingAssignment_1
+    // $ANTLR end "rule__InitHeadingCommand__HeadingAssignment_1"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__WidthAssignment_1
+    // $ANTLR start "rule__InitBoardSizeCommand__WidthAssignment_1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2974:1: rule__InitBoardSizeCommand__WidthAssignment_1 : ( RULE_INT ) ;
     public final void rule__InitBoardSizeCommand__WidthAssignment_1() throws RecognitionException {
 
@@ -7538,10 +7776,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__WidthAssignment_1
+    // $ANTLR end "rule__InitBoardSizeCommand__WidthAssignment_1"
 
 
-    // $ANTLR start rule__InitBoardSizeCommand__HeightAssignment_3
+    // $ANTLR start "rule__InitBoardSizeCommand__HeightAssignment_3"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:2989:1: rule__InitBoardSizeCommand__HeightAssignment_3 : ( RULE_INT ) ;
     public final void rule__InitBoardSizeCommand__HeightAssignment_3() throws RecognitionException {
 
@@ -7575,10 +7813,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__InitBoardSizeCommand__HeightAssignment_3
+    // $ANTLR end "rule__InitBoardSizeCommand__HeightAssignment_3"
 
 
-    // $ANTLR start rule__UserDefinedCommand__DocAssignment_0
+    // $ANTLR start "rule__UserDefinedCommand__DocAssignment_0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3004:1: rule__UserDefinedCommand__DocAssignment_0 : ( ruleDocumentationComment ) ;
     public final void rule__UserDefinedCommand__DocAssignment_0() throws RecognitionException {
 
@@ -7594,7 +7832,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getUserDefinedCommandAccess().getDocDocumentationCommentParserRuleCall_0_0()); 
             pushFollow(FOLLOW_ruleDocumentationComment_in_rule__UserDefinedCommand__DocAssignment_06034);
             ruleDocumentationComment();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getUserDefinedCommandAccess().getDocDocumentationCommentParserRuleCall_0_0()); 
 
@@ -7615,10 +7854,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__DocAssignment_0
+    // $ANTLR end "rule__UserDefinedCommand__DocAssignment_0"
 
 
-    // $ANTLR start rule__UserDefinedCommand__NameAssignment_2
+    // $ANTLR start "rule__UserDefinedCommand__NameAssignment_2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3019:1: rule__UserDefinedCommand__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__UserDefinedCommand__NameAssignment_2() throws RecognitionException {
 
@@ -7652,10 +7891,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__NameAssignment_2
+    // $ANTLR end "rule__UserDefinedCommand__NameAssignment_2"
 
 
-    // $ANTLR start rule__UserDefinedCommand__StatementsAssignment_5
+    // $ANTLR start "rule__UserDefinedCommand__StatementsAssignment_5"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3034:1: rule__UserDefinedCommand__StatementsAssignment_5 : ( ruleStatement ) ;
     public final void rule__UserDefinedCommand__StatementsAssignment_5() throws RecognitionException {
 
@@ -7671,7 +7910,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getUserDefinedCommandAccess().getStatementsStatementParserRuleCall_5_0()); 
             pushFollow(FOLLOW_ruleStatement_in_rule__UserDefinedCommand__StatementsAssignment_56096);
             ruleStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getUserDefinedCommandAccess().getStatementsStatementParserRuleCall_5_0()); 
 
@@ -7692,10 +7932,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommand__StatementsAssignment_5
+    // $ANTLR end "rule__UserDefinedCommand__StatementsAssignment_5"
 
 
-    // $ANTLR start rule__Main__StatementsAssignment_2
+    // $ANTLR start "rule__Main__StatementsAssignment_2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3049:1: rule__Main__StatementsAssignment_2 : ( ruleStatement ) ;
     public final void rule__Main__StatementsAssignment_2() throws RecognitionException {
 
@@ -7711,7 +7951,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getMainAccess().getStatementsStatementParserRuleCall_2_0()); 
             pushFollow(FOLLOW_ruleStatement_in_rule__Main__StatementsAssignment_26127);
             ruleStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getMainAccess().getStatementsStatementParserRuleCall_2_0()); 
 
@@ -7732,10 +7973,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__Main__StatementsAssignment_2
+    // $ANTLR end "rule__Main__StatementsAssignment_2"
 
 
-    // $ANTLR start rule__UserDefinedCommandStatement__CommandAssignment_0
+    // $ANTLR start "rule__UserDefinedCommandStatement__CommandAssignment_0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3064:1: rule__UserDefinedCommandStatement__CommandAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__UserDefinedCommandStatement__CommandAssignment_0() throws RecognitionException {
 
@@ -7777,10 +8018,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__UserDefinedCommandStatement__CommandAssignment_0
+    // $ANTLR end "rule__UserDefinedCommandStatement__CommandAssignment_0"
 
 
-    // $ANTLR start rule__IfStatement__ConditionAssignment_2
+    // $ANTLR start "rule__IfStatement__ConditionAssignment_2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3083:1: rule__IfStatement__ConditionAssignment_2 : ( ruleConditionExpr ) ;
     public final void rule__IfStatement__ConditionAssignment_2() throws RecognitionException {
 
@@ -7796,7 +8037,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getIfStatementAccess().getConditionConditionExprParserRuleCall_2_0()); 
             pushFollow(FOLLOW_ruleConditionExpr_in_rule__IfStatement__ConditionAssignment_26197);
             ruleConditionExpr();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getIfStatementAccess().getConditionConditionExprParserRuleCall_2_0()); 
 
@@ -7817,10 +8059,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__ConditionAssignment_2
+    // $ANTLR end "rule__IfStatement__ConditionAssignment_2"
 
 
-    // $ANTLR start rule__IfStatement__StatementsAssignment_5
+    // $ANTLR start "rule__IfStatement__StatementsAssignment_5"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3098:1: rule__IfStatement__StatementsAssignment_5 : ( ruleStatement ) ;
     public final void rule__IfStatement__StatementsAssignment_5() throws RecognitionException {
 
@@ -7836,7 +8078,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getIfStatementAccess().getStatementsStatementParserRuleCall_5_0()); 
             pushFollow(FOLLOW_ruleStatement_in_rule__IfStatement__StatementsAssignment_56228);
             ruleStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getIfStatementAccess().getStatementsStatementParserRuleCall_5_0()); 
 
@@ -7857,10 +8100,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__StatementsAssignment_5
+    // $ANTLR end "rule__IfStatement__StatementsAssignment_5"
 
 
-    // $ANTLR start rule__IfStatement__ElseStatementsAssignment_7_2
+    // $ANTLR start "rule__IfStatement__ElseStatementsAssignment_7_2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3113:1: rule__IfStatement__ElseStatementsAssignment_7_2 : ( ruleStatement ) ;
     public final void rule__IfStatement__ElseStatementsAssignment_7_2() throws RecognitionException {
 
@@ -7876,7 +8119,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getIfStatementAccess().getElseStatementsStatementParserRuleCall_7_2_0()); 
             pushFollow(FOLLOW_ruleStatement_in_rule__IfStatement__ElseStatementsAssignment_7_26259);
             ruleStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getIfStatementAccess().getElseStatementsStatementParserRuleCall_7_2_0()); 
 
@@ -7897,10 +8141,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IfStatement__ElseStatementsAssignment_7_2
+    // $ANTLR end "rule__IfStatement__ElseStatementsAssignment_7_2"
 
 
-    // $ANTLR start rule__IterateStatement__TimesAssignment_1
+    // $ANTLR start "rule__IterateStatement__TimesAssignment_1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3128:1: rule__IterateStatement__TimesAssignment_1 : ( RULE_INT ) ;
     public final void rule__IterateStatement__TimesAssignment_1() throws RecognitionException {
 
@@ -7934,10 +8178,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__TimesAssignment_1
+    // $ANTLR end "rule__IterateStatement__TimesAssignment_1"
 
 
-    // $ANTLR start rule__IterateStatement__StatementsAssignment_4
+    // $ANTLR start "rule__IterateStatement__StatementsAssignment_4"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3143:1: rule__IterateStatement__StatementsAssignment_4 : ( ruleStatement ) ;
     public final void rule__IterateStatement__StatementsAssignment_4() throws RecognitionException {
 
@@ -7953,7 +8197,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getIterateStatementAccess().getStatementsStatementParserRuleCall_4_0()); 
             pushFollow(FOLLOW_ruleStatement_in_rule__IterateStatement__StatementsAssignment_46321);
             ruleStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getIterateStatementAccess().getStatementsStatementParserRuleCall_4_0()); 
 
@@ -7974,10 +8219,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__IterateStatement__StatementsAssignment_4
+    // $ANTLR end "rule__IterateStatement__StatementsAssignment_4"
 
 
-    // $ANTLR start rule__WhileStatement__ConditionAssignment_2
+    // $ANTLR start "rule__WhileStatement__ConditionAssignment_2"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3158:1: rule__WhileStatement__ConditionAssignment_2 : ( ruleConditionExpr ) ;
     public final void rule__WhileStatement__ConditionAssignment_2() throws RecognitionException {
 
@@ -7993,7 +8238,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getWhileStatementAccess().getConditionConditionExprParserRuleCall_2_0()); 
             pushFollow(FOLLOW_ruleConditionExpr_in_rule__WhileStatement__ConditionAssignment_26352);
             ruleConditionExpr();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getWhileStatementAccess().getConditionConditionExprParserRuleCall_2_0()); 
 
@@ -8014,10 +8260,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__ConditionAssignment_2
+    // $ANTLR end "rule__WhileStatement__ConditionAssignment_2"
 
 
-    // $ANTLR start rule__WhileStatement__StatementsAssignment_5
+    // $ANTLR start "rule__WhileStatement__StatementsAssignment_5"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3173:1: rule__WhileStatement__StatementsAssignment_5 : ( ruleStatement ) ;
     public final void rule__WhileStatement__StatementsAssignment_5() throws RecognitionException {
 
@@ -8033,7 +8279,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getWhileStatementAccess().getStatementsStatementParserRuleCall_5_0()); 
             pushFollow(FOLLOW_ruleStatement_in_rule__WhileStatement__StatementsAssignment_56383);
             ruleStatement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getWhileStatementAccess().getStatementsStatementParserRuleCall_5_0()); 
 
@@ -8054,10 +8301,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__WhileStatement__StatementsAssignment_5
+    // $ANTLR end "rule__WhileStatement__StatementsAssignment_5"
 
 
-    // $ANTLR start rule__DocumentationComment__TextAssignment_1
+    // $ANTLR start "rule__DocumentationComment__TextAssignment_1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3188:1: rule__DocumentationComment__TextAssignment_1 : ( RULE_STRING ) ;
     public final void rule__DocumentationComment__TextAssignment_1() throws RecognitionException {
 
@@ -8091,10 +8338,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__DocumentationComment__TextAssignment_1
+    // $ANTLR end "rule__DocumentationComment__TextAssignment_1"
 
 
-    // $ANTLR start rule__CommandStatement__KindAssignment_0
+    // $ANTLR start "rule__CommandStatement__KindAssignment_0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3203:1: rule__CommandStatement__KindAssignment_0 : ( ruleCommandKind ) ;
     public final void rule__CommandStatement__KindAssignment_0() throws RecognitionException {
 
@@ -8110,7 +8357,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getCommandStatementAccess().getKindCommandKindEnumRuleCall_0_0()); 
             pushFollow(FOLLOW_ruleCommandKind_in_rule__CommandStatement__KindAssignment_06445);
             ruleCommandKind();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCommandStatementAccess().getKindCommandKindEnumRuleCall_0_0()); 
 
@@ -8131,10 +8379,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__CommandStatement__KindAssignment_0
+    // $ANTLR end "rule__CommandStatement__KindAssignment_0"
 
 
-    // $ANTLR start rule__ConditionExpr__NegationAssignment_0
+    // $ANTLR start "rule__ConditionExpr__NegationAssignment_0"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3218:1: rule__ConditionExpr__NegationAssignment_0 : ( ( '!' ) ) ;
     public final void rule__ConditionExpr__NegationAssignment_0() throws RecognitionException {
 
@@ -8176,10 +8424,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__ConditionExpr__NegationAssignment_0
+    // $ANTLR end "rule__ConditionExpr__NegationAssignment_0"
 
 
-    // $ANTLR start rule__ConditionExpr__ExprAssignment_1
+    // $ANTLR start "rule__ConditionExpr__ExprAssignment_1"
     // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3241:1: rule__ConditionExpr__ExprAssignment_1 : ( ruleConditionKind ) ;
     public final void rule__ConditionExpr__ExprAssignment_1() throws RecognitionException {
 
@@ -8195,7 +8443,8 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
              before(grammarAccess.getConditionExprAccess().getExprConditionKindEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_ruleConditionKind_in_rule__ConditionExpr__ExprAssignment_16520);
             ruleConditionKind();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getConditionExprAccess().getExprConditionKindEnumRuleCall_1_0()); 
 
@@ -8216,7 +8465,9 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__ConditionExpr__ExprAssignment_1
+    // $ANTLR end "rule__ConditionExpr__ExprAssignment_1"
+
+    // Delegated rules
 
 
  
@@ -8295,10 +8546,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__Program__Group__0__Impl_in_rule__Program__Group__01599 = new BitSet(new long[]{0x0000801102000000L});
     public static final BitSet FOLLOW_rule__Program__Group__1_in_rule__Program__Group__01602 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_23_in_rule__Program__Group__0__Impl1630 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Program__Group__1__Impl_in_rule__Program__Group__11661 = new BitSet(new long[]{0x0000801100000000L});
+    public static final BitSet FOLLOW_rule__Program__Group__1__Impl_in_rule__Program__Group__11661 = new BitSet(new long[]{0x0000801102000000L});
     public static final BitSet FOLLOW_rule__Program__Group__2_in_rule__Program__Group__11664 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Program__InitSectionAssignment_1_in_rule__Program__Group__1__Impl1691 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Program__Group__2__Impl_in_rule__Program__Group__21722 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_rule__Program__Group__2__Impl_in_rule__Program__Group__21722 = new BitSet(new long[]{0x0000801102000000L});
     public static final BitSet FOLLOW_rule__Program__Group__3_in_rule__Program__Group__21725 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Program__UserDefinedCommandsAssignment_2_in_rule__Program__Group__2__Impl1752 = new BitSet(new long[]{0x0000800100000002L});
     public static final BitSet FOLLOW_rule__Program__Group__3__Impl_in_rule__Program__Group__31783 = new BitSet(new long[]{0x0000000001000000L});
@@ -8351,7 +8602,7 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__InitBoardSizeCommand__HeightAssignment_3_in_rule__InitBoardSizeCommand__Group__3__Impl2830 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__InitBoardSizeCommand__Group__4__Impl_in_rule__InitBoardSizeCommand__Group__42860 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_29_in_rule__InitBoardSizeCommand__Group__4__Impl2888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__0__Impl_in_rule__UserDefinedCommand__Group__02929 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__0__Impl_in_rule__UserDefinedCommand__Group__02929 = new BitSet(new long[]{0x0000800100000000L});
     public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__1_in_rule__UserDefinedCommand__Group__02932 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UserDefinedCommand__DocAssignment_0_in_rule__UserDefinedCommand__Group__0__Impl2959 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__1__Impl_in_rule__UserDefinedCommand__Group__12990 = new BitSet(new long[]{0x0000000000000020L});
@@ -8366,17 +8617,17 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__4__Impl_in_rule__UserDefinedCommand__Group__43174 = new BitSet(new long[]{0x00005048001F8020L});
     public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__5_in_rule__UserDefinedCommand__Group__43177 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_34_in_rule__UserDefinedCommand__Group__4__Impl3205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__5__Impl_in_rule__UserDefinedCommand__Group__53236 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__5__Impl_in_rule__UserDefinedCommand__Group__53236 = new BitSet(new long[]{0x00005048001F8020L});
     public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__6_in_rule__UserDefinedCommand__Group__53239 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UserDefinedCommand__StatementsAssignment_5_in_rule__UserDefinedCommand__Group__5__Impl3266 = new BitSet(new long[]{0x00005040001F8022L});
     public static final BitSet FOLLOW_rule__UserDefinedCommand__Group__6__Impl_in_rule__UserDefinedCommand__Group__63297 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_35_in_rule__UserDefinedCommand__Group__6__Impl3325 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Main__Group__0__Impl_in_rule__Main__Group__03370 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_rule__Main__Group__0__Impl_in_rule__Main__Group__03370 = new BitSet(new long[]{0x0000801102000000L});
     public static final BitSet FOLLOW_rule__Main__Group__1_in_rule__Main__Group__03373 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Main__Group__1__Impl_in_rule__Main__Group__13431 = new BitSet(new long[]{0x00005060001F8020L});
     public static final BitSet FOLLOW_rule__Main__Group__2_in_rule__Main__Group__13434 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_36_in_rule__Main__Group__1__Impl3462 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Main__Group__2__Impl_in_rule__Main__Group__23493 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_rule__Main__Group__2__Impl_in_rule__Main__Group__23493 = new BitSet(new long[]{0x00005060001F8020L});
     public static final BitSet FOLLOW_rule__Main__Group__3_in_rule__Main__Group__23496 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Main__StatementsAssignment_2_in_rule__Main__Group__2__Impl3523 = new BitSet(new long[]{0x00005040001F8022L});
     public static final BitSet FOLLOW_rule__Main__Group__3__Impl_in_rule__Main__Group__33554 = new BitSet(new long[]{0x0000000000000002L});
@@ -8401,10 +8652,10 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__IfStatement__Group__4__Impl_in_rule__IfStatement__Group__43990 = new BitSet(new long[]{0x00005440001F8020L});
     public static final BitSet FOLLOW_rule__IfStatement__Group__5_in_rule__IfStatement__Group__43993 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_41_in_rule__IfStatement__Group__4__Impl4021 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__IfStatement__Group__5__Impl_in_rule__IfStatement__Group__54052 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_rule__IfStatement__Group__5__Impl_in_rule__IfStatement__Group__54052 = new BitSet(new long[]{0x00005440001F8020L});
     public static final BitSet FOLLOW_rule__IfStatement__Group__6_in_rule__IfStatement__Group__54055 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__IfStatement__StatementsAssignment_5_in_rule__IfStatement__Group__5__Impl4082 = new BitSet(new long[]{0x00005040001F8022L});
-    public static final BitSet FOLLOW_rule__IfStatement__Group__6__Impl_in_rule__IfStatement__Group__64113 = new BitSet(new long[]{0x0000080000000002L});
+    public static final BitSet FOLLOW_rule__IfStatement__Group__6__Impl_in_rule__IfStatement__Group__64113 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__IfStatement__Group__7_in_rule__IfStatement__Group__64116 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_42_in_rule__IfStatement__Group__6__Impl4144 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__IfStatement__Group__7__Impl_in_rule__IfStatement__Group__74175 = new BitSet(new long[]{0x0000000000000002L});
@@ -8415,7 +8666,7 @@ public class InternalKarelParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__IfStatement__Group_7__1__Impl_in_rule__IfStatement__Group_7__14311 = new BitSet(new long[]{0x00005440001F8020L});
     public static final BitSet FOLLOW_rule__IfStatement__Group_7__2_in_rule__IfStatement__Group_7__14314 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_41_in_rule__IfStatement__Group_7__1__Impl4342 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__IfStatement__Group_7__2__Impl_in_rule__IfStatement__Group_7__24373 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_rule__IfStatement__Group_7__2__Impl_in_rule__IfStatement__Group_7__24373 = new BitSet(new long[]{0x00005440001F8020L});
     public static final BitSet FOLLOW_rule__IfStatement__Group_7__3_in_rule__IfStatement__Group_7__24376 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__IfStatement__ElseStatementsAssignment_7_2_in_rule__IfStatement__Group_7__2__Impl4403 = new BitSet(new long[]{0x00005040001F8022L});
     public static final BitSet FOLLOW_rule__IfStatement__Group_7__3__Impl_in_rule__IfStatement__Group_7__34434 = new BitSet(new long[]{0x0000000000000002L});

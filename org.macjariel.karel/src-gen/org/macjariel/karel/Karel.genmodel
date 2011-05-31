@@ -7,79 +7,79 @@
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" complianceLevel="5.0"
     copyrightFields="false" editPluginID="org.macjariel.karel.edit" editorPluginID="org.macjariel.karel.editor">
   <genPackages prefix="Karel" basePackage="org.macjariel.karel" disposableProviderFactory="true"
-      ecorePackage="Karel.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Karel.ecore#//HeadingKind">
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//HeadingKind/NORTH"/>
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//HeadingKind/SOUTH"/>
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//HeadingKind/WEST"/>
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//HeadingKind/EAST"/>
+      ecorePackage="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//HeadingKind">
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//HeadingKind/NORTH"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//HeadingKind/SOUTH"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//HeadingKind/WEST"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//HeadingKind/EAST"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Karel.ecore#//CommandKind">
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//CommandKind/MOVE"/>
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//CommandKind/TURNLEFT"/>
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//CommandKind/TURNON"/>
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//CommandKind/TURNOFF"/>
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//CommandKind/PUT"/>
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//CommandKind/GET"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandKind">
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandKind/MOVE"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandKind/TURNLEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandKind/TURNON"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandKind/TURNOFF"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandKind/PUT"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandKind/GET"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Karel.ecore#//ConditionKind">
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//ConditionKind/WALL_AHEAD"/>
-      <genEnumLiterals ecoreEnumLiteral="Karel.ecore#//ConditionKind/MARKED_PLACE"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//ConditionKind">
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//ConditionKind/WALL_AHEAD"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//ConditionKind/MARKED_PLACE"/>
     </genEnums>
-    <genClasses ecoreClass="Karel.ecore#//Program">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//Program/initSection"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//Program/userDefinedCommands"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//Program/main"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Program/initSection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Program/userDefinedCommands"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Program/main"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//InitSection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//InitSection/initCommands"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitSection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitSection/initCommands"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//InitCommand"/>
-    <genClasses ecoreClass="Karel.ecore#//InitPositionCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//InitPositionCommand/x"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//InitPositionCommand/y"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitCommand"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitPositionCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitPositionCommand/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitPositionCommand/y"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//InitHeadingCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//InitHeadingCommand/heading"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitHeadingCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitHeadingCommand/heading"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//InitBoardSizeCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//InitBoardSizeCommand/width"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//InitBoardSizeCommand/height"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitBoardSizeCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitBoardSizeCommand/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitBoardSizeCommand/height"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//UserDefinedCommand">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//UserDefinedCommand/doc"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//UserDefinedCommand/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//UserDefinedCommand/statements"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommand/doc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommand/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommand/statements"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//Main">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//Main/statements"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Main">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Main/statements"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//Statement"/>
-    <genClasses ecoreClass="Karel.ecore#//UserDefinedCommandStatement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Karel.ecore#//UserDefinedCommandStatement/command"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommandStatement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommandStatement/command"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//IfStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//IfStatement/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//IfStatement/statements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//IfStatement/elseStatements"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//IfStatement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//IfStatement/statements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//IfStatement/elseStatements"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//IterateStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//IterateStatement/times"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//IterateStatement/statements"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//IterateStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//IterateStatement/times"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//IterateStatement/statements"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//WhileStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//WhileStatement/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Karel.ecore#//WhileStatement/statements"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//WhileStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//WhileStatement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//WhileStatement/statements"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//DocumentationComment">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//DocumentationComment/text"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//DocumentationComment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//DocumentationComment/text"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//CommandStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//CommandStatement/kind"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandStatement/kind"/>
     </genClasses>
-    <genClasses ecoreClass="Karel.ecore#//ConditionExpr">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//ConditionExpr/negation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Karel.ecore#//ConditionExpr/expr"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//ConditionExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//ConditionExpr/negation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//ConditionExpr/expr"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

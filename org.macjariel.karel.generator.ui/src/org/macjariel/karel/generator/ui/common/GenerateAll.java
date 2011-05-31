@@ -114,7 +114,7 @@ public class GenerateAll {
 	 * @throws IOException
 	 * @generated
 	 */
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings({ "unused" })
 	private URI getTemplateURI(String bundleID, IPath relativePath) throws IOException {
 		Bundle bundle = Platform.getBundle(bundleID);
 		if (bundle == null) {
