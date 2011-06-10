@@ -5,8 +5,9 @@
 		[generateEclipsePlugin(projectName) /]	
 [/template]
 
+[comment TODO /]
 [template public generateEclipsePlugin(projectName : String)]
-	[invoke('org.macjariel.karel.generator.services.ProjectService', 'createProject(java.lang.String)', Sequence{projectName}) /]
+	[comment invoke('org.macjariel.karel.generator.services.ProjectService', 'createProject(java.lang.String)', Sequence{projectName}) /]
 	[manifest(projectName, projectName, projectName) /]	
 [/template]
 
