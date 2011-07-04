@@ -14,7 +14,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.acceleo.model,
  org.eclipse.acceleo.engine,
  org.macjariel.karel.generator,
- org.macjariel.karel.core
+ org.macjariel.karel.core;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true

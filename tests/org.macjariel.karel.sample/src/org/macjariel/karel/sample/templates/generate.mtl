@@ -5,5 +5,5 @@
 
 [template public generate(aProgram : Program)]
 	[comment @main /]
-	[aProgram.generateProgram() /]	
+	[aProgram.generateProgram() /]
 [/template]

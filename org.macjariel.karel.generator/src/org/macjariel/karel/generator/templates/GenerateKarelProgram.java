@@ -310,6 +310,9 @@ public class GenerateKarelProgram extends AbstractAcceleoGenerator {
 	@Override
 	public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
+        if (!isInWorkspace(org.macjariel.karel.karel.KarelPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.macjariel.karel.karel.KarelPackage.eINSTANCE.getNsURI(), org.macjariel.karel.karel.KarelPackage.eINSTANCE);
+        }
         
         /*
          * TODO If you need additional package registrations, you can register them here. The following line
@@ -325,7 +328,7 @@ public class GenerateKarelProgram extends AbstractAcceleoGenerator {
          *     resourceSet.getPackageRegistry().put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
          * } else {
          *     // The package registration that will be used if the metamodel is not deployed in a plugin.
-         *     // This should be used if your metamodel is in your workspace.
+         *     // This should be used if your metamodel is in your workspace and if you are using binary resource serialization.
          *     resourceSet.getPackageRegistry().put("/myproject/myfolder/mysubfolder/MyUMLMetamodel.ecore", UMLPackage.eINSTANCE);
          * }
          */
