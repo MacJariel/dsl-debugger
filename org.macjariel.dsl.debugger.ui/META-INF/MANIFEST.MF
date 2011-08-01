@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DSL Debugger UI
+Bundle-SymbolicName: org.macjariel.dsl.debugger.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.macjariel.dsl.debugger.ui.DSLDebuggerUIPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.debug.ui;bundle-version="3.7.0",
+ org.eclipse.jdt.debug.ui;bundle-version="3.6.0"
+Comment: TODO: Remove org.eclipse.jdt.debug.ui as soon as it is not necessary.
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.ui.dialogs,
+ org.macjariel.dsl.debugger,
+ org.macjariel.dsl.debugger.launcher

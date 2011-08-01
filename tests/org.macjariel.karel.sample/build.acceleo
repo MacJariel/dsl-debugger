@@ -17,7 +17,7 @@
     <target name="post.compile.@dot">
         <acceleoCompiler 
             sourceFolder="${target.folder}" 
-            dependencies=""
+            dependencies="${target.folder}/../../org.macjariel.karel.generator;"
             binaryResource="true">
         </acceleoCompiler>
     </target>    
