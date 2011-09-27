@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.macjariel.karel.karel;
 
@@ -27,7 +26,6 @@ public interface InitHeadingCommand extends InitCommand
 {
   /**
    * Returns the value of the '<em><b>Heading</b></em>' attribute.
-   * The literals are from the enumeration {@link org.macjariel.karel.karel.HeadingKind}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Heading</em>' attribute isn't clear,
@@ -35,23 +33,21 @@ public interface InitHeadingCommand extends InitCommand
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Heading</em>' attribute.
-   * @see org.macjariel.karel.karel.HeadingKind
-   * @see #setHeading(HeadingKind)
+   * @see #setHeading(String)
    * @see org.macjariel.karel.karel.KarelPackage#getInitHeadingCommand_Heading()
    * @model
    * @generated
    */
-  HeadingKind getHeading();
+  String getHeading();
 
   /**
    * Sets the value of the '{@link org.macjariel.karel.karel.InitHeadingCommand#getHeading <em>Heading</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Heading</em>' attribute.
-   * @see org.macjariel.karel.karel.HeadingKind
    * @see #getHeading()
    * @generated
    */
-  void setHeading(HeadingKind value);
+  void setHeading(String value);
 
 } // InitHeadingCommand

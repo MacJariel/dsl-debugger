@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.macjariel.karel.karel;
 
@@ -55,7 +54,6 @@ public interface ConditionExpr extends EObject
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' attribute.
-   * The literals are from the enumeration {@link org.macjariel.karel.karel.ConditionKind}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Expr</em>' attribute isn't clear,
@@ -63,23 +61,21 @@ public interface ConditionExpr extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' attribute.
-   * @see org.macjariel.karel.karel.ConditionKind
-   * @see #setExpr(ConditionKind)
+   * @see #setExpr(String)
    * @see org.macjariel.karel.karel.KarelPackage#getConditionExpr_Expr()
    * @model
    * @generated
    */
-  ConditionKind getExpr();
+  String getExpr();
 
   /**
    * Sets the value of the '{@link org.macjariel.karel.karel.ConditionExpr#getExpr <em>Expr</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Expr</em>' attribute.
-   * @see org.macjariel.karel.karel.ConditionKind
    * @see #getExpr()
    * @generated
    */
-  void setExpr(ConditionKind value);
+  void setExpr(String value);
 
 } // ConditionExpr

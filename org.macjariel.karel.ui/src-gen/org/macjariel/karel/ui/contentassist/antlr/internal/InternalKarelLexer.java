@@ -868,10 +868,10 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3257:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3257:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3296:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3296:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3257:11: ( '^' )?
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3296:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -880,7 +880,7 @@ public class InternalKarelLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3257:11: '^'
+                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3296:11: '^'
                     {
                     match('^'); 
 
@@ -898,7 +898,7 @@ public class InternalKarelLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3257:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3296:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -947,10 +947,10 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3259:10: ( ( '0' .. '9' )+ )
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3259:12: ( '0' .. '9' )+
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3298:10: ( ( '0' .. '9' )+ )
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3298:12: ( '0' .. '9' )+
             {
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3259:12: ( '0' .. '9' )+
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3298:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -964,7 +964,7 @@ public class InternalKarelLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3259:13: '0' .. '9'
+            	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3298:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -996,10 +996,10 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1017,10 +1017,10 @@ public class InternalKarelLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1036,7 +1036,7 @@ public class InternalKarelLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1052,7 +1052,7 @@ public class InternalKarelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1077,10 +1077,10 @@ public class InternalKarelLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1096,7 +1096,7 @@ public class InternalKarelLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1112,7 +1112,7 @@ public class InternalKarelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3261:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3300:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1155,12 +1155,12 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3263:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3263:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3302:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3302:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3263:24: ( options {greedy=false; } : . )*
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3302:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1185,7 +1185,7 @@ public class InternalKarelLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3263:52: .
+            	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3302:52: .
             	    {
             	    matchAny(); 
 
@@ -1215,12 +1215,12 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3265:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3265:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3304:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3304:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3265:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3304:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1233,7 +1233,7 @@ public class InternalKarelLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3265:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3304:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1253,7 +1253,7 @@ public class InternalKarelLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3265:40: ( ( '\\r' )? '\\n' )?
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3304:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1262,9 +1262,9 @@ public class InternalKarelLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3265:41: ( '\\r' )? '\\n'
+                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3304:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3265:41: ( '\\r' )?
+                    // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3304:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1273,7 +1273,7 @@ public class InternalKarelLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3265:41: '\\r'
+                            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3304:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1305,10 +1305,10 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3267:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3267:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3306:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3306:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3267:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3306:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1362,8 +1362,8 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3269:16: ( . )
-            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3269:18: .
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3308:16: ( . )
+            // ../org.macjariel.karel.ui/src-gen/org/macjariel/karel/ui/contentassist/antlr/internal/InternalKarel.g:3308:18: .
             {
             matchAny(); 
 
@@ -1717,20 +1717,20 @@ public class InternalKarelLexer extends Lexer {
     static final String DFA12_eofS =
         "\u00b2\uffff";
     static final String DFA12_minS =
-        "\1\0\2\117\2\101\1\157\1\165\1\157\1\145\1\101\1\105\2\uffff\1"+
-        "\145\1\157\1\105\1\123\1\106\4\uffff\1\111\1\50\1\uffff\1\101\2"+
-        "\uffff\2\0\1\52\2\uffff\1\122\1\uffff\1\125\1\123\1\114\1\111\1"+
-        "\123\1\104\1\123\1\166\1\162\1\164\1\163\1\164\1\122\1\107\2\uffff"+
-        "\2\141\1\106\2\60\1\105\4\uffff\1\115\7\uffff\3\124\2\114\1\124"+
-        "\1\55\1\105\1\145\1\156\1\60\1\151\1\60\1\113\1\111\1\144\1\162"+
-        "\1\111\2\uffff\1\122\1\105\2\110\1\60\1\137\1\105\1\60\1\111\1\uffff"+
-        "\3\60\1\uffff\1\164\1\uffff\1\105\1\116\1\151\1\144\1\116\1\101"+
-        "\1\123\2\60\1\uffff\1\101\1\60\6\uffff\1\146\1\uffff\1\151\1\104"+
-        "\1\55\1\156\1\123\1\105\1\124\1\60\2\uffff\1\110\1\uffff\1\60\1"+
-        "\146\1\157\1\137\1\111\1\uffff\1\147\1\151\1\40\1\105\1\uffff\1"+
-        "\105\1\uffff\1\60\1\156\1\120\3\uffff\1\60\1\172\1\uffff\1\60\1"+
-        "\101\1\uffff\1\60\1\114\1\uffff\1\145\1\uffff\1\104\1\uffff\1\101"+
-        "\2\60\1\103\2\uffff\1\105\1\60\1\uffff";
+        "\1\0\2\117\2\101\1\157\1\165\1\157\1\145\1\101\1\105\2\uffff\1\145"+
+        "\1\157\1\105\1\123\1\106\4\uffff\1\111\1\50\1\uffff\1\101\2\uffff"+
+        "\2\0\1\52\2\uffff\1\122\1\uffff\1\125\1\123\1\114\1\111\1\123\1"+
+        "\104\1\123\1\166\1\162\1\164\1\163\1\164\1\122\1\107\2\uffff\2\141"+
+        "\1\106\2\60\1\105\4\uffff\1\115\7\uffff\3\124\2\114\1\124\1\55\1"+
+        "\105\1\145\1\156\1\60\1\151\1\60\1\113\1\111\1\144\1\162\1\111\2"+
+        "\uffff\1\122\1\105\2\110\1\60\1\137\1\105\1\60\1\111\1\uffff\3\60"+
+        "\1\uffff\1\164\1\uffff\1\105\1\116\1\151\1\144\1\116\1\101\1\123"+
+        "\2\60\1\uffff\1\101\1\60\6\uffff\1\146\1\uffff\1\151\1\104\1\55"+
+        "\1\156\1\123\1\105\1\124\1\60\2\uffff\1\110\1\uffff\1\60\1\146\1"+
+        "\157\1\137\1\111\1\uffff\1\147\1\151\1\40\1\105\1\uffff\1\105\1"+
+        "\uffff\1\60\1\156\1\120\3\uffff\1\60\1\172\1\uffff\1\60\1\101\1"+
+        "\uffff\1\60\1\114\1\uffff\1\145\1\uffff\1\104\1\uffff\1\101\2\60"+
+        "\1\103\2\uffff\1\105\1\60\1\uffff";
     static final String DFA12_maxS =
         "\1\uffff\2\117\1\110\1\116\1\157\2\165\1\145\1\101\1\105\2\uffff"+
         "\1\145\1\157\1\105\1\123\1\124\4\uffff\1\111\1\50\1\uffff\1\172"+
@@ -1747,14 +1747,14 @@ public class InternalKarelLexer extends Lexer {
         "\1\172\1\101\1\uffff\1\172\1\114\1\uffff\1\145\1\uffff\1\104\1\uffff"+
         "\1\101\2\172\1\103\2\uffff\1\105\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\13\uffff\1\22\1\23\5\uffff\1\35\1\36\1\37\1\40\2\uffff\1\46\1"+
-        "\uffff\1\47\1\50\3\uffff\1\54\1\55\1\uffff\1\47\16\uffff\1\22\1"+
-        "\23\6\uffff\1\35\1\36\1\37\1\40\1\uffff\1\45\1\46\1\50\1\51\1\52"+
-        "\1\53\1\54\22\uffff\1\27\1\34\11\uffff\1\31\3\uffff\1\11\1\uffff"+
-        "\1\12\11\uffff\1\3\2\uffff\1\4\1\16\1\20\1\33\1\41\1\5\1\uffff\1"+
-        "\6\10\uffff\1\1\1\2\1\uffff\1\44\5\uffff\1\30\4\uffff\1\43\1\uffff"+
-        "\1\7\3\uffff\1\15\1\17\1\32\2\uffff\1\26\2\uffff\1\10\2\uffff\1"+
-        "\24\1\uffff\1\42\1\uffff\1\21\4\uffff\1\25\1\13\2\uffff\1\14";
+        "\13\uffff\1\22\1\23\5\uffff\1\35\1\36\1\37\1\40\2\uffff\1\46\1\uffff"+
+        "\1\47\1\50\3\uffff\1\54\1\55\1\uffff\1\47\16\uffff\1\22\1\23\6\uffff"+
+        "\1\35\1\36\1\37\1\40\1\uffff\1\45\1\46\1\50\1\51\1\52\1\53\1\54"+
+        "\22\uffff\1\27\1\34\11\uffff\1\31\3\uffff\1\11\1\uffff\1\12\11\uffff"+
+        "\1\3\2\uffff\1\4\1\16\1\20\1\33\1\41\1\5\1\uffff\1\6\10\uffff\1"+
+        "\1\1\2\1\uffff\1\44\5\uffff\1\30\4\uffff\1\43\1\uffff\1\7\3\uffff"+
+        "\1\15\1\17\1\32\2\uffff\1\26\2\uffff\1\10\2\uffff\1\24\1\uffff\1"+
+        "\42\1\uffff\1\21\4\uffff\1\25\1\13\2\uffff\1\14";
     static final String DFA12_specialS =
         "\1\0\33\uffff\1\1\1\2\u0094\uffff}>";
     static final String[] DFA12_transitionS = {
@@ -1890,8 +1890,8 @@ public class InternalKarelLexer extends Lexer {
             "",
             "\1\u008b",
             "\1\u008c",
-            "\1\u008d\2\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff"+
-            "\32\42",
+            "\1\u008d\2\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32"+
+            "\42",
             "\1\u008f",
             "\1\u0090",
             "\1\u0091",

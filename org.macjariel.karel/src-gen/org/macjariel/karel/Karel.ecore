@@ -23,17 +23,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitHeadingCommand" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitCommand">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heading" eType="ecore:EEnum platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//HeadingKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heading" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitBoardSizeCommand" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//InitCommand">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="HeadingKind">
-    <eLiterals name="NORTH" literal="NORTH"/>
-    <eLiterals name="SOUTH" value="1" literal="SOUTH"/>
-    <eLiterals name="WEST" value="2" literal="WEST"/>
-    <eLiterals name="EAST" value="3" literal="EAST"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserDefinedCommand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="doc" eType="ecore:EClass platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//DocumentationComment"
@@ -79,22 +73,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CommandStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="ecore:EEnum platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//CommandKind"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CommandKind">
-    <eLiterals name="MOVE" literal="move"/>
-    <eLiterals name="TURNLEFT" value="1" literal="turn"/>
-    <eLiterals name="TURNON" value="2" literal="turnOn"/>
-    <eLiterals name="TURNOFF" value="3" literal="turnOff"/>
-    <eLiterals name="PUT" value="4" literal="put"/>
-    <eLiterals name="GET" value="5" literal="get"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionExpr">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="negation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expr" eType="ecore:EEnum platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//ConditionKind"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ConditionKind">
-    <eLiterals name="WALL_AHEAD" literal="WALL_AHEAD"/>
-    <eLiterals name="MARKED_PLACE" value="1" literal="MARKED_PLACE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

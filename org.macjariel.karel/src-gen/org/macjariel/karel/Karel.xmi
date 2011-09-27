@@ -88,27 +88,15 @@
         <elements xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:EnumRule" name="HeadingKind">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EEnum" href="http://www.macjariel.org/karel/Karel#//HeadingKind"/>
+    <rules xsi:type="xtext:ParserRule" name="HeadingKind">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//HeadingKind/NORTH"/>
-          <literal value="NORTH"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//HeadingKind/SOUTH"/>
-          <literal value="SOUTH"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//HeadingKind/WEST"/>
-          <literal value="WEST"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//HeadingKind/EAST"/>
-          <literal value="EAST"/>
-        </elements>
+        <elements xsi:type="xtext:Keyword" value="NORTH"/>
+        <elements xsi:type="xtext:Keyword" value="SOUTH"/>
+        <elements xsi:type="xtext:Keyword" value="WEST"/>
+        <elements xsi:type="xtext:Keyword" value="EAST"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="UserDefinedCommand">
@@ -260,35 +248,17 @@
         <elements xsi:type="xtext:Keyword" value=";"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:EnumRule" name="CommandKind">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EEnum" href="http://www.macjariel.org/karel/Karel#//CommandKind"/>
+    <rules xsi:type="xtext:ParserRule" name="CommandKind">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//CommandKind/MOVE"/>
-          <literal value="move"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//CommandKind/TURNLEFT"/>
-          <literal value="turn"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//CommandKind/TURNON"/>
-          <literal value="turnOn"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//CommandKind/TURNOFF"/>
-          <literal value="turnOff"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//CommandKind/PUT"/>
-          <literal value="put"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//CommandKind/GET"/>
-          <literal value="get"/>
-        </elements>
+        <elements xsi:type="xtext:Keyword" value="move"/>
+        <elements xsi:type="xtext:Keyword" value="turn"/>
+        <elements xsi:type="xtext:Keyword" value="turnOn"/>
+        <elements xsi:type="xtext:Keyword" value="turnOff"/>
+        <elements xsi:type="xtext:Keyword" value="put"/>
+        <elements xsi:type="xtext:Keyword" value="get"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ConditionExpr">
@@ -304,19 +274,13 @@
         </elements>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:EnumRule" name="ConditionKind">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EEnum" href="http://www.macjariel.org/karel/Karel#//ConditionKind"/>
+    <rules xsi:type="xtext:ParserRule" name="ConditionKind">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//ConditionKind/WALL_AHEAD"/>
-          <literal value="WALL_AHEAD"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.macjariel.org/karel/Karel#//ConditionKind/MARKED_PLACE"/>
-          <literal value="MARKED_PLACE"/>
-        </elements>
+        <elements xsi:type="xtext:Keyword" value="WALL_AHEAD"/>
+        <elements xsi:type="xtext:Keyword" value="MARKED_PLACE"/>
       </alternatives>
     </rules>
   </xtext:Grammar>

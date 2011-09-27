@@ -2,12 +2,10 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.macjariel.karel.karel.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -87,48 +85,6 @@ public class KarelFactoryImpl extends EFactoryImpl implements KarelFactory
       case KarelPackage.CONDITION_EXPR: return createConditionExpr();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object createFromString(EDataType eDataType, String initialValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case KarelPackage.HEADING_KIND:
-        return createHeadingKindFromString(eDataType, initialValue);
-      case KarelPackage.COMMAND_KIND:
-        return createCommandKindFromString(eDataType, initialValue);
-      case KarelPackage.CONDITION_KIND:
-        return createConditionKindFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String convertToString(EDataType eDataType, Object instanceValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case KarelPackage.HEADING_KIND:
-        return convertHeadingKindToString(eDataType, instanceValue);
-      case KarelPackage.COMMAND_KIND:
-        return convertCommandKindToString(eDataType, instanceValue);
-      case KarelPackage.CONDITION_KIND:
-        return convertConditionKindToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -306,72 +262,6 @@ public class KarelFactoryImpl extends EFactoryImpl implements KarelFactory
   {
     ConditionExprImpl conditionExpr = new ConditionExprImpl();
     return conditionExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public HeadingKind createHeadingKindFromString(EDataType eDataType, String initialValue)
-  {
-    HeadingKind result = HeadingKind.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertHeadingKindToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CommandKind createCommandKindFromString(EDataType eDataType, String initialValue)
-  {
-    CommandKind result = CommandKind.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertCommandKindToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ConditionKind createConditionKindFromString(EDataType eDataType, String initialValue)
-  {
-    ConditionKind result = ConditionKind.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertConditionKindToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

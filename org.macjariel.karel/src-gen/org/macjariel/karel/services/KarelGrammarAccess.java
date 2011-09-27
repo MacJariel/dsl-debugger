@@ -158,7 +158,7 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cHeadingKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cHeadingAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cHeadingHeadingKindEnumRuleCall_1_0 = (RuleCall)cHeadingAssignment_1.eContents().get(0);
+		private final RuleCall cHeadingHeadingKindParserRuleCall_1_0 = (RuleCall)cHeadingAssignment_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//InitHeadingCommand:
@@ -175,7 +175,7 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getHeadingAssignment_1() { return cHeadingAssignment_1; }
 
 		//HeadingKind
-		public RuleCall getHeadingHeadingKindEnumRuleCall_1_0() { return cHeadingHeadingKindEnumRuleCall_1_0; }
+		public RuleCall getHeadingHeadingKindParserRuleCall_1_0() { return cHeadingHeadingKindParserRuleCall_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
@@ -219,6 +219,34 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 
 		//";"
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+	}
+
+	public class HeadingKindElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "HeadingKind");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cNORTHKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cSOUTHKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cWESTKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cEASTKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		
+		//HeadingKind:
+		//	"NORTH" | "SOUTH" | "WEST" | "EAST";
+		public ParserRule getRule() { return rule; }
+
+		//"NORTH" | "SOUTH" | "WEST" | "EAST"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"NORTH"
+		public Keyword getNORTHKeyword_0() { return cNORTHKeyword_0; }
+
+		//"SOUTH"
+		public Keyword getSOUTHKeyword_1() { return cSOUTHKeyword_1; }
+
+		//"WEST"
+		public Keyword getWESTKeyword_2() { return cWESTKeyword_2; }
+
+		//"EAST"
+		public Keyword getEASTKeyword_3() { return cEASTKeyword_3; }
 	}
 
 	public class UserDefinedCommandElements extends AbstractParserRuleElementFinder {
@@ -561,7 +589,7 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CommandStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cKindAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cKindCommandKindEnumRuleCall_0_0 = (RuleCall)cKindAssignment_0.eContents().get(0);
+		private final RuleCall cKindCommandKindParserRuleCall_0_0 = (RuleCall)cKindAssignment_0.eContents().get(0);
 		private final Keyword cSemicolonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//CommandStatement:
@@ -575,10 +603,46 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getKindAssignment_0() { return cKindAssignment_0; }
 
 		//CommandKind
-		public RuleCall getKindCommandKindEnumRuleCall_0_0() { return cKindCommandKindEnumRuleCall_0_0; }
+		public RuleCall getKindCommandKindParserRuleCall_0_0() { return cKindCommandKindParserRuleCall_0_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_1() { return cSemicolonKeyword_1; }
+	}
+
+	public class CommandKindElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CommandKind");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cMoveKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cTurnKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cTurnOnKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cTurnOffKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cPutKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cGetKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		
+		//CommandKind:
+		//	"move" | "turn" | "turnOn" | "turnOff" | "put" | "get";
+		public ParserRule getRule() { return rule; }
+
+		//"move" | "turn" | "turnOn" | "turnOff" | "put" | "get"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"move"
+		public Keyword getMoveKeyword_0() { return cMoveKeyword_0; }
+
+		//"turn"
+		public Keyword getTurnKeyword_1() { return cTurnKeyword_1; }
+
+		//"turnOn"
+		public Keyword getTurnOnKeyword_2() { return cTurnOnKeyword_2; }
+
+		//"turnOff"
+		public Keyword getTurnOffKeyword_3() { return cTurnOffKeyword_3; }
+
+		//"put"
+		public Keyword getPutKeyword_4() { return cPutKeyword_4; }
+
+		//"get"
+		public Keyword getGetKeyword_5() { return cGetKeyword_5; }
 	}
 
 	public class ConditionExprElements extends AbstractParserRuleElementFinder {
@@ -587,7 +651,7 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNegationAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cNegationExclamationMarkKeyword_0_0 = (Keyword)cNegationAssignment_0.eContents().get(0);
 		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExprConditionKindEnumRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
+		private final RuleCall cExprConditionKindParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
 		
 		//ConditionExpr:
 		//	negation?="!" expr=ConditionKind;
@@ -606,141 +670,29 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
 
 		//ConditionKind
-		public RuleCall getExprConditionKindEnumRuleCall_1_0() { return cExprConditionKindEnumRuleCall_1_0; }
-	}
-	
-	
-	public class HeadingKindElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "HeadingKind");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cNORTHEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cNORTHNORTHKeyword_0_0 = (Keyword)cNORTHEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cSOUTHEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cSOUTHSOUTHKeyword_1_0 = (Keyword)cSOUTHEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cWESTEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cWESTWESTKeyword_2_0 = (Keyword)cWESTEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cEASTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cEASTEASTKeyword_3_0 = (Keyword)cEASTEnumLiteralDeclaration_3.eContents().get(0);
-		
-		//enum HeadingKind:
-		//	NORTH | SOUTH | WEST | EAST;
-		public EnumRule getRule() { return rule; }
-
-		//NORTH | SOUTH | WEST | EAST
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//NORTH
-		public EnumLiteralDeclaration getNORTHEnumLiteralDeclaration_0() { return cNORTHEnumLiteralDeclaration_0; }
-
-		//"NORTH"
-		public Keyword getNORTHNORTHKeyword_0_0() { return cNORTHNORTHKeyword_0_0; }
-
-		//SOUTH
-		public EnumLiteralDeclaration getSOUTHEnumLiteralDeclaration_1() { return cSOUTHEnumLiteralDeclaration_1; }
-
-		//"SOUTH"
-		public Keyword getSOUTHSOUTHKeyword_1_0() { return cSOUTHSOUTHKeyword_1_0; }
-
-		//WEST
-		public EnumLiteralDeclaration getWESTEnumLiteralDeclaration_2() { return cWESTEnumLiteralDeclaration_2; }
-
-		//"WEST"
-		public Keyword getWESTWESTKeyword_2_0() { return cWESTWESTKeyword_2_0; }
-
-		//EAST
-		public EnumLiteralDeclaration getEASTEnumLiteralDeclaration_3() { return cEASTEnumLiteralDeclaration_3; }
-
-		//"EAST"
-		public Keyword getEASTEASTKeyword_3_0() { return cEASTEASTKeyword_3_0; }
+		public RuleCall getExprConditionKindParserRuleCall_1_0() { return cExprConditionKindParserRuleCall_1_0; }
 	}
 
-	public class CommandKindElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "CommandKind");
+	public class ConditionKindElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConditionKind");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cMOVEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cMOVEMoveKeyword_0_0 = (Keyword)cMOVEEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cTURNLEFTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cTURNLEFTTurnKeyword_1_0 = (Keyword)cTURNLEFTEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cTURNONEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cTURNONTurnOnKeyword_2_0 = (Keyword)cTURNONEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cTURNOFFEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cTURNOFFTurnOffKeyword_3_0 = (Keyword)cTURNOFFEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cPUTEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cPUTPutKeyword_4_0 = (Keyword)cPUTEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cGETEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cGETGetKeyword_5_0 = (Keyword)cGETEnumLiteralDeclaration_5.eContents().get(0);
+		private final Keyword cWALL_AHEADKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cMARKED_PLACEKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		
-		//enum CommandKind:
-		//	MOVE="move" | TURNLEFT="turn" | TURNON="turnOn" | TURNOFF="turnOff" | PUT="put" | GET="get";
-		public EnumRule getRule() { return rule; }
+		//ConditionKind:
+		//	"WALL_AHEAD" | "MARKED_PLACE";
+		public ParserRule getRule() { return rule; }
 
-		//MOVE="move" | TURNLEFT="turn" | TURNON="turnOn" | TURNOFF="turnOff" | PUT="put" | GET="get"
+		//"WALL_AHEAD" | "MARKED_PLACE"
 		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//MOVE="move"
-		public EnumLiteralDeclaration getMOVEEnumLiteralDeclaration_0() { return cMOVEEnumLiteralDeclaration_0; }
-
-		//"move"
-		public Keyword getMOVEMoveKeyword_0_0() { return cMOVEMoveKeyword_0_0; }
-
-		//TURNLEFT="turn"
-		public EnumLiteralDeclaration getTURNLEFTEnumLiteralDeclaration_1() { return cTURNLEFTEnumLiteralDeclaration_1; }
-
-		//"turn"
-		public Keyword getTURNLEFTTurnKeyword_1_0() { return cTURNLEFTTurnKeyword_1_0; }
-
-		//TURNON="turnOn"
-		public EnumLiteralDeclaration getTURNONEnumLiteralDeclaration_2() { return cTURNONEnumLiteralDeclaration_2; }
-
-		//"turnOn"
-		public Keyword getTURNONTurnOnKeyword_2_0() { return cTURNONTurnOnKeyword_2_0; }
-
-		//TURNOFF="turnOff"
-		public EnumLiteralDeclaration getTURNOFFEnumLiteralDeclaration_3() { return cTURNOFFEnumLiteralDeclaration_3; }
-
-		//"turnOff"
-		public Keyword getTURNOFFTurnOffKeyword_3_0() { return cTURNOFFTurnOffKeyword_3_0; }
-
-		//PUT="put"
-		public EnumLiteralDeclaration getPUTEnumLiteralDeclaration_4() { return cPUTEnumLiteralDeclaration_4; }
-
-		//"put"
-		public Keyword getPUTPutKeyword_4_0() { return cPUTPutKeyword_4_0; }
-
-		//GET="get"
-		public EnumLiteralDeclaration getGETEnumLiteralDeclaration_5() { return cGETEnumLiteralDeclaration_5; }
-
-		//"get"
-		public Keyword getGETGetKeyword_5_0() { return cGETGetKeyword_5_0; }
-	}
-
-	public class ConditionKindElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "ConditionKind");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cWALL_AHEADEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cWALL_AHEADWALL_AHEADKeyword_0_0 = (Keyword)cWALL_AHEADEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cMARKED_PLACEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cMARKED_PLACEMARKED_PLACEKeyword_1_0 = (Keyword)cMARKED_PLACEEnumLiteralDeclaration_1.eContents().get(0);
-		
-		//enum ConditionKind:
-		//	WALL_AHEAD | MARKED_PLACE;
-		public EnumRule getRule() { return rule; }
-
-		//WALL_AHEAD | MARKED_PLACE
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//WALL_AHEAD
-		public EnumLiteralDeclaration getWALL_AHEADEnumLiteralDeclaration_0() { return cWALL_AHEADEnumLiteralDeclaration_0; }
 
 		//"WALL_AHEAD"
-		public Keyword getWALL_AHEADWALL_AHEADKeyword_0_0() { return cWALL_AHEADWALL_AHEADKeyword_0_0; }
-
-		//MARKED_PLACE
-		public EnumLiteralDeclaration getMARKED_PLACEEnumLiteralDeclaration_1() { return cMARKED_PLACEEnumLiteralDeclaration_1; }
+		public Keyword getWALL_AHEADKeyword_0() { return cWALL_AHEADKeyword_0; }
 
 		//"MARKED_PLACE"
-		public Keyword getMARKED_PLACEMARKED_PLACEKeyword_1_0() { return cMARKED_PLACEMARKED_PLACEKeyword_1_0; }
+		public Keyword getMARKED_PLACEKeyword_1() { return cMARKED_PLACEKeyword_1; }
 	}
+	
 	
 	private ProgramElements pProgram;
 	private InitSectionElements pInitSection;
@@ -748,7 +700,7 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 	private InitPositionCommandElements pInitPositionCommand;
 	private InitHeadingCommandElements pInitHeadingCommand;
 	private InitBoardSizeCommandElements pInitBoardSizeCommand;
-	private HeadingKindElements unknownRuleHeadingKind;
+	private HeadingKindElements pHeadingKind;
 	private UserDefinedCommandElements pUserDefinedCommand;
 	private MainElements pMain;
 	private StatementElements pStatement;
@@ -758,9 +710,9 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 	private WhileStatementElements pWhileStatement;
 	private DocumentationCommentElements pDocumentationComment;
 	private CommandStatementElements pCommandStatement;
-	private CommandKindElements unknownRuleCommandKind;
+	private CommandKindElements pCommandKind;
 	private ConditionExprElements pConditionExpr;
-	private ConditionKindElements unknownRuleConditionKind;
+	private ConditionKindElements pConditionKind;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -843,13 +795,13 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		return getInitBoardSizeCommandAccess().getRule();
 	}
 
-	//enum HeadingKind:
-	//	NORTH | SOUTH | WEST | EAST;
+	//HeadingKind:
+	//	"NORTH" | "SOUTH" | "WEST" | "EAST";
 	public HeadingKindElements getHeadingKindAccess() {
-		return (unknownRuleHeadingKind != null) ? unknownRuleHeadingKind : (unknownRuleHeadingKind = new HeadingKindElements());
+		return (pHeadingKind != null) ? pHeadingKind : (pHeadingKind = new HeadingKindElements());
 	}
 	
-	public EnumRule getHeadingKindRule() {
+	public ParserRule getHeadingKindRule() {
 		return getHeadingKindAccess().getRule();
 	}
 
@@ -943,13 +895,13 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		return getCommandStatementAccess().getRule();
 	}
 
-	//enum CommandKind:
-	//	MOVE="move" | TURNLEFT="turn" | TURNON="turnOn" | TURNOFF="turnOff" | PUT="put" | GET="get";
+	//CommandKind:
+	//	"move" | "turn" | "turnOn" | "turnOff" | "put" | "get";
 	public CommandKindElements getCommandKindAccess() {
-		return (unknownRuleCommandKind != null) ? unknownRuleCommandKind : (unknownRuleCommandKind = new CommandKindElements());
+		return (pCommandKind != null) ? pCommandKind : (pCommandKind = new CommandKindElements());
 	}
 	
-	public EnumRule getCommandKindRule() {
+	public ParserRule getCommandKindRule() {
 		return getCommandKindAccess().getRule();
 	}
 
@@ -963,13 +915,13 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		return getConditionExprAccess().getRule();
 	}
 
-	//enum ConditionKind:
-	//	WALL_AHEAD | MARKED_PLACE;
+	//ConditionKind:
+	//	"WALL_AHEAD" | "MARKED_PLACE";
 	public ConditionKindElements getConditionKindAccess() {
-		return (unknownRuleConditionKind != null) ? unknownRuleConditionKind : (unknownRuleConditionKind = new ConditionKindElements());
+		return (pConditionKind != null) ? pConditionKind : (pConditionKind = new ConditionKindElements());
 	}
 	
-	public EnumRule getConditionKindRule() {
+	public ParserRule getConditionKindRule() {
 		return getConditionKindAccess().getRule();
 	}
 

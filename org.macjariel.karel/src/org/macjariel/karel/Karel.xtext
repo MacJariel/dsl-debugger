@@ -26,8 +26,8 @@ InitHeadingCommand:
 InitBoardSizeCommand:
 	'boardSize' width=INT ',' height=INT ';';
 
-enum HeadingKind:
-	NORTH | SOUTH | WEST | EAST;
+HeadingKind:
+	"NORTH" | "SOUTH" | "WEST" | "EAST";
 
 UserDefinedCommand:
 	(doc=DocumentationComment)?
@@ -72,17 +72,11 @@ DocumentationComment:
 CommandStatement:
 	kind=CommandKind ";";
 
-enum CommandKind:
-	MOVE="move" |
-	TURNLEFT="turn" |
-	TURNON="turnOn" |
-	TURNOFF="turnOff" |
-	PUT="put" |
-	GET="get";
+CommandKind:
+	"move" | "turn" | "turnOn" | "turnOff" | "put" | "get";
 
 ConditionExpr:
 	negation?='!' expr=ConditionKind;
 
-enum ConditionKind:
-	WALL_AHEAD |
-	MARKED_PLACE;
+ConditionKind:
+	"WALL_AHEAD" | "MARKED_PLACE";

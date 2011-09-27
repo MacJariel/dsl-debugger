@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.macjariel.karel.karel.impl;
 
@@ -12,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.macjariel.karel.karel.HeadingKind;
 import org.macjariel.karel.karel.InitHeadingCommand;
 import org.macjariel.karel.karel.KarelPackage;
 
@@ -39,7 +37,7 @@ public class InitHeadingCommandImpl extends InitCommandImpl implements InitHeadi
    * @generated
    * @ordered
    */
-  protected static final HeadingKind HEADING_EDEFAULT = HeadingKind.NORTH;
+  protected static final String HEADING_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getHeading() <em>Heading</em>}' attribute.
@@ -49,7 +47,7 @@ public class InitHeadingCommandImpl extends InitCommandImpl implements InitHeadi
    * @generated
    * @ordered
    */
-  protected HeadingKind heading = HEADING_EDEFAULT;
+  protected String heading = HEADING_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,7 +75,7 @@ public class InitHeadingCommandImpl extends InitCommandImpl implements InitHeadi
    * <!-- end-user-doc -->
    * @generated
    */
-  public HeadingKind getHeading()
+  public String getHeading()
   {
     return heading;
   }
@@ -87,10 +85,10 @@ public class InitHeadingCommandImpl extends InitCommandImpl implements InitHeadi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setHeading(HeadingKind newHeading)
+  public void setHeading(String newHeading)
   {
-    HeadingKind oldHeading = heading;
-    heading = newHeading == null ? HEADING_EDEFAULT : newHeading;
+    String oldHeading = heading;
+    heading = newHeading;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KarelPackage.INIT_HEADING_COMMAND__HEADING, oldHeading, heading));
   }
@@ -122,7 +120,7 @@ public class InitHeadingCommandImpl extends InitCommandImpl implements InitHeadi
     switch (featureID)
     {
       case KarelPackage.INIT_HEADING_COMMAND__HEADING:
-        setHeading((HeadingKind)newValue);
+        setHeading((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -156,7 +154,7 @@ public class InitHeadingCommandImpl extends InitCommandImpl implements InitHeadi
     switch (featureID)
     {
       case KarelPackage.INIT_HEADING_COMMAND__HEADING:
-        return heading != HEADING_EDEFAULT;
+        return HEADING_EDEFAULT == null ? heading != null : !HEADING_EDEFAULT.equals(heading);
     }
     return super.eIsSet(featureID);
   }

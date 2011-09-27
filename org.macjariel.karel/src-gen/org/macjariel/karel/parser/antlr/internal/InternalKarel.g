@@ -24,7 +24,6 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -334,7 +333,7 @@ ruleInitHeadingCommand returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getInitHeadingCommandAccess().getHeadingHeadingKindEnumRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getInitHeadingCommandAccess().getHeadingHeadingKindParserRuleCall_1_0()); 
 	    }
 		lv_heading_1_0=ruleHeadingKind		{
 	        if ($current==null) {
@@ -424,6 +423,54 @@ ruleInitBoardSizeCommand returns [EObject current=null]
     }
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleHeadingKind
+entryRuleHeadingKind returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getHeadingKindRule()); } 
+	 iv_ruleHeadingKind=ruleHeadingKind 
+	 { $current=$iv_ruleHeadingKind.current.getText(); }  
+	 EOF 
+;
+
+// Rule HeadingKind
+ruleHeadingKind returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+	kw='NORTH' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getHeadingKindAccess().getNORTHKeyword_0()); 
+    }
+
+    |
+	kw='SOUTH' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getHeadingKindAccess().getSOUTHKeyword_1()); 
+    }
+
+    |
+	kw='WEST' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getHeadingKindAccess().getWESTKeyword_2()); 
+    }
+
+    |
+	kw='EAST' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getHeadingKindAccess().getEASTKeyword_3()); 
+    }
+)
+    ;
 
 
 
@@ -1002,7 +1049,7 @@ ruleCommandStatement returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCommandStatementAccess().getKindCommandKindEnumRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getCommandStatementAccess().getKindCommandKindParserRuleCall_0_0()); 
 	    }
 		lv_kind_0_0=ruleCommandKind		{
 	        if ($current==null) {
@@ -1023,6 +1070,68 @@ ruleCommandStatement returns [EObject current=null]
     }
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleCommandKind
+entryRuleCommandKind returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getCommandKindRule()); } 
+	 iv_ruleCommandKind=ruleCommandKind 
+	 { $current=$iv_ruleCommandKind.current.getText(); }  
+	 EOF 
+;
+
+// Rule CommandKind
+ruleCommandKind returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+	kw='move' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getCommandKindAccess().getMoveKeyword_0()); 
+    }
+
+    |
+	kw='turn' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getCommandKindAccess().getTurnKeyword_1()); 
+    }
+
+    |
+	kw='turnOn' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getCommandKindAccess().getTurnOnKeyword_2()); 
+    }
+
+    |
+	kw='turnOff' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getCommandKindAccess().getTurnOffKeyword_3()); 
+    }
+
+    |
+	kw='put' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getCommandKindAccess().getPutKeyword_4()); 
+    }
+
+    |
+	kw='get' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getCommandKindAccess().getGetKeyword_5()); 
+    }
+)
+    ;
 
 
 
@@ -1060,7 +1169,7 @@ ruleConditionExpr returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getConditionExprAccess().getExprConditionKindEnumRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getConditionExprAccess().getExprConditionKindParserRuleCall_1_0()); 
 	    }
 		lv_expr_1_0=ruleConditionKind		{
 	        if ($current==null) {
@@ -1082,96 +1191,37 @@ ruleConditionExpr returns [EObject current=null]
 
 
 
-// Rule HeadingKind
-ruleHeadingKind returns [Enumerator current=null] 
-    @init { enterRule(); }
-    @after { leaveRule(); }:
-((	enumLiteral_0='NORTH' 
-	{
-        $current = grammarAccess.getHeadingKindAccess().getNORTHEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getHeadingKindAccess().getNORTHEnumLiteralDeclaration_0()); 
-    }
-)
-    |(	enumLiteral_1='SOUTH' 
-	{
-        $current = grammarAccess.getHeadingKindAccess().getSOUTHEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getHeadingKindAccess().getSOUTHEnumLiteralDeclaration_1()); 
-    }
-)
-    |(	enumLiteral_2='WEST' 
-	{
-        $current = grammarAccess.getHeadingKindAccess().getWESTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getHeadingKindAccess().getWESTEnumLiteralDeclaration_2()); 
-    }
-)
-    |(	enumLiteral_3='EAST' 
-	{
-        $current = grammarAccess.getHeadingKindAccess().getEASTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getHeadingKindAccess().getEASTEnumLiteralDeclaration_3()); 
-    }
-));
-
-
-
-// Rule CommandKind
-ruleCommandKind returns [Enumerator current=null] 
-    @init { enterRule(); }
-    @after { leaveRule(); }:
-((	enumLiteral_0='move' 
-	{
-        $current = grammarAccess.getCommandKindAccess().getMOVEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getCommandKindAccess().getMOVEEnumLiteralDeclaration_0()); 
-    }
-)
-    |(	enumLiteral_1='turn' 
-	{
-        $current = grammarAccess.getCommandKindAccess().getTURNLEFTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getCommandKindAccess().getTURNLEFTEnumLiteralDeclaration_1()); 
-    }
-)
-    |(	enumLiteral_2='turnOn' 
-	{
-        $current = grammarAccess.getCommandKindAccess().getTURNONEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getCommandKindAccess().getTURNONEnumLiteralDeclaration_2()); 
-    }
-)
-    |(	enumLiteral_3='turnOff' 
-	{
-        $current = grammarAccess.getCommandKindAccess().getTURNOFFEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getCommandKindAccess().getTURNOFFEnumLiteralDeclaration_3()); 
-    }
-)
-    |(	enumLiteral_4='put' 
-	{
-        $current = grammarAccess.getCommandKindAccess().getPUTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getCommandKindAccess().getPUTEnumLiteralDeclaration_4()); 
-    }
-)
-    |(	enumLiteral_5='get' 
-	{
-        $current = grammarAccess.getCommandKindAccess().getGETEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_5, grammarAccess.getCommandKindAccess().getGETEnumLiteralDeclaration_5()); 
-    }
-));
-
-
+// Entry rule entryRuleConditionKind
+entryRuleConditionKind returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getConditionKindRule()); } 
+	 iv_ruleConditionKind=ruleConditionKind 
+	 { $current=$iv_ruleConditionKind.current.getText(); }  
+	 EOF 
+;
 
 // Rule ConditionKind
-ruleConditionKind returns [Enumerator current=null] 
-    @init { enterRule(); }
+ruleConditionKind returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
     @after { leaveRule(); }:
-((	enumLiteral_0='WALL_AHEAD' 
-	{
-        $current = grammarAccess.getConditionKindAccess().getWALL_AHEADEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getConditionKindAccess().getWALL_AHEADEnumLiteralDeclaration_0()); 
+(
+	kw='WALL_AHEAD' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getConditionKindAccess().getWALL_AHEADKeyword_0()); 
+    }
+
+    |
+	kw='MARKED_PLACE' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getConditionKindAccess().getMARKED_PLACEKeyword_1()); 
     }
 )
-    |(	enumLiteral_1='MARKED_PLACE' 
-	{
-        $current = grammarAccess.getConditionKindAccess().getMARKED_PLACEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getConditionKindAccess().getMARKED_PLACEEnumLiteralDeclaration_1()); 
-    }
-));
+    ;
+
+
 
 
 

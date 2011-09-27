@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.macjariel.karel.karel.impl;
 
@@ -14,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.macjariel.karel.karel.ConditionExpr;
-import org.macjariel.karel.karel.ConditionKind;
 import org.macjariel.karel.karel.KarelPackage;
 
 /**
@@ -61,7 +59,7 @@ public class ConditionExprImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    * @ordered
    */
-  protected static final ConditionKind EXPR_EDEFAULT = ConditionKind.WALL_AHEAD;
+  protected static final String EXPR_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' attribute.
@@ -71,7 +69,7 @@ public class ConditionExprImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    * @ordered
    */
-  protected ConditionKind expr = EXPR_EDEFAULT;
+  protected String expr = EXPR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -122,7 +120,7 @@ public class ConditionExprImpl extends MinimalEObjectImpl.Container implements C
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConditionKind getExpr()
+  public String getExpr()
   {
     return expr;
   }
@@ -132,10 +130,10 @@ public class ConditionExprImpl extends MinimalEObjectImpl.Container implements C
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(ConditionKind newExpr)
+  public void setExpr(String newExpr)
   {
-    ConditionKind oldExpr = expr;
-    expr = newExpr == null ? EXPR_EDEFAULT : newExpr;
+    String oldExpr = expr;
+    expr = newExpr;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KarelPackage.CONDITION_EXPR__EXPR, oldExpr, expr));
   }
@@ -172,7 +170,7 @@ public class ConditionExprImpl extends MinimalEObjectImpl.Container implements C
         setNegation((Boolean)newValue);
         return;
       case KarelPackage.CONDITION_EXPR__EXPR:
-        setExpr((ConditionKind)newValue);
+        setExpr((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -211,7 +209,7 @@ public class ConditionExprImpl extends MinimalEObjectImpl.Container implements C
       case KarelPackage.CONDITION_EXPR__NEGATION:
         return negation != NEGATION_EDEFAULT;
       case KarelPackage.CONDITION_EXPR__EXPR:
-        return expr != EXPR_EDEFAULT;
+        return EXPR_EDEFAULT == null ? expr != null : !EXPR_EDEFAULT.equals(expr);
     }
     return super.eIsSet(featureID);
   }

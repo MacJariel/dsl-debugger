@@ -814,9 +814,9 @@ protected class InitHeadingCommand_HeadingAssignment_1 extends AssignmentToken  
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("heading",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("heading");
-		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getInitHeadingCommandAccess().getHeadingHeadingKindEnumRuleCall_1_0(), value, null)) { 
-			type = AssignmentType.ENUM_RULE_CALL;
-			element = grammarAccess.getInitHeadingCommandAccess().getHeadingHeadingKindEnumRuleCall_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getInitHeadingCommandAccess().getHeadingHeadingKindParserRuleCall_1_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getInitHeadingCommandAccess().getHeadingHeadingKindParserRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -1021,6 +1021,7 @@ protected class InitBoardSizeCommand_SemicolonKeyword_4 extends KeywordToken  {
 
 
 /************ end Rule InitBoardSizeCommand ****************/
+
 
 
 /************ begin Rule UserDefinedCommand ****************
@@ -2766,9 +2767,9 @@ protected class CommandStatement_KindAssignment_0 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("kind",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("kind");
-		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getCommandStatementAccess().getKindCommandKindEnumRuleCall_0_0(), value, null)) { 
-			type = AssignmentType.ENUM_RULE_CALL;
-			element = grammarAccess.getCommandStatementAccess().getKindCommandKindEnumRuleCall_0_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCommandStatementAccess().getKindCommandKindParserRuleCall_0_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getCommandStatementAccess().getKindCommandKindParserRuleCall_0_0();
 			return obj;
 		}
 		return null;
@@ -2800,6 +2801,7 @@ protected class CommandStatement_SemicolonKeyword_1 extends KeywordToken  {
 
 
 /************ end Rule CommandStatement ****************/
+
 
 
 /************ begin Rule ConditionExpr ****************
@@ -2895,9 +2897,9 @@ protected class ConditionExpr_ExprAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("expr",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("expr");
-		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getConditionExprAccess().getExprConditionKindEnumRuleCall_1_0(), value, null)) { 
-			type = AssignmentType.ENUM_RULE_CALL;
-			element = grammarAccess.getConditionExprAccess().getExprConditionKindEnumRuleCall_1_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getConditionExprAccess().getExprConditionKindParserRuleCall_1_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getConditionExprAccess().getExprConditionKindParserRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -2907,5 +2909,6 @@ protected class ConditionExpr_ExprAssignment_1 extends AssignmentToken  {
 
 
 /************ end Rule ConditionExpr ****************/
+
 
 }

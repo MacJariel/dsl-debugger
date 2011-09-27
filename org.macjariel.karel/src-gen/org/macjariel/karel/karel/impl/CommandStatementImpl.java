@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.macjariel.karel.karel.impl;
 
@@ -12,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.macjariel.karel.karel.CommandKind;
 import org.macjariel.karel.karel.CommandStatement;
 import org.macjariel.karel.karel.KarelPackage;
 
@@ -39,7 +37,7 @@ public class CommandStatementImpl extends StatementImpl implements CommandStatem
    * @generated
    * @ordered
    */
-  protected static final CommandKind KIND_EDEFAULT = CommandKind.MOVE;
+  protected static final String KIND_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
@@ -49,7 +47,7 @@ public class CommandStatementImpl extends StatementImpl implements CommandStatem
    * @generated
    * @ordered
    */
-  protected CommandKind kind = KIND_EDEFAULT;
+  protected String kind = KIND_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,7 +75,7 @@ public class CommandStatementImpl extends StatementImpl implements CommandStatem
    * <!-- end-user-doc -->
    * @generated
    */
-  public CommandKind getKind()
+  public String getKind()
   {
     return kind;
   }
@@ -87,10 +85,10 @@ public class CommandStatementImpl extends StatementImpl implements CommandStatem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKind(CommandKind newKind)
+  public void setKind(String newKind)
   {
-    CommandKind oldKind = kind;
-    kind = newKind == null ? KIND_EDEFAULT : newKind;
+    String oldKind = kind;
+    kind = newKind;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, KarelPackage.COMMAND_STATEMENT__KIND, oldKind, kind));
   }
@@ -122,7 +120,7 @@ public class CommandStatementImpl extends StatementImpl implements CommandStatem
     switch (featureID)
     {
       case KarelPackage.COMMAND_STATEMENT__KIND:
-        setKind((CommandKind)newValue);
+        setKind((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -156,7 +154,7 @@ public class CommandStatementImpl extends StatementImpl implements CommandStatem
     switch (featureID)
     {
       case KarelPackage.COMMAND_STATEMENT__KIND:
-        return kind != KIND_EDEFAULT;
+        return KIND_EDEFAULT == null ? kind != null : !KIND_EDEFAULT.equals(kind);
     }
     return super.eIsSet(featureID);
   }

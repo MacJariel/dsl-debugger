@@ -9,4 +9,4 @@
 
 [query public userCommandMethodCall(cmd : UserDefinedCommand) : String =  userCommandMethodName(cmd)+'()'/]
 
-[query public headingKindConverter(headingKind : HeadingKind) : String =  'KarelHeadingEnum.'.concat(headingKind.toString().toUpper()) /]
+[query public headingKindConverter(headingKind : String) : String =  'KarelHeadingEnum.'.concat(headingKind.toUpper()) /]

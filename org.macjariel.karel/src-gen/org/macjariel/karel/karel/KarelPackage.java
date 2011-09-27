@@ -2,13 +2,11 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.macjariel.karel.karel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -590,36 +588,6 @@ public interface KarelPackage extends EPackage
    */
   int CONDITION_EXPR_FEATURE_COUNT = 2;
 
-  /**
-   * The meta object id for the '{@link org.macjariel.karel.karel.HeadingKind <em>Heading Kind</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.macjariel.karel.karel.HeadingKind
-   * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getHeadingKind()
-   * @generated
-   */
-  int HEADING_KIND = 16;
-
-  /**
-   * The meta object id for the '{@link org.macjariel.karel.karel.CommandKind <em>Command Kind</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.macjariel.karel.karel.CommandKind
-   * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getCommandKind()
-   * @generated
-   */
-  int COMMAND_KIND = 17;
-
-  /**
-   * The meta object id for the '{@link org.macjariel.karel.karel.ConditionKind <em>Condition Kind</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.macjariel.karel.karel.ConditionKind
-   * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getConditionKind()
-   * @generated
-   */
-  int CONDITION_KIND = 18;
-
 
   /**
    * Returns the meta object for class '{@link org.macjariel.karel.karel.Program <em>Program</em>}'.
@@ -1057,36 +1025,6 @@ public interface KarelPackage extends EPackage
   EAttribute getConditionExpr_Expr();
 
   /**
-   * Returns the meta object for enum '{@link org.macjariel.karel.karel.HeadingKind <em>Heading Kind</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Heading Kind</em>'.
-   * @see org.macjariel.karel.karel.HeadingKind
-   * @generated
-   */
-  EEnum getHeadingKind();
-
-  /**
-   * Returns the meta object for enum '{@link org.macjariel.karel.karel.CommandKind <em>Command Kind</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Command Kind</em>'.
-   * @see org.macjariel.karel.karel.CommandKind
-   * @generated
-   */
-  EEnum getCommandKind();
-
-  /**
-   * Returns the meta object for enum '{@link org.macjariel.karel.karel.ConditionKind <em>Condition Kind</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Condition Kind</em>'.
-   * @see org.macjariel.karel.karel.ConditionKind
-   * @generated
-   */
-  EEnum getConditionKind();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1468,36 +1406,6 @@ public interface KarelPackage extends EPackage
      * @generated
      */
     EAttribute CONDITION_EXPR__EXPR = eINSTANCE.getConditionExpr_Expr();
-
-    /**
-     * The meta object literal for the '{@link org.macjariel.karel.karel.HeadingKind <em>Heading Kind</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.macjariel.karel.karel.HeadingKind
-     * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getHeadingKind()
-     * @generated
-     */
-    EEnum HEADING_KIND = eINSTANCE.getHeadingKind();
-
-    /**
-     * The meta object literal for the '{@link org.macjariel.karel.karel.CommandKind <em>Command Kind</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.macjariel.karel.karel.CommandKind
-     * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getCommandKind()
-     * @generated
-     */
-    EEnum COMMAND_KIND = eINSTANCE.getCommandKind();
-
-    /**
-     * The meta object literal for the '{@link org.macjariel.karel.karel.ConditionKind <em>Condition Kind</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.macjariel.karel.karel.ConditionKind
-     * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getConditionKind()
-     * @generated
-     */
-    EEnum CONDITION_KIND = eINSTANCE.getConditionKind();
 
   }
 

@@ -2,24 +2,19 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.macjariel.karel.karel.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.macjariel.karel.karel.CommandKind;
 import org.macjariel.karel.karel.CommandStatement;
 import org.macjariel.karel.karel.ConditionExpr;
-import org.macjariel.karel.karel.ConditionKind;
 import org.macjariel.karel.karel.DocumentationComment;
-import org.macjariel.karel.karel.HeadingKind;
 import org.macjariel.karel.karel.IfStatement;
 import org.macjariel.karel.karel.InitBoardSizeCommand;
 import org.macjariel.karel.karel.InitCommand;
@@ -155,27 +150,6 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
    * @generated
    */
   private EClass conditionExprEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum headingKindEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum commandKindEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum conditionKindEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -655,36 +629,6 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getHeadingKind()
-  {
-    return headingKindEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getCommandKind()
-  {
-    return commandKindEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getConditionKind()
-  {
-    return conditionKindEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public KarelFactory getKarelFactory()
   {
     return (KarelFactory)getEFactoryInstance();
@@ -766,11 +710,6 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
     conditionExprEClass = createEClass(CONDITION_EXPR);
     createEAttribute(conditionExprEClass, CONDITION_EXPR__NEGATION);
     createEAttribute(conditionExprEClass, CONDITION_EXPR__EXPR);
-
-    // Create enums
-    headingKindEEnum = createEEnum(HEADING_KIND);
-    commandKindEEnum = createEEnum(COMMAND_KIND);
-    conditionKindEEnum = createEEnum(CONDITION_KIND);
   }
 
   /**
@@ -827,7 +766,7 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
     initEAttribute(getInitPositionCommand_Y(), ecorePackage.getEInt(), "y", null, 0, 1, InitPositionCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initHeadingCommandEClass, InitHeadingCommand.class, "InitHeadingCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInitHeadingCommand_Heading(), this.getHeadingKind(), "heading", null, 0, 1, InitHeadingCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInitHeadingCommand_Heading(), ecorePackage.getEString(), "heading", null, 0, 1, InitHeadingCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initBoardSizeCommandEClass, InitBoardSizeCommand.class, "InitBoardSizeCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInitBoardSizeCommand_Width(), ecorePackage.getEInt(), "width", null, 0, 1, InitBoardSizeCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -863,30 +802,11 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
     initEAttribute(getDocumentationComment_Text(), ecorePackage.getEString(), "text", null, 0, 1, DocumentationComment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandStatementEClass, CommandStatement.class, "CommandStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCommandStatement_Kind(), this.getCommandKind(), "kind", null, 0, 1, CommandStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCommandStatement_Kind(), ecorePackage.getEString(), "kind", null, 0, 1, CommandStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conditionExprEClass, ConditionExpr.class, "ConditionExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConditionExpr_Negation(), ecorePackage.getEBoolean(), "negation", null, 0, 1, ConditionExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConditionExpr_Expr(), this.getConditionKind(), "expr", null, 0, 1, ConditionExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    // Initialize enums and add enum literals
-    initEEnum(headingKindEEnum, HeadingKind.class, "HeadingKind");
-    addEEnumLiteral(headingKindEEnum, HeadingKind.NORTH);
-    addEEnumLiteral(headingKindEEnum, HeadingKind.SOUTH);
-    addEEnumLiteral(headingKindEEnum, HeadingKind.WEST);
-    addEEnumLiteral(headingKindEEnum, HeadingKind.EAST);
-
-    initEEnum(commandKindEEnum, CommandKind.class, "CommandKind");
-    addEEnumLiteral(commandKindEEnum, CommandKind.MOVE);
-    addEEnumLiteral(commandKindEEnum, CommandKind.TURNLEFT);
-    addEEnumLiteral(commandKindEEnum, CommandKind.TURNON);
-    addEEnumLiteral(commandKindEEnum, CommandKind.TURNOFF);
-    addEEnumLiteral(commandKindEEnum, CommandKind.PUT);
-    addEEnumLiteral(commandKindEEnum, CommandKind.GET);
-
-    initEEnum(conditionKindEEnum, ConditionKind.class, "ConditionKind");
-    addEEnumLiteral(conditionKindEEnum, ConditionKind.WALL_AHEAD);
-    addEEnumLiteral(conditionKindEEnum, ConditionKind.MARKED_PLACE);
+    initEAttribute(getConditionExpr_Expr(), ecorePackage.getEString(), "expr", null, 0, 1, ConditionExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -69,7 +69,7 @@ while([generateConditionExpr(st.condition, name)/]) {
 [/template]
 
 [template protected generateCommandStatement(st : CommandStatement, name:String)]
-[name/].[kindString(st.kind) /]();[comment primitiveCommandConverter(st.kind)/]
+[name/].[st.kind /]();
 [/template]
 
 [template public generateUserCommandStatement(st : UserDefinedCommandStatement, name:String)]
@@ -81,12 +81,7 @@ while([generateConditionExpr(st.condition, name)/]) {
 [if (expr.negation)]![/if] [name+'.'+conditionKindConverter(expr.expr) /]		
 [/template]
 
-[query protected kindString(cmdKind: CommandKind) : String = cmdKind.toString() /]
+[query protected primitiveCommandConverter(cmdKind : String) : String =  cmdKind.concat('()') /]
 
-
-[comment query protected primitiveCommandConverter(cmdKind : CommandKind) : String =  cmdKind.toString().concat('()') /]
-
-[query protected primitiveCommandConverter(cmdKind : CommandKind) : String =  cmdKind.toString().concat('()') /]
-
-[query protected conditionKindConverter(condKind : ConditionKind) : String =  (condKind.toString().tokenize('_').toLower().toUpperFirst()->prepend('is')->append('()')) /]
+[query protected conditionKindConverter(condKind : String) : String =  (condKind.tokenize('_').toLower().toUpperFirst()->prepend('is')->append('()'))->toString() /]
 

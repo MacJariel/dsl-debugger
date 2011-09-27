@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.macjariel.karel.karel;
 
@@ -27,7 +26,6 @@ public interface CommandStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>Kind</b></em>' attribute.
-   * The literals are from the enumeration {@link org.macjariel.karel.karel.CommandKind}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Kind</em>' attribute isn't clear,
@@ -35,23 +33,21 @@ public interface CommandStatement extends Statement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Kind</em>' attribute.
-   * @see org.macjariel.karel.karel.CommandKind
-   * @see #setKind(CommandKind)
+   * @see #setKind(String)
    * @see org.macjariel.karel.karel.KarelPackage#getCommandStatement_Kind()
    * @model
    * @generated
    */
-  CommandKind getKind();
+  String getKind();
 
   /**
    * Sets the value of the '{@link org.macjariel.karel.karel.CommandStatement#getKind <em>Kind</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Kind</em>' attribute.
-   * @see org.macjariel.karel.karel.CommandKind
    * @see #getKind()
    * @generated
    */
-  void setKind(CommandKind value);
+  void setKind(String value);
 
 } // CommandStatement
