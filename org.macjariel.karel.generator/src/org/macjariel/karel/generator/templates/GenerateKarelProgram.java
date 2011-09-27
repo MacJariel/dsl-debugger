@@ -305,15 +305,16 @@ public class GenerateKarelProgram extends AbstractAcceleoGenerator {
 	 * 
 	 * @param resourceSet
 	 *            The resource set which registry has to be updated.
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
+        
         if (!isInWorkspace(org.macjariel.karel.karel.KarelPackage.class)) {
             resourceSet.getPackageRegistry().put(org.macjariel.karel.karel.KarelPackage.eINSTANCE.getNsURI(), org.macjariel.karel.karel.KarelPackage.eINSTANCE);
         }
-        
+
         /*
          * TODO If you need additional package registrations, you can register them here. The following line
          * (in comment) is an example of the package registration for UML. If you want to change the content
