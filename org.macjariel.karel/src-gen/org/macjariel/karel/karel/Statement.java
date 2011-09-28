@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see org.macjariel.karel.karel.KarelPackage#getStatement()
- * @model
+ * @model annotation="http://www.macjariel.org/DSLDebugger type='Statement'"
  * @generated
  */
 public interface Statement extends EObject

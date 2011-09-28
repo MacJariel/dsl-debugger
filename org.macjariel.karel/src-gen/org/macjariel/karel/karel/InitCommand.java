@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see org.macjariel.karel.karel.KarelPackage#getInitCommand()
- * @model
+ * @model annotation="http://www.macjariel.org/DSLDebugger type='Statement'"
  * @generated
  */
 public interface InitCommand extends EObject

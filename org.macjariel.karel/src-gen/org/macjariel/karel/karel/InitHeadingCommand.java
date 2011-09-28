@@ -19,7 +19,7 @@ package org.macjariel.karel.karel;
  * </p>
  *
  * @see org.macjariel.karel.karel.KarelPackage#getInitHeadingCommand()
- * @model
+ * @model annotation="http://www.macjariel.org/DSLDebugger type='Statement'"
  * @generated
  */
 public interface InitHeadingCommand extends InitCommand

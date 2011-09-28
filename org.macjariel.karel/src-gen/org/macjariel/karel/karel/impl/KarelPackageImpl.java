@@ -810,6 +810,98 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
 
     // Create resource
     createResource(eNS_URI);
+
+    // Create annotations
+    // http://www.macjariel.org/DSLDebugger
+    createDSLDebuggerAnnotations();
+  }
+
+  /**
+   * Initializes the annotations for <b>http://www.macjariel.org/DSLDebugger</b>.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void createDSLDebuggerAnnotations()
+  {
+    String source = "http://www.macjariel.org/DSLDebugger";		
+    addAnnotation
+      (initCommandEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement"
+       });		
+    addAnnotation
+      (initPositionCommandEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement"
+       });		
+    addAnnotation
+      (initHeadingCommandEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement"
+       });		
+    addAnnotation
+      (initBoardSizeCommandEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement"
+       });		
+    addAnnotation
+      (userDefinedCommandEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "SubrutineDefinition"
+       });		
+    addAnnotation
+      (statementEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement"
+       });		
+    addAnnotation
+      (userDefinedCommandStatementEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement SubrutineCall"
+       });		
+    addAnnotation
+      (ifStatementEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement"
+       });		
+    addAnnotation
+      (iterateStatementEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement"
+       });		
+    addAnnotation
+      (whileStatementEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement"
+       });		
+    addAnnotation
+      (commandStatementEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "Statement"
+       });
   }
 
 } //KarelPackageImpl

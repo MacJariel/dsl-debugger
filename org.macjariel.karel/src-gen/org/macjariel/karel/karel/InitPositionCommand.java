@@ -20,7 +20,7 @@ package org.macjariel.karel.karel;
  * </p>
  *
  * @see org.macjariel.karel.karel.KarelPackage#getInitPositionCommand()
- * @model
+ * @model annotation="http://www.macjariel.org/DSLDebugger type='Statement'"
  * @generated
  */
 public interface InitPositionCommand extends InitCommand

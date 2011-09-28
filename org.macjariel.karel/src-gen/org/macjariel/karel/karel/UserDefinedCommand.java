@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.macjariel.karel.karel.KarelPackage#getUserDefinedCommand()
- * @model
+ * @model annotation="http://www.macjariel.org/DSLDebugger type='SubrutineDefinition'"
  * @generated
  */
 public interface UserDefinedCommand extends EObject
