@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="org.macjariel.dsl.debugger.ui.launch.tabs.DSLLaunchConfigurationTabGroup"
+            id="org.macjariel.dsl.debugger.ui.launchConfigurationTabGroup"
+            type="org.macjariel.dsl.debugger.launchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="org.macjariel.dsl.debugger.ui.dslEditorRulerAction"
+            targetID="TODO">
+         <action
+               actionID="RulerDoubleClick"
+               class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
+               id="org.macjariel.dsl.debugger.ui.doubleClickRulerAction"
+               label="Ruler line breakpoint"
+               style="push">
+         </action>
+      </editorContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution
+            id="org.macjariel.dsl.debugger.ui.actions.rulerActions"
+            targetID="TODO">
+         <action
+               class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
+               id="org.macjariel.dsl.debugger.ui.actions.toggleBreakpointAction"
+               label="Toggle breakpoint"
+               menubarPath="debugging">
+         </action>
+      </viewerContribution>
+   </extension>
+
+</plugin>
