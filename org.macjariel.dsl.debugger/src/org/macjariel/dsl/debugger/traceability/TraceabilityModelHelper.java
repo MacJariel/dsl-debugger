@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Vector;
 
 import org.eclipse.acceleo.traceability.GeneratedFile;
 import org.eclipse.acceleo.traceability.GeneratedText;
@@ -21,13 +22,22 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 
+/**
+ * This is noninstantiable utility class that provides static methods to facilitate work with
+ * the Acceleo TraceabilityModel.
+ * 
+ * @author MacJariel
+ *
+ */
 public class TraceabilityModelHelper {
 
+	// Suppress default constructor for noninstantiability
 	private TraceabilityModelHelper() {
 		throw new AssertionError();
 	}
@@ -193,6 +203,21 @@ public class TraceabilityModelHelper {
 			}
 		}
 		return result;
+	}
+
+	public static InputElement[] getAssociatedInputElements(EObject eo, TraceabilityModel traceModel) {
+		Resource res1 = eo.eResource();
+		Vector<InputElement> result = new Vector<InputElement>();
+		for (ModelFile modelFile : traceModel.getModelFiles()) {
+			for (InputElement ie : modelFile.getInputElements()) {
+				EObject modelElement = ie.getModelElement();
+				Resource res2 = modelElement.eResource();
+				if (modelElement.equals(eo)) {
+					result.add(ie);
+				}
+			}
+		}
+		return result.toArray(new InputElement[result.size()]);
 	}
 
 	public static EObject getElementForLine(int lineNumber, EObject dslProgramModel) {
