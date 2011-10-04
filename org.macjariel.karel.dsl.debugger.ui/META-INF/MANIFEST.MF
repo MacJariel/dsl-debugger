@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DSL Debugger UI for org.macjariel.karel.Karel
+Bundle-SymbolicName: org.macjariel.karel.dsl.debugger.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.macjariel.dsl.debugger;bundle-version="1.0.0",
+ org.macjariel.dsl.debugger.ui;bundle-version="1.0.0",
+ org.macjariel.karel.ui;bundle-version="1.0.0",
+ org.eclipse.ui;bundle-version="3.7.0",
+ org.eclipse.core.runtime;bundle-version="3.7.0",
+ org.eclipse.ui.editors;bundle-version="3.7.0",
+ org.eclipse.debug.ui;bundle-version="3.7.0"
+Import-Package: org.eclipse.jface.text

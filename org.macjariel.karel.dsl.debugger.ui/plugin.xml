@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="org.macjariel.karel.dsl.debugger.ui.editorRulerAction"
+            targetID="org.macjariel.karel.Karel">
+         <action
+               actionID="RulerDoubleClick"
+               class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
+               id="org.macjariel.karel.dsl.debugger.ui.toggleBreakpointAction"
+               label="Toggle Breakpoint"
+               style="push">
+         </action>
+      </editorContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution
+            id="org.macjariel.dsl.debugger.ui.actions.rulerActions"
+            targetID="org.macjariel.karel.Karel.RulerContext">
+         <action
+               class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
+               id="org.macjariel.dsl.debugger.ui.actions.toggleBreakpointAction"
+               label="Toggle Breakpoint"
+               menubarPath="debugging">
+         </action>
+      </viewerContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.ui.texteditor.ITextEditor"
+            class="org.macjariel.karel.dsl.debugger.ui.adapters.DSLBreakpointAdapterFactory">
+         <adapter
+               type="org.eclipse.debug.ui.actions.IToggleBreakpointsTarget">
+         </adapter>
+      </factory>
+   </extension>
+
+</plugin>

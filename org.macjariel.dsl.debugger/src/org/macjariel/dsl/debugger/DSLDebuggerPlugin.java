@@ -12,10 +12,7 @@ public class DSLDebuggerPlugin extends Plugin {
 	
 	/** The debug model ID of the DSL debugger */
 	public static final String DSL_DEBUG_MODEL_ID = PLUGIN_ID + ".model"; //$NON-NLS-1$
-	
-	/** The DSL line breakpoint ID */
-	public static final String DSL_LINE_BREAKPOINT_ID = PLUGIN_ID + ".breakpoint"; //$NON-NLS-1$
-	
+		
 	/** The marker type id of DSL line breakpoint marker */
 	public static final String DSL_LINE_BREAKPOINT_MARKER_ID = PLUGIN_ID + ".lineBreakpointMarker"; //$NON-NLS-1$
 

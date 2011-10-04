@@ -53,7 +53,8 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 		initialize();
 
 		DebugPlugin.getDefault().addDebugEventListener(this);
-
+		
+		launch.addDebugTarget(this);
 	}
 
 	private void initialize() {
@@ -76,7 +77,7 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 		manager.addBreakpointListener(this);
 
 		IBreakpoint[] breakpoints = manager
-				.getBreakpoints(DSLDebuggerPlugin.DSL_LINE_BREAKPOINT_ID);
+				.getBreakpoints(DSLDebuggerPlugin.DSL_DEBUG_MODEL_ID);
 		for (IBreakpoint breakpoint : breakpoints) {
 			if (breakpoint instanceof DSLLineBreakpoint) {
 				breakpointAdded(breakpoint);
@@ -324,7 +325,7 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 		return null;
 	}
 
-	public IDebugTarget getJavaDebugTarget() {
+	public IDebugTarget getGplDebugTarget() {
 		return gplDebugTarget;
 	}
 }

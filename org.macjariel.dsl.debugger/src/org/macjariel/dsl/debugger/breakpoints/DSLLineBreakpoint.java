@@ -9,6 +9,7 @@ import org.eclipse.debug.core.model.IBreakpoint;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.ILineBreakpoint;
 import org.eclipse.debug.core.model.LineBreakpoint;
+import org.eclipse.jdt.debug.core.JDIDebugModel;
 import org.macjariel.dsl.debugger.DSLDebuggerPlugin;
 import org.macjariel.dsl.debugger.model.DSLDebugTarget;
 import org.macjariel.dsl.debugger.traceability.SimpleMapping;
@@ -41,7 +42,7 @@ public class DSLLineBreakpoint extends LineBreakpoint {
 			}
 		};
 
-		{
+		/* {
 			// DEBUG: lists all markers on the resource
 			IMarker[] markers = file.findMarkers(DSLDebuggerPlugin.DSL_LINE_BREAKPOINT_MARKER_ID,
 					true, IResource.DEPTH_INFINITE);
@@ -49,7 +50,7 @@ public class DSLLineBreakpoint extends LineBreakpoint {
 				System.out.println("Marker " + marker.getId() + ": "
 						+ marker.getAttribute(IMarker.MESSAGE, "[no message]"));
 			}
-		}
+		} */
 
 		run(getMarkerRule(file), job);
 	}
@@ -74,7 +75,7 @@ public class DSLLineBreakpoint extends LineBreakpoint {
 				createGplBreakpoint(mapping.getTarget(), typeName, lineNumber,
 						mapping.getTargetStartChar(), mapping.getTargetEndChar());
 
-				IDebugTarget jDebugTarget = debugTarget.getJavaDebugTarget();
+				IDebugTarget jDebugTarget = debugTarget.getGplDebugTarget();
 				if (jDebugTarget != null)
 					jDebugTarget.breakpointAdded(this.gplBreakpoint);
 
@@ -97,10 +98,10 @@ public class DSLLineBreakpoint extends LineBreakpoint {
 	private void createGplBreakpoint(IResource resource, String typeName, int lineNumber,
 			int charStart, int charEnd) throws CoreException {
 		if (this.gplBreakpoint == null || !this.gplBreakpoint.isRegistered()) {
-			// TODO: create GPL breakpoint
-			// this.gplBreakpoint = JDIDebugModel.createLineBreakpoint(resource,
-			// typeName, lineNumber, charStart, charEnd, 0,
-			// true, null);
+			// TODO: create it using a method in org.macjariel.dsl.debugger.java project
+			this.gplBreakpoint = JDIDebugModel.createLineBreakpoint(resource,
+			 typeName, lineNumber, charStart, charEnd, 0,
+			 true, null);
 		}
 	}
 }
