@@ -42,6 +42,8 @@ public class TraceabilityModelHelper {
 		throw new AssertionError();
 	}
 
+	public static String DSL_DEBUGGER_ANNOTATION_SOURCE = "http://www.macjariel.org/DSLDebugger";
+	
 	private static class Region implements Comparable<Region> {
 		int startOffset;
 		int endOffset;

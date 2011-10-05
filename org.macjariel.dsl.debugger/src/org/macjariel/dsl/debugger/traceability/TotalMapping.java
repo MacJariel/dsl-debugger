@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.Collections;
+import java.util.Set;
 import java.util.Vector;
 
 import org.eclipse.acceleo.traceability.GeneratedFile;
@@ -26,7 +27,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
-import org.macjariel.dsl.debugger.traceability.TotalMapping.TotalMappingItem.Type;
 
 /**
  * The class provides a mapping from any element in DSL program model to lists
@@ -44,28 +44,6 @@ public class TotalMapping {
 
 	public static class TotalMappingItem implements Cloneable {
 
-		enum Type {
-			STATEMENT, SUBRUTINE_CALL, SUBRUTINE_DEFINITION, UNKNOWN
-		}
-
-		private static String[] typeAnnotations = {
-				"http://www.macjariel.org/dsldebugger/Statement",
-				"http://www.macjariel.org/dsldebugger/SubrutineCall",
-				"http://www.macjariel.org/dsldebugger/SubrutineDefinition", null };
-
-		static Type getTypeFromAnnotationSource(String annotationSource) {
-			if (annotationSource == typeAnnotations[0])
-				return Type.STATEMENT;
-
-			if (annotationSource == typeAnnotations[1])
-				return Type.SUBRUTINE_CALL;
-
-			if (annotationSource == typeAnnotations[2])
-				return Type.SUBRUTINE_DEFINITION;
-
-			return null;
-		}
-
 		EObject sourceElement;
 
 		IFile sourceFile;
@@ -77,7 +55,7 @@ public class TotalMapping {
 		int targetStartOffset, targetEndOffset;
 		int targetStartLine, targetEndLine;
 
-		Type type;
+		Set<SourceElementType> type;
 
 		TotalMappingItem() {
 
@@ -175,7 +153,7 @@ public class TotalMapping {
 			}
 		}
 
-		void setType(Type type) {
+		void setType(Set<SourceElementType> type) {
 			this.type = type;
 		}
 
@@ -234,23 +212,19 @@ public class TotalMapping {
 		while (iter.hasNext()) {
 			EObject sourceElement = iter.next();
 			EClass eClass = sourceElement.eClass();
-			Type type = null;
 
-			for (EAnnotation eAnnotation : eClass.getEAnnotations()) {
-				type = TotalMappingItem.getTypeFromAnnotationSource(eAnnotation.getSource());
-				if (type != null)
-					break;
-				;
-			}
-
-			if (type == null)
+			EAnnotation dslAnnotation = eClass
+					.getEAnnotation(TraceabilityModelHelper.DSL_DEBUGGER_ANNOTATION_SOURCE);
+			if (dslAnnotation == null) {
 				continue;
+			}
 
 			TotalMappingItem item = new TotalMappingItem();
 
 			NodeModelUtils.getNode(sourceElement);
 
-			item.setType(type);
+			item.setType(SourceElementType.createFromAnnotationString(dslAnnotation.getDetails()
+					.get("type")));
 			item.fillSource(sourceElement);
 
 			InputElement[] associatedInputElements = TraceabilityModelHelper

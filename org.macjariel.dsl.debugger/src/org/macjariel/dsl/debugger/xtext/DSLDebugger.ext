@@ -1,0 +1,33 @@
+import ecore;
+
+/// Helper query that returns EClass for given EPackage and EClass name.
+EClass findEClass(EPackage pkg, String name) :
+	pkg.eClassifiers.typeSelect(EClass).selectFirst(e|e.name == name);
+	
+/// Sets the type of the EClass
+setType(EClass class, String type):
+	hasAnnotation(class) ? updateAnnotation(class, type) : createAnnotation(class, type)
+;
+	 
+private create EAnnotation createAnnotation(EClass class, String type):
+	let detail = new EStringToStringMapEntry :
+	setSource("http://www.macjariel.org/DSLDebugger") ->
+	detail.setKey("type") ->
+	detail.setValue(type) ->
+	this.details.add(detail) -> 
+	class.eAnnotations.add(this)
+;
+	
+private updateAnnotation(EClass class, String type):
+	let oldValue = getAnnotation(class).details.selectFirst(e|e.key == "type").value :
+	getAnnotation(class).details.selectFirst(e|e.key == "type").setValue(oldValue + " " + type) ->
+	true
+;
+
+/// Returns whether there is the annotation attached to the EClass
+private boolean hasAnnotation(EClass class) :
+	getAnnotation(class) != null;
+
+/// Returns the annotation attached to the EClass
+private EAnnotation getAnnotation(EClass class) :
+	class.getEAnnotation("http://www.macjariel.org/DSLDebugger");
