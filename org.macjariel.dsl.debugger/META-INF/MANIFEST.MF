@@ -18,8 +18,10 @@ Bundle-ActivationPolicy: lazy
 Export-Package: org.macjariel.dsl.debugger,
  org.macjariel.dsl.debugger.breakpoints,
  org.macjariel.dsl.debugger.launcher,
- org.macjariel.dsl.debugger.platform
+ org.macjariel.dsl.debugger.platform,
+ org.macjariel.dsl.debugger.traceability
 Import-Package: org.eclipse.acceleo.traceability,
+ org.eclipse.ui.texteditor,
  org.eclipse.xtext.nodemodel,
  org.eclipse.xtext.nodemodel.util
 

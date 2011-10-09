@@ -38,4 +38,20 @@
             name="org.eclipse.debug.core.id">
       </attribute>
    </extension>
+   <extension
+    id="org.macjariel.dsl.debugger.gplCodeMarker"
+    name="GPL Code Marker"
+    point="org.eclipse.core.resources.markers">
+  <super
+    type="org.eclipse.core.resources.problemmarker">
+  </super>
+</extension>
+<extension
+    id="org.macjariel.dsl.debugger.dslCodeMarker"
+    name="DSL Code Marker"
+    point="org.eclipse.core.resources.markers">
+  <super
+    type="org.eclipse.core.resources.problemmarker">
+  </super>
+</extension>
 </plugin>

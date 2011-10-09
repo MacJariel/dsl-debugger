@@ -9,4 +9,73 @@
             type="org.macjariel.dsl.debugger.launchConfigurationType">
       </launchConfigurationTabGroup>
    </extension>
+  
+   <extension
+      point="org.eclipse.ui.editors.annotationTypes">
+   <type
+         markerType="org.macjariel.dsl.debugger.dslCodeMarker"
+         name="org.macjariel.dsl.debugger.dslCodeMarker">
+   </type>
+</extension>
+
+<extension
+      point="org.eclipse.ui.editors.markerAnnotationSpecification">
+   <specification
+         annotationType="org.macjariel.dsl.debugger.dslCodeMarker"
+         colorPreferenceKey="org.macjariel.dsl.debugger.dslCodeMarker.color"
+         colorPreferenceValue="192,255,192"
+         contributesToHeader="false"
+         highlightPreferenceKey="org.macjariel.dsl.debugger.dslCodeMarker.highlight"
+         highlightPreferenceValue="true"
+         includeOnPreferencePage="true"
+         label="DSL Code Marker"
+         overviewRulerPreferenceKey="org.macjariel.dsl.debugger.dslCodeMarker.overview"
+         overviewRulerPreferenceValue="true"
+         presentationLayer="0"
+         textPreferenceKey="org.macjariel.dsl.debugger.dslCodeMarker.text"
+         textPreferenceValue="true"
+         textStylePreferenceValue="BOX"
+         verticalRulerPreferenceKey="org.macjariel.dsl.debugger.dslCodeMarker.ruler"
+         verticalRulerPreferenceValue="true">
+   </specification>
+</extension>
+   
+   
+    <extension
+      point="org.eclipse.ui.editors.annotationTypes">
+   <type
+         markerType="org.macjariel.dsl.debugger.gplCodeMarker"
+         name="org.macjariel.dsl.debugger.gplCodeMarker">
+   </type>
+</extension>
+
+<extension
+      point="org.eclipse.ui.editors.markerAnnotationSpecification">
+   <specification
+         annotationType="org.macjariel.dsl.debugger.gplCodeMarker"
+         colorPreferenceKey="org.macjariel.dsl.debugger.gplCodeMarker.color"
+         colorPreferenceValue="192,255,192"
+         contributesToHeader="false"
+         highlightPreferenceKey="org.macjariel.dsl.debugger.gplCodeMarker.highlight"
+         highlightPreferenceValue="true"
+         includeOnPreferencePage="true"
+         label="DSL Code Marker"
+         overviewRulerPreferenceKey="org.macjariel.dsl.debugger.gplCodeMarker.overview"
+         overviewRulerPreferenceValue="true"
+         presentationLayer="0"
+         textPreferenceKey="org.macjariel.dsl.debugger.gplCodeMarker.text"
+         textPreferenceValue="true"
+         textStylePreferenceValue="BOX"
+         verticalRulerPreferenceKey="org.macjariel.dsl.debugger.gplCodeMarker.ruler"
+         verticalRulerPreferenceValue="true">
+   </specification>
+</extension>
+   
+       <extension point="org.eclipse.debug.ui.debugModelPresentations">
+   <debugModelPresentation 
+      id="org.macjariel.dsl.debugger.model"
+      class="org.macjariel.dsl.debugger.ui.DebugModelPresentation" >
+   </debugModelPresentation>
+ </extension>
+ 
 </plugin>

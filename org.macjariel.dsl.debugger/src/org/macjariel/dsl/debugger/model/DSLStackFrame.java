@@ -1,5 +1,6 @@
 package org.macjariel.dsl.debugger.model;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IRegisterGroup;
@@ -9,45 +10,55 @@ import org.eclipse.debug.core.model.IVariable;
 
 public class DSLStackFrame extends DSLDebugElement implements IStackFrame {
 
-	private DSLThread dslThread;
+	private final DSLThread dslThread;
 
-	public DSLStackFrame(IDebugTarget target, DSLThread thread) {
+	private final IResource resource;
+
+	private final int lineNumber, charStart, charEnd;
+
+	public DSLStackFrame(IDebugTarget target, DSLThread thread, IResource resource, int lineNumber,
+			int charStart, int charEnd) {
 		super(target);
 		this.dslThread = thread;
+		this.resource = resource;
+		this.lineNumber = lineNumber;
+		this.charStart = charStart;
+		this.charEnd = charEnd;
 	}
 
+	public IResource getResource() {
+		return resource;
+	}
+	
 	@Override
 	public IVariable[] getVariables() throws DebugException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean hasVariables() throws DebugException {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public int getLineNumber() throws DebugException {
-		
-		// this.dslThread.getJavaThread().getStackFrames()
-		return 1;
+		return lineNumber;
 	}
 
 	@Override
 	public int getCharStart() throws DebugException {
-		return 0;
+		return charStart;
 	}
 
 	@Override
 	public int getCharEnd() throws DebugException {
-		return 0;
+		return charEnd;
 	}
 
 	@Override
 	public String getName() throws DebugException {
-		return "A stack frame";
+		// Should rather return procedure name
+		return resource.getName() + " line: " + lineNumber;
 	}
 
 	@Override
@@ -139,5 +150,17 @@ public class DSLStackFrame extends DSLDebugElement implements IStackFrame {
 	@Override
 	public IThread getThread() {
 		return dslThread;
+	}
+
+	@Override
+	public Object getAdapter(@SuppressWarnings("rawtypes") Class adapter) {
+		if (adapter == IResource.class) {
+			return this.resource;
+		//} else if (adapter == IElementLabelProvider.class) {
+		// IDebugModelProvider
+		// ISourceDisplay (in UI)
+		}
+		
+		return super.getAdapter(adapter);
 	}
 }

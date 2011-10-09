@@ -14,8 +14,7 @@ public class DSLSourceLocator implements ISourceLocator {
 	@Override
 	public Object getSourceElement(IStackFrame stackFrame) {
 		if (stackFrame instanceof DSLStackFrame) {
-			// TODO: return something reasonable, like filename (or inspire in java impl.)
-			return stackFrame;
+			return ((DSLStackFrame) stackFrame).getResource();
 
 		} else if (this.gplSourceLocator != null) {
 			return this.gplSourceLocator.getSourceElement(stackFrame);

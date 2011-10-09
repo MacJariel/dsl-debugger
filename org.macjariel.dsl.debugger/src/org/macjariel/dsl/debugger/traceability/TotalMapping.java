@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
@@ -14,11 +15,15 @@ import org.eclipse.acceleo.traceability.GeneratedText;
 import org.eclipse.acceleo.traceability.InputElement;
 import org.eclipse.acceleo.traceability.TraceabilityModel;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.debug.core.model.IBreakpoint;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
@@ -28,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
+import org.macjariel.dsl.debugger.DSLDebuggerPlugin;
 
 /**
  * The class provides a mapping from any element in DSL program model to lists
@@ -47,14 +53,14 @@ public class TotalMapping implements SourceTargetMapping {
 
 		EObject sourceElement;
 
-		IFile sourceFile;
-		IFile targetFile;
+		public IFile sourceFile;
+		public IFile targetFile;
 
-		int sourceStartOffset, sourceEndOffset;
-		int sourceStartLine, sourceEndLine;
+		public int sourceStartOffset, sourceEndOffset;
+		public int sourceStartLine, sourceEndLine;
 
-		int targetStartOffset, targetEndOffset;
-		int targetStartLine, targetEndLine;
+		public int targetStartOffset, targetEndOffset;
+		public int targetStartLine, targetEndLine;
 
 		Set<SourceElementType> type;
 
@@ -97,8 +103,8 @@ public class TotalMapping implements SourceTargetMapping {
 			ICompositeNode node = NodeModelUtils.getNode(sourceElement);
 			this.sourceStartOffset = node.getOffset();
 			this.sourceEndOffset = node.getOffset() + node.getLength();
-			this.sourceStartLine = node.getStartLine() - 1;
-			this.sourceEndLine = node.getEndLine() - 1;
+			this.sourceStartLine = node.getStartLine();
+			this.sourceEndLine = node.getEndLine();
 		}
 
 		void fillTarget(GeneratedFile gFile, int startOffset, int endOffset) {
@@ -295,6 +301,28 @@ public class TotalMapping implements SourceTargetMapping {
 
 	private void putItem(TotalMappingItem item) {
 		items.add(item);
+
+		// DEBUG - add markers
+
+		IMarker dslMarker;
+		try {
+			// dslMarker =
+			// item.sourceFile.createMarker(DSLDebuggerPlugin.DSL_CODE_MARKER);
+			HashMap<String, Object> hashMap = new HashMap();
+
+			dslMarker = item.sourceFile.createMarker(IMarker.TEXT);
+			dslMarker.setAttribute(IMarker.LINE_NUMBER, item.sourceStartLine);
+			dslMarker.setAttribute(IMarker.CHAR_START, item.sourceStartOffset);
+			dslMarker.setAttribute(IMarker.CHAR_END, item.sourceEndOffset);
+			String text = "Lines: " + item.sourceStartLine + ":" + item.sourceEndLine + ", Chars: "
+					+ item.sourceStartOffset + ":" + item.sourceEndOffset;
+
+			dslMarker.setAttribute(IMarker.TEXT, text);
+			dslMarker.setAttribute(IMarker.MESSAGE, text);
+
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
 	}
 
 	TotalMappingItem findMappingForSourceElement(EObject sourceElement) {
@@ -311,35 +339,49 @@ public class TotalMapping implements SourceTargetMapping {
 		}
 	}
 
-	Vector<TotalMappingItem> items = new Vector<TotalMappingItem>();
+	// TODO: make private
+	public Vector<TotalMappingItem> items = new Vector<TotalMappingItem>();
 
 	@Override
 	public MappingItem lookupSourceElement(MappingItem targetMappingItem) {
-		
+
 		List<TotalMappingItem> resultItems = new Vector<TotalMappingItem>();
-		
+
 		for (TotalMappingItem item : this.items) {
-			
+
 			if (targetMappingItem.resource.equals(item.targetFile) == false) {
 				continue;
 			}
-			
-			/// TODO: this is not working yet - continue here
-			if (targetMappingItem.lineNumber >= item.targetStartLine && 
-			   targetMappingItem.lineNumber < item.targetEndLine) {
-				
+
+			// / TODO: this is not working yet - continue here
+			if (targetMappingItem.lineNumber >= item.targetStartLine
+					&& targetMappingItem.lineNumber <= item.targetEndLine) {
+
 				resultItems.add(item);
-				System.out.println("Found!");
-				
 			}
-			
 
 		}
-		
-		for (TotalMappingItem item : resultItems) {
-			System.out.println(item);
+
+		if (resultItems.size() == 1) {
+			return new MappingItem(resultItems.get(0).sourceFile,
+					resultItems.get(0).sourceStartLine, resultItems.get(0).sourceStartOffset,
+					resultItems.get(0).sourceEndOffset);
 		}
-		
+
+		// TODO: This case needs to be precisely investigated... For now we
+		// blindly return the first element.
+		if (resultItems.size() > 1) {
+
+			return new MappingItem(resultItems.get(0).sourceFile,
+					resultItems.get(0).sourceStartLine, resultItems.get(0).sourceStartOffset,
+					resultItems.get(0).sourceEndOffset);
+		}
+
+		// for (TotalMappingItem item : resultItems) {
+		// System.out.println(item);
+		// }
+
 		return null;
+
 	}
 }

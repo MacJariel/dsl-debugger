@@ -9,12 +9,16 @@ public class DSLDebuggerPlugin extends Plugin {
 
 	/** The plug-in ID */
 	public static final String PLUGIN_ID = "org.macjariel.dsl.debugger"; //$NON-NLS-1$
-	
+
 	/** The debug model ID of the DSL debugger */
 	public static final String DSL_DEBUG_MODEL_ID = PLUGIN_ID + ".model"; //$NON-NLS-1$
-		
+
 	/** The marker type id of DSL line breakpoint marker */
 	public static final String DSL_LINE_BREAKPOINT_MARKER_ID = PLUGIN_ID + ".lineBreakpointMarker"; //$NON-NLS-1$
+
+	public static final String GPL_CODE_MARKER = PLUGIN_ID + ".gplCodeMarker"; //$NON-NLS-1$
+	
+	public static final String DSL_CODE_MARKER = PLUGIN_ID + ".dslCodeMarker"; //$NON-NLS-1$
 
 	/** The shared instance */
 	private static DSLDebuggerPlugin instance;
@@ -37,8 +41,8 @@ public class DSLDebuggerPlugin extends Plugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
-		
-		//TEST
+
+		// TEST
 		for (TargetPlatform platform : TargetPlatformManager.getTargetPlatforms()) {
 			System.out.println("Found target platform: " + platform.getName());
 		}

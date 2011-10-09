@@ -19,6 +19,7 @@ import org.macjariel.dsl.debugger.model.DSLDebugTarget;
 import org.macjariel.dsl.debugger.model.DSLSourceLocator;
 import org.macjariel.dsl.debugger.platform.ITargetPlatformFactory;
 import org.macjariel.dsl.debugger.platform.impl.TargetPlatformManager;
+import org.macjariel.dsl.debugger.traceability.ResourceAnnotator;
 import org.macjariel.dsl.debugger.traceability.TotalMapping;
 
 public class DSLLaunchDelegate implements ILaunchConfigurationDelegate {
@@ -60,6 +61,11 @@ public class DSLLaunchDelegate implements ILaunchConfigurationDelegate {
 		// Create mapping
 		TotalMapping totalMapping = new TotalMapping(dslProgramModel, traceModel);
 
+		// Annotate resources according to mapping (debug purposes)
+		ResourceAnnotator annotator = new ResourceAnnotator(totalMapping);
+		annotator.annotateResources();
+		
+		
 		// Create debug target
 		new DSLDebugTarget(launch, traceModel, dslProgramModel, totalMapping, targetPlatformFactory);
 

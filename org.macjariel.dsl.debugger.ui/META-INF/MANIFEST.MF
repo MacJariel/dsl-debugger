@@ -14,5 +14,6 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.jface.text,
  org.eclipse.ui.dialogs,
+ org.eclipse.ui.part,
  org.eclipse.ui.texteditor
 Export-Package: org.macjariel.dsl.debugger.ui.adapters

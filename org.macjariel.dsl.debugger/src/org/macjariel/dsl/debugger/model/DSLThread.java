@@ -31,9 +31,6 @@ public class DSLThread extends DSLDebugElement implements IThread {
 		super(target);
 		this.gplThread = gplThread;
 		this.stackFrames = new ArrayList<DSLStackFrame>();
-
-		// TESTING
-		this.stackFrames.add(new DSLStackFrame(target, this));
 	}
 
 	public IThread getGplThread() {
@@ -164,6 +161,11 @@ public class DSLThread extends DSLDebugElement implements IThread {
 	}
 
 	void updateStackFrames() throws DebugException {
+		// TODO: we could reuse DSLStackFrames, instead of deleting them
+		// this approach should provide better UI experience
+
+		stackFrames.clear();
+
 		if (gplThread.hasStackFrames()) {
 			for (IStackFrame stackFrame : gplThread.getStackFrames()) {
 				Object sourceElement = getLaunch().getSourceLocator().getSourceElement(stackFrame);
@@ -190,7 +192,10 @@ public class DSLThread extends DSLDebugElement implements IThread {
 				}
 
 				if (sourceElementResource == null) {
-					throw new RuntimeException("Cannot find IResource for a source element.");
+					System.err.println("Cannot find IResource for a source element, maybe its OK.");
+					return;
+					// throw new
+					// RuntimeException("Cannot find IResource for a source element.");
 				}
 
 				System.out.println("[DEBUG] StackFrame: " + sourceElementResource + ", line: "
@@ -201,6 +206,12 @@ public class DSLThread extends DSLDebugElement implements IThread {
 						.lookupSourceElement(
 								new MappingItem(sourceElementResource, stackFrame.getLineNumber(),
 										stackFrame.getCharStart(), stackFrame.getCharEnd()));
+				if (mappingItem != null) {
+
+					stackFrames.add(new DSLStackFrame(getDebugTarget(), this, mappingItem.resource,
+							mappingItem.lineNumber, mappingItem.charStart, mappingItem.charEnd));
+
+				}
 
 			}
 
