@@ -11,11 +11,11 @@ public class DSLDebugElement extends DebugElement {
 	}
 
 	@Override
-	public String getModelIdentifier() {
+	public final String getModelIdentifier() {
 		return DSLDebuggerPlugin.DSL_DEBUG_MODEL_ID;
 	}
 
-	public DSLDebugTarget getDSLDebugTarget() {
+	public final DSLDebugTarget getDSLDebugTarget() {
 		return (DSLDebugTarget) getDebugTarget();
 	}
 

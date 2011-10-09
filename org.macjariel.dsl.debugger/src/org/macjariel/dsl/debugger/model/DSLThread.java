@@ -2,11 +2,24 @@ package org.macjariel.dsl.debugger.model;
 
 import java.util.ArrayList;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IBreakpoint;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.jdt.internal.debug.core.JavaDebugUtils;
+import org.eclipse.jdt.internal.debug.core.model.JDIStackFrame;
+import org.macjariel.dsl.debugger.traceability.SourceTargetMapping;
+import org.macjariel.dsl.debugger.traceability.SourceTargetMapping.MappingItem;
 
 public class DSLThread extends DSLDebugElement implements IThread {
 
@@ -139,6 +152,62 @@ public class DSLThread extends DSLDebugElement implements IThread {
 	@Override
 	public IBreakpoint[] getBreakpoints() {
 		return gplThread.getBreakpoints();
+	}
+
+	void eventSuspended() {
+		try {
+			updateStackFrames();
+		} catch (DebugException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	void updateStackFrames() throws DebugException {
+		if (gplThread.hasStackFrames()) {
+			for (IStackFrame stackFrame : gplThread.getStackFrames()) {
+				Object sourceElement = getLaunch().getSourceLocator().getSourceElement(stackFrame);
+				IResource sourceElementResource = null;
+
+				// Each debug model can use its own types for source elements.
+				// We try to convert the
+				// source element to IResource, first directly and then using
+				// the Adapter mechanism.
+				// This works for JDIDebugModel, but might not work for another
+				// debug models (another
+				// GPL languages). Please, fill a debug report, if your language
+				// is not supported.
+
+				if (sourceElement instanceof IResource) {
+					sourceElementResource = (IResource) sourceElement;
+				} else if (sourceElement instanceof IAdaptable) {
+					sourceElementResource = (IResource) ((IAdaptable) sourceElement)
+							.getAdapter(IResource.class);
+				} else {
+					throw new RuntimeException(
+							"Don't know how to convert source elements of type '"
+									+ sourceElement.getClass().getName() + "' to IResource.");
+				}
+
+				if (sourceElementResource == null) {
+					throw new RuntimeException("Cannot find IResource for a source element.");
+				}
+
+				System.out.println("[DEBUG] StackFrame: " + sourceElementResource + ", line: "
+						+ stackFrame.getLineNumber() + ", charStart: " + stackFrame.getCharStart()
+						+ ", charEnd: " + stackFrame.getCharEnd() + ".");
+
+				MappingItem mappingItem = getDSLDebugTarget().getSourceTargetMapping()
+						.lookupSourceElement(
+								new MappingItem(sourceElementResource, stackFrame.getLineNumber(),
+										stackFrame.getCharStart(), stackFrame.getCharEnd()));
+
+			}
+
+		} else {
+			stackFrames.clear();
+		}
+
 	}
 
 }

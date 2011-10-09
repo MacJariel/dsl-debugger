@@ -5,15 +5,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
 import org.eclipse.acceleo.traceability.GeneratedFile;
 import org.eclipse.acceleo.traceability.GeneratedText;
 import org.eclipse.acceleo.traceability.InputElement;
-import org.eclipse.acceleo.traceability.ModuleElement;
 import org.eclipse.acceleo.traceability.TraceabilityModel;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -36,7 +37,7 @@ import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
  * @author MacJariel
  * 
  */
-public class TotalMapping {
+public class TotalMapping implements SourceTargetMapping {
 
 	private EObject dslProgramModel;
 
@@ -235,8 +236,8 @@ public class TotalMapping {
 					for (GeneratedText gText : gFile.getGeneratedRegions()) {
 						for (InputElement inputElement : associatedInputElements) {
 							if (gText.getSourceElement() == inputElement) {
-								ModuleElement m = gText.getModuleElement();
-								EObject me = m.getModuleElement();
+								// ModuleElement m = gText.getModuleElement();
+								// EObject me = m.getModuleElement();
 								generatedTexts.add(gText);
 							}
 						}
@@ -311,4 +312,34 @@ public class TotalMapping {
 	}
 
 	Vector<TotalMappingItem> items = new Vector<TotalMappingItem>();
+
+	@Override
+	public MappingItem lookupSourceElement(MappingItem targetMappingItem) {
+		
+		List<TotalMappingItem> resultItems = new Vector<TotalMappingItem>();
+		
+		for (TotalMappingItem item : this.items) {
+			
+			if (targetMappingItem.resource.equals(item.targetFile) == false) {
+				continue;
+			}
+			
+			/// TODO: this is not working yet - continue here
+			if (targetMappingItem.lineNumber >= item.targetStartLine && 
+			   targetMappingItem.lineNumber < item.targetEndLine) {
+				
+				resultItems.add(item);
+				System.out.println("Found!");
+				
+			}
+			
+
+		}
+		
+		for (TotalMappingItem item : resultItems) {
+			System.out.println(item);
+		}
+		
+		return null;
+	}
 }

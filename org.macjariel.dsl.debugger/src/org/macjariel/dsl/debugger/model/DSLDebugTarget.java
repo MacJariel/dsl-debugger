@@ -23,15 +23,20 @@ import org.macjariel.dsl.debugger.DSLDebuggerPlugin;
 import org.macjariel.dsl.debugger.breakpoints.DSLLineBreakpoint;
 import org.macjariel.dsl.debugger.platform.ITargetPlatformFactory;
 import org.macjariel.dsl.debugger.traceability.SimpleMapping;
+import org.macjariel.dsl.debugger.traceability.SourceTargetMapping;
 import org.macjariel.dsl.debugger.traceability.TraceabilityModelHelper;
 
 public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDebugEventSetListener {
 
-	private ILaunch launch;
+	private final ILaunch launch;
 
-	private TraceabilityModel traceabilityModel;
+	private final TraceabilityModel traceabilityModel;
 
-	private EObject dslProgramModel;
+	private final EObject dslProgramModel;
+
+	private final ITargetPlatformFactory targetPlatformFactory;
+	
+	private final SourceTargetMapping mapping;
 
 	private ArrayList<DSLThread> dslThreads;
 
@@ -41,19 +46,18 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 
 	private IDebugTarget gplDebugTarget;
 
-	private ITargetPlatformFactory targetPlatformFactory;
-
 	public DSLDebugTarget(ILaunch launch, TraceabilityModel traceabilityModel,
-			EObject dslProgramModel, ITargetPlatformFactory targetPlatformFactory) {
+			EObject dslProgramModel, SourceTargetMapping mapping, ITargetPlatformFactory targetPlatformFactory) {
 		this.launch = launch;
 		this.traceabilityModel = traceabilityModel;
 		this.dslProgramModel = dslProgramModel;
 		this.targetPlatformFactory = targetPlatformFactory;
+		this.mapping = mapping;
 
 		initialize();
 
 		DebugPlugin.getDefault().addDebugEventListener(this);
-		
+
 		launch.addDebugTarget(this);
 	}
 
@@ -76,8 +80,7 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 		IBreakpointManager manager = getBreakpointManager();
 		manager.addBreakpointListener(this);
 
-		IBreakpoint[] breakpoints = manager
-				.getBreakpoints(DSLDebuggerPlugin.DSL_DEBUG_MODEL_ID);
+		IBreakpoint[] breakpoints = manager.getBreakpoints(DSLDebuggerPlugin.DSL_DEBUG_MODEL_ID);
 		for (IBreakpoint breakpoint : breakpoints) {
 			if (breakpoint instanceof DSLLineBreakpoint) {
 				breakpointAdded(breakpoint);
@@ -268,7 +271,7 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 			switch (event.getKind()) {
 			case DebugEvent.CREATE:
 				try {
-					if (targetPlatformFactory.getDebugModel().isUserThread((IThread)eventSource)) {
+					if (targetPlatformFactory.getDebugModel().isUserThread((IThread) eventSource)) {
 						createThread((IThread) eventSource);
 					}
 				} catch (DebugException e) {
@@ -276,9 +279,14 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 				}
 				break;
 			case DebugEvent.SUSPEND:
-				for (DSLThread thread : dslThreads) {
-					if (thread.getGplThread() == eventSource) {
-						thread.fireSuspendEvent(event.getDetail());
+				if (eventSource instanceof DSLThread) {
+					((DSLThread)eventSource).eventSuspended();
+				} else {
+					
+					for (DSLThread thread : dslThreads) {
+						if (thread.getGplThread() == eventSource) {
+							thread.fireSuspendEvent(event.getDetail());
+						}
 					}
 				}
 				break;
@@ -327,5 +335,9 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 
 	public IDebugTarget getGplDebugTarget() {
 		return gplDebugTarget;
+	}
+	
+	public final SourceTargetMapping getSourceTargetMapping() {
+		return this.mapping;
 	}
 }

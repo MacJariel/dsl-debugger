@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.macjariel.dsl.debugger.DSLDebuggerLog;
 import org.macjariel.dsl.debugger.model.DSLDebugTarget;
+import org.macjariel.dsl.debugger.model.DSLSourceLocator;
 import org.macjariel.dsl.debugger.platform.ITargetPlatformFactory;
 import org.macjariel.dsl.debugger.platform.impl.TargetPlatformManager;
 import org.macjariel.dsl.debugger.traceability.TotalMapping;
@@ -58,13 +59,15 @@ public class DSLLaunchDelegate implements ILaunchConfigurationDelegate {
 
 		// Create mapping
 		TotalMapping totalMapping = new TotalMapping(dslProgramModel, traceModel);
-		
+
 		// Create debug target
-		DSLDebugTarget dslDebugTarget = new DSLDebugTarget(launch, traceModel, dslProgramModel,
-				targetPlatformFactory);
+		new DSLDebugTarget(launch, traceModel, dslProgramModel, totalMapping, targetPlatformFactory);
 
 		targetLaunchDelegate = targetPlatformFactory.createLaunchDelegate();
 		targetLaunchDelegate.launch(configuration, mode, launch, monitor);
-	}
 
+		// Create DSL source locator
+		DSLSourceLocator dslSourceLocator = new DSLSourceLocator(launch.getSourceLocator());
+		launch.setSourceLocator(dslSourceLocator);
+	}
 }
