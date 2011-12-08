@@ -858,7 +858,7 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
        source, 
        new String[] 
        {
-       "type", "SubrutineDefinition"
+       "type", "SubroutineDefinition"
        });		
     addAnnotation
       (statementEClass, 
@@ -872,7 +872,7 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
        source, 
        new String[] 
        {
-       "type", "Statement SubrutineCall"
+       "type", "Statement SubroutineCall"
        });		
     addAnnotation
       (ifStatementEClass, 

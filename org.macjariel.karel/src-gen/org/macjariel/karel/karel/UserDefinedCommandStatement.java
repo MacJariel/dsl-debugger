@@ -19,7 +19,7 @@ package org.macjariel.karel.karel;
  * </p>
  *
  * @see org.macjariel.karel.karel.KarelPackage#getUserDefinedCommandStatement()
- * @model annotation="http://www.macjariel.org/DSLDebugger type='Statement SubrutineCall'"
+ * @model annotation="http://www.macjariel.org/DSLDebugger type='Statement SubroutineCall'"
  * @generated
  */
 public interface UserDefinedCommandStatement extends Statement

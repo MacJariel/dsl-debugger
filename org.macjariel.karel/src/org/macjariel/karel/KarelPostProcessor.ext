@@ -17,8 +17,8 @@ process(EClass this) :
 	
 	/// Add others annotations based on EClass names.
 	switch (this.name) {
-		case "UserDefinedCommandStatement": (setType("SubrutineCall"))
-		case "UserDefinedCommand": (setType("SubrutineDefinition"))
+		case "UserDefinedCommandStatement": (setType("SubroutineCall"))
+		case "UserDefinedCommand": (setType("SubroutineDefinition"))
 		default: null
 	}
 ;

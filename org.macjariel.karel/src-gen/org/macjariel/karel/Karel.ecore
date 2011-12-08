@@ -44,7 +44,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserDefinedCommand">
     <eAnnotations source="http://www.macjariel.org/DSLDebugger">
-      <details key="type" value="SubrutineDefinition"/>
+      <details key="type" value="SubroutineDefinition"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="doc" eType="ecore:EClass platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//DocumentationComment"
         containment="true"/>
@@ -65,7 +65,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserDefinedCommandStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement">
     <eAnnotations source="http://www.macjariel.org/DSLDebugger">
-      <details key="type" value="Statement SubrutineCall"/>
+      <details key="type" value="Statement SubroutineCall"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="command" eType="ecore:EClass platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommand"/>
   </eClassifiers>
