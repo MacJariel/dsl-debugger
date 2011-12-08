@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.macjariel.dsl.debugger.models/src"
+    modelPluginID="org.macjariel.dsl.debugger.models" modelName="ModuleElementTypes"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+  <foreignModel>ModuleElementTypes.ecore</foreignModel>
+  <genPackages prefix="Moduleelementtypes" basePackage="org.macjariel.dsl.debugger.models"
+      disposableProviderFactory="true" ecorePackage="ModuleElementTypes.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ModuleElementTypes.ecore#//ModuleElementType">
+      <genEnumLiterals ecoreEnumLiteral="ModuleElementTypes.ecore#//ModuleElementType/Statement"/>
+      <genEnumLiterals ecoreEnumLiteral="ModuleElementTypes.ecore#//ModuleElementType/InitCommand"/>
+      <genEnumLiterals ecoreEnumLiteral="ModuleElementTypes.ecore#//ModuleElementType/SubrutineCall"/>
+      <genEnumLiterals ecoreEnumLiteral="ModuleElementTypes.ecore#//ModuleElementType/SubrutineDefinition"/>
+    </genEnums>
+    <genClasses ecoreClass="ModuleElementTypes.ecore#//ModuleElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModuleElementTypes.ecore#//ModuleElement/ModuleElementTypes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModuleElementTypes.ecore#//ModuleElement/moduleElement"/>
+    </genClasses>
+    <genClasses ecoreClass="ModuleElementTypes.ecore#//ModuleElementTypesModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModuleElementTypes.ecore#//ModuleElementTypesModel/moduleElements"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

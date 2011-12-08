@@ -7,6 +7,8 @@ Bundle-Vendor: MacJariel
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.acceleo.engine,
  org.eclipse.jface,
- org.eclipse.ui.workbench
+ org.eclipse.ui.workbench,
+ org.macjariel.dsl.debugger.models;bundle-version="1.0.0",
+ org.eclipse.acceleo.traceability.model;bundle-version="3.1.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.macjariel.dsl.debugger.core.traceability

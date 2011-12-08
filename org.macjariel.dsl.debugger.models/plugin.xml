@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://macjariel.org/moduleelementtypes"
+            class="org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleelementtypesPackage"
+            genModel="src/org/macjariel/dsl/debugger/models/ModuleElementTypes.genmodel"/>
+   </extension>
+
+</plugin>
