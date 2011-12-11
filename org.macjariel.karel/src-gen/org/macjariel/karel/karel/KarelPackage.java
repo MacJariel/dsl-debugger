@@ -348,6 +348,25 @@ public interface KarelPackage extends EPackage
   int STATEMENT_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.macjariel.karel.karel.impl.BreakableStatementImpl <em>Breakable Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.macjariel.karel.karel.impl.BreakableStatementImpl
+   * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getBreakableStatement()
+   * @generated
+   */
+  int BREAKABLE_STATEMENT = 9;
+
+  /**
+   * The number of structural features of the '<em>Breakable Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BREAKABLE_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.macjariel.karel.karel.impl.UserDefinedCommandStatementImpl <em>User Defined Command Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -355,7 +374,7 @@ public interface KarelPackage extends EPackage
    * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getUserDefinedCommandStatement()
    * @generated
    */
-  int USER_DEFINED_COMMAND_STATEMENT = 9;
+  int USER_DEFINED_COMMAND_STATEMENT = 10;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' reference.
@@ -364,7 +383,7 @@ public interface KarelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USER_DEFINED_COMMAND_STATEMENT__COMMAND = STATEMENT_FEATURE_COUNT + 0;
+  int USER_DEFINED_COMMAND_STATEMENT__COMMAND = BREAKABLE_STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>User Defined Command Statement</em>' class.
@@ -373,7 +392,7 @@ public interface KarelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USER_DEFINED_COMMAND_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int USER_DEFINED_COMMAND_STATEMENT_FEATURE_COUNT = BREAKABLE_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.macjariel.karel.karel.impl.IfStatementImpl <em>If Statement</em>}' class.
@@ -383,7 +402,7 @@ public interface KarelPackage extends EPackage
    * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getIfStatement()
    * @generated
    */
-  int IF_STATEMENT = 10;
+  int IF_STATEMENT = 11;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -429,7 +448,7 @@ public interface KarelPackage extends EPackage
    * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getIterateStatement()
    * @generated
    */
-  int ITERATE_STATEMENT = 11;
+  int ITERATE_STATEMENT = 12;
 
   /**
    * The feature id for the '<em><b>Times</b></em>' attribute.
@@ -466,7 +485,7 @@ public interface KarelPackage extends EPackage
    * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getWhileStatement()
    * @generated
    */
-  int WHILE_STATEMENT = 12;
+  int WHILE_STATEMENT = 13;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -503,7 +522,7 @@ public interface KarelPackage extends EPackage
    * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getDocumentationComment()
    * @generated
    */
-  int DOCUMENTATION_COMMENT = 13;
+  int DOCUMENTATION_COMMENT = 14;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -531,7 +550,7 @@ public interface KarelPackage extends EPackage
    * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getCommandStatement()
    * @generated
    */
-  int COMMAND_STATEMENT = 14;
+  int COMMAND_STATEMENT = 15;
 
   /**
    * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -540,7 +559,7 @@ public interface KarelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND_STATEMENT__KIND = STATEMENT_FEATURE_COUNT + 0;
+  int COMMAND_STATEMENT__KIND = BREAKABLE_STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Command Statement</em>' class.
@@ -549,7 +568,7 @@ public interface KarelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMAND_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int COMMAND_STATEMENT_FEATURE_COUNT = BREAKABLE_STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.macjariel.karel.karel.impl.ConditionExprImpl <em>Condition Expr</em>}' class.
@@ -559,7 +578,7 @@ public interface KarelPackage extends EPackage
    * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getConditionExpr()
    * @generated
    */
-  int CONDITION_EXPR = 15;
+  int CONDITION_EXPR = 16;
 
   /**
    * The feature id for the '<em><b>Negation</b></em>' attribute.
@@ -821,6 +840,16 @@ public interface KarelPackage extends EPackage
    * @generated
    */
   EClass getStatement();
+
+  /**
+   * Returns the meta object for class '{@link org.macjariel.karel.karel.BreakableStatement <em>Breakable Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Breakable Statement</em>'.
+   * @see org.macjariel.karel.karel.BreakableStatement
+   * @generated
+   */
+  EClass getBreakableStatement();
 
   /**
    * Returns the meta object for class '{@link org.macjariel.karel.karel.UserDefinedCommandStatement <em>User Defined Command Statement</em>}'.
@@ -1240,6 +1269,16 @@ public interface KarelPackage extends EPackage
      * @generated
      */
     EClass STATEMENT = eINSTANCE.getStatement();
+
+    /**
+     * The meta object literal for the '{@link org.macjariel.karel.karel.impl.BreakableStatementImpl <em>Breakable Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.macjariel.karel.karel.impl.BreakableStatementImpl
+     * @see org.macjariel.karel.karel.impl.KarelPackageImpl#getBreakableStatement()
+     * @generated
+     */
+    EClass BREAKABLE_STATEMENT = eINSTANCE.getBreakableStatement();
 
     /**
      * The meta object literal for the '{@link org.macjariel.karel.karel.impl.UserDefinedCommandStatementImpl <em>User Defined Command Statement</em>}' class.

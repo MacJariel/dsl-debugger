@@ -339,14 +339,13 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIfStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cIterateStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cWhileStatementParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cCommandStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cUserDefinedCommandStatementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cBreakableStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Statement:
-		//	IfStatement | IterateStatement | WhileStatement | CommandStatement | UserDefinedCommandStatement;
+		//	IfStatement | IterateStatement | WhileStatement | BreakableStatement;
 		public ParserRule getRule() { return rule; }
 
-		//IfStatement | IterateStatement | WhileStatement | CommandStatement | UserDefinedCommandStatement
+		//IfStatement | IterateStatement | WhileStatement | BreakableStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//IfStatement
@@ -358,11 +357,28 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 		//WhileStatement
 		public RuleCall getWhileStatementParserRuleCall_2() { return cWhileStatementParserRuleCall_2; }
 
+		//BreakableStatement
+		public RuleCall getBreakableStatementParserRuleCall_3() { return cBreakableStatementParserRuleCall_3; }
+	}
+
+	public class BreakableStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BreakableStatement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCommandStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cUserDefinedCommandStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//BreakableStatement:
+		//	CommandStatement | UserDefinedCommandStatement;
+		public ParserRule getRule() { return rule; }
+
+		//CommandStatement | UserDefinedCommandStatement
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//CommandStatement
-		public RuleCall getCommandStatementParserRuleCall_3() { return cCommandStatementParserRuleCall_3; }
+		public RuleCall getCommandStatementParserRuleCall_0() { return cCommandStatementParserRuleCall_0; }
 
 		//UserDefinedCommandStatement
-		public RuleCall getUserDefinedCommandStatementParserRuleCall_4() { return cUserDefinedCommandStatementParserRuleCall_4; }
+		public RuleCall getUserDefinedCommandStatementParserRuleCall_1() { return cUserDefinedCommandStatementParserRuleCall_1; }
 	}
 
 	public class UserDefinedCommandStatementElements extends AbstractParserRuleElementFinder {
@@ -704,6 +720,7 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 	private UserDefinedCommandElements pUserDefinedCommand;
 	private MainElements pMain;
 	private StatementElements pStatement;
+	private BreakableStatementElements pBreakableStatement;
 	private UserDefinedCommandStatementElements pUserDefinedCommandStatement;
 	private IfStatementElements pIfStatement;
 	private IterateStatementElements pIterateStatement;
@@ -826,13 +843,23 @@ public class KarelGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Statement:
-	//	IfStatement | IterateStatement | WhileStatement | CommandStatement | UserDefinedCommandStatement;
+	//	IfStatement | IterateStatement | WhileStatement | BreakableStatement;
 	public StatementElements getStatementAccess() {
 		return (pStatement != null) ? pStatement : (pStatement = new StatementElements());
 	}
 	
 	public ParserRule getStatementRule() {
 		return getStatementAccess().getRule();
+	}
+
+	//BreakableStatement:
+	//	CommandStatement | UserDefinedCommandStatement;
+	public BreakableStatementElements getBreakableStatementAccess() {
+		return (pBreakableStatement != null) ? pBreakableStatement : (pBreakableStatement = new BreakableStatementElements());
+	}
+	
+	public ParserRule getBreakableStatementRule() {
+		return getBreakableStatementAccess().getRule();
 	}
 
 	//UserDefinedCommandStatement:

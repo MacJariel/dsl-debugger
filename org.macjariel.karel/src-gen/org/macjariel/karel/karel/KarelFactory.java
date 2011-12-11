@@ -107,6 +107,15 @@ public interface KarelFactory extends EFactory
   Statement createStatement();
 
   /**
+   * Returns a new object of class '<em>Breakable Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Breakable Statement</em>'.
+   * @generated
+   */
+  BreakableStatement createBreakableStatement();
+
+  /**
    * Returns a new object of class '<em>User Defined Command Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

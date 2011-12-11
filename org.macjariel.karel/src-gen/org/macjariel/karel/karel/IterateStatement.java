@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see org.macjariel.karel.karel.KarelPackage#getIterateStatement()
- * @model annotation="http://www.macjariel.org/DSLDebugger type='Statement'"
+ * @model
  * @generated
  */
 public interface IterateStatement extends Statement

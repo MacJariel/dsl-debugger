@@ -868,10 +868,10 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1228:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1228:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1258:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1258:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1228:11: ( '^' )?
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1258:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -880,7 +880,7 @@ public class InternalKarelLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1228:11: '^'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1258:11: '^'
                     {
                     match('^'); 
 
@@ -898,7 +898,7 @@ public class InternalKarelLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1228:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1258:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -947,10 +947,10 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1230:10: ( ( '0' .. '9' )+ )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1230:12: ( '0' .. '9' )+
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1260:10: ( ( '0' .. '9' )+ )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1260:12: ( '0' .. '9' )+
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1230:12: ( '0' .. '9' )+
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1260:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -964,7 +964,7 @@ public class InternalKarelLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1230:13: '0' .. '9'
+            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1260:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -996,10 +996,10 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1017,10 +1017,10 @@ public class InternalKarelLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1036,7 +1036,7 @@ public class InternalKarelLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1052,7 +1052,7 @@ public class InternalKarelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1077,10 +1077,10 @@ public class InternalKarelLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1096,7 +1096,7 @@ public class InternalKarelLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1112,7 +1112,7 @@ public class InternalKarelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1232:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1262:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1155,12 +1155,12 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1234:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1234:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1264:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1264:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1234:24: ( options {greedy=false; } : . )*
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1264:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1185,7 +1185,7 @@ public class InternalKarelLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1234:52: .
+            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1264:52: .
             	    {
             	    matchAny(); 
 
@@ -1215,12 +1215,12 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1236:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1236:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1266:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1266:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1236:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1266:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1233,7 +1233,7 @@ public class InternalKarelLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1236:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1266:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1253,7 +1253,7 @@ public class InternalKarelLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1236:40: ( ( '\\r' )? '\\n' )?
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1266:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1262,9 +1262,9 @@ public class InternalKarelLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1236:41: ( '\\r' )? '\\n'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1266:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1236:41: ( '\\r' )?
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1266:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1273,7 +1273,7 @@ public class InternalKarelLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1236:41: '\\r'
+                            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1266:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1305,10 +1305,10 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1238:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1238:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1268:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1268:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1238:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1268:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1362,8 +1362,8 @@ public class InternalKarelLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1240:16: ( . )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1240:18: .
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1270:16: ( . )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1270:18: .
             {
             matchAny(); 
 

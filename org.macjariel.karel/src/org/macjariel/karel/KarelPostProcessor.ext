@@ -11,8 +11,9 @@ process(xtext::GeneratedMetamodel this) :
 process(EClass this) :
 	/// Add Statement annotation to all EClasses that are subtypes of Statement
 	/// or InitCommand EClasses
-	findEClass(this.ePackage, "Statement").isSuperTypeOf(this) ||
-	findEClass(this.ePackage, "InitCommand").isSuperTypeOf(this) ? 
+	findEClass(this.ePackage, "BreakableStatement").isSuperTypeOf(this) ||
+	findEClass(this.ePackage, "InitCommand").isSuperTypeOf(this) ||
+	findEClass(this.ePackage, "ConditionKind").isSuperTypeOf(this) ? 
 		setType("Statement") : null ->
 	
 	/// Add others annotations based on EClass names.

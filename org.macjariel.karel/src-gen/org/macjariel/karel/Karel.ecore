@@ -58,21 +58,19 @@
         eType="ecore:EClass platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Statement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BreakableStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement">
     <eAnnotations source="http://www.macjariel.org/DSLDebugger">
       <details key="type" value="Statement"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedCommandStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedCommandStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//BreakableStatement">
     <eAnnotations source="http://www.macjariel.org/DSLDebugger">
       <details key="type" value="Statement SubroutineCall"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="command" eType="ecore:EClass platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommand"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement">
-    <eAnnotations source="http://www.macjariel.org/DSLDebugger">
-      <details key="type" value="Statement"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="ecore:EClass platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//ConditionExpr"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
@@ -83,18 +81,12 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IterateStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement">
-    <eAnnotations source="http://www.macjariel.org/DSLDebugger">
-      <details key="type" value="Statement"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="times" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
         eType="ecore:EClass platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WhileStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement">
-    <eAnnotations source="http://www.macjariel.org/DSLDebugger">
-      <details key="type" value="Statement"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="ecore:EClass platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//ConditionExpr"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
@@ -104,7 +96,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DocumentationComment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CommandStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="CommandStatement" eSuperTypes="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//BreakableStatement">
     <eAnnotations source="http://www.macjariel.org/DSLDebugger">
       <details key="type" value="Statement"/>
     </eAnnotations>

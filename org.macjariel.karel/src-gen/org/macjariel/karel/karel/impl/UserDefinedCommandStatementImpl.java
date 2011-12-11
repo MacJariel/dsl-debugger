@@ -29,7 +29,7 @@ import org.macjariel.karel.karel.UserDefinedCommandStatement;
  *
  * @generated
  */
-public class UserDefinedCommandStatementImpl extends StatementImpl implements UserDefinedCommandStatement
+public class UserDefinedCommandStatementImpl extends BreakableStatementImpl implements UserDefinedCommandStatement
 {
   /**
    * The cached value of the '{@link #getCommand() <em>Command</em>}' reference.

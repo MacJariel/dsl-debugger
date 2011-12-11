@@ -666,21 +666,51 @@ ruleStatement returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getStatementAccess().getCommandStatementParserRuleCall_3()); 
+        newCompositeNode(grammarAccess.getStatementAccess().getBreakableStatementParserRuleCall_3()); 
     }
-    this_CommandStatement_3=ruleCommandStatement
+    this_BreakableStatement_3=ruleBreakableStatement
     { 
-        $current = $this_CommandStatement_3.current; 
+        $current = $this_BreakableStatement_3.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleBreakableStatement
+entryRuleBreakableStatement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getBreakableStatementRule()); }
+	 iv_ruleBreakableStatement=ruleBreakableStatement 
+	 { $current=$iv_ruleBreakableStatement.current; } 
+	 EOF 
+;
+
+// Rule BreakableStatement
+ruleBreakableStatement returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getBreakableStatementAccess().getCommandStatementParserRuleCall_0()); 
+    }
+    this_CommandStatement_0=ruleCommandStatement
+    { 
+        $current = $this_CommandStatement_0.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getStatementAccess().getUserDefinedCommandStatementParserRuleCall_4()); 
+        newCompositeNode(grammarAccess.getBreakableStatementAccess().getUserDefinedCommandStatementParserRuleCall_1()); 
     }
-    this_UserDefinedCommandStatement_4=ruleUserDefinedCommandStatement
+    this_UserDefinedCommandStatement_1=ruleUserDefinedCommandStatement
     { 
-        $current = $this_UserDefinedCommandStatement_4.current; 
+        $current = $this_UserDefinedCommandStatement_1.current; 
         afterParserOrEnumRuleCall();
     }
 )

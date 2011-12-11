@@ -40,6 +40,7 @@ public class KarelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInitCommandAccess().getAlternatives(), "rule__InitCommand__Alternatives");
 					put(grammarAccess.getHeadingKindAccess().getAlternatives(), "rule__HeadingKind__Alternatives");
 					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
+					put(grammarAccess.getBreakableStatementAccess().getAlternatives(), "rule__BreakableStatement__Alternatives");
 					put(grammarAccess.getCommandKindAccess().getAlternatives(), "rule__CommandKind__Alternatives");
 					put(grammarAccess.getConditionKindAccess().getAlternatives(), "rule__ConditionKind__Alternatives");
 					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");

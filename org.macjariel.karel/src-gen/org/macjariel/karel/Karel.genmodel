@@ -37,6 +37,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Main/statements"/>
     </genClasses>
     <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//Statement"/>
+    <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//BreakableStatement"/>
     <genClasses ecoreClass="platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommandStatement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/org.macjariel.karel/src-gen/org/macjariel/karel/Karel.ecore#//UserDefinedCommandStatement/command"/>
     </genClasses>

@@ -22,7 +22,7 @@ package org.macjariel.karel.karel;
  * @model annotation="http://www.macjariel.org/DSLDebugger type='Statement SubroutineCall'"
  * @generated
  */
-public interface UserDefinedCommandStatement extends Statement
+public interface UserDefinedCommandStatement extends BreakableStatement
 {
   /**
    * Returns the value of the '<em><b>Command</b></em>' reference.

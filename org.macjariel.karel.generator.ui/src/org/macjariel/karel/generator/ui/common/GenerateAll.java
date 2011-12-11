@@ -92,8 +92,8 @@ public class GenerateAll {
 		// Turn on traceability
 		AcceleoPreferences.switchTraceability(true);
 		
-		URI tracebilityURI = URI.createFileURI(new File(targetFolder, "traceability.xmi").getAbsolutePath());
-		TraceabilityModelSerializer serializer = new TraceabilityModelSerializer(tracebilityURI);
+		URI targetFolderURI = URI.createFileURI(targetFolder.getAbsolutePath());
+		TraceabilityModelSerializer serializer = new TraceabilityModelSerializer(targetFolderURI);
 		
 		serializer.register();
 

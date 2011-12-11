@@ -12,6 +12,11 @@
 	[/if]					
 [/template]
 
+
+[**
+ * This template generates an init command.
+ * @type Statement 
+ */]
 [template public generateInitCommand(cmd : InitHeadingCommand, eEngineName:String)]
 	[eEngineName /].getKarel().setHeading([headingKindConverter(cmd.heading) /]);	
 [/template]

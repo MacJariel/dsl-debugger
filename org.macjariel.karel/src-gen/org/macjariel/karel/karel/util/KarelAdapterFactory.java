@@ -123,6 +123,11 @@ public class KarelAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter caseBreakableStatement(BreakableStatement object)
+      {
+        return createBreakableStatementAdapter();
+      }
+      @Override
       public Adapter caseUserDefinedCommandStatement(UserDefinedCommandStatement object)
       {
         return createUserDefinedCommandStatementAdapter();
@@ -310,6 +315,21 @@ public class KarelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.macjariel.karel.karel.BreakableStatement <em>Breakable Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.macjariel.karel.karel.BreakableStatement
+   * @generated
+   */
+  public Adapter createBreakableStatementAdapter()
   {
     return null;
   }

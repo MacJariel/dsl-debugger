@@ -40,13 +40,14 @@ protected class ThisRootNode extends RootToken {
 			case 6: return new UserDefinedCommand_Group(this, this, 6, inst);
 			case 7: return new Main_Group(this, this, 7, inst);
 			case 8: return new Statement_Alternatives(this, this, 8, inst);
-			case 9: return new UserDefinedCommandStatement_Group(this, this, 9, inst);
-			case 10: return new IfStatement_Group(this, this, 10, inst);
-			case 11: return new IterateStatement_Group(this, this, 11, inst);
-			case 12: return new WhileStatement_Group(this, this, 12, inst);
-			case 13: return new DocumentationComment_Group(this, this, 13, inst);
-			case 14: return new CommandStatement_Group(this, this, 14, inst);
-			case 15: return new ConditionExpr_Group(this, this, 15, inst);
+			case 9: return new BreakableStatement_Alternatives(this, this, 9, inst);
+			case 10: return new UserDefinedCommandStatement_Group(this, this, 10, inst);
+			case 11: return new IfStatement_Group(this, this, 11, inst);
+			case 12: return new IterateStatement_Group(this, this, 12, inst);
+			case 13: return new WhileStatement_Group(this, this, 13, inst);
+			case 14: return new DocumentationComment_Group(this, this, 14, inst);
+			case 15: return new CommandStatement_Group(this, this, 15, inst);
+			case 16: return new ConditionExpr_Group(this, this, 16, inst);
 			default: return null;
 		}	
 	}	
@@ -1440,11 +1441,11 @@ protected class Main_ENDMAINKeyword_3 extends KeywordToken  {
 /************ begin Rule Statement ****************
  *
  * Statement:
- * 	IfStatement | IterateStatement | WhileStatement | CommandStatement | UserDefinedCommandStatement;
+ * 	IfStatement | IterateStatement | WhileStatement | BreakableStatement;
  *
  **/
 
-// IfStatement | IterateStatement | WhileStatement | CommandStatement | UserDefinedCommandStatement
+// IfStatement | IterateStatement | WhileStatement | BreakableStatement
 protected class Statement_Alternatives extends AlternativesToken {
 
 	public Statement_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1462,8 +1463,7 @@ protected class Statement_Alternatives extends AlternativesToken {
 			case 0: return new Statement_IfStatementParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new Statement_IterateStatementParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new Statement_WhileStatementParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new Statement_CommandStatementParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
-			case 4: return new Statement_UserDefinedCommandStatementParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
+			case 3: return new Statement_BreakableStatementParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
 			default: return null;
 		}	
 	}
@@ -1589,16 +1589,95 @@ protected class Statement_WhileStatementParserRuleCall_2 extends RuleCallToken {
 	}	
 }
 
-// CommandStatement
-protected class Statement_CommandStatementParserRuleCall_3 extends RuleCallToken {
+// BreakableStatement
+protected class Statement_BreakableStatementParserRuleCall_3 extends RuleCallToken {
 	
-	public Statement_CommandStatementParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Statement_BreakableStatementParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getStatementAccess().getCommandStatementParserRuleCall_3();
+		return grammarAccess.getStatementAccess().getBreakableStatementParserRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new BreakableStatement_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getCommandStatementRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getUserDefinedCommandStatementRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(BreakableStatement_Alternatives.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+
+/************ end Rule Statement ****************/
+
+
+/************ begin Rule BreakableStatement ****************
+ *
+ * BreakableStatement:
+ * 	CommandStatement | UserDefinedCommandStatement;
+ *
+ **/
+
+// CommandStatement | UserDefinedCommandStatement
+protected class BreakableStatement_Alternatives extends AlternativesToken {
+
+	public BreakableStatement_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getBreakableStatementAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new BreakableStatement_CommandStatementParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new BreakableStatement_UserDefinedCommandStatementParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getCommandStatementRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getUserDefinedCommandStatementRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// CommandStatement
+protected class BreakableStatement_CommandStatementParserRuleCall_0 extends RuleCallToken {
+	
+	public BreakableStatement_CommandStatementParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getBreakableStatementAccess().getCommandStatementParserRuleCall_0();
 	}
 
     @Override
@@ -1626,15 +1705,15 @@ protected class Statement_CommandStatementParserRuleCall_3 extends RuleCallToken
 }
 
 // UserDefinedCommandStatement
-protected class Statement_UserDefinedCommandStatementParserRuleCall_4 extends RuleCallToken {
+protected class BreakableStatement_UserDefinedCommandStatementParserRuleCall_1 extends RuleCallToken {
 	
-	public Statement_UserDefinedCommandStatementParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public BreakableStatement_UserDefinedCommandStatementParserRuleCall_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getStatementAccess().getUserDefinedCommandStatementParserRuleCall_4();
+		return grammarAccess.getBreakableStatementAccess().getUserDefinedCommandStatementParserRuleCall_1();
 	}
 
     @Override
@@ -1662,7 +1741,7 @@ protected class Statement_UserDefinedCommandStatementParserRuleCall_4 extends Ru
 }
 
 
-/************ end Rule Statement ****************/
+/************ end Rule BreakableStatement ****************/
 
 
 /************ begin Rule UserDefinedCommandStatement ****************

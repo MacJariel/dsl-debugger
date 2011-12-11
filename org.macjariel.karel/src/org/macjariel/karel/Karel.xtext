@@ -43,7 +43,12 @@ Main:
 	'END-MAIN';
 
 Statement:
-	IfStatement | IterateStatement | WhileStatement | CommandStatement | UserDefinedCommandStatement;
+	IfStatement | IterateStatement | WhileStatement | BreakableStatement
+;
+
+BreakableStatement:
+	CommandStatement | UserDefinedCommandStatement
+;
 
 UserDefinedCommandStatement:
 	command=[UserDefinedCommand] ';';

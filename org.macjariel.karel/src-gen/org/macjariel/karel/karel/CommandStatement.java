@@ -22,7 +22,7 @@ package org.macjariel.karel.karel;
  * @model annotation="http://www.macjariel.org/DSLDebugger type='Statement'"
  * @generated
  */
-public interface CommandStatement extends Statement
+public interface CommandStatement extends BreakableStatement
 {
   /**
    * Returns the value of the '<em><b>Kind</b></em>' attribute.

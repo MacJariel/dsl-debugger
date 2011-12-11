@@ -27,7 +27,7 @@ import org.macjariel.karel.karel.KarelPackage;
  *
  * @generated
  */
-public class CommandStatementImpl extends StatementImpl implements CommandStatement
+public class CommandStatementImpl extends BreakableStatementImpl implements CommandStatement
 {
   /**
    * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.

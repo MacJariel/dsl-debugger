@@ -1539,7 +1539,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:633:1: ruleStatement returns [EObject current=null] : (this_IfStatement_0= ruleIfStatement | this_IterateStatement_1= ruleIterateStatement | this_WhileStatement_2= ruleWhileStatement | this_CommandStatement_3= ruleCommandStatement | this_UserDefinedCommandStatement_4= ruleUserDefinedCommandStatement ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:633:1: ruleStatement returns [EObject current=null] : (this_IfStatement_0= ruleIfStatement | this_IterateStatement_1= ruleIterateStatement | this_WhileStatement_2= ruleWhileStatement | this_BreakableStatement_3= ruleBreakableStatement ) ;
     public final EObject ruleStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1549,19 +1549,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
         EObject this_WhileStatement_2 = null;
 
-        EObject this_CommandStatement_3 = null;
-
-        EObject this_UserDefinedCommandStatement_4 = null;
+        EObject this_BreakableStatement_3 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:636:28: ( (this_IfStatement_0= ruleIfStatement | this_IterateStatement_1= ruleIterateStatement | this_WhileStatement_2= ruleWhileStatement | this_CommandStatement_3= ruleCommandStatement | this_UserDefinedCommandStatement_4= ruleUserDefinedCommandStatement ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:637:1: (this_IfStatement_0= ruleIfStatement | this_IterateStatement_1= ruleIterateStatement | this_WhileStatement_2= ruleWhileStatement | this_CommandStatement_3= ruleCommandStatement | this_UserDefinedCommandStatement_4= ruleUserDefinedCommandStatement )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:636:28: ( (this_IfStatement_0= ruleIfStatement | this_IterateStatement_1= ruleIterateStatement | this_WhileStatement_2= ruleWhileStatement | this_BreakableStatement_3= ruleBreakableStatement ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:637:1: (this_IfStatement_0= ruleIfStatement | this_IterateStatement_1= ruleIterateStatement | this_WhileStatement_2= ruleWhileStatement | this_BreakableStatement_3= ruleBreakableStatement )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:637:1: (this_IfStatement_0= ruleIfStatement | this_IterateStatement_1= ruleIterateStatement | this_WhileStatement_2= ruleWhileStatement | this_CommandStatement_3= ruleCommandStatement | this_UserDefinedCommandStatement_4= ruleUserDefinedCommandStatement )
-            int alt9=5;
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:637:1: (this_IfStatement_0= ruleIfStatement | this_IterateStatement_1= ruleIterateStatement | this_WhileStatement_2= ruleWhileStatement | this_BreakableStatement_3= ruleBreakableStatement )
+            int alt9=4;
             switch ( input.LA(1) ) {
             case 30:
                 {
@@ -1578,6 +1576,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
                 alt9=3;
                 }
                 break;
+            case RULE_ID:
             case 40:
             case 41:
             case 42:
@@ -1586,11 +1585,6 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
             case 45:
                 {
                 alt9=4;
-                }
-                break;
-            case RULE_ID:
-                {
-                alt9=5;
                 }
                 break;
             default:
@@ -1656,36 +1650,18 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:668:5: this_CommandStatement_3= ruleCommandStatement
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:668:5: this_BreakableStatement_3= ruleBreakableStatement
                     {
                      
-                            newCompositeNode(grammarAccess.getStatementAccess().getCommandStatementParserRuleCall_3()); 
+                            newCompositeNode(grammarAccess.getStatementAccess().getBreakableStatementParserRuleCall_3()); 
                         
-                    pushFollow(FOLLOW_ruleCommandStatement_in_ruleStatement1512);
-                    this_CommandStatement_3=ruleCommandStatement();
+                    pushFollow(FOLLOW_ruleBreakableStatement_in_ruleStatement1512);
+                    this_BreakableStatement_3=ruleBreakableStatement();
 
                     state._fsp--;
 
                      
-                            current = this_CommandStatement_3; 
-                            afterParserOrEnumRuleCall();
-                        
-
-                    }
-                    break;
-                case 5 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:678:5: this_UserDefinedCommandStatement_4= ruleUserDefinedCommandStatement
-                    {
-                     
-                            newCompositeNode(grammarAccess.getStatementAccess().getUserDefinedCommandStatementParserRuleCall_4()); 
-                        
-                    pushFollow(FOLLOW_ruleUserDefinedCommandStatement_in_ruleStatement1539);
-                    this_UserDefinedCommandStatement_4=ruleUserDefinedCommandStatement();
-
-                    state._fsp--;
-
-                     
-                            current = this_UserDefinedCommandStatement_4; 
+                            current = this_BreakableStatement_3; 
                             afterParserOrEnumRuleCall();
                         
 
@@ -1711,8 +1687,133 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleStatement"
 
 
+    // $ANTLR start "entryRuleBreakableStatement"
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:684:1: entryRuleBreakableStatement returns [EObject current=null] : iv_ruleBreakableStatement= ruleBreakableStatement EOF ;
+    public final EObject entryRuleBreakableStatement() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleBreakableStatement = null;
+
+
+        try {
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:685:2: (iv_ruleBreakableStatement= ruleBreakableStatement EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:686:2: iv_ruleBreakableStatement= ruleBreakableStatement EOF
+            {
+             newCompositeNode(grammarAccess.getBreakableStatementRule()); 
+            pushFollow(FOLLOW_ruleBreakableStatement_in_entryRuleBreakableStatement1547);
+            iv_ruleBreakableStatement=ruleBreakableStatement();
+
+            state._fsp--;
+
+             current =iv_ruleBreakableStatement; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBreakableStatement1557); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleBreakableStatement"
+
+
+    // $ANTLR start "ruleBreakableStatement"
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:693:1: ruleBreakableStatement returns [EObject current=null] : (this_CommandStatement_0= ruleCommandStatement | this_UserDefinedCommandStatement_1= ruleUserDefinedCommandStatement ) ;
+    public final EObject ruleBreakableStatement() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_CommandStatement_0 = null;
+
+        EObject this_UserDefinedCommandStatement_1 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:696:28: ( (this_CommandStatement_0= ruleCommandStatement | this_UserDefinedCommandStatement_1= ruleUserDefinedCommandStatement ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:697:1: (this_CommandStatement_0= ruleCommandStatement | this_UserDefinedCommandStatement_1= ruleUserDefinedCommandStatement )
+            {
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:697:1: (this_CommandStatement_0= ruleCommandStatement | this_UserDefinedCommandStatement_1= ruleUserDefinedCommandStatement )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( ((LA10_0>=40 && LA10_0<=45)) ) {
+                alt10=1;
+            }
+            else if ( (LA10_0==RULE_ID) ) {
+                alt10=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 10, 0, input);
+
+                throw nvae;
+            }
+            switch (alt10) {
+                case 1 :
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:698:5: this_CommandStatement_0= ruleCommandStatement
+                    {
+                     
+                            newCompositeNode(grammarAccess.getBreakableStatementAccess().getCommandStatementParserRuleCall_0()); 
+                        
+                    pushFollow(FOLLOW_ruleCommandStatement_in_ruleBreakableStatement1604);
+                    this_CommandStatement_0=ruleCommandStatement();
+
+                    state._fsp--;
+
+                     
+                            current = this_CommandStatement_0; 
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:708:5: this_UserDefinedCommandStatement_1= ruleUserDefinedCommandStatement
+                    {
+                     
+                            newCompositeNode(grammarAccess.getBreakableStatementAccess().getUserDefinedCommandStatementParserRuleCall_1()); 
+                        
+                    pushFollow(FOLLOW_ruleUserDefinedCommandStatement_in_ruleBreakableStatement1631);
+                    this_UserDefinedCommandStatement_1=ruleUserDefinedCommandStatement();
+
+                    state._fsp--;
+
+                     
+                            current = this_UserDefinedCommandStatement_1; 
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleBreakableStatement"
+
+
     // $ANTLR start "entryRuleUserDefinedCommandStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:694:1: entryRuleUserDefinedCommandStatement returns [EObject current=null] : iv_ruleUserDefinedCommandStatement= ruleUserDefinedCommandStatement EOF ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:724:1: entryRuleUserDefinedCommandStatement returns [EObject current=null] : iv_ruleUserDefinedCommandStatement= ruleUserDefinedCommandStatement EOF ;
     public final EObject entryRuleUserDefinedCommandStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1720,17 +1821,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:695:2: (iv_ruleUserDefinedCommandStatement= ruleUserDefinedCommandStatement EOF )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:696:2: iv_ruleUserDefinedCommandStatement= ruleUserDefinedCommandStatement EOF
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:725:2: (iv_ruleUserDefinedCommandStatement= ruleUserDefinedCommandStatement EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:726:2: iv_ruleUserDefinedCommandStatement= ruleUserDefinedCommandStatement EOF
             {
              newCompositeNode(grammarAccess.getUserDefinedCommandStatementRule()); 
-            pushFollow(FOLLOW_ruleUserDefinedCommandStatement_in_entryRuleUserDefinedCommandStatement1574);
+            pushFollow(FOLLOW_ruleUserDefinedCommandStatement_in_entryRuleUserDefinedCommandStatement1666);
             iv_ruleUserDefinedCommandStatement=ruleUserDefinedCommandStatement();
 
             state._fsp--;
 
              current =iv_ruleUserDefinedCommandStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUserDefinedCommandStatement1584); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUserDefinedCommandStatement1676); 
 
             }
 
@@ -1748,7 +1849,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUserDefinedCommandStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:703:1: ruleUserDefinedCommandStatement returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ';' ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:733:1: ruleUserDefinedCommandStatement returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ';' ) ;
     public final EObject ruleUserDefinedCommandStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1758,24 +1859,24 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:706:28: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ';' ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:707:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ';' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:736:28: ( ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ';' ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:737:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ';' )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:707:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ';' )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:707:2: ( (otherlv_0= RULE_ID ) ) otherlv_1= ';'
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:737:1: ( ( (otherlv_0= RULE_ID ) ) otherlv_1= ';' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:737:2: ( (otherlv_0= RULE_ID ) ) otherlv_1= ';'
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:707:2: ( (otherlv_0= RULE_ID ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:708:1: (otherlv_0= RULE_ID )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:737:2: ( (otherlv_0= RULE_ID ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:738:1: (otherlv_0= RULE_ID )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:708:1: (otherlv_0= RULE_ID )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:709:3: otherlv_0= RULE_ID
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:738:1: (otherlv_0= RULE_ID )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:739:3: otherlv_0= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getUserDefinedCommandStatementRule());
             	        }
                     
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleUserDefinedCommandStatement1629); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleUserDefinedCommandStatement1721); 
 
             		newLeafNode(otherlv_0, grammarAccess.getUserDefinedCommandStatementAccess().getCommandUserDefinedCommandCrossReference_0_0()); 
             	
@@ -1785,7 +1886,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleUserDefinedCommandStatement1641); 
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleUserDefinedCommandStatement1733); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getUserDefinedCommandStatementAccess().getSemicolonKeyword_1());
                 
@@ -1810,7 +1911,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIfStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:732:1: entryRuleIfStatement returns [EObject current=null] : iv_ruleIfStatement= ruleIfStatement EOF ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:762:1: entryRuleIfStatement returns [EObject current=null] : iv_ruleIfStatement= ruleIfStatement EOF ;
     public final EObject entryRuleIfStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1818,17 +1919,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:733:2: (iv_ruleIfStatement= ruleIfStatement EOF )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:734:2: iv_ruleIfStatement= ruleIfStatement EOF
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:763:2: (iv_ruleIfStatement= ruleIfStatement EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:764:2: iv_ruleIfStatement= ruleIfStatement EOF
             {
              newCompositeNode(grammarAccess.getIfStatementRule()); 
-            pushFollow(FOLLOW_ruleIfStatement_in_entryRuleIfStatement1677);
+            pushFollow(FOLLOW_ruleIfStatement_in_entryRuleIfStatement1769);
             iv_ruleIfStatement=ruleIfStatement();
 
             state._fsp--;
 
              current =iv_ruleIfStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIfStatement1687); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIfStatement1779); 
 
             }
 
@@ -1846,7 +1947,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIfStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:741:1: ruleIfStatement returns [EObject current=null] : (otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )? ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:771:1: ruleIfStatement returns [EObject current=null] : (otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )? ) ;
     public final EObject ruleIfStatement() throws RecognitionException {
         EObject current = null;
 
@@ -1868,30 +1969,30 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:744:28: ( (otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )? ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:745:1: (otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )? )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:774:28: ( (otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )? ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:775:1: (otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )? )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:745:1: (otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )? )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:745:3: otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )?
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:775:1: (otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )? )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:775:3: otherlv_0= 'IF' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) )* otherlv_6= '}' (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )?
             {
-            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleIfStatement1724); 
+            otherlv_0=(Token)match(input,30,FOLLOW_30_in_ruleIfStatement1816); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getIfStatementAccess().getIFKeyword_0());
                 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleIfStatement1736); 
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleIfStatement1828); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getIfStatementAccess().getLeftParenthesisKeyword_1());
                 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:753:1: ( (lv_condition_2_0= ruleConditionExpr ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:754:1: (lv_condition_2_0= ruleConditionExpr )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:783:1: ( (lv_condition_2_0= ruleConditionExpr ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:784:1: (lv_condition_2_0= ruleConditionExpr )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:754:1: (lv_condition_2_0= ruleConditionExpr )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:755:3: lv_condition_2_0= ruleConditionExpr
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:784:1: (lv_condition_2_0= ruleConditionExpr )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:785:3: lv_condition_2_0= ruleConditionExpr
             {
              
             	        newCompositeNode(grammarAccess.getIfStatementAccess().getConditionConditionExprParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleConditionExpr_in_ruleIfStatement1757);
+            pushFollow(FOLLOW_ruleConditionExpr_in_ruleIfStatement1849);
             lv_condition_2_0=ruleConditionExpr();
 
             state._fsp--;
@@ -1913,36 +2014,36 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleIfStatement1769); 
+            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleIfStatement1861); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getIfStatementAccess().getRightParenthesisKeyword_3());
                 
-            otherlv_4=(Token)match(input,33,FOLLOW_33_in_ruleIfStatement1781); 
+            otherlv_4=(Token)match(input,33,FOLLOW_33_in_ruleIfStatement1873); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getIfStatementAccess().getLeftCurlyBracketKeyword_4());
                 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:779:1: ( (lv_statements_5_0= ruleStatement ) )*
-            loop10:
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:809:1: ( (lv_statements_5_0= ruleStatement ) )*
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA10_0==RULE_ID||LA10_0==30||LA10_0==36||LA10_0==38||(LA10_0>=40 && LA10_0<=45)) ) {
-                    alt10=1;
+                if ( (LA11_0==RULE_ID||LA11_0==30||LA11_0==36||LA11_0==38||(LA11_0>=40 && LA11_0<=45)) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
-            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:780:1: (lv_statements_5_0= ruleStatement )
+            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:810:1: (lv_statements_5_0= ruleStatement )
             	    {
-            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:780:1: (lv_statements_5_0= ruleStatement )
-            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:781:3: lv_statements_5_0= ruleStatement
+            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:810:1: (lv_statements_5_0= ruleStatement )
+            	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:811:3: lv_statements_5_0= ruleStatement
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getIfStatementAccess().getStatementsStatementParserRuleCall_5_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleStatement_in_ruleIfStatement1802);
+            	    pushFollow(FOLLOW_ruleStatement_in_ruleIfStatement1894);
             	    lv_statements_5_0=ruleStatement();
 
             	    state._fsp--;
@@ -1966,55 +2067,55 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
-            otherlv_6=(Token)match(input,34,FOLLOW_34_in_ruleIfStatement1815); 
+            otherlv_6=(Token)match(input,34,FOLLOW_34_in_ruleIfStatement1907); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getIfStatementAccess().getRightCurlyBracketKeyword_6());
                 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:801:1: (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:831:1: (otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}' )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA12_0==35) ) {
-                alt12=1;
+            if ( (LA13_0==35) ) {
+                alt13=1;
             }
-            switch (alt12) {
+            switch (alt13) {
                 case 1 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:801:3: otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:831:3: otherlv_7= 'ELSE' otherlv_8= '{' ( (lv_elseStatements_9_0= ruleStatement ) )* otherlv_10= '}'
                     {
-                    otherlv_7=(Token)match(input,35,FOLLOW_35_in_ruleIfStatement1828); 
+                    otherlv_7=(Token)match(input,35,FOLLOW_35_in_ruleIfStatement1920); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getIfStatementAccess().getELSEKeyword_7_0());
                         
-                    otherlv_8=(Token)match(input,33,FOLLOW_33_in_ruleIfStatement1840); 
+                    otherlv_8=(Token)match(input,33,FOLLOW_33_in_ruleIfStatement1932); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getIfStatementAccess().getLeftCurlyBracketKeyword_7_1());
                         
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:809:1: ( (lv_elseStatements_9_0= ruleStatement ) )*
-                    loop11:
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:839:1: ( (lv_elseStatements_9_0= ruleStatement ) )*
+                    loop12:
                     do {
-                        int alt11=2;
-                        int LA11_0 = input.LA(1);
+                        int alt12=2;
+                        int LA12_0 = input.LA(1);
 
-                        if ( (LA11_0==RULE_ID||LA11_0==30||LA11_0==36||LA11_0==38||(LA11_0>=40 && LA11_0<=45)) ) {
-                            alt11=1;
+                        if ( (LA12_0==RULE_ID||LA12_0==30||LA12_0==36||LA12_0==38||(LA12_0>=40 && LA12_0<=45)) ) {
+                            alt12=1;
                         }
 
 
-                        switch (alt11) {
+                        switch (alt12) {
                     	case 1 :
-                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:810:1: (lv_elseStatements_9_0= ruleStatement )
+                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:840:1: (lv_elseStatements_9_0= ruleStatement )
                     	    {
-                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:810:1: (lv_elseStatements_9_0= ruleStatement )
-                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:811:3: lv_elseStatements_9_0= ruleStatement
+                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:840:1: (lv_elseStatements_9_0= ruleStatement )
+                    	    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:841:3: lv_elseStatements_9_0= ruleStatement
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getIfStatementAccess().getElseStatementsStatementParserRuleCall_7_2_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleStatement_in_ruleIfStatement1861);
+                    	    pushFollow(FOLLOW_ruleStatement_in_ruleIfStatement1953);
                     	    lv_elseStatements_9_0=ruleStatement();
 
                     	    state._fsp--;
@@ -2038,11 +2139,11 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop11;
+                    	    break loop12;
                         }
                     } while (true);
 
-                    otherlv_10=(Token)match(input,34,FOLLOW_34_in_ruleIfStatement1874); 
+                    otherlv_10=(Token)match(input,34,FOLLOW_34_in_ruleIfStatement1966); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getIfStatementAccess().getRightCurlyBracketKeyword_7_3());
                         
@@ -2073,7 +2174,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIterateStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:839:1: entryRuleIterateStatement returns [EObject current=null] : iv_ruleIterateStatement= ruleIterateStatement EOF ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:869:1: entryRuleIterateStatement returns [EObject current=null] : iv_ruleIterateStatement= ruleIterateStatement EOF ;
     public final EObject entryRuleIterateStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2081,17 +2182,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:840:2: (iv_ruleIterateStatement= ruleIterateStatement EOF )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:841:2: iv_ruleIterateStatement= ruleIterateStatement EOF
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:870:2: (iv_ruleIterateStatement= ruleIterateStatement EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:871:2: iv_ruleIterateStatement= ruleIterateStatement EOF
             {
              newCompositeNode(grammarAccess.getIterateStatementRule()); 
-            pushFollow(FOLLOW_ruleIterateStatement_in_entryRuleIterateStatement1912);
+            pushFollow(FOLLOW_ruleIterateStatement_in_entryRuleIterateStatement2004);
             iv_ruleIterateStatement=ruleIterateStatement();
 
             state._fsp--;
 
              current =iv_ruleIterateStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIterateStatement1922); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIterateStatement2014); 
 
             }
 
@@ -2109,7 +2210,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIterateStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:848:1: ruleIterateStatement returns [EObject current=null] : (otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}' ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:878:1: ruleIterateStatement returns [EObject current=null] : (otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}' ) ;
     public final EObject ruleIterateStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2124,23 +2225,23 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:851:28: ( (otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}' ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:852:1: (otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:881:28: ( (otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}' ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:882:1: (otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}' )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:852:1: (otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}' )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:852:3: otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}'
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:882:1: (otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:882:3: otherlv_0= 'ITERATE' ( (lv_times_1_0= RULE_INT ) ) otherlv_2= 'TIMES' otherlv_3= '{' ( (lv_statements_4_0= ruleStatement ) ) otherlv_5= '}'
             {
-            otherlv_0=(Token)match(input,36,FOLLOW_36_in_ruleIterateStatement1959); 
+            otherlv_0=(Token)match(input,36,FOLLOW_36_in_ruleIterateStatement2051); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getIterateStatementAccess().getITERATEKeyword_0());
                 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:856:1: ( (lv_times_1_0= RULE_INT ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:857:1: (lv_times_1_0= RULE_INT )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:886:1: ( (lv_times_1_0= RULE_INT ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:887:1: (lv_times_1_0= RULE_INT )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:857:1: (lv_times_1_0= RULE_INT )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:858:3: lv_times_1_0= RULE_INT
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:887:1: (lv_times_1_0= RULE_INT )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:888:3: lv_times_1_0= RULE_INT
             {
-            lv_times_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIterateStatement1976); 
+            lv_times_1_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIterateStatement2068); 
 
             			newLeafNode(lv_times_1_0, grammarAccess.getIterateStatementAccess().getTimesINTTerminalRuleCall_1_0()); 
             		
@@ -2160,24 +2261,24 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,37,FOLLOW_37_in_ruleIterateStatement1993); 
+            otherlv_2=(Token)match(input,37,FOLLOW_37_in_ruleIterateStatement2085); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getIterateStatementAccess().getTIMESKeyword_2());
                 
-            otherlv_3=(Token)match(input,33,FOLLOW_33_in_ruleIterateStatement2005); 
+            otherlv_3=(Token)match(input,33,FOLLOW_33_in_ruleIterateStatement2097); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getIterateStatementAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:882:1: ( (lv_statements_4_0= ruleStatement ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:883:1: (lv_statements_4_0= ruleStatement )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:912:1: ( (lv_statements_4_0= ruleStatement ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:913:1: (lv_statements_4_0= ruleStatement )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:883:1: (lv_statements_4_0= ruleStatement )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:884:3: lv_statements_4_0= ruleStatement
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:913:1: (lv_statements_4_0= ruleStatement )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:914:3: lv_statements_4_0= ruleStatement
             {
              
             	        newCompositeNode(grammarAccess.getIterateStatementAccess().getStatementsStatementParserRuleCall_4_0()); 
             	    
-            pushFollow(FOLLOW_ruleStatement_in_ruleIterateStatement2026);
+            pushFollow(FOLLOW_ruleStatement_in_ruleIterateStatement2118);
             lv_statements_4_0=ruleStatement();
 
             state._fsp--;
@@ -2199,7 +2300,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,34,FOLLOW_34_in_ruleIterateStatement2038); 
+            otherlv_5=(Token)match(input,34,FOLLOW_34_in_ruleIterateStatement2130); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getIterateStatementAccess().getRightCurlyBracketKeyword_5());
                 
@@ -2224,7 +2325,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWhileStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:912:1: entryRuleWhileStatement returns [EObject current=null] : iv_ruleWhileStatement= ruleWhileStatement EOF ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:942:1: entryRuleWhileStatement returns [EObject current=null] : iv_ruleWhileStatement= ruleWhileStatement EOF ;
     public final EObject entryRuleWhileStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2232,17 +2333,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:913:2: (iv_ruleWhileStatement= ruleWhileStatement EOF )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:914:2: iv_ruleWhileStatement= ruleWhileStatement EOF
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:943:2: (iv_ruleWhileStatement= ruleWhileStatement EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:944:2: iv_ruleWhileStatement= ruleWhileStatement EOF
             {
              newCompositeNode(grammarAccess.getWhileStatementRule()); 
-            pushFollow(FOLLOW_ruleWhileStatement_in_entryRuleWhileStatement2074);
+            pushFollow(FOLLOW_ruleWhileStatement_in_entryRuleWhileStatement2166);
             iv_ruleWhileStatement=ruleWhileStatement();
 
             state._fsp--;
 
              current =iv_ruleWhileStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWhileStatement2084); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWhileStatement2176); 
 
             }
 
@@ -2260,7 +2361,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWhileStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:921:1: ruleWhileStatement returns [EObject current=null] : (otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}' ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:951:1: ruleWhileStatement returns [EObject current=null] : (otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}' ) ;
     public final EObject ruleWhileStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2277,30 +2378,30 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:924:28: ( (otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}' ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:925:1: (otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:954:28: ( (otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}' ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:955:1: (otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}' )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:925:1: (otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}' )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:925:3: otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}'
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:955:1: (otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:955:3: otherlv_0= 'WHILE' otherlv_1= '(' ( (lv_condition_2_0= ruleConditionExpr ) ) otherlv_3= ')' otherlv_4= '{' ( (lv_statements_5_0= ruleStatement ) ) otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleWhileStatement2121); 
+            otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleWhileStatement2213); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getWhileStatementAccess().getWHILEKeyword_0());
                 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleWhileStatement2133); 
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleWhileStatement2225); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getWhileStatementAccess().getLeftParenthesisKeyword_1());
                 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:933:1: ( (lv_condition_2_0= ruleConditionExpr ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:934:1: (lv_condition_2_0= ruleConditionExpr )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:963:1: ( (lv_condition_2_0= ruleConditionExpr ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:964:1: (lv_condition_2_0= ruleConditionExpr )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:934:1: (lv_condition_2_0= ruleConditionExpr )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:935:3: lv_condition_2_0= ruleConditionExpr
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:964:1: (lv_condition_2_0= ruleConditionExpr )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:965:3: lv_condition_2_0= ruleConditionExpr
             {
              
             	        newCompositeNode(grammarAccess.getWhileStatementAccess().getConditionConditionExprParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleConditionExpr_in_ruleWhileStatement2154);
+            pushFollow(FOLLOW_ruleConditionExpr_in_ruleWhileStatement2246);
             lv_condition_2_0=ruleConditionExpr();
 
             state._fsp--;
@@ -2322,24 +2423,24 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleWhileStatement2166); 
+            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleWhileStatement2258); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getWhileStatementAccess().getRightParenthesisKeyword_3());
                 
-            otherlv_4=(Token)match(input,33,FOLLOW_33_in_ruleWhileStatement2178); 
+            otherlv_4=(Token)match(input,33,FOLLOW_33_in_ruleWhileStatement2270); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getWhileStatementAccess().getLeftCurlyBracketKeyword_4());
                 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:959:1: ( (lv_statements_5_0= ruleStatement ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:960:1: (lv_statements_5_0= ruleStatement )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:989:1: ( (lv_statements_5_0= ruleStatement ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:990:1: (lv_statements_5_0= ruleStatement )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:960:1: (lv_statements_5_0= ruleStatement )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:961:3: lv_statements_5_0= ruleStatement
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:990:1: (lv_statements_5_0= ruleStatement )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:991:3: lv_statements_5_0= ruleStatement
             {
              
             	        newCompositeNode(grammarAccess.getWhileStatementAccess().getStatementsStatementParserRuleCall_5_0()); 
             	    
-            pushFollow(FOLLOW_ruleStatement_in_ruleWhileStatement2199);
+            pushFollow(FOLLOW_ruleStatement_in_ruleWhileStatement2291);
             lv_statements_5_0=ruleStatement();
 
             state._fsp--;
@@ -2361,7 +2462,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,34,FOLLOW_34_in_ruleWhileStatement2211); 
+            otherlv_6=(Token)match(input,34,FOLLOW_34_in_ruleWhileStatement2303); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getWhileStatementAccess().getRightCurlyBracketKeyword_6());
                 
@@ -2386,7 +2487,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDocumentationComment"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:989:1: entryRuleDocumentationComment returns [EObject current=null] : iv_ruleDocumentationComment= ruleDocumentationComment EOF ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1019:1: entryRuleDocumentationComment returns [EObject current=null] : iv_ruleDocumentationComment= ruleDocumentationComment EOF ;
     public final EObject entryRuleDocumentationComment() throws RecognitionException {
         EObject current = null;
 
@@ -2394,17 +2495,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:990:2: (iv_ruleDocumentationComment= ruleDocumentationComment EOF )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:991:2: iv_ruleDocumentationComment= ruleDocumentationComment EOF
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1020:2: (iv_ruleDocumentationComment= ruleDocumentationComment EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1021:2: iv_ruleDocumentationComment= ruleDocumentationComment EOF
             {
              newCompositeNode(grammarAccess.getDocumentationCommentRule()); 
-            pushFollow(FOLLOW_ruleDocumentationComment_in_entryRuleDocumentationComment2247);
+            pushFollow(FOLLOW_ruleDocumentationComment_in_entryRuleDocumentationComment2339);
             iv_ruleDocumentationComment=ruleDocumentationComment();
 
             state._fsp--;
 
              current =iv_ruleDocumentationComment; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDocumentationComment2257); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDocumentationComment2349); 
 
             }
 
@@ -2422,7 +2523,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDocumentationComment"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:998:1: ruleDocumentationComment returns [EObject current=null] : (otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')' ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1028:1: ruleDocumentationComment returns [EObject current=null] : (otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')' ) ;
     public final EObject ruleDocumentationComment() throws RecognitionException {
         EObject current = null;
 
@@ -2433,23 +2534,23 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1001:28: ( (otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')' ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1002:1: (otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1031:28: ( (otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')' ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1032:1: (otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')' )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1002:1: (otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')' )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1002:3: otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')'
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1032:1: (otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1032:3: otherlv_0= '@(' ( (lv_text_1_0= RULE_STRING ) ) otherlv_2= ')'
             {
-            otherlv_0=(Token)match(input,39,FOLLOW_39_in_ruleDocumentationComment2294); 
+            otherlv_0=(Token)match(input,39,FOLLOW_39_in_ruleDocumentationComment2386); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getDocumentationCommentAccess().getCommercialAtLeftParenthesisKeyword_0());
                 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1006:1: ( (lv_text_1_0= RULE_STRING ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1007:1: (lv_text_1_0= RULE_STRING )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1036:1: ( (lv_text_1_0= RULE_STRING ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1037:1: (lv_text_1_0= RULE_STRING )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1007:1: (lv_text_1_0= RULE_STRING )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1008:3: lv_text_1_0= RULE_STRING
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1037:1: (lv_text_1_0= RULE_STRING )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1038:3: lv_text_1_0= RULE_STRING
             {
-            lv_text_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDocumentationComment2311); 
+            lv_text_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDocumentationComment2403); 
 
             			newLeafNode(lv_text_1_0, grammarAccess.getDocumentationCommentAccess().getTextSTRINGTerminalRuleCall_1_0()); 
             		
@@ -2469,7 +2570,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,32,FOLLOW_32_in_ruleDocumentationComment2328); 
+            otherlv_2=(Token)match(input,32,FOLLOW_32_in_ruleDocumentationComment2420); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getDocumentationCommentAccess().getRightParenthesisKeyword_2());
                 
@@ -2494,7 +2595,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCommandStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1036:1: entryRuleCommandStatement returns [EObject current=null] : iv_ruleCommandStatement= ruleCommandStatement EOF ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1066:1: entryRuleCommandStatement returns [EObject current=null] : iv_ruleCommandStatement= ruleCommandStatement EOF ;
     public final EObject entryRuleCommandStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2502,17 +2603,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1037:2: (iv_ruleCommandStatement= ruleCommandStatement EOF )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1038:2: iv_ruleCommandStatement= ruleCommandStatement EOF
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1067:2: (iv_ruleCommandStatement= ruleCommandStatement EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1068:2: iv_ruleCommandStatement= ruleCommandStatement EOF
             {
              newCompositeNode(grammarAccess.getCommandStatementRule()); 
-            pushFollow(FOLLOW_ruleCommandStatement_in_entryRuleCommandStatement2364);
+            pushFollow(FOLLOW_ruleCommandStatement_in_entryRuleCommandStatement2456);
             iv_ruleCommandStatement=ruleCommandStatement();
 
             state._fsp--;
 
              current =iv_ruleCommandStatement; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCommandStatement2374); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCommandStatement2466); 
 
             }
 
@@ -2530,7 +2631,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCommandStatement"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1045:1: ruleCommandStatement returns [EObject current=null] : ( ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';' ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1075:1: ruleCommandStatement returns [EObject current=null] : ( ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';' ) ;
     public final EObject ruleCommandStatement() throws RecognitionException {
         EObject current = null;
 
@@ -2541,22 +2642,22 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1048:28: ( ( ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';' ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1049:1: ( ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1078:28: ( ( ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';' ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1079:1: ( ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';' )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1049:1: ( ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';' )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1049:2: ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';'
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1079:1: ( ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1079:2: ( (lv_kind_0_0= ruleCommandKind ) ) otherlv_1= ';'
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1049:2: ( (lv_kind_0_0= ruleCommandKind ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1050:1: (lv_kind_0_0= ruleCommandKind )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1079:2: ( (lv_kind_0_0= ruleCommandKind ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1080:1: (lv_kind_0_0= ruleCommandKind )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1050:1: (lv_kind_0_0= ruleCommandKind )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1051:3: lv_kind_0_0= ruleCommandKind
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1080:1: (lv_kind_0_0= ruleCommandKind )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1081:3: lv_kind_0_0= ruleCommandKind
             {
              
             	        newCompositeNode(grammarAccess.getCommandStatementAccess().getKindCommandKindParserRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleCommandKind_in_ruleCommandStatement2420);
+            pushFollow(FOLLOW_ruleCommandKind_in_ruleCommandStatement2512);
             lv_kind_0_0=ruleCommandKind();
 
             state._fsp--;
@@ -2578,7 +2679,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleCommandStatement2432); 
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleCommandStatement2524); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getCommandStatementAccess().getSemicolonKeyword_1());
                 
@@ -2603,7 +2704,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCommandKind"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1079:1: entryRuleCommandKind returns [String current=null] : iv_ruleCommandKind= ruleCommandKind EOF ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1109:1: entryRuleCommandKind returns [String current=null] : iv_ruleCommandKind= ruleCommandKind EOF ;
     public final String entryRuleCommandKind() throws RecognitionException {
         String current = null;
 
@@ -2611,17 +2712,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1080:2: (iv_ruleCommandKind= ruleCommandKind EOF )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1081:2: iv_ruleCommandKind= ruleCommandKind EOF
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1110:2: (iv_ruleCommandKind= ruleCommandKind EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1111:2: iv_ruleCommandKind= ruleCommandKind EOF
             {
              newCompositeNode(grammarAccess.getCommandKindRule()); 
-            pushFollow(FOLLOW_ruleCommandKind_in_entryRuleCommandKind2469);
+            pushFollow(FOLLOW_ruleCommandKind_in_entryRuleCommandKind2561);
             iv_ruleCommandKind=ruleCommandKind();
 
             state._fsp--;
 
              current =iv_ruleCommandKind.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCommandKind2480); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCommandKind2572); 
 
             }
 
@@ -2639,7 +2740,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCommandKind"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1088:1: ruleCommandKind returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'move' | kw= 'turn' | kw= 'turnOn' | kw= 'turnOff' | kw= 'put' | kw= 'get' ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1118:1: ruleCommandKind returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'move' | kw= 'turn' | kw= 'turnOn' | kw= 'turnOff' | kw= 'put' | kw= 'get' ) ;
     public final AntlrDatatypeRuleToken ruleCommandKind() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2648,54 +2749,54 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1091:28: ( (kw= 'move' | kw= 'turn' | kw= 'turnOn' | kw= 'turnOff' | kw= 'put' | kw= 'get' ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1092:1: (kw= 'move' | kw= 'turn' | kw= 'turnOn' | kw= 'turnOff' | kw= 'put' | kw= 'get' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1121:28: ( (kw= 'move' | kw= 'turn' | kw= 'turnOn' | kw= 'turnOff' | kw= 'put' | kw= 'get' ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1122:1: (kw= 'move' | kw= 'turn' | kw= 'turnOn' | kw= 'turnOff' | kw= 'put' | kw= 'get' )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1092:1: (kw= 'move' | kw= 'turn' | kw= 'turnOn' | kw= 'turnOff' | kw= 'put' | kw= 'get' )
-            int alt13=6;
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1122:1: (kw= 'move' | kw= 'turn' | kw= 'turnOn' | kw= 'turnOff' | kw= 'put' | kw= 'get' )
+            int alt14=6;
             switch ( input.LA(1) ) {
             case 40:
                 {
-                alt13=1;
+                alt14=1;
                 }
                 break;
             case 41:
                 {
-                alt13=2;
+                alt14=2;
                 }
                 break;
             case 42:
                 {
-                alt13=3;
+                alt14=3;
                 }
                 break;
             case 43:
                 {
-                alt13=4;
+                alt14=4;
                 }
                 break;
             case 44:
                 {
-                alt13=5;
+                alt14=5;
                 }
                 break;
             case 45:
                 {
-                alt13=6;
+                alt14=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
+                    new NoViableAltException("", 14, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1093:2: kw= 'move'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1123:2: kw= 'move'
                     {
-                    kw=(Token)match(input,40,FOLLOW_40_in_ruleCommandKind2518); 
+                    kw=(Token)match(input,40,FOLLOW_40_in_ruleCommandKind2610); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getCommandKindAccess().getMoveKeyword_0()); 
@@ -2704,9 +2805,9 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1100:2: kw= 'turn'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1130:2: kw= 'turn'
                     {
-                    kw=(Token)match(input,41,FOLLOW_41_in_ruleCommandKind2537); 
+                    kw=(Token)match(input,41,FOLLOW_41_in_ruleCommandKind2629); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getCommandKindAccess().getTurnKeyword_1()); 
@@ -2715,9 +2816,9 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1107:2: kw= 'turnOn'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1137:2: kw= 'turnOn'
                     {
-                    kw=(Token)match(input,42,FOLLOW_42_in_ruleCommandKind2556); 
+                    kw=(Token)match(input,42,FOLLOW_42_in_ruleCommandKind2648); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getCommandKindAccess().getTurnOnKeyword_2()); 
@@ -2726,9 +2827,9 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1114:2: kw= 'turnOff'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1144:2: kw= 'turnOff'
                     {
-                    kw=(Token)match(input,43,FOLLOW_43_in_ruleCommandKind2575); 
+                    kw=(Token)match(input,43,FOLLOW_43_in_ruleCommandKind2667); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getCommandKindAccess().getTurnOffKeyword_3()); 
@@ -2737,9 +2838,9 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1121:2: kw= 'put'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1151:2: kw= 'put'
                     {
-                    kw=(Token)match(input,44,FOLLOW_44_in_ruleCommandKind2594); 
+                    kw=(Token)match(input,44,FOLLOW_44_in_ruleCommandKind2686); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getCommandKindAccess().getPutKeyword_4()); 
@@ -2748,9 +2849,9 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1128:2: kw= 'get'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1158:2: kw= 'get'
                     {
-                    kw=(Token)match(input,45,FOLLOW_45_in_ruleCommandKind2613); 
+                    kw=(Token)match(input,45,FOLLOW_45_in_ruleCommandKind2705); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getCommandKindAccess().getGetKeyword_5()); 
@@ -2779,7 +2880,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConditionExpr"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1141:1: entryRuleConditionExpr returns [EObject current=null] : iv_ruleConditionExpr= ruleConditionExpr EOF ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1171:1: entryRuleConditionExpr returns [EObject current=null] : iv_ruleConditionExpr= ruleConditionExpr EOF ;
     public final EObject entryRuleConditionExpr() throws RecognitionException {
         EObject current = null;
 
@@ -2787,17 +2888,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1142:2: (iv_ruleConditionExpr= ruleConditionExpr EOF )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1143:2: iv_ruleConditionExpr= ruleConditionExpr EOF
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1172:2: (iv_ruleConditionExpr= ruleConditionExpr EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1173:2: iv_ruleConditionExpr= ruleConditionExpr EOF
             {
              newCompositeNode(grammarAccess.getConditionExprRule()); 
-            pushFollow(FOLLOW_ruleConditionExpr_in_entryRuleConditionExpr2653);
+            pushFollow(FOLLOW_ruleConditionExpr_in_entryRuleConditionExpr2745);
             iv_ruleConditionExpr=ruleConditionExpr();
 
             state._fsp--;
 
              current =iv_ruleConditionExpr; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConditionExpr2663); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConditionExpr2755); 
 
             }
 
@@ -2815,7 +2916,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConditionExpr"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1150:1: ruleConditionExpr returns [EObject current=null] : ( ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) ) ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1180:1: ruleConditionExpr returns [EObject current=null] : ( ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) ) ) ;
     public final EObject ruleConditionExpr() throws RecognitionException {
         EObject current = null;
 
@@ -2826,19 +2927,19 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1153:28: ( ( ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) ) ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1154:1: ( ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1183:28: ( ( ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) ) ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1184:1: ( ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) ) )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1154:1: ( ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1154:2: ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1184:1: ( ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1184:2: ( (lv_negation_0_0= '!' ) ) ( (lv_expr_1_0= ruleConditionKind ) )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1154:2: ( (lv_negation_0_0= '!' ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1155:1: (lv_negation_0_0= '!' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1184:2: ( (lv_negation_0_0= '!' ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1185:1: (lv_negation_0_0= '!' )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1155:1: (lv_negation_0_0= '!' )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1156:3: lv_negation_0_0= '!'
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1185:1: (lv_negation_0_0= '!' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1186:3: lv_negation_0_0= '!'
             {
-            lv_negation_0_0=(Token)match(input,46,FOLLOW_46_in_ruleConditionExpr2706); 
+            lv_negation_0_0=(Token)match(input,46,FOLLOW_46_in_ruleConditionExpr2798); 
 
                     newLeafNode(lv_negation_0_0, grammarAccess.getConditionExprAccess().getNegationExclamationMarkKeyword_0_0());
                 
@@ -2854,16 +2955,16 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1169:2: ( (lv_expr_1_0= ruleConditionKind ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1170:1: (lv_expr_1_0= ruleConditionKind )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1199:2: ( (lv_expr_1_0= ruleConditionKind ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1200:1: (lv_expr_1_0= ruleConditionKind )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1170:1: (lv_expr_1_0= ruleConditionKind )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1171:3: lv_expr_1_0= ruleConditionKind
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1200:1: (lv_expr_1_0= ruleConditionKind )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1201:3: lv_expr_1_0= ruleConditionKind
             {
              
             	        newCompositeNode(grammarAccess.getConditionExprAccess().getExprConditionKindParserRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleConditionKind_in_ruleConditionExpr2740);
+            pushFollow(FOLLOW_ruleConditionKind_in_ruleConditionExpr2832);
             lv_expr_1_0=ruleConditionKind();
 
             state._fsp--;
@@ -2906,7 +3007,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConditionKind"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1195:1: entryRuleConditionKind returns [String current=null] : iv_ruleConditionKind= ruleConditionKind EOF ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1225:1: entryRuleConditionKind returns [String current=null] : iv_ruleConditionKind= ruleConditionKind EOF ;
     public final String entryRuleConditionKind() throws RecognitionException {
         String current = null;
 
@@ -2914,17 +3015,17 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1196:2: (iv_ruleConditionKind= ruleConditionKind EOF )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1197:2: iv_ruleConditionKind= ruleConditionKind EOF
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1226:2: (iv_ruleConditionKind= ruleConditionKind EOF )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1227:2: iv_ruleConditionKind= ruleConditionKind EOF
             {
              newCompositeNode(grammarAccess.getConditionKindRule()); 
-            pushFollow(FOLLOW_ruleConditionKind_in_entryRuleConditionKind2777);
+            pushFollow(FOLLOW_ruleConditionKind_in_entryRuleConditionKind2869);
             iv_ruleConditionKind=ruleConditionKind();
 
             state._fsp--;
 
              current =iv_ruleConditionKind.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConditionKind2788); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConditionKind2880); 
 
             }
 
@@ -2942,7 +3043,7 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConditionKind"
-    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1204:1: ruleConditionKind returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'WALL_AHEAD' | kw= 'MARKED_PLACE' ) ;
+    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1234:1: ruleConditionKind returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'WALL_AHEAD' | kw= 'MARKED_PLACE' ) ;
     public final AntlrDatatypeRuleToken ruleConditionKind() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2951,30 +3052,30 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1207:28: ( (kw= 'WALL_AHEAD' | kw= 'MARKED_PLACE' ) )
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1208:1: (kw= 'WALL_AHEAD' | kw= 'MARKED_PLACE' )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1237:28: ( (kw= 'WALL_AHEAD' | kw= 'MARKED_PLACE' ) )
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1238:1: (kw= 'WALL_AHEAD' | kw= 'MARKED_PLACE' )
             {
-            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1208:1: (kw= 'WALL_AHEAD' | kw= 'MARKED_PLACE' )
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1238:1: (kw= 'WALL_AHEAD' | kw= 'MARKED_PLACE' )
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==47) ) {
-                alt14=1;
+            if ( (LA15_0==47) ) {
+                alt15=1;
             }
-            else if ( (LA14_0==48) ) {
-                alt14=2;
+            else if ( (LA15_0==48) ) {
+                alt15=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1209:2: kw= 'WALL_AHEAD'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1239:2: kw= 'WALL_AHEAD'
                     {
-                    kw=(Token)match(input,47,FOLLOW_47_in_ruleConditionKind2826); 
+                    kw=(Token)match(input,47,FOLLOW_47_in_ruleConditionKind2918); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getConditionKindAccess().getWALL_AHEADKeyword_0()); 
@@ -2983,9 +3084,9 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1216:2: kw= 'MARKED_PLACE'
+                    // ../org.macjariel.karel/src-gen/org/macjariel/karel/parser/antlr/internal/InternalKarel.g:1246:2: kw= 'MARKED_PLACE'
                     {
-                    kw=(Token)match(input,48,FOLLOW_48_in_ruleConditionKind2845); 
+                    kw=(Token)match(input,48,FOLLOW_48_in_ruleConditionKind2937); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getConditionKindAccess().getMARKED_PLACEKeyword_1()); 
@@ -3078,66 +3179,69 @@ public class InternalKarelParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleIfStatement_in_ruleStatement1431 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleIterateStatement_in_ruleStatement1458 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleWhileStatement_in_ruleStatement1485 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommandStatement_in_ruleStatement1512 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUserDefinedCommandStatement_in_ruleStatement1539 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUserDefinedCommandStatement_in_entryRuleUserDefinedCommandStatement1574 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUserDefinedCommandStatement1584 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleUserDefinedCommandStatement1629 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleUserDefinedCommandStatement1641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIfStatement_in_entryRuleIfStatement1677 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIfStatement1687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleIfStatement1724 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleIfStatement1736 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_ruleConditionExpr_in_ruleIfStatement1757 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleIfStatement1769 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_ruleIfStatement1781 = new BitSet(new long[]{0x00003F5440000020L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleIfStatement1802 = new BitSet(new long[]{0x00003F5440000020L});
-    public static final BitSet FOLLOW_34_in_ruleIfStatement1815 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_35_in_ruleIfStatement1828 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_ruleIfStatement1840 = new BitSet(new long[]{0x00003F5440000020L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleIfStatement1861 = new BitSet(new long[]{0x00003F5440000020L});
-    public static final BitSet FOLLOW_34_in_ruleIfStatement1874 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIterateStatement_in_entryRuleIterateStatement1912 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIterateStatement1922 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleIterateStatement1959 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleIterateStatement1976 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_ruleIterateStatement1993 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_ruleIterateStatement2005 = new BitSet(new long[]{0x00003F5040000020L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleIterateStatement2026 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleIterateStatement2038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWhileStatement_in_entryRuleWhileStatement2074 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWhileStatement2084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleWhileStatement2121 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleWhileStatement2133 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_ruleConditionExpr_in_ruleWhileStatement2154 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleWhileStatement2166 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_ruleWhileStatement2178 = new BitSet(new long[]{0x00003F5040000020L});
-    public static final BitSet FOLLOW_ruleStatement_in_ruleWhileStatement2199 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleWhileStatement2211 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDocumentationComment_in_entryRuleDocumentationComment2247 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDocumentationComment2257 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleDocumentationComment2294 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDocumentationComment2311 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleDocumentationComment2328 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommandStatement_in_entryRuleCommandStatement2364 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCommandStatement2374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommandKind_in_ruleCommandStatement2420 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleCommandStatement2432 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommandKind_in_entryRuleCommandKind2469 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCommandKind2480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleCommandKind2518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleCommandKind2537 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleCommandKind2556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleCommandKind2575 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleCommandKind2594 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleCommandKind2613 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConditionExpr_in_entryRuleConditionExpr2653 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConditionExpr2663 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleConditionExpr2706 = new BitSet(new long[]{0x0001800000000000L});
-    public static final BitSet FOLLOW_ruleConditionKind_in_ruleConditionExpr2740 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConditionKind_in_entryRuleConditionKind2777 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConditionKind2788 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleConditionKind2826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleConditionKind2845 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBreakableStatement_in_ruleStatement1512 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBreakableStatement_in_entryRuleBreakableStatement1547 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBreakableStatement1557 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommandStatement_in_ruleBreakableStatement1604 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUserDefinedCommandStatement_in_ruleBreakableStatement1631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUserDefinedCommandStatement_in_entryRuleUserDefinedCommandStatement1666 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUserDefinedCommandStatement1676 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleUserDefinedCommandStatement1721 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleUserDefinedCommandStatement1733 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIfStatement_in_entryRuleIfStatement1769 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIfStatement1779 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleIfStatement1816 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleIfStatement1828 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_ruleConditionExpr_in_ruleIfStatement1849 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleIfStatement1861 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleIfStatement1873 = new BitSet(new long[]{0x00003F5440000020L});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleIfStatement1894 = new BitSet(new long[]{0x00003F5440000020L});
+    public static final BitSet FOLLOW_34_in_ruleIfStatement1907 = new BitSet(new long[]{0x0000000800000002L});
+    public static final BitSet FOLLOW_35_in_ruleIfStatement1920 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleIfStatement1932 = new BitSet(new long[]{0x00003F5440000020L});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleIfStatement1953 = new BitSet(new long[]{0x00003F5440000020L});
+    public static final BitSet FOLLOW_34_in_ruleIfStatement1966 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIterateStatement_in_entryRuleIterateStatement2004 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIterateStatement2014 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_ruleIterateStatement2051 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleIterateStatement2068 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_ruleIterateStatement2085 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleIterateStatement2097 = new BitSet(new long[]{0x00003F5040000020L});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleIterateStatement2118 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleIterateStatement2130 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWhileStatement_in_entryRuleWhileStatement2166 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWhileStatement2176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleWhileStatement2213 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleWhileStatement2225 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_ruleConditionExpr_in_ruleWhileStatement2246 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleWhileStatement2258 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleWhileStatement2270 = new BitSet(new long[]{0x00003F5040000020L});
+    public static final BitSet FOLLOW_ruleStatement_in_ruleWhileStatement2291 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleWhileStatement2303 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDocumentationComment_in_entryRuleDocumentationComment2339 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDocumentationComment2349 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleDocumentationComment2386 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDocumentationComment2403 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleDocumentationComment2420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommandStatement_in_entryRuleCommandStatement2456 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCommandStatement2466 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommandKind_in_ruleCommandStatement2512 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleCommandStatement2524 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommandKind_in_entryRuleCommandKind2561 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCommandKind2572 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleCommandKind2610 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleCommandKind2629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleCommandKind2648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleCommandKind2667 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleCommandKind2686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleCommandKind2705 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConditionExpr_in_entryRuleConditionExpr2745 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConditionExpr2755 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleConditionExpr2798 = new BitSet(new long[]{0x0001800000000000L});
+    public static final BitSet FOLLOW_ruleConditionKind_in_ruleConditionExpr2832 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConditionKind_in_entryRuleConditionKind2869 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConditionKind2880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleConditionKind2918 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleConditionKind2937 = new BitSet(new long[]{0x0000000000000002L});
 
 }

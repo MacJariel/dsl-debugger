@@ -76,6 +76,7 @@ public class KarelFactoryImpl extends EFactoryImpl implements KarelFactory
       case KarelPackage.USER_DEFINED_COMMAND: return createUserDefinedCommand();
       case KarelPackage.MAIN: return createMain();
       case KarelPackage.STATEMENT: return createStatement();
+      case KarelPackage.BREAKABLE_STATEMENT: return createBreakableStatement();
       case KarelPackage.USER_DEFINED_COMMAND_STATEMENT: return createUserDefinedCommandStatement();
       case KarelPackage.IF_STATEMENT: return createIfStatement();
       case KarelPackage.ITERATE_STATEMENT: return createIterateStatement();
@@ -185,6 +186,17 @@ public class KarelFactoryImpl extends EFactoryImpl implements KarelFactory
   {
     StatementImpl statement = new StatementImpl();
     return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BreakableStatement createBreakableStatement()
+  {
+    BreakableStatementImpl breakableStatement = new BreakableStatementImpl();
+    return breakableStatement;
   }
 
   /**

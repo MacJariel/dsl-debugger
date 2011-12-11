@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.macjariel.karel.karel.BreakableStatement;
 import org.macjariel.karel.karel.CommandStatement;
 import org.macjariel.karel.karel.ConditionExpr;
 import org.macjariel.karel.karel.DocumentationComment;
@@ -101,6 +102,13 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
    * @generated
    */
   private EClass statementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass breakableStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -439,6 +447,16 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBreakableStatement()
+  {
+    return breakableStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getUserDefinedCommandStatement()
   {
     return userDefinedCommandStatementEClass;
@@ -685,6 +703,8 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
 
     statementEClass = createEClass(STATEMENT);
 
+    breakableStatementEClass = createEClass(BREAKABLE_STATEMENT);
+
     userDefinedCommandStatementEClass = createEClass(USER_DEFINED_COMMAND_STATEMENT);
     createEReference(userDefinedCommandStatementEClass, USER_DEFINED_COMMAND_STATEMENT__COMMAND);
 
@@ -744,11 +764,12 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
     initPositionCommandEClass.getESuperTypes().add(this.getInitCommand());
     initHeadingCommandEClass.getESuperTypes().add(this.getInitCommand());
     initBoardSizeCommandEClass.getESuperTypes().add(this.getInitCommand());
-    userDefinedCommandStatementEClass.getESuperTypes().add(this.getStatement());
+    breakableStatementEClass.getESuperTypes().add(this.getStatement());
+    userDefinedCommandStatementEClass.getESuperTypes().add(this.getBreakableStatement());
     ifStatementEClass.getESuperTypes().add(this.getStatement());
     iterateStatementEClass.getESuperTypes().add(this.getStatement());
     whileStatementEClass.getESuperTypes().add(this.getStatement());
-    commandStatementEClass.getESuperTypes().add(this.getStatement());
+    commandStatementEClass.getESuperTypes().add(this.getBreakableStatement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -781,6 +802,8 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
     initEReference(getMain_Statements(), this.getStatement(), null, "statements", null, 0, -1, Main.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(breakableStatementEClass, BreakableStatement.class, "BreakableStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(userDefinedCommandStatementEClass, UserDefinedCommandStatement.class, "UserDefinedCommandStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUserDefinedCommandStatement_Command(), this.getUserDefinedCommand(), null, "command", null, 0, 1, UserDefinedCommandStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -861,7 +884,7 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
        "type", "SubroutineDefinition"
        });		
     addAnnotation
-      (statementEClass, 
+      (breakableStatementEClass, 
        source, 
        new String[] 
        {
@@ -873,27 +896,6 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
        new String[] 
        {
        "type", "Statement SubroutineCall"
-       });		
-    addAnnotation
-      (ifStatementEClass, 
-       source, 
-       new String[] 
-       {
-       "type", "Statement"
-       });		
-    addAnnotation
-      (iterateStatementEClass, 
-       source, 
-       new String[] 
-       {
-       "type", "Statement"
-       });		
-    addAnnotation
-      (whileStatementEClass, 
-       source, 
-       new String[] 
-       {
-       "type", "Statement"
        });		
     addAnnotation
       (commandStatementEClass, 

@@ -141,10 +141,19 @@ public class KarelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case KarelPackage.BREAKABLE_STATEMENT:
+      {
+        BreakableStatement breakableStatement = (BreakableStatement)theEObject;
+        T result = caseBreakableStatement(breakableStatement);
+        if (result == null) result = caseStatement(breakableStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case KarelPackage.USER_DEFINED_COMMAND_STATEMENT:
       {
         UserDefinedCommandStatement userDefinedCommandStatement = (UserDefinedCommandStatement)theEObject;
         T result = caseUserDefinedCommandStatement(userDefinedCommandStatement);
+        if (result == null) result = caseBreakableStatement(userDefinedCommandStatement);
         if (result == null) result = caseStatement(userDefinedCommandStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -184,6 +193,7 @@ public class KarelSwitch<T> extends Switch<T>
       {
         CommandStatement commandStatement = (CommandStatement)theEObject;
         T result = caseCommandStatement(commandStatement);
+        if (result == null) result = caseBreakableStatement(commandStatement);
         if (result == null) result = caseStatement(commandStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -339,6 +349,22 @@ public class KarelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Breakable Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Breakable Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBreakableStatement(BreakableStatement object)
   {
     return null;
   }
