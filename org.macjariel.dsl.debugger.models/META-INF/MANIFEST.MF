@@ -9,7 +9,9 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.macjariel.dsl.debugger.models.moduleelementtypes,
  org.macjariel.dsl.debugger.models.moduleelementtypes.impl,
- org.macjariel.dsl.debugger.models.moduleelementtypes.util
+ org.macjariel.dsl.debugger.models.moduleelementtypes.util,
+ org.macjariel.dsl.debugger.models.utils
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.acceleo.traceability.model
 Bundle-ActivationPolicy: lazy
