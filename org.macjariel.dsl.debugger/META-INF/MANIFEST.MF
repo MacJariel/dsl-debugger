@@ -12,7 +12,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.acceleo.common,
  org.eclipse.acceleo.model,
  org.eclipse.emf.codegen.ecore,
- org.eclipse.ocl
+ org.eclipse.ocl,
+ org.macjariel.dsl.debugger.core;bundle-version="1.0.0",
+ org.macjariel.dsl.debugger.models;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.macjariel.dsl.debugger,

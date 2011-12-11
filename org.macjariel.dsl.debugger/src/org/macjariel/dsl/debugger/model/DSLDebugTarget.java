@@ -1,10 +1,10 @@
 package org.macjariel.dsl.debugger.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.eclipse.acceleo.traceability.TraceabilityModel;
 import org.eclipse.core.resources.IMarkerDelta;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.PlatformObject;
 import org.eclipse.debug.core.DebugEvent;
 import org.eclipse.debug.core.DebugException;
@@ -21,10 +21,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.macjariel.dsl.debugger.DSLDebuggerLog;
 import org.macjariel.dsl.debugger.DSLDebuggerPlugin;
 import org.macjariel.dsl.debugger.breakpoints.DSLLineBreakpoint;
+import org.macjariel.dsl.debugger.mapping.IMappingManager;
+import org.macjariel.dsl.debugger.mapping.ISourceTargetMapping;
 import org.macjariel.dsl.debugger.platform.ITargetPlatformFactory;
-import org.macjariel.dsl.debugger.traceability.SimpleMapping;
-import org.macjariel.dsl.debugger.traceability.SourceTargetMapping;
-import org.macjariel.dsl.debugger.traceability.TraceabilityModelHelper;
 
 public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDebugEventSetListener {
 
@@ -35,8 +34,8 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 	private final EObject dslProgramModel;
 
 	private final ITargetPlatformFactory targetPlatformFactory;
-	
-	private final SourceTargetMapping mapping;
+
+	private final IMappingManager mappingManager;
 
 	private ArrayList<DSLThread> dslThreads;
 
@@ -46,13 +45,14 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 
 	private IDebugTarget gplDebugTarget;
 
-	public DSLDebugTarget(ILaunch launch, TraceabilityModel traceabilityModel,
-			EObject dslProgramModel, SourceTargetMapping mapping, ITargetPlatformFactory targetPlatformFactory) {
+	public DSLDebugTarget(ILaunch launch, EObject traceModel,
+			EObject dslProgramModel, IMappingManager mappingManager,
+			ITargetPlatformFactory targetPlatformFactory) {
 		this.launch = launch;
-		this.traceabilityModel = traceabilityModel;
+		this.traceabilityModel = (TraceabilityModel) traceModel;
 		this.dslProgramModel = dslProgramModel;
 		this.targetPlatformFactory = targetPlatformFactory;
-		this.mapping = mapping;
+		this.mappingManager = mappingManager;
 
 		initialize();
 
@@ -246,7 +246,8 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 	}
 
 	protected void handleDebugEvent(DebugEvent event) {
-		System.err.println("Debug event");
+		Date date = new Date();
+		System.err.print("[" + date.toString() + "] Debug event: ");
 		System.err.println(event);
 
 		Object eventSource = event.getSource();
@@ -280,9 +281,9 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 				break;
 			case DebugEvent.SUSPEND:
 				if (eventSource instanceof DSLThread) {
-					((DSLThread)eventSource).eventSuspended();
+					((DSLThread) eventSource).eventSuspended();
 				} else {
-					
+
 					for (DSLThread thread : dslThreads) {
 						if (thread.getGplThread() == eventSource) {
 							thread.fireSuspendEvent(event.getDetail());
@@ -290,6 +291,17 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 					}
 				}
 				break;
+
+			case DebugEvent.RESUME:
+				if (eventSource instanceof DSLThread) {
+
+				} else {
+					for (DSLThread thread : dslThreads) {
+						if (thread.getGplThread() == eventSource) {
+							thread.fireSuspendEvent(event.getDetail());
+						}
+					}
+				}
 			}
 		}
 	}
@@ -323,21 +335,11 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 		}
 	}
 
-	public SimpleMapping getMapping(DSLLineBreakpoint bp) {
-		try {
-			return TraceabilityModelHelper.getMappingToJava(bp.getMarker().getResource(),
-					bp.getLineNumber(), this.traceabilityModel, this.dslProgramModel);
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	public IDebugTarget getGplDebugTarget() {
 		return gplDebugTarget;
 	}
-	
-	public final SourceTargetMapping getSourceTargetMapping() {
-		return this.mapping;
+
+	public final IMappingManager getMappingManager() {
+		return this.mappingManager;
 	}
 }

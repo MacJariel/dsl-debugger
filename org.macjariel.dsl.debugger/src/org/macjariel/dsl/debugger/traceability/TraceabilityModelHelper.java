@@ -22,7 +22,6 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.nodemodel.INode;
@@ -33,6 +32,7 @@ import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
  * the Acceleo TraceabilityModel.
  * 
  * @author MacJariel
+ * @deprecated
  *
  */
 public class TraceabilityModelHelper {
@@ -58,7 +58,7 @@ public class TraceabilityModelHelper {
 		}
 	}
 
-	public static SimpleMapping getMappingToJava(IResource source, int lineNumber,
+/*	public static SimpleMapping getMappingToJava(IResource source, int lineNumber,
 			TraceabilityModel traceModel, EObject dslProgramModel) {
 
 		SimpleMapping simpleMapping = new SimpleMapping();
@@ -96,7 +96,7 @@ public class TraceabilityModelHelper {
 						// simpleMapping.targetStartChar =
 						// gText.getStartOffset();
 						// simpleMapping.targetEndChar = gText.getEndOffset();
-						/*
+						
 						 * try { URI targetURI = new URI("file",
 						 * gText.getOutputFile().getPath(), ""); IWorkspaceRoot
 						 * root = ResourcesPlugin.getWorkspace().getRoot();
@@ -107,7 +107,7 @@ public class TraceabilityModelHelper {
 						 * (files.length != 0) { simpleMapping.target =
 						 * files[0]; return true; } } catch (URISyntaxException
 						 * e) { e.printStackTrace(); }
-						 */
+						 
 					}
 				}
 				if (regions.size() > 0) {
@@ -182,7 +182,7 @@ public class TraceabilityModelHelper {
 		return false;
 
 	}
-
+*/
 	private static boolean nodesEqual(ICompositeNode cNode1, ICompositeNode cNode2) {
 		return cNode1 != null && cNode2 != null && cNode1.getOffset() == cNode2.getOffset()
 				&& cNode1.getTotalOffset() == cNode2.getTotalOffset()
@@ -208,12 +208,12 @@ public class TraceabilityModelHelper {
 	}
 
 	public static InputElement[] getAssociatedInputElements(EObject eo, TraceabilityModel traceModel) {
-		Resource res1 = eo.eResource();
+//		Resource res1 = eo.eResource();
 		Vector<InputElement> result = new Vector<InputElement>();
 		for (ModelFile modelFile : traceModel.getModelFiles()) {
 			for (InputElement ie : modelFile.getInputElements()) {
 				EObject modelElement = ie.getModelElement();
-				Resource res2 = modelElement.eResource();
+//				Resource res2 = modelElement.eResource();
 				if (modelElement.equals(eo)) {
 					result.add(ie);
 				}

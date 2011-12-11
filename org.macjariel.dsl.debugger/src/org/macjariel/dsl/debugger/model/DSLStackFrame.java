@@ -15,15 +15,18 @@ public class DSLStackFrame extends DSLDebugElement implements IStackFrame {
 	private final IResource resource;
 
 	private final int lineNumber, charStart, charEnd;
+	
+	private final String stackFrameText;
 
 	public DSLStackFrame(IDebugTarget target, DSLThread thread, IResource resource, int lineNumber,
-			int charStart, int charEnd) {
+			int charStart, int charEnd, String stackFrameText) {
 		super(target);
 		this.dslThread = thread;
 		this.resource = resource;
 		this.lineNumber = lineNumber;
 		this.charStart = charStart;
 		this.charEnd = charEnd;
+		this.stackFrameText = stackFrameText;
 	}
 
 	public IResource getResource() {
@@ -162,5 +165,10 @@ public class DSLStackFrame extends DSLDebugElement implements IStackFrame {
 		}
 		
 		return super.getAdapter(adapter);
+	}
+	
+	@Override
+	public String toString() {
+		return stackFrameText + " line: " + lineNumber;
 	}
 }

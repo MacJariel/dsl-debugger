@@ -2,7 +2,6 @@ package org.macjariel.dsl.debugger.launcher;
 
 import java.io.File;
 
-import org.eclipse.acceleo.traceability.TraceabilityModel;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
@@ -15,12 +14,19 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.macjariel.dsl.debugger.DSLDebuggerLog;
+import org.macjariel.dsl.debugger.core.traceability.TraceabilityModelSerializer;
+import org.macjariel.dsl.debugger.mapping.ICallStackMapping;
+import org.macjariel.dsl.debugger.mapping.IMappingManager;
+import org.macjariel.dsl.debugger.mapping.impl.CallStackMappingImpl;
+import org.macjariel.dsl.debugger.mapping.impl.MappingManagerImpl;
+import org.macjariel.dsl.debugger.mapping.impl.SourceTargetMappingImpl;
 import org.macjariel.dsl.debugger.model.DSLDebugTarget;
 import org.macjariel.dsl.debugger.model.DSLSourceLocator;
+import org.macjariel.dsl.debugger.model.DslDebugElementFactory;
+import org.macjariel.dsl.debugger.model.IDslDebugElementFactory;
 import org.macjariel.dsl.debugger.platform.ITargetPlatformFactory;
 import org.macjariel.dsl.debugger.platform.impl.TargetPlatformManager;
 import org.macjariel.dsl.debugger.traceability.ResourceAnnotator;
-import org.macjariel.dsl.debugger.traceability.TotalMapping;
 
 public class DSLLaunchDelegate implements ILaunchConfigurationDelegate {
 
@@ -32,6 +38,10 @@ public class DSLLaunchDelegate implements ILaunchConfigurationDelegate {
 	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch,
 			IProgressMonitor monitor) throws CoreException {
 
+		// TODO: I decided to change the lifetime of traceability information - these resources
+		//       should not be created at the moment of launch, but before, and it should live
+		//       after the launch finished. So this must be moved to DSLDebuggerPlugin.
+		
 		ResourceSet rs = new ResourceSetImpl();
 
 		URI dslProgramFile = URI.createPlatformResourceURI(
@@ -39,11 +49,18 @@ public class DSLLaunchDelegate implements ILaunchConfigurationDelegate {
 		Resource dslProgramResource = rs.getResource(dslProgramFile, true);
 		EObject dslProgramModel = dslProgramResource.getContents().get(0);
 
-		URI traceModelFile = CommonPlugin.resolve(URI.createPlatformResourceURI(
-				new File(configuration.getAttribute(DSLLaunchParams.TRACE_MODEL_FILE, ""))
+		URI targetDir = CommonPlugin.resolve(URI.createPlatformResourceURI(
+				new File(configuration.getAttribute(DSLLaunchParams.TARGET_DIR, ""))
 						.getAbsolutePath(), true));
-		Resource traceModelResource = rs.getResource(traceModelFile, true);
-		TraceabilityModel traceModel = (TraceabilityModel) traceModelResource.getContents().get(0);
+
+		Resource traceModelResource = rs.getResource(
+				targetDir.appendSegment(TraceabilityModelSerializer.TRACEABILITY_FILENAME), true);
+		EObject traceModel = traceModelResource.getContents().get(0);
+
+		Resource moduleElementTypesModelResource = rs.getResource(
+				targetDir.appendSegment(TraceabilityModelSerializer.MODULEELEMENTTYPES_FILENAME),
+				true);
+		EObject moduleElementTypesModel = moduleElementTypesModelResource.getContents().get(0);
 
 		// TODO: I still don't know the best way of injecting target platform
 		// ID, so it is hardcoded here
@@ -58,17 +75,22 @@ public class DSLLaunchDelegate implements ILaunchConfigurationDelegate {
 			DSLDebuggerLog.logError(e);
 		}
 
-		// Create mapping
-		TotalMapping totalMapping = new TotalMapping(dslProgramModel, traceModel);
-
+		// Create debug element factory
+		IDslDebugElementFactory dslDebugElementFactory = new DslDebugElementFactory();
+		
+		// Create mapping manager
+		// TODO: use dependency injection
+		IMappingManager mappingManager = new MappingManagerImpl();
+		mappingManager.init(dslProgramModel, traceModel, moduleElementTypesModel, dslDebugElementFactory);
+		
 		// Annotate resources according to mapping (debug purposes)
-		ResourceAnnotator annotator = new ResourceAnnotator(totalMapping);
-		annotator.annotateResources();
-		
-		
-		// Create debug target
-		new DSLDebugTarget(launch, traceModel, dslProgramModel, totalMapping, targetPlatformFactory);
+		// ResourceAnnotator annotator = new ResourceAnnotator(mappingManager);
+		// annotator.annotateResources();
 
+		// Create debug target
+		new DSLDebugTarget(launch, traceModel, dslProgramModel, mappingManager, targetPlatformFactory);
+
+		
 		targetLaunchDelegate = targetPlatformFactory.createLaunchDelegate();
 		targetLaunchDelegate.launch(configuration, mode, launch, monitor);
 

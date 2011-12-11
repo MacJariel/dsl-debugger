@@ -1,8 +1,10 @@
 package org.macjariel.dsl.debugger.ui.launch.tabs;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
@@ -78,11 +80,10 @@ public class DSLDebuggerMainTab extends AbstractLaunchConfigurationTab {
 	}
 
 	private void handleTraceabilityModelFileSelection() {
-		IFile traceabilityModelFile = BrowseDialogsHelper.browseForFile(getShell(), ResourcesPlugin
+		IPath targetDir = BrowseDialogsHelper.browseForContainer(getShell(), ResourcesPlugin
 				.getWorkspace().getRoot(), "");
-		if (traceabilityModelFile != null) {
-			traceabilityModelFilenameText.setText(traceabilityModelFile.getFullPath()
-					.toPortableString());
+		if (targetDir != null) {
+			traceabilityModelFilenameText.setText(targetDir.toPortableString());
 			setDirty(true);
 			updateLaunchConfigurationDialog();
 		}
@@ -100,7 +101,7 @@ public class DSLDebuggerMainTab extends AbstractLaunchConfigurationTab {
 			dslProgramFilenameText.setText(configuration.getAttribute(
 					DSLLaunchParams.DSL_PROGRAM_FILE, ""));
 			traceabilityModelFilenameText.setText(configuration.getAttribute(
-					DSLLaunchParams.TRACE_MODEL_FILE, ""));
+					DSLLaunchParams.TARGET_DIR, ""));
 		} catch (CoreException e) {
 			DSLDebuggerLog.logError(e);
 		}
@@ -111,9 +112,10 @@ public class DSLDebuggerMainTab extends AbstractLaunchConfigurationTab {
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(DSLLaunchParams.DSL_PROGRAM_FILE,
 				dslProgramFilenameText.getText());
-		configuration.setAttribute(DSLLaunchParams.TRACE_MODEL_FILE,
+		configuration.setAttribute(DSLLaunchParams.TARGET_DIR,
 				traceabilityModelFilenameText.getText());
-		// TODO: Set appropriate DSLLaunchParams.TARGET_PLATFORM_ID (or how else can it be set?)
+		// TODO: Set appropriate DSLLaunchParams.TARGET_PLATFORM_ID (or how else
+		// can it be set?)
 	}
 
 	@Override

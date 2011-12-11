@@ -6,13 +6,12 @@ import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.model.IBreakpoint;
-import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.ILineBreakpoint;
 import org.eclipse.debug.core.model.LineBreakpoint;
 import org.eclipse.jdt.debug.core.JDIDebugModel;
 import org.macjariel.dsl.debugger.DSLDebuggerPlugin;
+import org.macjariel.dsl.debugger.mapping.ISourceTargetMapping;
 import org.macjariel.dsl.debugger.model.DSLDebugTarget;
-import org.macjariel.dsl.debugger.traceability.SimpleMapping;
 
 public class DSLLineBreakpoint extends LineBreakpoint {
 
@@ -42,15 +41,13 @@ public class DSLLineBreakpoint extends LineBreakpoint {
 			}
 		};
 
-		/* {
-			// DEBUG: lists all markers on the resource
-			IMarker[] markers = file.findMarkers(DSLDebuggerPlugin.DSL_LINE_BREAKPOINT_MARKER_ID,
-					true, IResource.DEPTH_INFINITE);
-			for (IMarker marker : markers) {
-				System.out.println("Marker " + marker.getId() + ": "
-						+ marker.getAttribute(IMarker.MESSAGE, "[no message]"));
-			}
-		} */
+		/*
+		 * { // DEBUG: lists all markers on the resource IMarker[] markers =
+		 * file.findMarkers(DSLDebuggerPlugin.DSL_LINE_BREAKPOINT_MARKER_ID,
+		 * true, IResource.DEPTH_INFINITE); for (IMarker marker : markers) {
+		 * System.out.println("Marker " + marker.getId() + ": " +
+		 * marker.getAttribute(IMarker.MESSAGE, "[no message]")); } }
+		 */
 
 		run(getMarkerRule(file), job);
 	}
@@ -63,7 +60,25 @@ public class DSLLineBreakpoint extends LineBreakpoint {
 	public void install(DSLDebugTarget debugTarget) {
 		this.debugTarget = debugTarget;
 
-		SimpleMapping mapping = this.debugTarget.getMapping(this);
+		// TODO: this old code was responsible for creating a GPL breakpoint
+		// according to the resource file and line number. This approach was
+		// abandoned, because we want the breakpoints to be smarter than that.
+		// First, every breakpoint needs to have an element in DSL model
+		// associated just during its creation. This is currently imposible,
+		// because the DSL Model is not known before the launch of the debug
+		// session, but as soon as traceability information's lifespan will
+		// change, this should be implemented.
+		//
+		// Reminder for the implementor:
+		// @see DSLDebuggerPlugin - this should contain a IMappingManager object
+		// @see IMappingManager - this hold all traceability information, it can
+		// give us IMappingAlgorithms
+		// @see IMappingAlgorithms - this has method
+		// lookupMappingItemForLineBreakpoint
+
+		
+		/*
+		mapping = this.debugTarget.getMapping(this);
 		if (mapping != null) {
 			try {
 				// FIXME this is nasty and does not follow concept of Java types
@@ -82,8 +97,8 @@ public class DSLLineBreakpoint extends LineBreakpoint {
 			} catch (CoreException e) {
 				e.printStackTrace();
 			}
-
 		}
+		*/
 	}
 
 	@Override
@@ -98,10 +113,10 @@ public class DSLLineBreakpoint extends LineBreakpoint {
 	private void createGplBreakpoint(IResource resource, String typeName, int lineNumber,
 			int charStart, int charEnd) throws CoreException {
 		if (this.gplBreakpoint == null || !this.gplBreakpoint.isRegistered()) {
-			// TODO: create it using a method in org.macjariel.dsl.debugger.java project
-			this.gplBreakpoint = JDIDebugModel.createLineBreakpoint(resource,
-			 typeName, lineNumber, charStart, charEnd, 0,
-			 true, null);
+			// TODO: create it using a method in org.macjariel.dsl.debugger.java
+			// project
+			this.gplBreakpoint = JDIDebugModel.createLineBreakpoint(resource, typeName, lineNumber,
+					charStart, charEnd, 0, true, null);
 		}
 	}
 }

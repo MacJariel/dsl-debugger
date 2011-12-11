@@ -9,7 +9,7 @@ public class DSLLaunchParams {
 			+ ".dsl_program_file"; //$NON-NLS-1$
 
 	/** Launch configuration attribute (traceability model file) */
-	public static final String TRACE_MODEL_FILE = DSLDebuggerPlugin.PLUGIN_ID
+	public static final String TARGET_DIR = DSLDebuggerPlugin.PLUGIN_ID
 			+ ".trace_model_file"; //$NON-NLS-1$
 
 	/** Launch configuration attribute (target platform id) */

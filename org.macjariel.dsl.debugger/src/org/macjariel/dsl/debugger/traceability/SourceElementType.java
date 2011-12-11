@@ -3,15 +3,19 @@ package org.macjariel.dsl.debugger.traceability;
 import java.util.EnumSet;
 import java.util.Set;
 
+import org.macjariel.dsl.debugger.utils.StringHelper;
+
 /**
  * Possible types of source elements in the DSL model. These elements can have
  * more than one type, so you should use this type with {@link Set}.
+ * 
+ * TODO: to be moved somewhere (I want to delete the traceability package)
  * 
  * @author MacJariel
  * 
  */
 public enum SourceElementType {
-	Unknown, Statement, InitCommand, SubrutineCall, SubrutineDefinition;
+	UNKNOWN, STATEMENT, INIT_COMMAND, SUBROUTINE_CALL, SUBROUTINE_DEFINITION;
 
 	/**
 	 * Constructs an empty set of SourceElementTypes and returns it.
@@ -48,7 +52,12 @@ public enum SourceElementType {
 	public static Set<SourceElementType> createFromAnnotationString(String annotationString) {
 		Set<SourceElementType> result = create();
 		for (String typeString : annotationString.split(" ")) {
-			result.add(SourceElementType.valueOf(typeString));
+			String underscoredTypeString = StringHelper.camelCaseToUnderscoreCase(typeString);
+			try {
+				result.add(SourceElementType.valueOf(underscoredTypeString));
+			} catch (IllegalArgumentException e) {
+				System.err.println("Unknown source element type string: '" + underscoredTypeString + "'");				
+			}
 		}
 		return result;
 	}
