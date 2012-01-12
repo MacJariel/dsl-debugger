@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="org.macjariel.karel.builder.XtextBuilderParticipant">
+      </participant>
+   </extension>
+   <extension
+         id="org.macjariel.karel.karelNature"
+         name="Karel"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.macjariel.karel.builder.KarelNature">
+         </run>
+      </runtime>
+   </extension>
+   
+   <extension point="org.eclipse.ui.popupMenus">
+    <objectContribution adaptable="true"
+          id="org.macjariel.karel.builder.addNature"
+          objectClass="org.eclipse.core.resources.IProject">
+       <action
+             class="org.macjariel.karel.builder.ToggleNatureAction"
+             id="org.macjariel.karel.builder.AddNatureAction"
+             label="Add User Interface DSL Nature"
+             menubarPath="org.eclipse.ui.projectConfigure/additions">
+       </action>
+       <visibility>
+          <not><objectState name="nature" value="org.macjariel.karel.karelNature" /></not>
+       </visibility>
+    </objectContribution>
+    <objectContribution adaptable="true"
+          id="org.macjariel.karel.builder.removeNature"
+          objectClass="org.eclipse.core.resources.IProject">
+       <action
+             class="org.macjariel.karel.builder.ToggleNatureAction"
+             id="org.macjariel.karel.builder.AddNatureAction"
+             label="Remove User Interface DSL Nature"
+             menubarPath="org.eclipse.ui.projectConfigure/additions">
+       </action>
+       <visibility>
+          <objectState name="nature" value="org.macjariel.karel.karelNature" />
+       </visibility>
+    </objectContribution>
+ </extension>
+
+</plugin>

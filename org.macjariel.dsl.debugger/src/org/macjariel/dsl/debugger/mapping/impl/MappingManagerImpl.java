@@ -1,47 +1,40 @@
 package org.macjariel.dsl.debugger.mapping.impl;
 
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.ecore.EObject;
+import org.macjariel.dsl.debugger.DSLDebuggerLog;
+import org.macjariel.dsl.debugger.mapping.AbstractMappingManager;
 import org.macjariel.dsl.debugger.mapping.ICallStackMapping;
 import org.macjariel.dsl.debugger.mapping.IMappingAlgorithms;
 import org.macjariel.dsl.debugger.mapping.IMappingManager;
 import org.macjariel.dsl.debugger.mapping.ISourceTargetMapping;
-import org.macjariel.dsl.debugger.model.IDslDebugElementFactory;
 
-public class MappingManagerImpl implements IMappingManager, IResourceChangeListener {
+/**
+ * TODO: Allow for more semantic models (and their traceability models) to be
+ * held in the same time.
+ * 
+ * @author MacJariel
+ * 
+ */
+public class MappingManagerImpl extends AbstractMappingManager implements IMappingManager {
 
 	private boolean isInitialized = false;
+
 	private CallStackMappingImpl callStackMapping;
 	private SourceTargetMappingImpl sourceTargetMapping;
 	private MappingAlgorithmsImpl mappingAlgorithmsImpl;
 
-	private IDslDebugElementFactory dslDebugElementFactory;
+	// private EObject semanticModel;
+	// private EObject traceabilityModel;
+	// private EObject moduleElementTypesModel;
 
 	public MappingManagerImpl() {
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		workspace.addResourceChangeListener(this);
-	}
-
-	@Override
-	public void init(EObject dslProgramModel, EObject traceabilityModel,
-			EObject moduleElementTypesModel, IDslDebugElementFactory dslDebugElementFactory) {
-		callStackMapping = new CallStackMappingImpl(this);
-		sourceTargetMapping = new SourceTargetMappingImpl(this, dslProgramModel, traceabilityModel,
-				moduleElementTypesModel);
-		mappingAlgorithmsImpl = new MappingAlgorithmsImpl(this);
-
-		this.dslDebugElementFactory = dslDebugElementFactory;
-		isInitialized = true;
 	}
 
 	@Override
 	public ICallStackMapping getCallStackMapping() {
-		if (!isInitialized)
-			throw new IllegalStateException("MappingManagerImpl was not initialized.");
+		if (!isInitialized) {
+			DSLDebuggerLog.logWarning("MappingManagerImpl was not initialized.");
+		}
 
 		return callStackMapping;
 	}
@@ -49,17 +42,9 @@ public class MappingManagerImpl implements IMappingManager, IResourceChangeListe
 	@Override
 	public ISourceTargetMapping getSourceTargetMapping() {
 		if (!isInitialized)
-			throw new IllegalStateException("MappingManagerImpl was not initialized.");
+			DSLDebuggerLog.logWarning("MappingManagerImpl was not initialized.");
 
 		return sourceTargetMapping;
-	}
-
-	@Override
-	public IDslDebugElementFactory getDslDebugElementFactory() {
-		if (!isInitialized)
-			throw new IllegalStateException("MappingManagerImpl was not initialized.");
-
-		return dslDebugElementFactory;
 	}
 
 	@Override
@@ -68,18 +53,19 @@ public class MappingManagerImpl implements IMappingManager, IResourceChangeListe
 	}
 
 	@Override
-	public void load(IResource dslProgram, IResource traceabilityModel,
-			IResource moduleElementTypesModel) {
-		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		workspace.addResourceChangeListener(this);
-	}
+	public void load(EObject semanticModel, EObject traceabilityModel,
+			EObject moduleElementTypesModel) {
 
-	@Override
-	public void resourceChanged(IResourceChangeEvent event) {
-		// event.getDelta()
-		
-		// TODO Auto-generated method stub
+		// this.semanticModel = semanticModel;
+		// this.traceabilityModel = traceabilityModel;
+		// this.moduleElementTypesModel = moduleElementTypesModel;
 
+		callStackMapping = new CallStackMappingImpl(this);
+		sourceTargetMapping = new SourceTargetMappingImpl(this, semanticModel, traceabilityModel,
+				moduleElementTypesModel);
+		mappingAlgorithmsImpl = new MappingAlgorithmsImpl(this);
+
+		isInitialized = true;
 	}
 
 }

@@ -17,11 +17,17 @@ import org.eclipse.acceleo.model.mtl.Template;
 import org.eclipse.acceleo.traceability.GeneratedFile;
 import org.eclipse.acceleo.traceability.GeneratedText;
 import org.eclipse.acceleo.traceability.TraceabilityModel;
+import org.eclipse.core.runtime.Assert;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.macjariel.dsl.debugger.DSLDebuggerPlugin;
 import org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleElement;
 import org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleElementType;
 import org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleElementTypesModel;
@@ -41,7 +47,7 @@ public class TraceabilityModelSerializer implements IAcceleoTextGenerationListen
 
 	public static final String MODULEELEMENTTYPES_FILENAME = "moduleelementtypes.xmi";
 
-	private final URI targetFolderURI;
+	private final URI targetFolderUri;
 
 	/**
 	 * Creates the TraceabilityModelSerializer that will store the serailized
@@ -51,7 +57,7 @@ public class TraceabilityModelSerializer implements IAcceleoTextGenerationListen
 	 *            URI of the file that will be used to store the model.
 	 */
 	public TraceabilityModelSerializer(URI targetFolderURI) {
-		this.targetFolderURI = targetFolderURI;
+		this.targetFolderUri = targetFolderURI;
 	}
 
 	/**
@@ -82,9 +88,7 @@ public class TraceabilityModelSerializer implements IAcceleoTextGenerationListen
 
 	@Override
 	public void generationEnd(AcceleoTextGenerationEvent event) {
-		System.out.println("Generation ended.");
-		// We are going to create the traceability model here.
-		TraceabilityModel traceabilityModel = (TraceabilityModel) event
+		final TraceabilityModel traceabilityModel = (TraceabilityModel) event
 				.getTraceabilityInformation();
 		if (traceabilityModel == null) {
 			// TODO: exception?
@@ -93,13 +97,16 @@ public class TraceabilityModelSerializer implements IAcceleoTextGenerationListen
 			return;
 		}
 
+		final URI traceabilityModelUri = targetFolderUri.appendSegment(TRACEABILITY_FILENAME);
+		final URI moduleElementTypesModelUri = targetFolderUri
+				.appendSegment(MODULEELEMENTTYPES_FILENAME);
+
 		Map<String, Boolean> options = new HashMap<String, Boolean>();
 		options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
 		options.put(XMLResource.OPTION_SKIP_ESCAPE_URI, Boolean.FALSE);
 
 		try {
-			Resource traceabilityRes = new XMIResourceImpl(
-					targetFolderURI.appendSegment(TRACEABILITY_FILENAME));
+			Resource traceabilityRes = new XMIResourceImpl(traceabilityModelUri);
 			traceabilityRes.getContents().add(traceabilityModel);
 			traceabilityRes.save(options);
 		} catch (IOException e) {
@@ -130,13 +137,45 @@ public class TraceabilityModelSerializer implements IAcceleoTextGenerationListen
 		}
 
 		try {
-			Resource moduleElementTypesRes = new XMIResourceImpl(
-					targetFolderURI.appendSegment(MODULEELEMENTTYPES_FILENAME));
+			Resource moduleElementTypesRes = new XMIResourceImpl(moduleElementTypesModelUri);
 			moduleElementTypesRes.getContents().add(moduleElementTypesModel);
 			moduleElementTypesRes.save(options);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		// Register traceability information
+		// TODO: the whole class should be refactored
+		// BTW. do I still need to serialize the models, if I can directly work
+		// with them?
+
+		Assert.isTrue(traceabilityModel.getModelFiles().size() == 1,
+				"Only DSLs based on one model are currently supported.");
+
+		// We probably need that all models are from the same ResourceSet, so
+		// this is quick and dirty code to support this theory
+
+		// This is a little hacky way to get semantic model
+		// EObject semanticModel = null;
+		final URI semanticModelUri = URI.createURI(traceabilityModel.getModelFiles().get(0).getPath()); 
+
+		// Run it in different thread
+		Job loadTraceabilityJob = new Job("Load traceability information") {
+
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				if (monitor.isCanceled()) {
+					return Status.CANCEL_STATUS;
+				}
+				DSLDebuggerPlugin.getInstance().getMappingManager()
+				.load(semanticModelUri, traceabilityModelUri, moduleElementTypesModelUri);
+				return Status.OK_STATUS;
+			}
+			
+		};
+		
+		loadTraceabilityJob.setPriority(Job.SHORT);
+		loadTraceabilityJob.schedule(0);
 	}
 
 	private Collection<ModuleElementType> parseModuleElementDocumentationString(String docString) {

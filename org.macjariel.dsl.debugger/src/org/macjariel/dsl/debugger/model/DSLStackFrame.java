@@ -4,24 +4,40 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IRegisterGroup;
-import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
 import org.eclipse.debug.core.model.IVariable;
+import org.eclipse.emf.ecore.EObject;
 
-public class DSLStackFrame extends DSLDebugElement implements IStackFrame {
+public class DSLStackFrame extends DSLDebugElement implements IDSLStackFrame {
 
 	private final DSLThread dslThread;
 
-	private final IResource resource;
+	private EObject semanticElement;
 
-	private final int lineNumber, charStart, charEnd;
+	private IResource resource;
+
+	private int lineNumber, charStart, charEnd;
+
+	private String stackFrameText;
+
+	// TODO: we should assert that semanticElement is a command
+	// this is actually not currently supported, fix in CallStackMapping 
 	
-	private final String stackFrameText;
-
-	public DSLStackFrame(IDebugTarget target, DSLThread thread, IResource resource, int lineNumber,
-			int charStart, int charEnd, String stackFrameText) {
+	public DSLStackFrame(IDebugTarget target, DSLThread thread, EObject semanticElement,
+			IResource resource, int lineNumber, int charStart, int charEnd, String stackFrameText) {
 		super(target);
 		this.dslThread = thread;
+		this.semanticElement = semanticElement;
+		this.resource = resource;
+		this.lineNumber = lineNumber;
+		this.charStart = charStart;
+		this.charEnd = charEnd;
+		this.stackFrameText = stackFrameText;
+	}
+
+	public void update(EObject semanticElement, IResource resource, int lineNumber, int charStart,
+			int charEnd, String stackFrameText) {
+		this.semanticElement = semanticElement;
 		this.resource = resource;
 		this.lineNumber = lineNumber;
 		this.charStart = charStart;
@@ -32,7 +48,12 @@ public class DSLStackFrame extends DSLDebugElement implements IStackFrame {
 	public IResource getResource() {
 		return resource;
 	}
-	
+
+	@Override
+	public EObject getSemanticElement() {
+		return semanticElement;
+	}
+
 	@Override
 	public IVariable[] getVariables() throws DebugException {
 		return null;
@@ -159,14 +180,14 @@ public class DSLStackFrame extends DSLDebugElement implements IStackFrame {
 	public Object getAdapter(@SuppressWarnings("rawtypes") Class adapter) {
 		if (adapter == IResource.class) {
 			return this.resource;
-		//} else if (adapter == IElementLabelProvider.class) {
-		// IDebugModelProvider
-		// ISourceDisplay (in UI)
+			// } else if (adapter == IElementLabelProvider.class) {
+			// IDebugModelProvider
+			// ISourceDisplay (in UI)
 		}
-		
+
 		return super.getAdapter(adapter);
 	}
-	
+
 	@Override
 	public String toString() {
 		return stackFrameText + " line: " + lineNumber;

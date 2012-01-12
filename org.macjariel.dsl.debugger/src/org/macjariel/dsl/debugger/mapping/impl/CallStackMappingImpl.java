@@ -1,6 +1,8 @@
 package org.macjariel.dsl.debugger.mapping.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IAdaptable;
@@ -12,24 +14,29 @@ import org.macjariel.dsl.debugger.DSLDebuggerLog;
 import org.macjariel.dsl.debugger.mapping.ICallStackMapping;
 import org.macjariel.dsl.debugger.mapping.IMappingManager;
 import org.macjariel.dsl.debugger.mapping.ISourceTargetMapping;
+import org.macjariel.dsl.debugger.mapping.ISourceTargetMapping.IItem;
+import org.macjariel.dsl.debugger.model.IDSLStackFrame;
+import org.macjariel.dsl.debugger.model.IStackFrameFactory;
 
 public class CallStackMappingImpl implements ICallStackMapping {
 
 	private IMappingManager mappingManager;
-	
 
 	public CallStackMappingImpl(IMappingManager mappingManager) {
 		this.mappingManager = mappingManager;
 	}
 
 	@Override
-	public void updateStackFrames(IDebugTarget dslDebugTarget, IThread dslThread,
-			List<IStackFrame> dslStackFrames, IStackFrame[] gplStackFrames) throws DebugException {
-		
+	public <T extends IDSLStackFrame> void updateStackFrames(IDebugTarget dslDebugTarget,
+			IThread dslThread, List<T> dslStackFrames, IStackFrame[] gplStackFrames,
+			IStackFrameFactory<T> stackFrameFactory) throws DebugException {
+
 		// TODO: we could reuse DSLStackFrames, instead of deleting them
 		// this approach should provide better UI experience
 
-		dslStackFrames.clear();
+		// dslStackFrames.clear();
+		List<ISourceTargetMapping.IItem> mappingItems = new ArrayList<ISourceTargetMapping.IItem>(
+				gplStackFrames.length);
 
 		for (IStackFrame stackFrame : gplStackFrames) {
 			Object sourceElement = dslDebugTarget.getLaunch().getSourceLocator()
@@ -40,7 +47,7 @@ public class CallStackMappingImpl implements ICallStackMapping {
 			// We try to convert the source element to IResource, first directly
 			// and then using the Adapter mechanism.
 			// This works for JDIDebugModel, but might not work for another
-			// debug models (another GPL languages). Please, fill a debug
+			// debug models (another GPL languages). Please, fill a bug
 			// report, if your language is not supported.
 
 			if (sourceElement instanceof IResource) {
@@ -54,7 +61,8 @@ public class CallStackMappingImpl implements ICallStackMapping {
 			}
 
 			if (sourceElementResource == null) {
-				DSLDebuggerLog.logInfo("Cannot find IResource for source element '" + sourceElement  + "'.");
+				DSLDebuggerLog.logInfo("Cannot find IResource for source element '" + sourceElement
+						+ "'.");
 				continue;
 			}
 
@@ -62,21 +70,43 @@ public class CallStackMappingImpl implements ICallStackMapping {
 					+ stackFrame.getLineNumber() + ", charStart: " + stackFrame.getCharStart()
 					+ ", charEnd: " + stackFrame.getCharEnd() + ".");
 
-			ISourceTargetMapping.IItem mappingItem = mappingManager.getSourceTargetMapping().lookupSourceElement(
-					sourceElementResource, stackFrame.getLineNumber(), stackFrame.getCharStart(),
-					stackFrame.getCharEnd());
+			ISourceTargetMapping.IItem mappingItem = mappingManager.getSourceTargetMapping()
+					.lookupSourceElement(sourceElementResource, stackFrame.getLineNumber(),
+							stackFrame.getCharStart(), stackFrame.getCharEnd());
+			mappingItems.add(mappingItem);
 
-			if (mappingItem != null) {
-				String stackFrameText = mappingItem.getSourceSubroutineName();
-				
-				dslStackFrames.add(mappingManager.getDslDebugElementFactory().createStackFrame(dslDebugTarget,
-						dslThread, mappingItem.getSourceFile(), mappingItem.getSourceStartLine(),
-						mappingItem.getSourceCharStart(), mappingItem.getSourceCharEnd(), stackFrameText));
-
-			}
-
+			/*
+			 * if (mappingItem != null) { String stackFrameText =
+			 * mappingItem.getSourceSubroutineName();
+			 * dslStackFrames.add(stackFrameFactory
+			 * .createStackFrame(dslDebugTarget, dslThread,
+			 * mappingItem.getSourceFile(), mappingItem.getSourceStartLine(),
+			 * mappingItem.getSourceCharStart(), mappingItem.getSourceCharEnd(),
+			 * stackFrameText)); }
+			 */
 		}
 
-	}
+		ListIterator<IItem> mappingItemsIter = mappingItems.listIterator(mappingItems.size());
+		ListIterator<T> dslStackFramesIter = dslStackFrames.listIterator(dslStackFrames.size());
 
+		while (mappingItemsIter.hasPrevious()) {
+			final IItem mappingItem = mappingItemsIter.previous();
+			if (mappingItem == null)
+				continue;
+			if (dslStackFramesIter.hasPrevious()) {
+				final T dslStackFrame = dslStackFramesIter.previous();
+				if (!stackFrameFactory.stackFrameEquals(dslStackFrame, mappingItem)) {
+					stackFrameFactory.updateStackFrame(dslDebugTarget, dslThread, dslStackFrame,
+							mappingItem);
+				}
+			} else {
+				dslStackFramesIter.add(stackFrameFactory.createStackFrame(dslDebugTarget, dslThread, mappingItem));
+				dslStackFramesIter.previous(); // We skip over the element just added
+			}
+		}
+		while (dslStackFramesIter.hasPrevious()) {
+			dslStackFramesIter.previous();
+			dslStackFramesIter.remove();
+		}
+	}
 }

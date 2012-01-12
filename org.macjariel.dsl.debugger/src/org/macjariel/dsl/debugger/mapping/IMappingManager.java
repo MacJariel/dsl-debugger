@@ -1,8 +1,7 @@
 package org.macjariel.dsl.debugger.mapping;
 
-import org.eclipse.core.resources.IResource;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.macjariel.dsl.debugger.model.IDslDebugElementFactory;
 
 /**
  * Manager that manages all parts of a mapping implementation.
@@ -13,8 +12,8 @@ import org.macjariel.dsl.debugger.model.IDslDebugElementFactory;
  * only when the debugging is running, but we need to know the mapping (actually
  * the DSL model) to identify statements in source DSL code.
  * 
- * TODO: It would be great if we have some mechanism that will automatically update
- * the mapping manager when a dslProgram will be updated.
+ * TODO: It would be great if we have some mechanism that will automatically
+ * update the mapping manager when a dslProgram will be updated.
  * 
  * @author MacJariel
  * 
@@ -22,31 +21,32 @@ import org.macjariel.dsl.debugger.model.IDslDebugElementFactory;
 public interface IMappingManager {
 
 	/**
-	 * Initializes all parts of the mapping implementation.
-	 * 
-	 * @param dslProgramModel
-	 *            model of the DSL program
+	 * @param semanticModel
 	 * @param traceabilityModel
-	 *            traceability model
 	 * @param moduleElementTypesModel
-	 *            moduleElementTypes model
-	 * @param dslDebugElementFactory
-	 *            instance of DSL debugElement factory
-	 *            
-	 * @deprecated
-	 * TODO: to be removed
 	 */
-	void init(EObject dslProgramModel, EObject traceabilityModel, EObject moduleElementTypesModel,
-			IDslDebugElementFactory dslDebugElementFactory);
+	void load(EObject semanticModel, EObject traceabilityModel, EObject moduleElementTypesModel);
 
-	void load(IResource dslProgram, IResource traceabilityModel, IResource moduleElementTypesModel);
-	
+	/**
+	 * @param semanticModelUri
+	 * @param traceabilityModelUri
+	 * @param moduleElementTypesModelUri
+	 */
+	void load(URI semanticModelUri, URI traceabilityModelUri, URI moduleElementTypesModelUri);
+
+	/**
+	 * @return
+	 */
 	ICallStackMapping getCallStackMapping();
 
+	/**
+	 * @return
+	 */
 	ISourceTargetMapping getSourceTargetMapping();
 
-	IDslDebugElementFactory getDslDebugElementFactory();
-
+	/**
+	 * @return
+	 */
 	IMappingAlgorithms getMappingAlgorithms();
 
 }

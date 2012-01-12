@@ -6,6 +6,8 @@ import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
+import org.macjariel.dsl.debugger.model.IDSLStackFrame;
+import org.macjariel.dsl.debugger.model.IStackFrameFactory;
 
 /**
  * 
@@ -18,6 +20,8 @@ public interface ICallStackMapping {
 	 * Updates call stack of the DSL program according to the call stack of the
 	 * GPL program. The method should update the DSL stack frame.
 	 * 
+	 * @param <T>
+	 * 
 	 * @param dslDebugTarget
 	 *            debug target of the DSL Debugger
 	 * @param dslThread
@@ -28,9 +32,11 @@ public interface ICallStackMapping {
 	 * @param gplStackFrames
 	 *            the array of stack frames that represents the current GPL
 	 *            stack
-	 * @throws DebugException Can throw {@link DebugException} in case that 
+	 * @throws DebugException
+	 *             Can throw {@link DebugException} in case that
 	 */
-	public void updateStackFrames(IDebugTarget dslDebugTarget, IThread dslThread,
-			List<IStackFrame> dslStackFrames, IStackFrame[] gplStackFrames) throws DebugException;
+	public <T extends IDSLStackFrame> void updateStackFrames(IDebugTarget dslDebugTarget,
+			IThread dslThread, List<T> dslStackFrames, IStackFrame[] gplStackFrames,
+			IStackFrameFactory<T> stackFrameFactory) throws DebugException;
 
 }

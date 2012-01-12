@@ -21,11 +21,14 @@ import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.macjariel.dsl.debugger.mapping.ISourceTargetMapping;
 import org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleElementType;
-import org.macjariel.dsl.debugger.traceability.SourceElementType;
+import org.macjariel.dsl.debugger.traceability.SemanticElementType;
 
+/*
+ * TODO: This class looks very ugly, TO BE REFACTORED. 
+ */
 public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapping.IItem {
 
-	EObject sourceElement;
+	EObject semanticElement;
 
 	public IFile sourceFile;
 	public IFile targetFile;
@@ -38,7 +41,7 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 
 	public String sourceSubroutineName;
 
-	Set<SourceElementType> sourceElementTypes;
+	Set<SemanticElementType> SemanticElementTypes;
 	Set<ModuleElementType> moduleElementTypes;
 
 	// THESE THINGS ARE FOR DEBUG PURPOSES AND SHOULD BE REMOVED LATER
@@ -48,7 +51,7 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 
 	public Object sourceAnnotationObject;
 	public Object targetAnnotationObject;
-	
+
 	public EObject moduleElement;
 
 	// END OF DEBUG THINGS
@@ -60,16 +63,16 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 	public Object clone() {
 		try {
 			return super.clone();
-		} catch (Exception e) {
-			return null;
+		} catch (CloneNotSupportedException e) {
+			throw new AssertionError();
 		}
 	}
 
-	void fillSource(EObject sourceElement, Set<SourceElementType> sourceElementTypes) {
-		this.sourceElement = sourceElement;
-		this.sourceElementTypes = sourceElementTypes;
-
-		URI sourceElementURI = CommonPlugin.resolve(sourceElement.eResource().getURI());
+	void fillSource(EObject sourceElement, Set<SemanticElementType> SemanticElementTypes) {
+		this.semanticElement = sourceElement;
+		this.SemanticElementTypes = SemanticElementTypes;
+		URI sourceElementURI = sourceElementURI = CommonPlugin.resolve(sourceElement.eResource()
+				.getURI());
 		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
 		this.sourceFile = workspaceRoot
 				.getFileForLocation(new Path(sourceElementURI.toFileString()));
@@ -85,17 +88,17 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 		this.sourceStartLine = node.getStartLine();
 		this.sourceEndLine = node.getEndLine();
 
-		if (this.sourceElementTypes.contains(SourceElementType.STATEMENT)) {
+		if (this.SemanticElementTypes.contains(SemanticElementType.STATEMENT)) {
 			EObject container = sourceElement.eContainer();
 			while (container != null) {
-				Set<SourceElementType> containerType = SourceTargetMappingImpl
+				Set<SemanticElementType> containerType = SourceTargetMappingImpl
 						.getElementType(container);
 				if (containerType != null
-						&& containerType.contains(SourceElementType.SUBROUTINE_DEFINITION)) {
+						&& containerType.contains(SemanticElementType.SUBROUTINE_DEFINITION)) {
 					// TODO: of course we want better subroutine name, than
 					// this.. maybe we should just query for "name"
 					// attribute with using eGet method
-					this.sourceSubroutineName = guessSubrutineName(container); 
+					this.sourceSubroutineName = guessSubrutineName(container);
 					break;
 				}
 				container = container.eContainer();
@@ -108,18 +111,24 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 		}
 	}
 
-	void fillTarget(GeneratedFile gFile, int startOffset, int endOffset) {
+	/**
+	 * @param gFile
+	 * @param startOffset
+	 * @param endOffset
+	 * @return true if non-whitespace region is refered by target
+	 */
+	boolean fillTarget(GeneratedFile gFile, int startOffset, int endOffset) {
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 
 		this.targetFile = root.getFileForLocation(new Path(gFile.getPath()));
 		this.targetStartOffset = startOffset;
 		this.targetEndOffset = endOffset;
 
-		computeTargetLines();
+		return computeTargetLines();
 	}
-	
+
 	public static String guessSubrutineName(EObject subrutineDefinition) {
-		for (EAttribute attr: subrutineDefinition.eClass().getEAllAttributes()) {
+		for (EAttribute attr : subrutineDefinition.eClass().getEAllAttributes()) {
 			if (attr.getName().toLowerCase().equals("name")) {
 				return subrutineDefinition.eGet(attr).toString();
 			}
@@ -127,7 +136,7 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 		return subrutineDefinition.toString();
 	}
 
-	private void computeTargetLines() {
+	private boolean computeTargetLines() {
 		// Compute targetStartLine and targetEndLine (the target file has to
 		// be opened to determine this)
 		InputStream is = null;
@@ -155,6 +164,8 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 
 				this.targetEndLine = reader.getLineNumber() + 1;
 			}
+			if (this.targetStartLine != -1)
+				return true;
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (CoreException e) {
@@ -168,6 +179,7 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 				}
 			}
 		}
+		return false;
 	}
 
 	/*
@@ -274,8 +286,13 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 	}
 
 	@Override
-	public Set<SourceElementType> getSourceElementTypes() {
-		return sourceElementTypes;
+	public Set<SemanticElementType> getSemanticElementTypes() {
+		return SemanticElementTypes;
+	}
+
+	@Override
+	public EObject getSemanticElement() {
+		return semanticElement;
 	}
 
 }

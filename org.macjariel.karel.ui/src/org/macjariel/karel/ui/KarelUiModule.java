@@ -4,6 +4,8 @@
 package org.macjariel.karel.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.resource.XtextResourceSet;
+import static org.macjariel.dsl.debugger.xtext.XtextDslModelHelper.XTEXT_RESOURCE_SET;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -11,5 +13,18 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 public class KarelUiModule extends org.macjariel.karel.ui.AbstractKarelUiModule {
 	public KarelUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+
+	/**
+	 * TODO: We are using a resource set from DSLDebugger plug-in.
+	 * 
+	 * The motivation behind this solution is following: when user tries to add
+	 * a breakpoint, a semantic element on a given line is found and it is
+	 * associated with the breakpoint (@see {@link DSLLineBreakpoint}).
+	 * 
+	 * @return
+	 */
+	public XtextResourceSet bindXtextResourceSet() {
+		return XTEXT_RESOURCE_SET;
 	}
 }

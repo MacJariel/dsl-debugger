@@ -1,7 +1,8 @@
 package org.macjariel.dsl.debugger;
 
 import org.eclipse.core.runtime.Plugin;
-import org.macjariel.dsl.debugger.platform.impl.TargetPlatform;
+import org.macjariel.dsl.debugger.mapping.IMappingManager;
+import org.macjariel.dsl.debugger.mapping.impl.MappingManagerImpl;
 import org.macjariel.dsl.debugger.platform.impl.TargetPlatformManager;
 import org.osgi.framework.BundleContext;
 
@@ -17,11 +18,15 @@ public class DSLDebuggerPlugin extends Plugin {
 	public static final String DSL_LINE_BREAKPOINT_MARKER_ID = PLUGIN_ID + ".lineBreakpointMarker"; //$NON-NLS-1$
 
 	public static final String GPL_CODE_MARKER = PLUGIN_ID + ".gplCodeMarker"; //$NON-NLS-1$
-	
+
 	public static final String DSL_CODE_MARKER = PLUGIN_ID + ".dslCodeMarker"; //$NON-NLS-1$
+
+	public static final String DSL_DEBUGGER_ANNOTATION_SOURCE = "http://www.macjariel.org/DSLDebugger";
 
 	/** The shared instance */
 	private static DSLDebuggerPlugin instance;
+
+	private IMappingManager mappingManager;
 
 	public static DSLDebuggerPlugin getInstance() {
 		return instance;
@@ -29,6 +34,8 @@ public class DSLDebuggerPlugin extends Plugin {
 
 	public DSLDebuggerPlugin() {
 		super();
+
+		mappingManager = new MappingManagerImpl();
 	}
 
 	/*
@@ -41,11 +48,6 @@ public class DSLDebuggerPlugin extends Plugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
-
-		// TEST
-		for (TargetPlatform platform : TargetPlatformManager.getTargetPlatforms()) {
-			System.out.println("Found target platform: " + platform.getName());
-		}
 	}
 
 	/*
@@ -58,6 +60,10 @@ public class DSLDebuggerPlugin extends Plugin {
 		super.stop(context);
 		instance = null;
 		TargetPlatformManager.disposeTargetPlatforms();
+	}
+
+	public IMappingManager getMappingManager() {
+		return this.mappingManager;
 	}
 
 }

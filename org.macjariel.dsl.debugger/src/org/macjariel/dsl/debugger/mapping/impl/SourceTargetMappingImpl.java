@@ -24,13 +24,15 @@ import org.macjariel.dsl.debugger.mapping.ISourceTargetMapping;
 import org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleElementType;
 import org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleElementTypesModel;
 import org.macjariel.dsl.debugger.models.utils.ModuleElementTypesModelHelper;
-import org.macjariel.dsl.debugger.traceability.SourceElementType;
+import org.macjariel.dsl.debugger.traceability.SemanticElementType;
 import org.macjariel.dsl.debugger.traceability.TraceabilityModelHelper;
 
 /**
  * The class provides a mapping from any element in DSL program model to lists
  * of regions in generated files. It also contains convenience methods to obtain
  * generated text.
+ * 
+ * TODO: This class looks very ugly, TO BE REFACTORED.
  * 
  * @author MacJariel
  * 
@@ -44,12 +46,21 @@ public class SourceTargetMappingImpl implements ISourceTargetMapping {
 
 	private IMappingManager mappingManager;
 
+	// TODO: make private
+	private Vector<SourceTargetMappingItemImpl> items = new Vector<SourceTargetMappingItemImpl>();
+
 	public SourceTargetMappingImpl(IMappingManager mappingManager, EObject dslProgramModel,
 			EObject traceabilityModel, EObject moduleElementTypesModel) {
+		this.mappingManager = mappingManager;
+
 		this.dslProgramModel = dslProgramModel;
 		this.traceabilityModel = (TraceabilityModel) traceabilityModel;
 		this.moduleElementTypesModel = (ModuleElementTypesModel) moduleElementTypesModel;
 		initMapping();
+	}
+
+	public void clearMapping() {
+		items.clear();
 	}
 
 	public void initMapping() {
@@ -57,15 +68,15 @@ public class SourceTargetMappingImpl implements ISourceTargetMapping {
 		while (iter.hasNext()) {
 			EObject sourceElement = iter.next();
 
-			Set<SourceElementType> sourceElementTypes = getElementType(sourceElement);
-			if (sourceElementTypes == null)
+			Set<SemanticElementType> SemanticElementTypes = getElementType(sourceElement);
+			if (SemanticElementTypes == null)
 				continue;
 
 			SourceTargetMappingItemImpl item = new SourceTargetMappingItemImpl();
 
 			NodeModelUtils.getNode(sourceElement);
 
-			item.fillSource(sourceElement, sourceElementTypes);
+			item.fillSource(sourceElement, SemanticElementTypes);
 
 			InputElement[] associatedInputElements = TraceabilityModelHelper
 					.getAssociatedInputElements(sourceElement, traceabilityModel);
@@ -103,8 +114,9 @@ public class SourceTargetMappingImpl implements ISourceTargetMapping {
 						if (gFile != null) {
 							SourceTargetMappingItemImpl newItem = (SourceTargetMappingItemImpl) item
 									.clone();
-							newItem.fillTarget(gFile, startOffset, endOffset);
-							putItem(newItem);
+							boolean isValid = newItem.fillTarget(gFile, startOffset, endOffset);
+							if (isValid)
+								putItem(newItem);
 						}
 
 						gFile = gText.getOutputFile();
@@ -114,16 +126,18 @@ public class SourceTargetMappingImpl implements ISourceTargetMapping {
 				}
 
 				if (gFile != null) {
-					item.fillTarget(gFile, startOffset, endOffset);
-					putItem(item);
+					boolean isValid = item.fillTarget(gFile, startOffset, endOffset);
+					if (isValid)
+						putItem(item);
 				}
 			} else {
 				for (GeneratedText gText : generatedTexts) {
 					SourceTargetMappingItemImpl newItem = (SourceTargetMappingItemImpl) item
 							.clone();
-					newItem.fillTarget(gText.getOutputFile(), gText.getStartOffset(),
-							gText.getEndOffset());
-					putItem(newItem);
+					boolean isValid = newItem.fillTarget(gText.getOutputFile(),
+							gText.getStartOffset(), gText.getEndOffset());
+					if (isValid)
+						putItem(newItem);
 
 					if (gText.getModuleElement().getModuleElement().toString().equals("'this'")) {
 						System.out.println("break");
@@ -195,20 +209,19 @@ public class SourceTargetMappingImpl implements ISourceTargetMapping {
 	 * @param sourceElement
 	 * @return
 	 */
-	static Set<SourceElementType> getElementType(EObject sourceElement) {
+	static Set<SemanticElementType> getElementType(EObject sourceElement) {
 		EAnnotation dslAnnotation = sourceElement.eClass().getEAnnotation(
 				TraceabilityModelHelper.DSL_DEBUGGER_ANNOTATION_SOURCE);
 		if (dslAnnotation == null) {
 			return null;
 		} else {
-			return SourceElementType.createFromAnnotationString(dslAnnotation.getDetails().get(
-					"type"));
+			return SemanticElementType.create(dslAnnotation.getDetails().get("type"));
 		}
 	}
 
-	SourceTargetMappingItemImpl findMappingForSourceElement(EObject sourceElement) {
+	public ISourceTargetMapping.IItem findMappingForSourceElement(EObject sourceElement) {
 		for (SourceTargetMappingItemImpl item : items) {
-			if (item.sourceElement == sourceElement)
+			if (item.semanticElement.equals(sourceElement))
 				return item;
 		}
 		return null;
@@ -219,9 +232,6 @@ public class SourceTargetMappingImpl implements ISourceTargetMapping {
 			item.debugPrint();
 		}
 	}
-
-	// TODO: make private
-	private Vector<SourceTargetMappingItemImpl> items = new Vector<SourceTargetMappingItemImpl>();
 
 	@Override
 	public IItem lookupSourceElement(IResource resource, int lineNumber, int charStart, int charEnd) {
@@ -260,11 +270,12 @@ public class SourceTargetMappingImpl implements ISourceTargetMapping {
 		Iterator<SourceTargetMappingItemImpl> it = resultItems.iterator();
 		while (it.hasNext()) {
 			SourceTargetMappingItemImpl resultItem = it.next();
-			
-			// This part will remove all items with non STATEMENT source element.
-			if (!resultItem.getSourceElementTypes().contains(SourceElementType.STATEMENT)) {
+
+			// This part will remove all items with non STATEMENT source
+			// element.
+			if (!resultItem.getSemanticElementTypes().contains(SemanticElementType.STATEMENT)) {
 				DSLDebuggerLog.logInfo("SourceElementLookup: Discarding mapping item with source: "
-						+ resultItem.sourceElement + " for not being of the STATEMENT type.");
+						+ resultItem.semanticElement + " for not being of the STATEMENT type.");
 				it.remove();
 				continue;
 			}
@@ -272,8 +283,8 @@ public class SourceTargetMappingImpl implements ISourceTargetMapping {
 			// This part ensures that variable allSourceElementsAreEqual will be
 			// set correctly when the cycle terminates.
 			if (sourceElement == null) {
-				sourceElement = resultItem.sourceElement;
-			} else if (!EcoreUtil.equals(sourceElement, resultItem.sourceElement)) {
+				sourceElement = resultItem.semanticElement;
+			} else if (!EcoreUtil.equals(sourceElement, resultItem.semanticElement)) {
 				allSourceElementsAreEqual = false;
 			}
 		}
@@ -281,11 +292,12 @@ public class SourceTargetMappingImpl implements ISourceTargetMapping {
 		if (resultItems.size() > 1 && allSourceElementsAreEqual) {
 			return resultItems.get(0);
 		}
-		
+
 		if (resultItems.size() > 1) {
 			// We still need to decide between more than one source element.
 			// TODO
-			DSLDebuggerLog.logInfo("SourceElementLookup: cannot decide which source element to return. DEBUG_ME");
+			DSLDebuggerLog
+					.logInfo("SourceElementLookup: cannot decide which source element to return. DEBUG_ME");
 			return resultItems.get(0);
 		}
 

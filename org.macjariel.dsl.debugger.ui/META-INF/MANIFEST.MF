@@ -8,7 +8,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.debug.ui;bundle-version="3.7.0",
  org.eclipse.jdt.debug.ui;bundle-version="3.6.0",
- org.macjariel.dsl.debugger
+ org.macjariel.dsl.debugger,
+ org.eclipse.xtext.ui;bundle-version="2.0.1"
 Comment: TODO: Remove org.eclipse.jdt.debug.ui as soon as it is not necessary.
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

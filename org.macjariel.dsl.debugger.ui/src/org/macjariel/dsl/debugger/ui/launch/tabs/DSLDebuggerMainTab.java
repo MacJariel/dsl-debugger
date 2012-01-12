@@ -1,6 +1,5 @@
 package org.macjariel.dsl.debugger.ui.launch.tabs;
 
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -17,9 +16,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 import org.macjariel.dsl.debugger.DSLDebuggerLog;
+import org.macjariel.dsl.debugger.launcher.DSLLaunchParams;
 import org.macjariel.dsl.debugger.ui.internal.BrowseDialogsHelper;
 import org.macjariel.dsl.debugger.ui.internal.SWTFactory;
-import org.macjariel.dsl.debugger.launcher.DSLLaunchParams;
 
 /**
  * Main launch configuration tab for DSL Debugger.

@@ -12,7 +12,6 @@ import org.eclipse.ui.texteditor.MarkerUtilities;
 import org.macjariel.dsl.debugger.DSLDebuggerPlugin;
 import org.macjariel.dsl.debugger.mapping.IMappingManager;
 import org.macjariel.dsl.debugger.mapping.ISourceTargetMapping;
-import org.macjariel.dsl.debugger.mapping.impl.SourceTargetMappingImpl;
 import org.macjariel.dsl.debugger.mapping.impl.SourceTargetMappingItemImpl;
 
 /**
@@ -64,7 +63,6 @@ public class ResourceAnnotator {
 
 	public void annotateResources() {
 		clearMarkers();
-		if (true) return;
 		for (ISourceTargetMapping.IItem item : mapping.getAllMappingItems()) {
 			try {
 				HashMap<String, Object> attributes = new HashMap<String, Object>();

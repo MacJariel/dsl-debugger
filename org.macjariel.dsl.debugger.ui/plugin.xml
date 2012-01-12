@@ -70,6 +70,42 @@
          verticalRulerPreferenceValue="true">
    </specification>
 </extension>
+
+
+
+
+    <extension
+      point="org.eclipse.ui.editors.annotationTypes">
+   <type
+         markerType="org.macjariel.dsl.debugger.debugAnnotationMarker"
+         name="org.macjariel.dsl.debugger.debugAnnotationMarker">
+   </type>
+</extension>
+
+<extension
+      point="org.eclipse.ui.editors.markerAnnotationSpecification">
+   <specification
+         annotationType="org.macjariel.dsl.debugger.debugAnnotationMarker"
+         colorPreferenceKey="org.macjariel.dsl.debugger.debugAnnotationMarker.color"
+         colorPreferenceValue="192,255,192"
+         contributesToHeader="false"
+         highlightPreferenceKey="org.macjariel.dsl.debugger.debugAnnotationMarker.highlight"
+         highlightPreferenceValue="true"
+         includeOnPreferencePage="true"
+         label="DSL Code Marker"
+         overviewRulerPreferenceKey="org.macjariel.dsl.debugger.debugAnnotationMarker.overview"
+         overviewRulerPreferenceValue="true"
+         presentationLayer="0"
+         textPreferenceKey="org.macjariel.dsl.debugger.debugAnnotationMarker.text"
+         textPreferenceValue="true"
+         textStylePreferenceValue="BOX"
+         verticalRulerPreferenceKey="org.macjariel.dsl.debugger.debugAnnotationMarker.ruler"
+         verticalRulerPreferenceValue="true">
+   </specification>
+</extension>
+
+
+
    
        <extension point="org.eclipse.debug.ui.debugModelPresentations">
    <debugModelPresentation 

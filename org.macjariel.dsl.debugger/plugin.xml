@@ -54,4 +54,13 @@
     type="org.eclipse.core.resources.problemmarker">
   </super>
 </extension>
+   <extension
+    id="org.macjariel.dsl.debugger.debugAnnotationMarker"
+    name="Debug Annotation Marker"
+    point="org.eclipse.core.resources.markers">
+  <super
+    type="org.eclipse.core.resources.problemmarker">
+  </super>
+</extension>
+
 </plugin>
