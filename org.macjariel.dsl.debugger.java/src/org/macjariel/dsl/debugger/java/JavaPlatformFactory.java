@@ -3,8 +3,8 @@ package org.macjariel.dsl.debugger.java;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jdt.launching.JavaLaunchDelegate;
 import org.macjariel.dsl.debugger.java.impl.JDIDebugModelAdaptor;
-import org.macjariel.dsl.debugger.platform.IDebugModel;
-import org.macjariel.dsl.debugger.platform.ITargetPlatformFactory;
+import org.macjariel.dsl.platform.IDebugModel;
+import org.macjariel.dsl.platform.ITargetPlatformFactory;
 
 public class JavaPlatformFactory implements ITargetPlatformFactory {
 

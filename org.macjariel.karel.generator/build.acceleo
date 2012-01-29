@@ -18,8 +18,9 @@
         <acceleoCompiler 
             sourceFolder="${target.folder}"
             outputFolder="${target.folder}"
-            dependencies=""
-            binaryResource="false">
+            dependencies="${target.folder}/../../org.macjariel.karel;${target.folder}/../../org.macjariel.dsl.debugger;${target.folder}/../../org.macjariel.dsl.debugger.models;"
+            binaryResource="false"
+            packagesToRegister="">
         </acceleoCompiler>
     </target>    
 </project>

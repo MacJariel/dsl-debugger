@@ -1,7 +1,7 @@
 import ecore;
 import karel;
 
-extension org::macjariel::dsl::debugger::xtext::DSLDebugger;
+extension org::macjariel::dsl::xtext::DSLDebugger;
 
 /// Process all EClasses
 process(xtext::GeneratedMetamodel this) :

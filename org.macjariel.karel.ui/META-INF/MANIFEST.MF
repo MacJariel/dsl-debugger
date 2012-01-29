@@ -14,7 +14,7 @@ Require-Bundle: org.macjariel.karel;visibility:=reexport,
  org.eclipse.xtext.builder,
  org.antlr.runtime
 Import-Package: org.apache.log4j,
- org.macjariel.dsl.debugger.xtext
+ org.macjariel.dsl.xtext
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.macjariel.karel.ui.contentassist.antlr
 Bundle-Activator: org.macjariel.karel.ui.internal.KarelActivator

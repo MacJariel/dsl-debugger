@@ -15,10 +15,10 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
-import org.macjariel.dsl.debugger.DSLDebuggerLog;
-import org.macjariel.dsl.debugger.launcher.DSLLaunchParams;
+import org.macjariel.dsl.DSLDebuggerLog;
 import org.macjariel.dsl.debugger.ui.internal.BrowseDialogsHelper;
 import org.macjariel.dsl.debugger.ui.internal.SWTFactory;
+import org.macjariel.dsl.launching.DSLLaunchParams;
 
 /**
  * Main launch configuration tab for DSL Debugger.

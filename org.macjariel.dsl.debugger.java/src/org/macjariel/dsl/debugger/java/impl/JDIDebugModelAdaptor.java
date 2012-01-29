@@ -9,7 +9,7 @@ import org.eclipse.debug.core.model.ILineBreakpoint;
 import org.eclipse.debug.core.model.IThread;
 import org.eclipse.jdt.debug.core.IJavaThread;
 import org.eclipse.jdt.debug.core.JDIDebugModel;
-import org.macjariel.dsl.debugger.platform.IDebugModel;
+import org.macjariel.dsl.platform.IDebugModel;
 
 public class JDIDebugModelAdaptor implements IDebugModel {
 

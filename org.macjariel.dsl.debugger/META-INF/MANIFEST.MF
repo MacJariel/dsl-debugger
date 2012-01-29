@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: DSL Debugger
 Bundle-SymbolicName: org.macjariel.dsl.debugger;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: org.macjariel.dsl.debugger.DSLDebuggerPlugin
+Bundle-Activator: org.macjariel.dsl.DSLDebuggerPlugin
 Bundle-Vendor: MacJariel
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.debug.core;bundle-version="3.6.0",
@@ -17,13 +17,13 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.xtext.ui;bundle-version="2.0.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Export-Package: org.macjariel.dsl.debugger,
- org.macjariel.dsl.debugger.breakpoints,
- org.macjariel.dsl.debugger.launcher,
- org.macjariel.dsl.debugger.mapping,
- org.macjariel.dsl.debugger.platform,
- org.macjariel.dsl.debugger.traceability,
- org.macjariel.dsl.debugger.xtext
+Export-Package: org.macjariel.dsl,
+ org.macjariel.dsl.debug.core,
+ org.macjariel.dsl.internal.debug.core.breakpoints,
+ org.macjariel.dsl.launching,
+ org.macjariel.dsl.mapping,
+ org.macjariel.dsl.platform,
+ org.macjariel.dsl.xtext
 Import-Package: org.eclipse.acceleo.traceability,
  org.eclipse.ui.texteditor,
  org.eclipse.xtext.nodemodel,

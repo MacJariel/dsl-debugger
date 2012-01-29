@@ -5,7 +5,7 @@
    <extension
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
-            delegate="org.macjariel.dsl.debugger.launcher.DSLLaunchDelegate"
+            delegate="org.macjariel.dsl.launching.DSLLaunchDelegate"
             id="org.macjariel.dsl.debugger.launchConfigurationType"
             modes="debug"
             name="DSL Debugger"
@@ -15,7 +15,7 @@
 <extension
          point="org.eclipse.debug.core.breakpoints">
       <breakpoint
-            class="org.macjariel.dsl.debugger.breakpoints.DSLLineBreakpoint"
+            class="org.macjariel.dsl.internal.debug.core.breakpoints.DSLLineBreakpoint"
             id="org.macjariel.dsl.debugger.DSLLineBreakpoint"
             markerType="org.macjariel.dsl.debugger.lineBreakpointMarker"
             name="DSL Line Breakpoint">

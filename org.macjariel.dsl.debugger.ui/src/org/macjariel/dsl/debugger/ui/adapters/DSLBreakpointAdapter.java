@@ -15,10 +15,11 @@ import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-import org.macjariel.dsl.debugger.DSLDebuggerLog;
-import org.macjariel.dsl.debugger.DSLDebuggerPlugin;
-import org.macjariel.dsl.debugger.breakpoints.DSLLineBreakpoint;
-import org.macjariel.dsl.debugger.xtext.XtextDslModelHelper;
+import org.macjariel.dsl.DSLDebuggerLog;
+import org.macjariel.dsl.DSLDebuggerPlugin;
+import org.macjariel.dsl.internal.debug.core.breakpoints.DSLLineBreakpoint;
+import org.macjariel.dsl.xtext.XtextDslModelHelper;
+
 
 /**
  * Allows ITextEditor act as IToogleBreakpointsTarget and thus allows adding

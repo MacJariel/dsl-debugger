@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
-import org.macjariel.dsl.debugger.DSLDebuggerPlugin;
+import org.macjariel.dsl.DSLDebuggerPlugin;
 import org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleElement;
 import org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleElementType;
 import org.macjariel.dsl.debugger.models.moduleelementtypes.ModuleElementTypesModel;

@@ -5,7 +5,8 @@ package org.macjariel.karel.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.resource.XtextResourceSet;
-import static org.macjariel.dsl.debugger.xtext.XtextDslModelHelper.XTEXT_RESOURCE_SET;
+
+import static org.macjariel.dsl.xtext.XtextDslModelHelper.XTEXT_RESOURCE_SET;
 
 /**
  * Use this class to register components to be used within the IDE.
