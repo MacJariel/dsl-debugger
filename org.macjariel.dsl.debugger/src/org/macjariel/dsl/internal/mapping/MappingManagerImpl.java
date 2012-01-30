@@ -1,4 +1,4 @@
-package org.macjariel.dsl.mapping.impl;
+package org.macjariel.dsl.internal.mapping;
 
 import org.eclipse.emf.ecore.EObject;
 import org.macjariel.dsl.DSLDebuggerLog;

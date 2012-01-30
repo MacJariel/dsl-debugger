@@ -2,11 +2,12 @@ package org.macjariel.dsl.internal.debug.core;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.resources.IMarkerDelta;
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.core.runtime.PlatformObject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.DebugEvent;
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.DebugPlugin;
@@ -20,53 +21,89 @@ import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.core.model.IThread;
 import org.macjariel.dsl.DSLDebuggerLog;
 import org.macjariel.dsl.DSLDebuggerPlugin;
+import org.macjariel.dsl.debug.core.IDSLDebugElement;
+import org.macjariel.dsl.debug.core.IDSLDebugTarget;
+import org.macjariel.dsl.debug.core.IDebugEventHandler;
+import org.macjariel.dsl.debug.core.ISteppingStrategy;
 import org.macjariel.dsl.internal.debug.core.breakpoints.DSLLineBreakpoint;
+import org.macjariel.dsl.internal.debug.core.stepping.DefaultSteppingStrategy;
 import org.macjariel.dsl.mapping.IMappingManager;
 import org.macjariel.dsl.platform.ITargetPlatformFactory;
 
-public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDebugEventSetListener {
+public class DSLDebugTarget extends DSLDebugElement implements IDSLDebugTarget,
+		IDebugEventSetListener {
 
 	private final ILaunch launch;
 
 	private final ITargetPlatformFactory targetPlatformFactory;
 
-	private final IMappingManager mappingManager;
+	private final ISteppingStrategy steppingStrategy;
 
 	private List<DSLThread> dslThreads = new ArrayList<DSLThread>();
 
 	private IProcess process;
 
-	private List<DSLLineBreakpoint> dslLineBreakpoints = new ArrayList<DSLLineBreakpoint>();
+	private List<DSLLineBreakpoint> breakpoints = new ArrayList<DSLLineBreakpoint>();
 
 	private IDebugTarget gplDebugTarget;
 
+	private List<IDebugEventHandler> debugEventHandlers = new ArrayList<IDebugEventHandler>();
+
 	public DSLDebugTarget(ILaunch launch, IMappingManager mappingManager,
 			ITargetPlatformFactory targetPlatformFactory) {
+		super(null);
 		this.launch = launch;
 		this.targetPlatformFactory = targetPlatformFactory;
-		this.mappingManager = mappingManager;
+		this.steppingStrategy = new DefaultSteppingStrategy();
 
-		init();
-		
+		initialize();
+	}
+
+	public void initialize() {
+		getLaunch().addDebugTarget(this);
 		DebugPlugin.getDefault().addDebugEventListener(this);
-		launch.addDebugTarget(this);
+		initializeBreakpoints();
 	}
 
-	public void init() {
-		initThreads();
+	protected void cleanup() {
+		removeAllThreads();
+		DebugPlugin plugin = DebugPlugin.getDefault();
+		plugin.getBreakpointManager().removeBreakpointListener(this);
+		plugin.removeDebugEventListener(this);
 	}
 
-	private void deinitialize() {
-		deinitBreakpoints();
-		deinitThreads();
+	/**
+	 * Removes all threads from this target's collection of threads, firing a
+	 * terminate event for each.
+	 */
+	protected void removeAllThreads() {
+		Iterator<DSLThread> itr = getThreadIterator();
+		while (itr.hasNext()) {
+			DSLThread child = itr.next();
+			child.terminated();
+		}
+		synchronized (dslThreads) {
+			dslThreads.clear();
+		}
 	}
 
-	private IBreakpointManager getBreakpointManager() {
-		return DebugPlugin.getDefault().getBreakpointManager();
+	/**
+	 * Returns an iterator over the collection of threads. The returned iterator
+	 * is made on a copy of the thread list so that it is thread safe. This
+	 * method should always be used instead of getThreadList().iterator()
+	 * 
+	 * @return an iterator over the collection of threads
+	 */
+	private Iterator<DSLThread> getThreadIterator() {
+		List<DSLThread> threadList;
+		synchronized (dslThreads) {
+			threadList = new ArrayList<DSLThread>(dslThreads);
+		}
+		return threadList.iterator();
 	}
 
-	private void initBreakpoints() {
-		IBreakpointManager manager = getBreakpointManager();
+	private void initializeBreakpoints() {
+		IBreakpointManager manager = DebugPlugin.getDefault().getBreakpointManager();
 		manager.addBreakpointListener(this);
 
 		IBreakpoint[] breakpoints = manager.getBreakpoints(DSLDebuggerPlugin.DSL_DEBUG_MODEL_ID);
@@ -77,28 +114,21 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 		}
 	}
 
-	private void deinitBreakpoints() {
-		getBreakpointManager().removeBreakpointListener(this);
-	}
-
-	private void initThreads() {
-		dslThreads = new ArrayList<DSLThread>();
-	}
-
-	private void deinitThreads() {
-
-	}
-
-	@Override
-	public String getModelIdentifier() {
-		return DSLDebuggerPlugin.DSL_DEBUG_MODEL_ID;
-	}
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.debug.core.model.IDebugElement#getDebugTarget()
+	 */
 	@Override
 	public IDebugTarget getDebugTarget() {
 		return this;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.debug.core.model.IDebugElement#getLaunch()
+	 */
 	@Override
 	public ILaunch getLaunch() {
 		return launch;
@@ -150,33 +180,64 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 			gplDebugTarget.suspend();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.debug.core.IBreakpointListener#breakpointAdded(org.eclipse
+	 * .debug.core.model.IBreakpoint)
+	 */
 	@Override
 	public void breakpointAdded(IBreakpoint breakpoint) {
 		if (supportsBreakpoint(breakpoint)) {
-			if (getBreakpointManager().isEnabled()) {
+			try {
 				DSLLineBreakpoint dslLineBreakpoint = (DSLLineBreakpoint) breakpoint;
-				dslLineBreakpoint.installGplBreakpoint(gplDebugTarget);
-
-				this.dslLineBreakpoints.add(dslLineBreakpoint);
+				if (!breakpoints.contains(dslLineBreakpoint)) {
+					dslLineBreakpoint.installGplBreakpoint(getDSLDebugTarget());
+					breakpoints.add(dslLineBreakpoint);
+				}
+			} catch (CoreException e) {
+				logError(e);
 			}
 		}
-
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.debug.core.IBreakpointListener#breakpointRemoved(org.eclipse
+	 * .debug.core.model.IBreakpoint, org.eclipse.core.resources.IMarkerDelta)
+	 */
 	@Override
 	public void breakpointRemoved(IBreakpoint breakpoint, IMarkerDelta delta) {
 		if (supportsBreakpoint(breakpoint)) {
-			DSLLineBreakpoint dslLineBreakpoint = (DSLLineBreakpoint) breakpoint;
-			dslLineBreakpoint.uninstallGplBreakpoint(gplDebugTarget);
-			this.dslLineBreakpoints.remove(breakpoint);
+			try {
+				DSLLineBreakpoint dslLineBreakpoint = (DSLLineBreakpoint) breakpoint;
+				dslLineBreakpoint.uninstallGplBreakpoint(getDSLDebugTarget());
+				this.breakpoints.remove(breakpoint);
+			} catch (CoreException e) {
+				logError(e);
+			}
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.debug.core.IBreakpointListener#breakpointChanged(org.eclipse
+	 * .debug.core.model.IBreakpoint, org.eclipse.core.resources.IMarkerDelta)
+	 */
 	@Override
 	public void breakpointChanged(IBreakpoint breakpoint, IMarkerDelta delta) {
 		if (supportsBreakpoint(breakpoint)) {
 			DSLLineBreakpoint dslLineBreakpoint = (DSLLineBreakpoint) breakpoint;
-			dslLineBreakpoint.updateGplBreakpoint(gplDebugTarget);
+			try {
+				dslLineBreakpoint.updateGplBreakpoint(gplDebugTarget);
+			} catch (CoreException e) {
+				logError(e);
+			}
 		}
 	}
 
@@ -212,8 +273,23 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 
 	@Override
 	public void handleDebugEvents(DebugEvent[] events) {
-		for (DebugEvent e : events) {
-			handleDebugEvent(e);
+		for (DebugEvent event : events) {
+			// We make a copy of the debugEventHandlers list, because some
+			// handlers might remove
+			// themselves from the list during their handling
+			Iterator<IDebugEventHandler> handlerIter =
+					new ArrayList<IDebugEventHandler>(debugEventHandlers).iterator();
+			boolean handled = false;
+			while (handlerIter.hasNext() && !handled) {
+				IDebugEventHandler handler = handlerIter.next();
+				handled = handler.handleDebugEvent(event);
+			}
+
+			if (!handled) {
+				// TODO: I should remove the ugly handleDebugEvent method into
+				// DebugEventHanadlers
+				handleDebugEvent(event);
+			}
 		}
 
 	}
@@ -229,6 +305,7 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 	 */
 	protected DSLThread createThread(IThread gplThread) {
 		DSLThread thread = new DSLThread(this, gplThread);
+		thread.setSteppingStrategy(steppingStrategy);
 		if (isDisconnected()) {
 			return null;
 		}
@@ -239,28 +316,50 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 		return thread;
 	}
 
-	protected void onGplDebugTargetCreated(IDebugTarget gplDebugTarget) {
-		Assert.isTrue(this.gplDebugTarget == null);
+	/**
+	 * Notified when another debug target is created.
+	 * 
+	 * @param gplDebugTarget
+	 */
+	protected void created(IDebugTarget gplDebugTarget) {
+		if (gplDebugTarget == this)
+			return;
+
+		Assert.isTrue(this.gplDebugTarget == null, "There are more than one other DebugTarget.");
 		this.gplDebugTarget = gplDebugTarget;
-		
+
 		// Now we can finally initialize breakpoints
-		initBreakpoints();
-		
+		initializeBreakpoints();
+
+		fireCreationEvent();
 	}
-	
+
+	protected void terminated() {
+		cleanup();
+	}
+
 	protected void handleDebugEvent(DebugEvent event) {
 		Date date = new Date();
 		System.err.print("[" + date.toString() + "] Debug event: ");
 		System.err.println(event);
 
+		// We don't care about DebugEvents emitted by this debug model
+		if (event.getSource() instanceof IDSLDebugElement) {
+			return;
+		}
+
+		boolean handled = false;
 		Object eventSource = event.getSource();
 		if (eventSource instanceof IDebugTarget) {
+			assert (eventSource != this);
 			switch (event.getKind()) {
 			case DebugEvent.CREATE: // Register GPL DebugTarget
-				onGplDebugTargetCreated((IDebugTarget) eventSource);
+				created((IDebugTarget) eventSource);
+				handled = true;
 				break;
 			case DebugEvent.TERMINATE:
-				deinitialize();
+				terminated();
+				handled = true;
 				break;
 			}
 		} else if (eventSource instanceof IProcess) {
@@ -268,11 +367,14 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 			case DebugEvent.CREATE:
 				assert this.process == null;
 				this.process = (IProcess) eventSource;
+				handled = true;
 				break;
 			}
 		} else if (eventSource instanceof IThread) {
+			Assert.isTrue(!(eventSource instanceof DSLThread));
 			switch (event.getKind()) {
 			case DebugEvent.CREATE:
+				handled = true;
 				try {
 					if (targetPlatformFactory.getDebugModel().isUserThread((IThread) eventSource)) {
 						createThread((IThread) eventSource);
@@ -282,29 +384,25 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 				}
 				break;
 			case DebugEvent.SUSPEND:
-				if (eventSource instanceof DSLThread) {
-					((DSLThread) eventSource).eventSuspended();
-				} else {
-
-					for (DSLThread thread : dslThreads) {
-						if (thread.getGplThread() == eventSource) {
-							thread.fireSuspendEvent(event.getDetail());
-						}
+				handled = true;
+				for (DSLThread thread : dslThreads) {
+					if (thread.getGplThread() == eventSource) {
+						thread.suspended(event.getDetail());
 					}
 				}
 				break;
 
 			case DebugEvent.RESUME:
-				if (eventSource instanceof DSLThread) {
-					((DSLThread) eventSource).eventResumed();
-				} else {
-					for (DSLThread thread : dslThreads) {
-						if (thread.getGplThread() == eventSource) {
-							thread.fireSuspendEvent(event.getDetail());
-						}
+				handled = true;
+				for (DSLThread thread : dslThreads) {
+					if (thread.getGplThread() == eventSource) {
+						thread.resumed(event.getDetail());
 					}
 				}
 			}
+		}
+		if (handled == false) {
+			DSLDebuggerLog.logWarning("Unhandled debug event: " + event);
 		}
 	}
 
@@ -330,18 +428,16 @@ public class DSLDebugTarget extends PlatformObject implements IDebugTarget, IDeb
 
 	@Override
 	public boolean supportsBreakpoint(IBreakpoint breakpoint) {
-		if (breakpoint instanceof DSLLineBreakpoint) {
-			return true;
-		} else {
-			return false;
-		}
+		return breakpoint instanceof DSLLineBreakpoint;
 	}
 
+	@Override
 	public IDebugTarget getGplDebugTarget() {
 		return gplDebugTarget;
 	}
 
-	public final IMappingManager getMappingManager() {
-		return this.mappingManager;
+	@Override
+	public List<IDebugEventHandler> debugEventHandlers() {
+		return debugEventHandlers;
 	}
 }

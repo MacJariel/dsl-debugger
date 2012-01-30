@@ -7,6 +7,7 @@ import org.eclipse.debug.core.model.IRegisterGroup;
 import org.eclipse.debug.core.model.IThread;
 import org.eclipse.debug.core.model.IVariable;
 import org.eclipse.emf.ecore.EObject;
+import org.macjariel.dsl.debug.core.IDSLStackFrame;
 
 public class DSLStackFrame extends DSLDebugElement implements IDSLStackFrame {
 
@@ -45,6 +46,7 @@ public class DSLStackFrame extends DSLDebugElement implements IDSLStackFrame {
 		this.stackFrameText = stackFrameText;
 	}
 
+	@Override
 	public IResource getResource() {
 		return resource;
 	}

@@ -2,6 +2,7 @@ package org.macjariel.dsl.internal.debug.core;
 
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IThread;
+import org.macjariel.dsl.debug.core.IDSLStackFrame;
 import org.macjariel.dsl.mapping.ISourceTargetMapping.IItem;
 
 public interface IStackFrameFactory<T extends IDSLStackFrame> {

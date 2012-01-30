@@ -16,14 +16,14 @@
          point="org.eclipse.debug.core.breakpoints">
       <breakpoint
             class="org.macjariel.dsl.internal.debug.core.breakpoints.DSLLineBreakpoint"
-            id="org.macjariel.dsl.debugger.DSLLineBreakpoint"
-            markerType="org.macjariel.dsl.debugger.lineBreakpointMarker"
+            id="org.macjariel.dsl.debug.core.DSLLineBreakpoint"
+            markerType="org.macjariel.dsl.debug.core.dslLineBreakpointMarker"
             name="DSL Line Breakpoint">
       </breakpoint>
    </extension>
    <extension
-         id="org.macjariel.dsl.debugger.lineBreakpointMarker"
-         name="LineBreakpointMarker"
+         id="org.macjariel.dsl.debug.core.dslLineBreakpointMarker"
+         name="DSL Line Breakpoints"
          point="org.eclipse.core.resources.markers">
       <super
             type="org.eclipse.debug.core.lineBreakpointMarker">

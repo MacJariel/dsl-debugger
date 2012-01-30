@@ -898,6 +898,27 @@ public class KarelPackageImpl extends EPackageImpl implements KarelPackage
        "type", "Statement SubroutineCall"
        });		
     addAnnotation
+      (ifStatementEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "ConditionalBlock"
+       });		
+    addAnnotation
+      (iterateStatementEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "ConditionalBlock"
+       });		
+    addAnnotation
+      (whileStatementEClass, 
+       source, 
+       new String[] 
+       {
+       "type", "ConditionalBlock"
+       });		
+    addAnnotation
       (commandStatementEClass, 
        source, 
        new String[] 

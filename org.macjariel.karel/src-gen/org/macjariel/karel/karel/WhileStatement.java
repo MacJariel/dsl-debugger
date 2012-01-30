@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see org.macjariel.karel.karel.KarelPackage#getWhileStatement()
- * @model
+ * @model annotation="http://www.macjariel.org/DSLDebugger type='ConditionalBlock'"
  * @generated
  */
 public interface WhileStatement extends Statement

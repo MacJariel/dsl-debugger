@@ -43,12 +43,29 @@ public class DSLDebuggerLog {
 		log(createStatus(severity, code, message, exception));
 	}
 
+	public static IStatus createStatus(CoreException exception) {
+		return new Status(exception.getStatus().getSeverity(), DSLDebuggerPlugin.PLUGIN_ID,
+				exception.getMessage(), exception);
+	}
+
 	public static IStatus createStatus(int severity, int code, String message, Throwable exception) {
 		return new Status(severity, DSLDebuggerPlugin.PLUGIN_ID, code, message, exception);
+	}
+
+	public static IStatus createStatus(String message, CoreException exception) {
+		return new Status(exception.getStatus().getSeverity(), DSLDebuggerPlugin.PLUGIN_ID,
+				message, exception);
 	}
 
 	public static void log(IStatus status) {
 		DSLDebuggerPlugin.getInstance().getLog().log(status);
 	}
 
+	public static CoreException rethrowCoreException(CoreException e) {
+		return rethrowCoreException(e, e.getMessage());
+	}
+
+	public static CoreException rethrowCoreException(CoreException e, String message) {
+		return new CoreException(createStatus(message, e));
+	}
 }

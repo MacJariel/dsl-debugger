@@ -17,7 +17,8 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.macjariel.dsl.DSLDebuggerLog;
 import org.macjariel.dsl.DSLDebuggerPlugin;
-import org.macjariel.dsl.internal.debug.core.breakpoints.DSLLineBreakpoint;
+import org.macjariel.dsl.debug.core.DSLDebugModel;
+import org.macjariel.dsl.debug.core.IDSLLineBreakpoint;
 import org.macjariel.dsl.xtext.XtextDslModelHelper;
 
 
@@ -77,8 +78,7 @@ public class DSLBreakpointAdapter implements IToggleBreakpointsTarget {
 					+ ", semantic element: " + semanticElement + ", startLine: " + startLine);
 
 		if (semanticElement != null) {
-			final DSLLineBreakpoint lineBreakpoint = DSLLineBreakpoint.create(resource,
-					semanticElement);
+			final IDSLLineBreakpoint lineBreakpoint = DSLDebugModel.createLineBreakpoint(resource, semanticElement, true, true, null);
 			DebugPlugin.getDefault().getBreakpointManager().addBreakpoint(lineBreakpoint);
 		}
 	}

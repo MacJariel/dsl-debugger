@@ -45,6 +45,8 @@ public class XtextBuilderParticipant implements IXtextBuilderParticipant {
 					continue;
 				IPath path = new Path(uri.toFileString());
 				IFile file = workspaceRoot.getFileForLocation(path);
+				if (file == null)
+					continue;
 				generate(context.getBuiltProject(), file, monitor);
 			} catch (Exception e) {
 				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage(), e);

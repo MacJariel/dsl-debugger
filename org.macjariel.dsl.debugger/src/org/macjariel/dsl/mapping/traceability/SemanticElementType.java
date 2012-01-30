@@ -19,7 +19,7 @@ import org.macjariel.dsl.utils.StringHelper;
  * 
  */
 public enum SemanticElementType {
-	UNKNOWN, STATEMENT, INIT_COMMAND, SUBROUTINE_CALL, SUBROUTINE_DEFINITION;
+	UNKNOWN, STATEMENT, INIT_COMMAND, SUBROUTINE_CALL, SUBROUTINE_DEFINITION, CONDITIONAL_BLOCK;
 
 	/**
 	 * Constructs an empty set of SemanticElementTypes and returns it.

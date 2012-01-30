@@ -10,9 +10,9 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.texteditor.MarkerUtilities;
 import org.macjariel.dsl.DSLDebuggerPlugin;
+import org.macjariel.dsl.internal.mapping.SourceTargetMappingItemImpl;
 import org.macjariel.dsl.mapping.IMappingManager;
 import org.macjariel.dsl.mapping.ISourceTargetMapping;
-import org.macjariel.dsl.mapping.impl.SourceTargetMappingItemImpl;
 
 /**
  * This class can annotate resources in the editor, so that one can conveniently

@@ -1,4 +1,4 @@
-package org.macjariel.dsl.mapping.impl;
+package org.macjariel.dsl.internal.mapping;
 
 import java.util.Collections;
 import java.util.Iterator;

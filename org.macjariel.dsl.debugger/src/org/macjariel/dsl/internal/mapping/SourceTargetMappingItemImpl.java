@@ -1,4 +1,4 @@
-package org.macjariel.dsl.mapping.impl;
+package org.macjariel.dsl.internal.mapping;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,7 +8,6 @@ import java.util.Set;
 
 import org.eclipse.acceleo.traceability.GeneratedFile;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -71,7 +70,7 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 	void fillSource(EObject sourceElement, Set<SemanticElementType> SemanticElementTypes) {
 		this.semanticElement = sourceElement;
 		this.SemanticElementTypes = SemanticElementTypes;
-		URI sourceElementURI = sourceElementURI = CommonPlugin.resolve(sourceElement.eResource()
+		URI sourceElementURI = CommonPlugin.resolve(sourceElement.eResource()
 				.getURI());
 		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
 		this.sourceFile = workspaceRoot

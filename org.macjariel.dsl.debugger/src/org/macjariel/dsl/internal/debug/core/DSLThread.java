@@ -2,11 +2,9 @@ package org.macjariel.dsl.internal.debug.core;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IBreakpoint;
 import org.eclipse.debug.core.model.IDebugTarget;
@@ -15,11 +13,12 @@ import org.eclipse.debug.core.model.IThread;
 import org.eclipse.emf.ecore.EObject;
 import org.macjariel.dsl.DSLDebuggerLog;
 import org.macjariel.dsl.DSLDebuggerPlugin;
-import org.macjariel.dsl.internal.debug.core.breakpoints.DSLLineBreakpoint;
+import org.macjariel.dsl.debug.core.IDSLStackFrame;
+import org.macjariel.dsl.debug.core.IDSLThread;
+import org.macjariel.dsl.debug.core.ISteppingStrategy;
 import org.macjariel.dsl.utils.Annotator;
-import org.macjariel.dsl.utils.EMFHelper;
 
-public class DSLThread extends DSLDebugElement implements IThread {
+public class DSLThread extends DSLDebugElement implements IDSLThread {
 
 	private static boolean DEBUG = true;
 
@@ -29,12 +28,17 @@ public class DSLThread extends DSLDebugElement implements IThread {
 
 	private List<DSLStackFrame> stackFrames;
 
+	private boolean isStepping = false;
+
+	private ISteppingStrategy steppingStrategy = null;
+
 	public DSLThread(IDebugTarget target, IThread gplThread) {
 		super(target);
 		this.gplThread = gplThread;
 		this.stackFrames = new ArrayList<DSLStackFrame>();
 	}
 
+	@Override
 	public IThread getGplThread() {
 		return gplThread;
 	}
@@ -66,61 +70,45 @@ public class DSLThread extends DSLDebugElement implements IThread {
 
 	@Override
 	public boolean canStepInto() {
-		return true;
+		return isSuspended() && (steppingStrategy != null) && steppingStrategy.canStepInto();
 	}
 
 	@Override
 	public boolean canStepOver() {
-		return true;
+		return isSuspended() && (steppingStrategy != null) && steppingStrategy.canStepOver();
 	}
 
 	@Override
 	public boolean canStepReturn() {
-		// TODO Auto-generated method stub
-		return false;
+		return isSuspended() && (steppingStrategy != null) && steppingStrategy.canStepReturn();
 	}
 
 	@Override
 	public boolean isStepping() {
-		// TODO Auto-generated method stub
-		return false;
+		return isStepping;
+	}
+
+	@Override
+	public void setStepping(boolean isStepping) {
+		this.isStepping = isStepping;
 	}
 
 	@Override
 	public void stepInto() throws DebugException {
-		Collection<EObject> next = DSLDebuggerPlugin.getInstance().getMappingManager().getMappingAlgorithms()
-				.findSemanticElementsForStepIntoBreakpoints(stackFrames);
-		for (EObject obj : next) {
-			EMFHelper.getWorkspaceResource(obj.eResource());
-			IResource resource = EMFHelper.getWorkspaceResource(obj.eResource());
-			DSLLineBreakpoint bp = DSLLineBreakpoint.create(resource, obj);
-			bp.installGplBreakpoint(getDebugTarget());
-			stepBreakpoints.add(bp);
-		}
-
-		gplThread.resume();
+		assert (steppingStrategy != null);
+		steppingStrategy.stepInto(this);
 	}
-
-	private List<DSLLineBreakpoint> stepBreakpoints = new ArrayList<DSLLineBreakpoint>();
 
 	@Override
 	public void stepOver() throws DebugException {
-		EObject next = DSLDebuggerPlugin.getInstance().getMappingManager().getMappingAlgorithms()
-				.findSemanticElementForStepOver(stackFrames);
-		if (next != null) {
-			IResource res = stackFrames.get(0).getResource();
-			DSLLineBreakpoint bp = DSLLineBreakpoint.create(res, next);
-			bp.installGplBreakpoint(getDebugTarget());
-			stepBreakpoints.add(bp);
-		}
-
-		gplThread.resume();
+		assert (steppingStrategy != null);
+		steppingStrategy.stepOver(this);
 	}
 
 	@Override
 	public void stepReturn() throws DebugException {
-		// TODO Auto-generated method stub
-
+		assert (steppingStrategy != null);
+		steppingStrategy.stepReturn(this);
 	}
 
 	@Override
@@ -142,6 +130,12 @@ public class DSLThread extends DSLDebugElement implements IThread {
 	public IStackFrame[] getStackFrames() throws DebugException {
 		return stackFrames.toArray(new IStackFrame[stackFrames.size()]);
 	}
+	
+	@Override
+	public List<? extends IDSLStackFrame> getDSLStackFrames() {
+		return stackFrames;
+	}
+
 
 	@Override
 	public boolean hasStackFrames() throws DebugException {
@@ -169,60 +163,96 @@ public class DSLThread extends DSLDebugElement implements IThread {
 		return gplThread.getBreakpoints();
 	}
 
-	void eventSuspended() {
+	/**
+	 * Notified when the corresponding GPL thread has been suspended.
+	 */
+	void suspended(int detail) {
+		// TODO: handle reason of suspend, that is encoded in detail argument
+		
+		// Is it possible that the GPL thread is not suspended by now?
+		Assert.isTrue(gplThread.isSuspended());
+		
 		try {
 			updateStackFrames();
 		} catch (DebugException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			DSLDebuggerLog.log(e);
 		}
-
-		// Remove all step breakpoints
-		for (Iterator<DSLLineBreakpoint> it = stepBreakpoints.iterator(); it.hasNext();) {
-			DSLLineBreakpoint bp = it.next();
-			try {
-				bp.delete();
-			} catch (CoreException e) {
-				DSLDebuggerLog.log(e);
-			}
-			it.remove();
-		}
+		
+		// TODO: should this suspend event have same detail as GPL suspend event?
+		fireSuspendEvent(detail);
 
 		if (DEBUG) {
 			annotator.clearAnnotations();
 
 			// Annotate current position
-			EObject currentElement = stackFrames.size() > 0 ? stackFrames.get(0)
-					.getSemanticElement() : null;
+			EObject currentElement =
+					stackFrames.size() > 0 ? stackFrames.get(0).getSemanticElement() : null;
 			if (currentElement != null)
 				annotator.addAnnotation(currentElement, "Current Element");
 
 			// Annotate breakpoint positions for stepping
-			EObject stepOver = DSLDebuggerPlugin.getInstance().getMappingManager()
-					.getMappingAlgorithms().findSemanticElementForStepOver(stackFrames);
-			if (stepOver != null)
-				annotator.addAnnotation(stepOver, "Step Over");
-
-			Collection<EObject> stepInto = DSLDebuggerPlugin.getInstance().getMappingManager()
-					.getMappingAlgorithms().findSemanticElementsForStepIntoBreakpoints(stackFrames);
+			Collection<EObject> stepInto =
+					DSLDebuggerPlugin.getInstance().getMappingManager().getMappingAlgorithms()
+							.findSemanticElementsForStepIntoBreakpoints(stackFrames);
 			annotator.addAnnotation(stepInto, "Step Into");
 
-			
+			Collection<EObject> stepOver =
+					DSLDebuggerPlugin.getInstance().getMappingManager().getMappingAlgorithms()
+							.findSemanticElementsForStepOverBreakpoints(stackFrames);
+			annotator.addAnnotation(stepOver, "Step Over");
+
 		}
 
 	}
 
-	void eventResumed() {
+	/**
+	 * Notified when the corresponding GPL thread has been resumed.
+	 * @param details
+	 */
+	void resumed(int detail) {
 		if (DEBUG) {
 			annotator.clearAnnotations();
 		}
+		fireResumeEvent(detail);
 	}
 
 	void updateStackFrames() throws DebugException {
-		getDSLDebugTarget()
+		DSLDebuggerPlugin
+				.getInstance()
 				.getMappingManager()
 				.getCallStackMapping()
 				.updateStackFrames(getDebugTarget(), this, this.stackFrames,
 						gplThread.getStackFrames(), DSLStackFrameFactory.INSTANCE);
 	}
+
+	/**
+	 * Notification this thread has terminated - update state and fire a
+	 * terminate event.
+	 */
+	protected void terminated() {
+		fireTerminateEvent();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.macjariel.dsl.debug.core.IDSLThread#getSteppingStrategy()
+	 */
+	@Override
+	public ISteppingStrategy getSteppingStrategy() {
+		return steppingStrategy;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.macjariel.dsl.debug.core.IDSLThread#setSteppingStrategy(org.macjariel
+	 * .dsl.debug.core.ISteppingStrategy)
+	 */
+	@Override
+	public void setSteppingStrategy(ISteppingStrategy steppingStrategy) {
+		this.steppingStrategy = steppingStrategy;
+	}
+
 }

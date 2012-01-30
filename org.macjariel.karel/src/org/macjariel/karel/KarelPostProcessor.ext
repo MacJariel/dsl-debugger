@@ -9,17 +9,22 @@ process(xtext::GeneratedMetamodel this) :
 ;
 
 process(EClass this) :
-	/// Add Statement annotation to all EClasses that are subtypes of Statement
-	/// or InitCommand EClasses
-	findEClass(this.ePackage, "BreakableStatement").isSuperTypeOf(this) ||
-	findEClass(this.ePackage, "InitCommand").isSuperTypeOf(this) ||
-	findEClass(this.ePackage, "ConditionKind").isSuperTypeOf(this) ? 
-		setType("Statement") : null ->
-	
-	/// Add others annotations based on EClass names.
-	switch (this.name) {
-		case "UserDefinedCommandStatement": (setType("SubroutineCall"))
-		case "UserDefinedCommand": (setType("SubroutineDefinition"))
-		default: null
-	}
+        /// Add Statement annotation to all EClasses that are subtypes of Statement
+        /// or InitCommand EClasses
+        findEClass(this.ePackage, "BreakableStatement").isSuperTypeOf(this) ||
+        findEClass(this.ePackage, "InitCommand").isSuperTypeOf(this) ||
+        findEClass(this.ePackage, "ConditionKind").isSuperTypeOf(this) ? 
+                setType("Statement") : null ->
+
+        findEClass(this.ePackage, "IfStatement").isSuperTypeOf(this) ||
+        findEClass(this.ePackage, "IterateStatement").isSuperTypeOf(this) ||
+        findEClass(this.ePackage, "WhileStatement").isSuperTypeOf(this) ?
+                setType("ConditionalBlock") : null ->
+
+        /// Add others annotations based on EClass names.
+        switch (this.name) {
+                case "UserDefinedCommandStatement": (setType("SubroutineCall"))
+                case "UserDefinedCommand": (setType("SubroutineDefinition"))
+                default: null
+        }
 ;

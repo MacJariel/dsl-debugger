@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.ecore.EObject;
-import org.macjariel.dsl.internal.debug.core.IDSLStackFrame;
+import org.macjariel.dsl.debug.core.IDSLStackFrame;
 
 /**
  * @author MacJariel
@@ -25,7 +25,7 @@ public interface IMappingAlgorithms {
 	 * @param stackFrames
 	 * @return
 	 */
-	public EObject findSemanticElementForStepOver(List<? extends IDSLStackFrame> stackFrames);
+	public Collection<EObject> findSemanticElementsForStepOverBreakpoints(List<? extends IDSLStackFrame> stackFrames);
 
 	/**
 	 * @param stackFrames

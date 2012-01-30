@@ -1,8 +1,8 @@
 package org.macjariel.dsl;
 
 import org.eclipse.core.runtime.Plugin;
+import org.macjariel.dsl.internal.mapping.MappingManagerImpl;
 import org.macjariel.dsl.mapping.IMappingManager;
-import org.macjariel.dsl.mapping.impl.MappingManagerImpl;
 import org.macjariel.dsl.platform.impl.TargetPlatformManager;
 import org.osgi.framework.BundleContext;
 

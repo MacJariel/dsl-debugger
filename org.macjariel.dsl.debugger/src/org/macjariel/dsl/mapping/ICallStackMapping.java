@@ -6,7 +6,7 @@ import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
-import org.macjariel.dsl.internal.debug.core.IDSLStackFrame;
+import org.macjariel.dsl.debug.core.IDSLStackFrame;
 import org.macjariel.dsl.internal.debug.core.IStackFrameFactory;
 
 /**

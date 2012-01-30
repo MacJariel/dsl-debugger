@@ -1,17 +1,18 @@
-package org.macjariel.dsl.mapping.impl;
+package org.macjariel.dsl.internal.mapping;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.debug.core.DebugException;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IStackFrame;
 import org.eclipse.debug.core.model.IThread;
 import org.macjariel.dsl.DSLDebuggerLog;
-import org.macjariel.dsl.internal.debug.core.IDSLStackFrame;
+import org.macjariel.dsl.debug.core.IDSLStackFrame;
 import org.macjariel.dsl.internal.debug.core.IStackFrameFactory;
 import org.macjariel.dsl.mapping.ICallStackMapping;
 import org.macjariel.dsl.mapping.IMappingManager;
@@ -108,5 +109,7 @@ public class CallStackMappingImpl implements ICallStackMapping {
 			dslStackFramesIter.previous();
 			dslStackFramesIter.remove();
 		}
+		Assert.isTrue(dslStackFrames.size() > 0);
 	}
+	
 }
