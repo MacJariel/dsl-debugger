@@ -70,6 +70,7 @@ public class SourceTargetMappingItemImpl implements Cloneable, ISourceTargetMapp
 	void fillSource(EObject sourceElement, Set<SemanticElementType> SemanticElementTypes) {
 		this.semanticElement = sourceElement;
 		this.SemanticElementTypes = SemanticElementTypes;
+		// TODO: following line sometimes causes NullPointerException when loading traceability information
 		URI sourceElementURI = CommonPlugin.resolve(sourceElement.eResource()
 				.getURI());
 		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();

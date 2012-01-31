@@ -20,6 +20,10 @@ import org.macjariel.dsl.mapping.ISourceTargetMapping;
 import org.macjariel.dsl.mapping.ISourceTargetMapping.IItem;
 import org.macjariel.dsl.mapping.traceability.SemanticElementType;
 
+/**
+ * @author MacJariel
+ *
+ */
 public class MappingAlgorithmsImpl implements IMappingAlgorithms {
 
 	private IMappingManager mappingManager;
@@ -28,11 +32,9 @@ public class MappingAlgorithmsImpl implements IMappingAlgorithms {
 		this.mappingManager = mappingManager;
 	}
 
-	// TODO: we still don't use this method, because I came across another
-	// problem with breakpoints and breakpoint manager. I need to make the whole
-	// IMappingManager accessible anytime, not only during debugging session,
-	// then I can finish this.
-
+	/* (non-Javadoc)
+	 * @see org.macjariel.dsl.mapping.IMappingAlgorithms#lookupMappingItemForLineBreakpoint(org.eclipse.core.resources.IResource, int)
+	 */
 	@Override
 	public IItem lookupMappingItemForLineBreakpoint(IResource dslResource, int line) {
 		List<ISourceTargetMapping.IItem> items = new Vector<ISourceTargetMapping.IItem>();

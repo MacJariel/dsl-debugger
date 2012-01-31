@@ -19,7 +19,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.macjariel.dsl,
  org.macjariel.dsl.debug.core,
- org.macjariel.dsl.internal.debug.core.breakpoints,
  org.macjariel.dsl.launching,
  org.macjariel.dsl.mapping,
  org.macjariel.dsl.platform,

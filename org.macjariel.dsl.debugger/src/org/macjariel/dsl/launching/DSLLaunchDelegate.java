@@ -34,10 +34,6 @@ public class DSLLaunchDelegate implements ILaunchConfigurationDelegate {
 			DSLDebuggerLog.logError(e);
 		}
 
-		// Annotate resources according to mapping (debug purposes)
-		// ResourceAnnotator annotator = new ResourceAnnotator(mappingManager);
-		// annotator.annotateResources();
-
 		// Create debug target
 		final IMappingManager mappingManager = DSLDebuggerPlugin.getInstance().getMappingManager();
 		new DSLDebugTarget(launch, mappingManager, targetPlatformFactory);
